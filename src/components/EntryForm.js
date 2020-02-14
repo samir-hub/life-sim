@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postEntry } from '../actions';
+import { postEntry } from "../actions";
 
 function EntryForm() {
   const [userEntry, setUserEntry] = useState({
