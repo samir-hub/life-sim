@@ -27,59 +27,44 @@ function EntryForm() {
   console.log("user entry in entry form", userEntry);
 
   return (
-    <div
-      style={{
-        background: "#fff",
-        padding: 24,
-        minHeight: "90vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
+    <div>
       <h1>Enter Your Info: </h1>
 
-      <form
-        style={{ width: "20%" }}
-        onSubmit={handlePostEntry}
-        className="userentry-form"
-      >
-        <input
-          placeholder="Education"
-          name="education"
-          type="text"
-          value={userEntry.education}
-          onChange={handleChange}
-        />
+      <form onSubmit={handlePostEntry} className="userentry-form">
 
-        <input
-          placeholder="Major"
-          name="major"
-          value={userEntry.major}
-          onChange={handleChange}
-        />
+        <select name="education" onChange={handleChange} value={userEntry.education}>
+          <option>No College</option>
+          <option>Community College</option>
+          <option>In-State College</option>
+          <option>Out-of-State College</option>
+        </select>
 
-        <input
-          placeholder="State Income Tax?"
-          name="state"
-          value={userEntry.state}
-          onChange={handleChange}
-        />
+        <select name="major" onChange={handleChange} value={userEntry.major}>
+          <option>No College</option>
+          <option>Community College</option>
+          <option>In-State College</option>
+          <option>Out-of-State College</option>
+        </select>
 
-        <input
-          placeholder="City Size"
-          name="city"
-          value={userEntry.city}
-          onChange={handleChange}
-        />
+        <select name="state" onChange={handleChange} value={userEntry.state}>
+          <option>No College</option>
+          <option>Community College</option>
+          <option>In-State College</option>
+          <option>Out-of-State College</option>
+        </select>
+        <select name="city" onChange={handleChange} value={userEntry.city}>
+          <option>No College</option>
+          <option>Community College</option>
+          <option>In-State College</option>
+          <option>Out-of-State College</option>
+        </select>
 
-        <input
-          placeholder="Cost of Living"
-          name="col"
-          value={userEntry.col}
-          onChange={handleChange}
-        />
+        <select name="col" onChange={handleChange} value={userEntry.col}>
+          <option>No College</option>
+          <option>Community College</option>
+          <option>In-State College</option>
+          <option>Out-of-State College</option>
+        </select>
 
         <button>Submit</button>
       </form>
