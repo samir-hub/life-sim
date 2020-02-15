@@ -5,7 +5,8 @@ import { fetchEntry } from "../actions";
 function Dashboard() {
   const state = useSelector(state => {
     return {
-      entryData: state.entryData
+      entryData: state.entryData,
+      formattedEntryData: state.formattedEntryData
     };
   });
 
@@ -15,14 +16,14 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch]);
 
-  console.log(state);
+  console.log('State in Dashboard', state.entryData, state.formattedEntryData);
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <h1>Dashboard</h1>
       </header>
-      {state.entryData.length > 0 &&
-        state.entryData.map(entry => {
+      {state.formattedEntryData.length > 0 &&
+        state.formattedEntryData.map(entry => {
           return (
             <div key={entry.user}>
               <p>Education Code: {entry.education}</p>

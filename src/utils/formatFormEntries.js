@@ -88,7 +88,7 @@ export function formatFormEntries(formEntry) {
     case "High Cost of Living":
       formEntry.col = 2;
       break;
-    case "Very Cost of Living":
+    case "Very High Cost of Living":
       formEntry.col = 3;
       break;
     default:

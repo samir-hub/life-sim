@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postEntry } from "../actions";
+import { postFormattedEntry } from "../actions";
 import { formatFormEntries } from '../utils/formatFormEntries'
 ;
 function EntryForm() {
@@ -14,6 +15,7 @@ function EntryForm() {
   const dispatch = useDispatch();
 
   const handleChange = e => {
+    e.preventDefault();
     setUserEntry({
       ...userEntry,
       [e.target.name]: e.target.value
@@ -22,11 +24,11 @@ function EntryForm() {
 
   const handlePostEntry = e => {
     e.preventDefault();
-    // dispatch(postEntry(userEntry));
-    console.log(formatFormEntries(userEntry))
+    dispatch(postEntry(userEntry));
+    dispatch(postFormattedEntry(formatFormEntries(userEntry)));
   };
 
-  console.log("user entry in entry form", userEntry);
+  //console.log(userEntry)
 
   return (
     <div>
