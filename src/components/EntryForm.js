@@ -23,7 +23,7 @@ function EntryForm() {
   const handlePostEntry = e => {
     e.preventDefault();
     // dispatch(postEntry(userEntry));
-    console.log()
+    console.log(formatFormEntries(userEntry))
   };
 
   console.log("user entry in entry form", userEntry);
