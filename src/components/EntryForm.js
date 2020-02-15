@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postEntry } from "../actions";
-
+import { formatFormEntries } from '../utils/formatFormEntries'
+;
 function EntryForm() {
   const [userEntry, setUserEntry] = useState({
     education: "",
@@ -21,7 +22,8 @@ function EntryForm() {
 
   const handlePostEntry = e => {
     e.preventDefault();
-    dispatch(postEntry(userEntry));
+    // dispatch(postEntry(userEntry));
+    console.log()
   };
 
   console.log("user entry in entry form", userEntry);
