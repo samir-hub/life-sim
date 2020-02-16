@@ -3,13 +3,13 @@ import { Route } from "react-router-dom";
 import "./App.css";
 import Dashboard from "./components/Dashboard";
 import EntryForm from "./components/EntryForm";
-import Home from './components/Home';
+import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 
 function App() {
   return (
     <div className="App">
-      <Navigation/>
+      <Navigation />
       <Route exact path="/" component={Home} />
       <Route path="/entryform" component={EntryForm} />
       <Route path="/dashboard" component={Dashboard} />
