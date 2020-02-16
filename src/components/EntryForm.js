@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postFormattedEntry } from "../actions";
-import { entriesStringToInt } from '../utils/entriesStringToInt';
+import { entriesStringToInt } from "../utils/entriesStringToInt";
 
 function EntryForm() {
   const [userEntry, setUserEntry] = useState({
