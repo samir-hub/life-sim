@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
+import { entriesIntToString } from '../utils/entriesIntToString';
 
 function Dashboard() {
   const state = useSelector(state => {
@@ -9,6 +10,8 @@ function Dashboard() {
     };
   });
 
+let string = entriesIntToString(state.formattedEntryData);
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,23 +19,22 @@ function Dashboard() {
   }, [dispatch]);
 
   console.log('State in Dashboard', state);
+  console.log(string)
   return (
     <div className="dashboard">
       <header className="dashboard-header">
         <h1>Dashboard</h1>
       </header>
-      {state.formattedEntryData.length > 0 &&
-        state.formattedEntryData.map(entry => {
-          return (
-            <div key={entry.user}>
-              <p>Education Code: {entry.education}</p>
-              <p>College Major Code: {entry.major}</p>
-              <p>State Code: {entry.state}</p>
-              <p>City Code: {entry.city}</p>
-              <p>Cost of Living Code: {entry.col}</p>
+
+            <div key={string.user}>
+              <p>Education Code: {string.education}</p>
+              <p>College Major Code: {string.major}</p>
+              <p>State Code: {string.state}</p>
+              <p>City Code: {string.city}</p>
+              <p>Cost of Living Code: {string.col}</p>
             </div>
-          );
-        })}
+        
+
     </div>
   );
 }

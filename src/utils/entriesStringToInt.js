@@ -1,4 +1,4 @@
-export function formatFormEntries(formEntry) {
+export function entriesStringToInt(formEntry) {
   switch (formEntry.education) {
     case "No College":
       formEntry.education = 0;

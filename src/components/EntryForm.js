@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { postFormattedEntry } from "../actions";
-import { formatFormEntries } from '../utils/formatFormEntries'
-;
+import { entriesStringToInt } from '../utils/entriesStringToInt';
+
 function EntryForm() {
   const [userEntry, setUserEntry] = useState({
     education: "",
@@ -23,7 +23,7 @@ function EntryForm() {
 
   const handlePostEntry = e => {
     e.preventDefault();
-    dispatch(postFormattedEntry(formatFormEntries(userEntry)));
+    dispatch(postFormattedEntry(entriesStringToInt(userEntry)));
   };
 
   return (
