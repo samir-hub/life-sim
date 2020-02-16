@@ -5,7 +5,7 @@ import WrappedLogin from './Login';
 function Home() {
   return (
     <div
-      style={{ display: "flex", justifyContent: "flex-end" }}
+      style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}
       className="home"
     >
       <WrappedLogin/>
