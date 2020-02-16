@@ -13,15 +13,7 @@ import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some(field => fieldsError[field]);
-}
-
 function Login(props) {
-  //disable login button before entering info
-  useEffect(() => {
-    props.form.validateFields();
-  }, []);
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
@@ -34,7 +26,7 @@ function Login(props) {
             {
               headers: {
                 // btoa is converting our client id/client secret into base64
-        
+          
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
@@ -51,61 +43,45 @@ function Login(props) {
       }
     });
   };
-  const {
-    getFieldDecorator,
-    getFieldsError,
-    getFieldError,
-    isFieldTouched
-  } = props.form;
+  const { getFieldDecorator } = props.form;
 
-  // Only show error after a field is touched.
-  const usernameError = isFieldTouched("username") && getFieldError("username");
-  const passwordError = isFieldTouched("password") && getFieldError("password");
 
   return (
     <Card
-      hoverable={true}
-      style={{ height: "600px", display: "flex", alignItems: "center" }}
+      style={{width: '500px'}}
     >
       <StyledDiv>
-        <h1>LifeSim</h1>
+        <h1 className='login-card-title'>LifeSim</h1>
+        <p className='login-card-text'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </StyledDiv>
-      <Form layout="inline" onSubmit={handleSubmit}>
-        <Form.Item
-          validateStatus={usernameError ? "error" : ""}
-          help={usernameError || ""}
-        >
-          {getFieldDecorator("username", {
-            rules: [{ required: true, message: "Please input your username!" }]
+      <Form style={{width: '300px', margin: '0 auto'}} onSubmit={handleSubmit} className="login-form">
+        <Form.Item>
+          {getFieldDecorator('username', {
+            rules: [{ required: true, message: 'Please input your username!' }],
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
               placeholder="Username"
-            />
-          )}
-        </Form.Item>
-        <Form.Item
-          validateStatus={passwordError ? "error" : ""}
-          help={passwordError || ""}
-        >
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your Password!" }]
-          })(
-            <Input
-              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
-              type="password"
-              placeholder="Password"
-            />
+            />,
           )}
         </Form.Item>
         <Form.Item>
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={hasErrors(getFieldsError())}
-          >
+          {getFieldDecorator('password', {
+            rules: [{ required: true, message: 'Please input your Password!' }],
+          })(
+            <Input
+              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              type="password"
+              placeholder="Password"
+            />,
+          )}
+        </Form.Item>
+        <Form.Item>
+    
+          <Button style={{width: '100%'}} type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
+          Or <a href="">register now!</a>
         </Form.Item>
       </Form>
     </Card>
@@ -117,5 +93,14 @@ const WrappedLogin = Form.create({ name: "login_form" })(Login);
 export default WrappedLogin;
 
 const StyledDiv = styled.div`
-  height: 300px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .login-card-title {
+      font-size: 40px;
+  }
+  .login-card-text {
+      font-size: 20px;
+  }
 `;
