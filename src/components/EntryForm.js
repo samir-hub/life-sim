@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { postEntry } from "../actions";
 import { postFormattedEntry } from "../actions";
 import { formatFormEntries } from '../utils/formatFormEntries'
 ;
@@ -24,11 +23,8 @@ function EntryForm() {
 
   const handlePostEntry = e => {
     e.preventDefault();
-    dispatch(postEntry(userEntry));
     dispatch(postFormattedEntry(formatFormEntries(userEntry)));
   };
-
-  //console.log(userEntry)
 
   return (
     <div>

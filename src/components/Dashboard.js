@@ -5,7 +5,6 @@ import { fetchEntry } from "../actions";
 function Dashboard() {
   const state = useSelector(state => {
     return {
-      entryData: state.entryData,
       formattedEntryData: state.formattedEntryData
     };
   });
@@ -16,7 +15,7 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch]);
 
-  console.log('State in Dashboard', state.entryData, state.formattedEntryData);
+  console.log('State in Dashboard', state);
   return (
     <div className="dashboard">
       <header className="dashboard-header">
