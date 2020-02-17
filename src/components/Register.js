@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 //import { NavLink } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
@@ -20,12 +20,12 @@ function Register(props) {
       if (!err) {
         console.log("Received values of form: ", values);
         axios
-          .post("http://localhost:2019/users/user", {
+          .post("http://localhost:2019/createnewuser", {
             username: values.username,
-            primaryemail: values.email,
-            password: values.password
+            password: values.password,
+            primaryemail: values.primaryemail
           })
-          .then(res => console.error(res))
+          .then(res => console.log(res))
           .catch(err => console.error(err));
       }
     });
@@ -35,16 +35,16 @@ function Register(props) {
   return (
     <Card style={{ width: "500px" }}>
       <StyledDiv>
-        <h1 className="login-card-title">Create an Account</h1>
+        <h1 className="register-card-title">Create an Account</h1>
       </StyledDiv>
       <Form
         style={{ width: "300px", margin: "0 auto" }}
         onSubmit={handleSubmit}
-        className="login-form"
+        className="register-form"
       >
         <Form.Item>
           {getFieldDecorator("username", {
-            rules: [{ required: true, message: "Please input your username!" }]
+            rules: [{ required: true, message: "Please input your username" }]
           })(
             <Input
               prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
@@ -53,8 +53,18 @@ function Register(props) {
           )}
         </Form.Item>
         <Form.Item>
+          {getFieldDecorator("primaryemail", {
+            rules: [{ required: true, message: "Please input your E-mail" }]
+          })(
+            <Input
+              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
+              placeholder="E-mail"
+            />
+          )}
+        </Form.Item>
+        <Form.Item>
           {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your Password!" }]
+            rules: [{ required: true, message: "Please input your password" }]
           })(
             <Input
               prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
@@ -70,25 +80,24 @@ function Register(props) {
             htmlType="submit"
             className="login-form-button"
           >
-            Log in
+            Register
           </Button>
-          Or <a href="">register now!</a>
         </Form.Item>
       </Form>
     </Card>
   );
 }
 
-const WrappedLogin = Form.create({ name: "login_form" })(Register);
+const WrappedRegister = Form.create({ name: "register_form" })(Register);
 
-export default WrappedLogin;
+export default WrappedRegister;
 
 const StyledDiv = styled.div`
   height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  .login-card-title {
+  .register-card-title {
     font-size: 40px;
   }
 `;

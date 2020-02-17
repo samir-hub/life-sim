@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-//import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import axios from "axios";
-import styled from 'styled-components';
+import axiosWithAuth from "../utils/axiosWithAuth";
+import styled from "styled-components";
 import Form from "antd/es/form";
 import "antd/es/form/style/css";
 import Icon from "antd/es/icon";
@@ -14,6 +15,20 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 
 function Login(props) {
+  // axiosWithAuth()
+  // .get(
+  //   "/users/getuserinfo",
+  // )
+  // .then(res => {
+  //   console.log(res);
+  //   // localStorage.setItem("token", res.data.access_token);
+  //   // localStorage.setItem("username", values.username);
+  //   //   props.setLoginToken(true);
+  //   //   props.history.push("/");
+  //   //   props.history.push("/");
+  // })
+  // .catch(err => console.dir(err));
+
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
@@ -26,7 +41,7 @@ function Login(props) {
             {
               headers: {
                 // btoa is converting our client id/client secret into base64
-          
+             
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
@@ -39,49 +54,71 @@ function Login(props) {
             //   props.history.push("/");
             //   props.history.push("/");
           })
+          .then(() => {
+            axiosWithAuth()
+              .get("/users/getuserinfo")
+              .then(res => {
+                localStorage.setItem("userid", res.data.userid);
+                // localStorage.setItem("username", values.username);
+                //   props.setLoginToken(true);
+                //   props.history.push("/");
+                //   props.history.push("/");
+              })
+              .catch(err => console.dir(err));
+          })
           .catch(err => console.dir(err));
       }
     });
   };
   const { getFieldDecorator } = props.form;
 
-
   return (
-    <Card
-      style={{width: '500px'}}
-    >
+    <Card style={{ width: "500px" }}>
       <StyledDiv>
-        <h1 className='login-card-title'>LifeSim</h1>
-        <p className='login-card-text'>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <h1 className="login-card-title">LifeSim</h1>
+        <p className="login-card-text">
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat.
+        </p>
       </StyledDiv>
-      <Form style={{width: '300px', margin: '0 auto'}} onSubmit={handleSubmit} className="login-form">
+      <Form
+        style={{ width: "300px", margin: "0 auto" }}
+        onSubmit={handleSubmit}
+        className="login-form"
+      >
         <Form.Item>
-          {getFieldDecorator('username', {
-            rules: [{ required: true, message: 'Please input your username!' }],
+          {getFieldDecorator("username", {
+            rules: [{ required: true, message: "Please input your username!" }]
           })(
             <Input
-              prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
               placeholder="Username"
-            />,
+            />
           )}
         </Form.Item>
         <Form.Item>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your Password!' }],
+          {getFieldDecorator("password", {
+            rules: [{ required: true, message: "Please input your Password!" }]
           })(
             <Input
-              prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
               type="password"
               placeholder="Password"
-            />,
+            />
           )}
         </Form.Item>
         <Form.Item>
-    
-          <Button style={{width: '100%'}} type="primary" htmlType="submit" className="login-form-button">
+          <Button
+            style={{ width: "100%" }}
+            type="primary"
+            htmlType="submit"
+            className="login-form-button"
+          >
             Log in
           </Button>
-          Or <a href="">register now!</a>
+          Or <NavLink to="/register">register now!</NavLink>
         </Form.Item>
       </Form>
     </Card>
@@ -98,9 +135,9 @@ const StyledDiv = styled.div`
   flex-direction: column;
   justify-content: space-around;
   .login-card-title {
-      font-size: 40px;
+    font-size: 40px;
   }
   .login-card-text {
-      font-size: 20px;
+    font-size: 20px;
   }
 `;
