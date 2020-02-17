@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 //import styled from 'styled-components';
 import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
@@ -12,6 +12,7 @@ const { Header } = Layout;
 
 const Navigation = () => {
   const location = useLocation();
+  const history = useHistory();
 
   const [loggedIn, setLoggedIn] = useState();
 
@@ -21,7 +22,16 @@ const Navigation = () => {
     setLoggedIn(token);
   }, [token]);
 
-  console.log(location.pathname);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userid");
+    localStorage.removeItem("username");
+    history.push("/");
+  };
+
+  const handleRegister = () => {
+    history.push("/register");
+  };
 
   return (
     <Layout className="layout">
@@ -29,12 +39,14 @@ const Navigation = () => {
         <div className="logo" />
 
         {loggedIn ? (
-          <div style={{
-            lineHeight: "64px",
-            display: "flex",
-            justifyContent: "center", 
-            alignItems: 'center'
-          }}>
+          <div
+            style={{
+              lineHeight: "64px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
             <Menu
               theme="light"
               mode="horizontal"
@@ -43,8 +55,8 @@ const Navigation = () => {
               style={{
                 lineHeight: "64px",
                 display: "flex",
-                justifyContent: "flex-start", 
-                width: '90%'
+                justifyContent: "flex-start",
+                width: "90%"
               }}
             >
               <Menu.Item key="/">
@@ -62,40 +74,61 @@ const Navigation = () => {
               <Menu.Item key="/dashboard">
                 <NavLink to="/dashboard">My Dashboard</NavLink>
               </Menu.Item>
-           
             </Menu>
             <Button
-                type="primary"
-                shape="round"
-                icon="logout"
-                size={"medium"}
-                style={{ height: '50px', leftMargin: '300px' }}
-              >
-                Logout
-              </Button>
+              onClick={handleLogout}
+              type="primary"
+              shape="round"
+              icon="logout"
+              size={"large"}
+              style={{ height: "50px", leftMargin: "300px" }}
+            >
+              Logout
+            </Button>
           </div>
         ) : (
-          <Menu
-            theme="light"
-            mode="horizontal"
-            defaultSelectedKeys={["/"]}
-            selectedKeys={[location.pathname]}
+          <div
             style={{
               lineHeight: "64px",
               display: "flex",
-              justifyContent: "flex-start"
+              justifyContent: "center",
+              alignItems: "center"
             }}
           >
-            <Menu.Item key="/">
-              <NavLink to="/">Home</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/about">
-              <NavLink to="/about">About</NavLink>
-            </Menu.Item>
-            <Menu.Item key="/contact">
-              <NavLink to="/contact">Contact</NavLink>
-            </Menu.Item>
-          </Menu>
+            <Menu
+              theme="light"
+              mode="horizontal"
+              defaultSelectedKeys={["/"]}
+              selectedKeys={[location.pathname]}
+              style={{
+                lineHeight: "64px",
+                display: "flex",
+                justifyContent: "flex-start",
+                width: "90%"
+              }}
+            >
+              <Menu.Item key="/">
+                <NavLink to="/">Home</NavLink>
+              </Menu.Item>
+              <Menu.Item key="/about">
+                <NavLink to="/about">About</NavLink>
+              </Menu.Item>
+              <Menu.Item key="/contact">
+                <NavLink to="/contact">Contact</NavLink>
+              </Menu.Item>
+            </Menu>
+            <Button
+              onClick={handleRegister}
+              ghost={true}
+              type="primary"
+              shape="round"
+              icon="user-add"
+              size={"large"}
+              style={{ height: "50px", leftMargin: "300px" }}
+            >
+              Register
+            </Button>
+          </div>
         )}
       </Header>
     </Layout>

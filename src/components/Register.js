@@ -27,9 +27,9 @@ function Register(props) {
             primaryemail: values.primaryemail
           })
           .then(res => {
-              console.log(res)
-              history.push('/')
-            })
+            console.log(res);
+            history.push("/");
+          })
           .catch(err => console.error(err));
       }
     });
@@ -37,58 +37,66 @@ function Register(props) {
   const { getFieldDecorator } = props.form;
 
   return (
-    <Card style={{ width: "500px" }}>
-      <StyledDiv>
-        <h1 className="register-card-title">Create an Account</h1>
-      </StyledDiv>
-      <Form
-        style={{ width: "300px", margin: "0 auto" }}
-        onSubmit={handleSubmit}
-        className="register-form"
-      >
-        <Form.Item>
-          {getFieldDecorator("username", {
-            rules: [{ required: true, message: "Please input your username" }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Username"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          {getFieldDecorator("primaryemail", {
-            rules: [{ required: true, message: "Please input your E-mail" }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="E-mail"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your password" }]
-          })(
-            <Input
-              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
-              type="password"
-              placeholder="Password"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          <Button
-            style={{ width: "100%" }}
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-          >
-            Register
-          </Button>
-        </Form.Item>
-      </Form>
-    </Card>
+    <DivWrapper>
+      <Card style={{ width: "500px" }}>
+        <StyledDiv>
+          <h1 className="register-card-title">Create an Account</h1>
+        </StyledDiv>
+        <Form
+          style={{ width: "300px", margin: "0 auto" }}
+          onSubmit={handleSubmit}
+          className="register-form"
+        >
+          <Form.Item>
+            {getFieldDecorator("username", {
+              rules: [{ required: true, message: "Please input your username" }]
+            })(
+              <Input
+                prefix={
+                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                placeholder="Username"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            {getFieldDecorator("primaryemail", {
+              rules: [{ required: true, message: "Please input your E-mail" }]
+            })(
+              <Input
+                prefix={
+                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                placeholder="E-mail"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            {getFieldDecorator("password", {
+              rules: [{ required: true, message: "Please input your password" }]
+            })(
+              <Input
+                prefix={
+                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                type="password"
+                placeholder="Password"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            <Button
+              style={{ width: "100%" }}
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Register
+            </Button>
+          </Form.Item>
+        </Form>
+      </Card>
+    </DivWrapper>
   );
 }
 
@@ -104,4 +112,11 @@ const StyledDiv = styled.div`
   .register-card-title {
     font-size: 40px;
   }
+`;
+
+const DivWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
 `;
