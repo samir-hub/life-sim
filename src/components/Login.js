@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
@@ -15,19 +15,7 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 
 function Login(props) {
-  // axiosWithAuth()
-  // .get(
-  //   "/users/getuserinfo",
-  // )
-  // .then(res => {
-  //   console.log(res);
-  //   // localStorage.setItem("token", res.data.access_token);
-  //   // localStorage.setItem("username", values.username);
-  //   //   props.setLoginToken(true);
-  //   //   props.history.push("/");
-  //   //   props.history.push("/");
-  // })
-  // .catch(err => console.dir(err));
+  const history = useHistory();
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -59,10 +47,8 @@ function Login(props) {
               .get("/users/getuserinfo")
               .then(res => {
                 localStorage.setItem("userid", res.data.userid);
-                // localStorage.setItem("username", values.username);
                 //   props.setLoginToken(true);
-                //   props.history.push("/");
-                //   props.history.push("/");
+                history.push(`/entryform/${localStorage.getItem("userid")}`);
               })
               .catch(err => console.dir(err));
           })

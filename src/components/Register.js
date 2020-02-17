@@ -1,5 +1,5 @@
 import React from "react";
-//import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 import Form from "antd/es/form";
@@ -14,6 +14,7 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 
 function Register(props) {
+  const history = useHistory();
   const handleSubmit = e => {
     e.preventDefault();
     props.form.validateFields((err, values) => {
@@ -25,7 +26,10 @@ function Register(props) {
             password: values.password,
             primaryemail: values.primaryemail
           })
-          .then(res => console.log(res))
+          .then(res => {
+              console.log(res)
+              history.push('/')
+            })
           .catch(err => console.error(err));
       }
     });
