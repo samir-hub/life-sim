@@ -1,14 +1,18 @@
 import React from "react";
 import guy_crossing_arms from "../guy_crossing_arms.png";
-import WrappedLogin from './Login';
+import WrappedLogin from "./Login";
 
 function Home() {
   return (
     <div
-      style={{ display: "flex", justifyContent: "space-around", alignItems: "center" }}
+      style={{
+        display: "flex",
+        justifyContent: "space-around",
+        alignItems: "center"
+      }}
       className="home"
     >
-      <WrappedLogin/>
+      <WrappedLogin />
       <img
         style={{ height: "90vh" }}
         alt="Guy crossing arms"

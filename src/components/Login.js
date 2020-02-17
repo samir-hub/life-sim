@@ -29,7 +29,7 @@ function Login(props) {
             {
               headers: {
                 // btoa is converting our client id/client secret into base64
-          
+
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
@@ -124,7 +124,7 @@ const StyledDiv = styled.div`
     font-size: 40px;
   }
   .login-card-text {
-    width: 80%;  
+    width: 80%;
     font-size: 17px;
   }
 `;
