@@ -13,7 +13,7 @@ function App() {
       <Navigation />
       <Route exact path="/" component={Home} />
       <Route path="/register" component={WrappedRegister}/>
-      <Route path="/entryform/:userid" component={EntryForm} />
+      <Route path="/entryform" component={EntryForm} />
       <Route path="/dashboard" component={Dashboard} />
     </div>
   );

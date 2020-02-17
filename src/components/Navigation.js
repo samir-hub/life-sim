@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 //import styled from 'styled-components';
 import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
@@ -10,6 +10,10 @@ import "antd/es/menu/style/css";
 const { Header } = Layout;
 
 const Navigation = () => {
+const location = useLocation();
+
+console.log(location.pathname)
+
   return (
     <Layout className="layout">
       <Header style={{ background: "#fff" }}>
@@ -18,20 +22,21 @@ const Navigation = () => {
         <Menu
           theme="light"
           mode="horizontal"
-          defaultSelectedKeys={["1"]}
+          defaultSelectedKeys={['/']}
+          selectedKeys={[location.pathname]}
           style={{
             lineHeight: "64px",
             display: "flex",
             justifyContent: "flex-start"
           }}
         >
-          <Menu.Item key="1">
+          <Menu.Item key="/">
             <NavLink to="/">Home</NavLink>
           </Menu.Item>
-          <Menu.Item key="2">
+          <Menu.Item key="/entryform">
             <NavLink to="/entryform">Get Started</NavLink>
           </Menu.Item>
-          <Menu.Item key="3">
+          <Menu.Item key="/dashboard">
             <NavLink to="/dashboard">My Dashboard</NavLink>
           </Menu.Item>
         </Menu>

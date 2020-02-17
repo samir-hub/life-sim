@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
@@ -29,7 +29,7 @@ function Login(props) {
             {
               headers: {
                 // btoa is converting our client id/client secret into base64
-             
+    
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
@@ -48,7 +48,7 @@ function Login(props) {
               .then(res => {
                 localStorage.setItem("userid", res.data.userid);
                 //   props.setLoginToken(true);
-                history.push(`/entryform/${localStorage.getItem("userid")}`);
+                history.push(`/entryform`);
               })
               .catch(err => console.dir(err));
           })
@@ -65,8 +65,7 @@ function Login(props) {
         <p className="login-card-text">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
         </p>
       </StyledDiv>
       <Form
@@ -120,10 +119,12 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   .login-card-title {
     font-size: 40px;
   }
   .login-card-text {
-    font-size: 20px;
+    width: 80%;  
+    font-size: 17px;
   }
 `;
