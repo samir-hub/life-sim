@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 import { postFormattedEntry } from "../actions";
 import { entriesStringToInt } from "../utils/entriesStringToInt";
 
 function EntryForm() {
+
+  const history = useHistory();
+
   const [userEntry, setUserEntry] = useState({
     education: "",
     major: "",
@@ -24,6 +28,7 @@ function EntryForm() {
   const handlePostEntry = e => {
     e.preventDefault();
     dispatch(postFormattedEntry(entriesStringToInt(userEntry)));
+    history.push('/dashboard')
   };
 
   return (

@@ -38,7 +38,7 @@ const Navigation = () => {
       <Header style={{ background: "#fff" }}>
         <div className="logo" />
 
-        {loggedIn ? (
+        {true ? (
           <div
             style={{
               lineHeight: "64px",
