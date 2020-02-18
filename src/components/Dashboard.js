@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
-import Avatar from "antd/es/avatar";
+//import Avatar from "antd/es/avatar";
 import "antd/es/avatar/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import styled from "styled-components";
+import people_working from "../people_working.png";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 import { entriesIntToString } from "../utils/entriesIntToString";
@@ -21,6 +23,7 @@ function Dashboard() {
   let string = entriesIntToString(state.formattedEntryData);
 
   const dispatch = useDispatch();
+  let username = "User 1";
 
   useEffect(() => {
     dispatch(fetchEntry());
@@ -28,17 +31,12 @@ function Dashboard() {
 
   return (
     <div className="dashboard">
-      <header className="dashboard-header">
-        <h1>Dashboard</h1>
-      </header>
+      <HeaderWrapper className="dashboard-header">
+        <StyledHeading>My Dashboard</StyledHeading>
+      </HeaderWrapper>
       <Card
-        style={{ width: 300 }}
-        cover={
-          <img
-            alt="example"
-            src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-          />
-        }
+        style={{ width: 300, margin: '50px' }}
+        cover={<img alt="People working" src={people_working} />}
         actions={[
           <Icon type="setting" key="setting" />,
           <Icon type="edit" key="edit" />,
@@ -46,23 +44,37 @@ function Dashboard() {
         ]}
       >
         <Meta
-          avatar={
-            <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-          }
-          title="Card title"
-          description="This is the description"
+          // avatar={
+          //   <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+          // }
+          title={username}
+          //description="You Selected:"
         />
+        <StyledDiv key={string.user}>
+          <p>Education Code: {string.education}</p>
+          <p>College Major Code: {string.major}</p>
+          <p>State Code: {string.state}</p>
+          <p>City Code: {string.city}</p>
+          <p>Cost of Living Code: {string.col}</p>
+        </StyledDiv>
       </Card>
-
-      <div key={string.user}>
-        <p>Education Code: {string.education}</p>
-        <p>College Major Code: {string.major}</p>
-        <p>State Code: {string.state}</p>
-        <p>City Code: {string.city}</p>
-        <p>Cost of Living Code: {string.col}</p>
-      </div>
     </div>
   );
 }
 
 export default Dashboard;
+
+const StyledDiv = styled.div`
+  padding-top: 20px;
+`;
+
+const HeaderWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100px;
+`;
+
+const StyledHeading = styled.h1`
+  margin-left: 30px;
+`;
