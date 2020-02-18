@@ -35,7 +35,7 @@ function Dashboard() {
         <StyledHeading>My Dashboard</StyledHeading>
       </HeaderWrapper>
       <Card
-        style={{ width: 300, margin: '50px' }}
+        style={{ width: 300, marginLeft: "50px" }}
         cover={<img alt="People working" src={people_working} />}
         actions={[
           <Icon type="setting" key="setting" />,
@@ -72,7 +72,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 100px;
+  height: 80px;
 `;
 
 const StyledHeading = styled.h1`
