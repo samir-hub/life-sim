@@ -12,6 +12,9 @@ import "antd/es/card/style/css";
 import styled from "styled-components";
 import people_working from "../people_working.png";
 import grad_cap from '../grad_cap.svg'
+import book from '../book.svg'
+import tax from '../tax.svg'
+import city from '../city.svg'
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 import { entriesIntToString } from "../utils/entriesIntToString";
@@ -63,19 +66,21 @@ function Dashboard() {
           //   <Icon type="ellipsis" key="ellipsis" />
           // ]}
         >
-          <Meta
+          {/* <Meta
             avatar={
-              <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
+              <Avatar  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
             }
-            title={username}
+
+            //title={username}
             //description="You Selected:"
-          />
+          /> */}
           <StyledDiv key={string.user}>
-            <img style={{ height:'30px' }} alt='graduation cap' src={grad_cap}/><p>{string.education}</p>
-            <img style={{ height:'30px' }} alt='graduation cap' src={grad_cap}/><p>{string.major}</p>
-            <img style={{ height:'30px' }} alt='graduation cap' src={grad_cap}/><p>{string.state}</p>
-            <img style={{ height:'30px' }} alt='graduation cap' src={grad_cap}/><p>{string.city}</p>
-            <img style={{ height:'30px' }} alt='graduation cap' src={grad_cap}/><p>{string.col}</p>
+          <div style={{ display:'flex', alignItems: 'center', paddingBottom: '20px'}}><img style={{ height:'30px', marginRight: '10px' }} alt='graduation cap' src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/><p style={{ margin:'0px', fontSize: '20px' }}>{username}</p></div>
+            <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px' }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.education}</p></div>
+            <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='book' src={book}/><p style={{ margin:'0px' }}>{string.major}</p></div>
+            <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='ataxes' src={tax}/><p style={{ margin:'0px' }}>{string.state}</p></div>
+            <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='city' src={city}/><p style={{ margin:'0px' }}>{string.city}</p></div>
+            {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
           </StyledDiv>
         </Card>
         <Menu theme="light" defaultSelectedKeys={["1"]} mode="inline">
@@ -125,8 +130,9 @@ function Dashboard() {
 export default Dashboard;
 
 const StyledDiv = styled.div`
-  padding-top: 20px;
   display: flex;
+  flex-direction: column;
+  width: 100%;
 `;
 
 const HeaderWrapper = styled.div`
