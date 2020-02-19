@@ -35,7 +35,8 @@ function Dashboard() {
         <StyledHeading>My Dashboard</StyledHeading>
       </HeaderWrapper>
       <Card
-        style={{ width: 300, marginLeft: "50px" }}
+        hoverable={true}
+        style={{ width: 300, marginLeft: "50px", cursor: 'auto' }}
         cover={<img alt="People working" src={people_working} />}
         actions={[
           <Icon type="setting" key="setting" />,
@@ -76,5 +77,5 @@ const HeaderWrapper = styled.div`
 `;
 
 const StyledHeading = styled.h1`
-  margin-left: 30px;
+  margin-left: 100px;
 `;
