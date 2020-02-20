@@ -16,11 +16,13 @@ export default PostGraduation;
 
 const ImageWrapper = styled.div`
   .postgraduation-image {
-      height: 400px;
+      height: 500px;
   }
 `;
 
 const ComponentWrapper = styled.div`
   display: flex; 
   justify-content: flex-end;
+  align-items: center; 
+  height: 100%;
 `;
