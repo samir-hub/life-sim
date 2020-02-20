@@ -18,6 +18,7 @@ import city from "../city.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 import { entriesIntToString } from "../utils/entriesIntToString";
+import PostGraduation from "./PostGraduation";
 
 const { Meta } = Card;
 const { Header, Content, Footer, Sider } = Layout;
@@ -39,14 +40,14 @@ function Dashboard() {
   let string = entriesIntToString(state.formattedEntryData);
 
   const dispatch = useDispatch();
-  let username = "User 1";
+  let username = "Samir";
 
   useEffect(() => {
     dispatch(fetchEntry());
   }, [dispatch]);
 
   return (
-    <div className="dashboard">
+    <Layout style={{ backgroundColor: 'white' }} className="dashboard">
       {/* <HeaderWrapper className="dashboard-header">
         <StyledHeading>My Dashboard</StyledHeading>
       </HeaderWrapper> */}
@@ -82,9 +83,15 @@ function Dashboard() {
                 alt="graduation cap"
                 src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
               />
-              <p style={{ margin: "0px", fontSize: "20px" }}>{username}</p>
+              <p style={{ margin: "0px", fontSize: "25px" }}>{username}</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                paddingBottom: "10px"
+              }}
+            >
               <img
                 style={{ height: "30px", marginRight: "10px" }}
                 alt="graduation cap"
@@ -92,7 +99,13 @@ function Dashboard() {
               />
               <p style={{ margin: "0px" }}>{string.education}</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                paddingBottom: "10px"
+              }}
+            >
               <img
                 style={{ height: "30px", marginRight: "10px" }}
                 alt="book"
@@ -100,7 +113,13 @@ function Dashboard() {
               />
               <p style={{ margin: "0px" }}>{string.major}</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                paddingBottom: "10px"
+              }}
+            >
               <img
                 style={{ height: "30px", marginRight: "10px" }}
                 alt="ataxes"
@@ -125,13 +144,13 @@ function Dashboard() {
           defaultSelectedKeys={["1"]}
           mode="inline"
         >
-           <Menu.Item
+          <Menu.Item
             className="dashboard-menu-items"
             style={{
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: '30px 0'
+              padding: "30px 0"
             }}
             key="1"
           >
@@ -144,7 +163,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: '30px 0'
+              padding: "30px 0"
             }}
             key="2"
           >
@@ -156,7 +175,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: '30px 0'
+              padding: "30px 0"
             }}
             key="3"
           >
@@ -167,8 +186,8 @@ function Dashboard() {
             style={{
               display: "flex",
               justifyContent: "flex-start",
-              alignItems: "center", 
-              padding: '30px 0'
+              alignItems: "center",
+              padding: "30px 0"
             }}
             key="4"
           >
@@ -177,7 +196,12 @@ function Dashboard() {
           </Menu.Item>
         </Menu>
       </Sider>
-    </div>
+
+      <Content style={{ margin: "0 16px" }}>
+        <PostGraduation />
+      </Content>
+
+    </Layout>
   );
 }
 
@@ -198,4 +222,11 @@ const HeaderWrapper = styled.div`
 
 const StyledHeading = styled.h1`
   margin-left: 100px;
+`;
+
+const DashboardWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 80px;
 `;
