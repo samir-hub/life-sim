@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Select from "antd/es/select";
+import "antd/es/select/style/css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
 import { entriesStringToInt } from "../utils/entriesStringToInt";
 import man_planning from "../man_planning.png";
+
+const { Option } = Select;
 
 function EntryForm() {
   const history = useHistory();
@@ -35,7 +39,11 @@ function EntryForm() {
   return (
     <ComponentWrapper>
       <ImageWrapper>
-        <img className='entryform-image' alt="man planning" src={man_planning} />
+        <img
+          className="entryform-image"
+          alt="man planning"
+          src={man_planning}
+        />
       </ImageWrapper>
       <form onSubmit={handlePostEntry} className="userentry-form">
         <select
@@ -100,8 +108,8 @@ const ImageWrapper = styled.div`
 `;
 
 const ComponentWrapper = styled.div`
-  display: flex; 
+  display: flex;
   justify-content: flex-end;
-  align-items: center; 
+  align-items: center;
   height: 100%;
 `;
