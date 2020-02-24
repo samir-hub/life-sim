@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
 import { entriesStringToInt } from "../utils/entriesStringToInt";
+import man_planning from "../man_planning.png";
 
 function EntryForm() {
-
   const history = useHistory();
 
   const [userEntry, setUserEntry] = useState({
@@ -28,13 +29,14 @@ function EntryForm() {
   const handlePostEntry = e => {
     e.preventDefault();
     dispatch(postFormattedEntry(entriesStringToInt(userEntry)));
-    history.push('/dashboard')
+    history.push("/dashboard");
   };
 
   return (
-    <div>
-      <h1>Enter Your Info: </h1>
-
+    <ComponentWrapper>
+      <ImageWrapper>
+        <img className='entryform-image' alt="man planning" src={man_planning} />
+      </ImageWrapper>
       <form onSubmit={handlePostEntry} className="userentry-form">
         <select
           name="education"
@@ -86,7 +88,20 @@ function EntryForm() {
 
         <button>Submit</button>
       </form>
-    </div>
+    </ComponentWrapper>
   );
 }
 export default EntryForm;
+
+const ImageWrapper = styled.div`
+  .entryform-image {
+    height: 680px;
+  }
+`;
+
+const ComponentWrapper = styled.div`
+  display: flex; 
+  justify-content: flex-end;
+  align-items: center; 
+  height: 100%;
+`;

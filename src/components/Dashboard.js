@@ -47,7 +47,7 @@ function Dashboard() {
   }, [dispatch]);
 
   return (
-    <Layout style={{ backgroundColor: 'white' }} className="dashboard">
+    <Layout style={{ backgroundColor: 'white', marginTop: '2px' }} className="dashboard">
       {/* <HeaderWrapper className="dashboard-header">
         <StyledHeading>My Dashboard</StyledHeading>
       </HeaderWrapper> */}
@@ -139,7 +139,7 @@ function Dashboard() {
           </StyledDiv>
         </Card>
         <Menu
-          style={{ height: "60vh" }}
+          style={{ height: "56vh" }}
           theme="light"
           defaultSelectedKeys={["1"]}
           mode="inline"
