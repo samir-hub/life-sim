@@ -45,6 +45,7 @@ function EntryForm() {
           src={man_planning}
         />
       </ImageWrapper>
+      <FormWrapper>
       <form onSubmit={handlePostEntry} className="userentry-form">
         <select
           name="education"
@@ -96,6 +97,7 @@ function EntryForm() {
 
         <button>Submit</button>
       </form>
+      </FormWrapper>
     </ComponentWrapper>
   );
 }
@@ -108,6 +110,13 @@ const ImageWrapper = styled.div`
 `;
 
 const ComponentWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+`;
+
+const FormWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
