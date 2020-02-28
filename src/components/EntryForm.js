@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Select from "antd/es/select";
 import "antd/es/select/style/css";
+import Icon from "antd/es/icon";
+import "antd/es/icon/style/css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
@@ -59,8 +61,14 @@ function EntryForm() {
             <option>In-State College</option>
             <option>Out-of-State College</option>
           </select>
+          <Icon type="question-circle" />
 
-          <select name="major" onChange={handleChange} value={userEntry.major} className="entryform-select">
+          <select
+            name="major"
+            onChange={handleChange}
+            value={userEntry.major}
+            className="entryform-select"
+          >
             <option>Select Your Major</option>
             <option>Arts and Humanities</option>
             <option>Business</option>
@@ -72,13 +80,25 @@ function EntryForm() {
             <option>Social Sciences</option>
             <option>Hard Sciences</option>
           </select>
+          <Icon type="question-circle" />
 
-          <select name="state" onChange={handleChange} value={userEntry.state} className="entryform-select">
+          <select
+            name="state"
+            onChange={handleChange}
+            value={userEntry.state}
+            className="entryform-select"
+          >
             <option>State Income Tax?</option>
             <option>No State Income Tax</option>
             <option>State Income Tax</option>
           </select>
-          <select name="city" onChange={handleChange} value={userEntry.city} className="entryform-select">
+          <Icon type="question-circle" />
+          <select
+            name="city"
+            onChange={handleChange}
+            value={userEntry.city}
+            className="entryform-select"
+          >
             <option>City Size</option>
             <option>Small City</option>
             <option>Medium City</option>
@@ -87,14 +107,20 @@ function EntryForm() {
             <option>Immense City</option>
             <option>NYC/SF/Honolulu/Seattle/DC/Oakland/Boston/LA</option>
           </select>
-
-          <select name="col" onChange={handleChange} value={userEntry.col} className="entryform-select">
+          <Icon type="question-circle" />
+          <select
+            name="col"
+            onChange={handleChange}
+            value={userEntry.col}
+            className="entryform-select"
+          >
             <option>Cost of Living</option>
             <option>Low Cost of Living</option>
             <option>Medium Cost of Living</option>
             <option>High Cost of Living</option>
             <option>Very High Cost of Living</option>
           </select>
+          <Icon type="question-circle" />
 
           <button>Submit</button>
         </form>
@@ -124,7 +150,7 @@ const FormWrapper = styled.div`
     display: flex;
     flex-direction: column;
   }
-  .entryform-select{
+  .entryform-select {
     margin: 30px;
   }
 `;
