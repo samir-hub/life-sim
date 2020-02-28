@@ -118,7 +118,6 @@ const ComponentWrapper = styled.div`
 
 const FormWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 100%;
+  flex-direction: column;
+  
 `;
