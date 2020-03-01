@@ -46,6 +46,7 @@ function Login(props) {
             axiosWithAuth()
               .get("/users/getuserinfo")
               .then(res => {
+                console.log(res)
                 localStorage.setItem("userid", res.data.userid);
                 //   props.setLoginToken(true);
                 history.push(`/entryform`);

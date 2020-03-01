@@ -49,78 +49,90 @@ function EntryForm() {
       </ImageWrapper>
       <FormWrapper>
         <form onSubmit={handlePostEntry} className="userentry-form">
-          <select
-            name="education"
-            onChange={handleChange}
-            value={userEntry.education}
-            className="entryform-select"
-          >
-            <option>Select Your Education Level</option>
-            <option>No College</option>
-            <option>Community College</option>
-            <option>In-State College</option>
-            <option>Out-of-State College</option>
-          </select>
-          <Icon type="question-circle" />
+          <div>
+            <select
+              name="education"
+              onChange={handleChange}
+              value={userEntry.education}
+              className="entryform-select"
+            >
+              <option>Select Your Education Level</option>
+              <option>No College</option>
+              <option>Community College</option>
+              <option>In-State College</option>
+              <option>Out-of-State College</option>
+            </select>
+            <Icon type="question-circle" />
+          </div>
 
-          <select
-            name="major"
-            onChange={handleChange}
-            value={userEntry.major}
-            className="entryform-select"
-          >
-            <option>Select Your Major</option>
-            <option>Arts and Humanities</option>
-            <option>Business</option>
-            <option>Education</option>
-            <option>Music</option>
-            <option>Engineering</option>
-            <option>Nursing</option>
-            <option>Medicine</option>
-            <option>Social Sciences</option>
-            <option>Hard Sciences</option>
-          </select>
-          <Icon type="question-circle" />
+          <div>
+            <select
+              name="major"
+              onChange={handleChange}
+              value={userEntry.major}
+              className="entryform-select"
+            >
+              <option>Select Your Major</option>
+              <option>Arts and Humanities</option>
+              <option>Business</option>
+              <option>Education</option>
+              <option>Music</option>
+              <option>Engineering</option>
+              <option>Nursing</option>
+              <option>Medicine</option>
+              <option>Social Sciences</option>
+              <option>Hard Sciences</option>
+            </select>
+            <Icon type="question-circle" />
+          </div>
 
-          <select
-            name="state"
-            onChange={handleChange}
-            value={userEntry.state}
-            className="entryform-select"
-          >
-            <option>State Income Tax?</option>
-            <option>No State Income Tax</option>
-            <option>State Income Tax</option>
-          </select>
-          <Icon type="question-circle" />
-          <select
-            name="city"
-            onChange={handleChange}
-            value={userEntry.city}
-            className="entryform-select"
-          >
-            <option>City Size</option>
-            <option>Small City</option>
-            <option>Medium City</option>
-            <option>Large City</option>
-            <option>Very Large City</option>
-            <option>Immense City</option>
-            <option>NYC/SF/Honolulu/Seattle/DC/Oakland/Boston/LA</option>
-          </select>
-          <Icon type="question-circle" />
-          <select
-            name="col"
-            onChange={handleChange}
-            value={userEntry.col}
-            className="entryform-select"
-          >
-            <option>Cost of Living</option>
-            <option>Low Cost of Living</option>
-            <option>Medium Cost of Living</option>
-            <option>High Cost of Living</option>
-            <option>Very High Cost of Living</option>
-          </select>
-          <Icon type="question-circle" />
+          <div>
+            <select
+              name="state"
+              onChange={handleChange}
+              value={userEntry.state}
+              className="entryform-select"
+            >
+              <option>State Income Tax?</option>
+              <option>No State Income Tax</option>
+              <option>State Income Tax</option>
+            </select>
+            <Icon type="question-circle" />
+          </div>
+
+          <div>
+            <select
+              name="city"
+              onChange={handleChange}
+              value={userEntry.city}
+              className="entryform-select"
+            >
+              <option>City Size</option>
+              <option>Small City</option>
+              <option>Medium City</option>
+              <option>Large City</option>
+              <option>Very Large City</option>
+              <option>Immense City</option>
+              <option>NYC/SF/Seattle/DC/Oakland/Boston/LA</option>
+            </select>
+            <Icon type="question-circle" />
+          </div>
+
+          <div>
+            <select
+              name="col"
+              onChange={handleChange}
+              value={userEntry.col}
+              className="entryform-select"
+            >
+              <option>Cost of Living</option>
+              <option>Low Cost of Living</option>
+              <option>Medium Cost of Living</option>
+              <option>High Cost of Living</option>
+              <option>Very High Cost of Living</option>
+            </select>
+            <Icon type="question-circle" />
+          </div>
 
           <button>Submit</button>
         </form>
