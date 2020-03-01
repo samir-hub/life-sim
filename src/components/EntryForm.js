@@ -139,12 +139,12 @@ function EntryForm() {
           <Button
               //onClick={}
               type="primary"
-              shape="round"
-              icon="logout"
-              size={"large"}
-              style={{ height: "50px", leftMargin: "300px" }}
+              shape="square"
+              //icon="logout"
+              size={"default"}
+              style={{  }}
             >
-              Logout
+              Submit
             </Button>
         </form>
       </FormWrapper>
