@@ -4,6 +4,8 @@ import Select from "antd/es/select";
 import "antd/es/select/style/css";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
+import Button from "antd/es/button";
+import "antd/es/button/style/css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
@@ -49,7 +51,7 @@ function EntryForm() {
       </ImageWrapper>
       <FormWrapper>
         <form onSubmit={handlePostEntry} className="userentry-form">
-          <div>
+          <div className="entryform-select-div">
             <select
               name="education"
               onChange={handleChange}
@@ -65,7 +67,7 @@ function EntryForm() {
             <Icon type="question-circle" />
           </div>
 
-          <div>
+          <div className="entryform-select-div">
             <select
               name="major"
               onChange={handleChange}
@@ -86,7 +88,7 @@ function EntryForm() {
             <Icon type="question-circle" />
           </div>
 
-          <div>
+          <div className="entryform-select-div">
             <select
               name="state"
               onChange={handleChange}
@@ -100,7 +102,7 @@ function EntryForm() {
             <Icon type="question-circle" />
           </div>
 
-          <div>
+          <div className="entryform-select-div">
             <select
               name="city"
               onChange={handleChange}
@@ -113,12 +115,12 @@ function EntryForm() {
               <option>Large City</option>
               <option>Very Large City</option>
               <option>Immense City</option>
-              <option>NYC/SF/Seattle/DC/Oakland/Boston/LA</option>
+              {/* <option>NYC/SF/Seattle/DC/Oakland/Boston/LA</option> */}
             </select>
             <Icon type="question-circle" />
           </div>
 
-          <div>
+          <div className="entryform-select-div">
             <select
               name="col"
               onChange={handleChange}
@@ -134,7 +136,16 @@ function EntryForm() {
             <Icon type="question-circle" />
           </div>
 
-          <button>Submit</button>
+          <Button
+              //onClick={}
+              type="primary"
+              shape="round"
+              icon="logout"
+              size={"large"}
+              style={{ height: "50px", leftMargin: "300px" }}
+            >
+              Logout
+            </Button>
         </form>
       </FormWrapper>
     </ComponentWrapper>
@@ -164,5 +175,9 @@ const FormWrapper = styled.div`
   }
   .entryform-select {
     margin: 30px;
+    width: 70%;
+  }
+  .entryform-select-div {
+    width: 100%;
   }
 `;
