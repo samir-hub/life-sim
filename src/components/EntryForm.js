@@ -21,25 +21,40 @@ function EntryForm() {
   const [userEntry, setUserEntry] = useState({
     education: "",
     major: "",
-    state: "",
-    city: "",
-    col: ""
+    city: ""
   });
-  const dispatch = useDispatch();
 
-  const handleChange = e => {
-    e.preventDefault();
+  function onChangeOne(value, key) {
     setUserEntry({
       ...userEntry,
-      [e.target.name]: e.target.value
+      education: value
     });
-  };
+  }
+
+  function onChangeTwo(value, key) {
+    setUserEntry({
+      ...userEntry,
+      major: value
+    });
+  }
+
+  function onChangeThree(value, key) {
+    setUserEntry({
+      ...userEntry,
+      city: value
+    });
+  }
+
+  const dispatch = useDispatch();
+
 
   const handlePostEntry = e => {
     e.preventDefault();
     dispatch(postFormattedEntry(entriesStringToInt(userEntry)));
     history.push("/dashboard");
   };
+
+  console.log(userEntry)
 
   return (
     <ComponentWrapper>
@@ -55,10 +70,10 @@ function EntryForm() {
           <div className="entryform-select-div">
             <Select
                 showSearch
-                style={{ width: 200 }}
+                style={{ width: 300 }}
                 placeholder="Select Your Education Level"
                 optionFilterProp="children"
-                onChange={handleChange}
+                onChange={onChangeOne}
                 filterOption={(input, option) =>
                   option.props.children
                     .toLowerCase()
@@ -88,10 +103,10 @@ function EntryForm() {
    
             <Select
                 showSearch
-                style={{ width: 200 }}
+                style={{ width: 300 }}
                 placeholder="Select Your Major"
                 optionFilterProp="children"
-                onChange={handleChange}
+                onChange={onChangeTwo}
                 filterOption={(input, option) =>
                   option.props.children
                     .toLowerCase()
@@ -134,10 +149,10 @@ function EntryForm() {
           <div className="entryform-select-div">
             <Select
                 showSearch
-                style={{ width: 200 }}
+                style={{ width: 300 }}
                 placeholder="Select Your City"
                 optionFilterProp="children"
-                onChange={handleChange}
+                onChange={onChangeThree}
                 filterOption={(input, option) =>
                   option.props.children
                     .toLowerCase()
@@ -155,50 +170,14 @@ function EntryForm() {
             <Icon type="question-circle" />
           </div>
 
-          <div className="entryform-select-div">
-            <select
-              name="col"
-              onChange={handleChange}
-              value={userEntry.col}
-              className="entryform-select"
-            >
-              <option>Cost of Living</option>
-              <option>Low Cost of Living</option>
-              <option>Medium Cost of Living</option>
-              <option>High Cost of Living</option>
-              <option>Very High Cost of Living</option>
-            </select>
-            <Select
-                showSearch
-                style={{ width: 200 }}
-                placeholder="Select a team"
-                optionFilterProp="children"
-                onChange={handleChange}
-                filterOption={(input, option) =>
-                  option.props.children
-                    .toLowerCase()
-                    .indexOf(input.toLowerCase()) >= 0
-                }
-              >
-                {teamsAndIds &&
-                  teamsAndIds.map(teams => {
-                    return (
-                      <Option key={teams.id} value={teams.id}>
-                        {teams.name}
-                      </Option>
-                    );
-                  })}
-              </Select>
-            <Icon type="question-circle" />
-          </div>
-
           <Button
               //onClick={}
               type="primary"
-              shape="square"
+              shape="round"
               //icon="logout"
               size={"default"}
               style={{  }}
+              htmlType="submit"
             >
               Submit
             </Button>
