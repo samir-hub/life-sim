@@ -1,9 +1,10 @@
 import axiosWithAuth from '../utils/axiosWithAuth';
 export const FETCH_ENTRY = "FETCH_ENTRY";
+export const FETCH_ENTRY_START = "FETCH_ENTRY_START";
 export const FORMATTED_POST_ENTRY = "FORMATTED_POST_ENTRY";
 
 export const fetchEntry = () => dispatch => {
-  dispatch({ type: FETCH_ENTRY });
+  dispatch({ type: FETCH_ENTRY_START });
   axiosWithAuth()
     .get(`/users/getuserinfo`)
         .then(res => {
@@ -14,8 +15,6 @@ export const fetchEntry = () => dispatch => {
 };
 
 export const postFormattedEntry = (id, formattedEntry) => dispatch => {
-  //dispatch({ type: FORMATTED_POST_ENTRY, payload: formattedEntry });
-
   dispatch({ type: FORMATTED_POST_ENTRY })
     axiosWithAuth()
         .post(`/details/user/${id}`, formattedEntry)

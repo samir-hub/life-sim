@@ -33,7 +33,8 @@ function Dashboard() {
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
-      userInfo: state.userInfo
+      userInfo: state.userInfo,
+      isFetching: state.isFetching
     };
   });
 
@@ -45,8 +46,9 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch]);
 
+  console.log(state.isFetching)
 
-  return (
+  return  (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
@@ -84,7 +86,7 @@ function Dashboard() {
                 alt="graduation cap"
                 src={grad_cap}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].education}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].education}</p>
             </div>
             <div
               style={{
@@ -98,7 +100,7 @@ function Dashboard() {
                 alt="book"
                 src={book}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].major}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].major}</p>
             </div>
             <div
               style={{
@@ -112,7 +114,7 @@ function Dashboard() {
                 alt="taxes"
                 src={tax}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].colindex}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].colindex}</p>
             </div>
             <div
               style={{
@@ -125,7 +127,7 @@ function Dashboard() {
                 alt="city"
                 src={city}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].city}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].city}</p>
             </div>
             {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
           </StyledDiv>}
