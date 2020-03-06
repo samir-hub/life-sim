@@ -33,11 +33,12 @@ function Dashboard() {
   };
   const state = useSelector(state => {
     return {
-      formattedEntryData: state.formattedEntryData
+      formattedEntryData: state.formattedEntryData,
+      userInfo: state.userInfo
     };
   });
 
-  let string = entriesIntToString(state.formattedEntryData);
+  //let string = entriesIntToString(state.formattedEntryData);
 
   const dispatch = useDispatch();
   let username = "Samir";
@@ -45,6 +46,8 @@ function Dashboard() {
   useEffect(() => {
     dispatch(fetchEntry());
   }, [dispatch]);
+
+  console.log('state in Dashboard', state)
 
   return (
     <Layout
@@ -73,7 +76,7 @@ function Dashboard() {
             //title={username}
             //description="You Selected:"
           /> */}
-          <StyledDiv key={string.user}>
+          {state.userInfo && state.userInfo.details && <StyledDiv key={1}>
             <div
               style={{
                 display: "flex",
@@ -86,7 +89,7 @@ function Dashboard() {
                 alt="graduation cap"
                 src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
               />
-              <p style={{ margin: "0px", fontSize: "25px" }}>{username}</p>
+              <p style={{ margin: "0px", fontSize: "25px" }}>{state.userInfo.username}</p>
             </div>
             <div
               style={{
@@ -100,7 +103,7 @@ function Dashboard() {
                 alt="graduation cap"
                 src={grad_cap}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{string.education}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].education}</p>
             </div>
             <div
               style={{
@@ -114,7 +117,7 @@ function Dashboard() {
                 alt="book"
                 src={book}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{string.major}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].major}</p>
             </div>
             <div
               style={{
@@ -128,7 +131,7 @@ function Dashboard() {
                 alt="taxes"
                 src={tax}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{string.colindex}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].colindex}</p>
             </div>
             <div
               style={{
@@ -141,10 +144,10 @@ function Dashboard() {
                 alt="city"
                 src={city}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{string.city}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{state.userInfo.details[state.userInfo.details.length-1].city}</p>
             </div>
             {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
-          </StyledDiv>
+          </StyledDiv>}
         </Card>
         <Menu
           style={{ height: "56vh" }}

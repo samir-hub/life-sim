@@ -18,6 +18,9 @@ import cities from "../data/cities";
 const { Option } = Select;
 
 function EntryForm() {
+
+  const id = localStorage.getItem('userid')
+
   const history = useHistory();
 
   const [userEntry, setUserEntry] = useState({
@@ -64,16 +67,10 @@ function EntryForm() {
 
   const handlePostEntry = e => {
     e.preventDefault();
-    dispatch(postFormattedEntry(userEntry));
+    dispatch(postFormattedEntry(id, userEntry));
     history.push("/dashboard");
   };
-
-  console.log(userEntry);
-  const result = cities.filter(
-    city => city.city === "New York, NY, United States"
-  );
-  console.log(result);
-
+  
   return (
     <ComponentWrapper>
       <ImageWrapper>
@@ -83,7 +80,7 @@ function EntryForm() {
           src={man_planning}
         />
       </ImageWrapper>
-      <FormWrapper>
+      <Card className="entryform-card">
         <form onSubmit={handlePostEntry} className="userentry-form">
           <div className="entryform-select-div">
             <Select
@@ -197,7 +194,7 @@ function EntryForm() {
             Submit
           </Button>
         </form>
-      </FormWrapper>
+      </Card>
     </ComponentWrapper>
   );
 }
@@ -214,24 +211,25 @@ const ComponentWrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-`;
-
-const FormWrapper = styled.div`
-  /* width: 40%;
+  .entryform-card {
+    /* width: 40%;
   height: 70vh; */
-  display: flex;
-  flex-direction: column;
-  align-content: space-evenly;
-
-  .userentry-form {
     display: flex;
     flex-direction: column;
-  }
-  .entryform-select {
-    width: 70%;
-    padding: 50px;
-  }
-  .entryform-select-div {
-    width: 100%;
+    align-content: space-evenly;
+
+    .userentry-form {
+      display: flex;
+      flex-direction: column;
+    }
+    .entryform-select {
+      width: 70%;
+      margin: 50px;
+    }
+    .entryform-select-div {
+      width: 100%;
+    }
   }
 `;
+
+
