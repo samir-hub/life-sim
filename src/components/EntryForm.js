@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
 import { entriesStringToInt } from "../utils/entriesStringToInt";
 import man_planning from "../man_planning.png";
+import cities from '../data/cities';
 
 const { Option } = Select;
 
@@ -64,6 +65,36 @@ function EntryForm() {
               <option>In-State College</option>
               <option>Out-of-State College</option>
             </select>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select Your Education Level"
+                optionFilterProp="children"
+                onChange={handleChange}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+
+                      <Option key={1} value={"No College"}>
+                      No College
+                      </Option>
+                      <Option key={1} value={"No College"}>
+                      No College
+                      </Option>
+                      <Option key={1} value={"No College"}>
+                      No College
+                      </Option>
+                      <Option key={1} value={"No College"}>
+                      No College
+                      </Option>
+                      <Option key={1} value={"No College"}>
+                      No College
+                      </Option>
+   
+              </Select>
             <Icon type="question-circle" />
           </div>
 
@@ -85,6 +116,27 @@ function EntryForm() {
               <option>Social Sciences</option>
               <option>Hard Sciences</option>
             </select>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a team"
+                optionFilterProp="children"
+                onChange={handleChange}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {teamsAndIds &&
+                  teamsAndIds.map(teams => {
+                    return (
+                      <Option key={teams.id} value={teams.id}>
+                        {teams.name}
+                      </Option>
+                    );
+                  })}
+              </Select>
             <Icon type="question-circle" />
           </div>
 
@@ -99,6 +151,27 @@ function EntryForm() {
               <option>No State Income Tax</option>
               <option>State Income Tax</option>
             </select>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a team"
+                optionFilterProp="children"
+                onChange={handleChange}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {teamsAndIds &&
+                  teamsAndIds.map(teams => {
+                    return (
+                      <Option key={teams.id} value={teams.id}>
+                        {teams.name}
+                      </Option>
+                    );
+                  })}
+              </Select>
             <Icon type="question-circle" />
           </div>
 
@@ -117,6 +190,27 @@ function EntryForm() {
               <option>Immense City</option>
               {/* <option>NYC/SF/Seattle/DC/Oakland/Boston/LA</option> */}
             </select>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a team"
+                optionFilterProp="children"
+                onChange={handleChange}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {teamsAndIds &&
+                  teamsAndIds.map(teams => {
+                    return (
+                      <Option key={teams.id} value={teams.id}>
+                        {teams.name}
+                      </Option>
+                    );
+                  })}
+              </Select>
             <Icon type="question-circle" />
           </div>
 
@@ -133,6 +227,27 @@ function EntryForm() {
               <option>High Cost of Living</option>
               <option>Very High Cost of Living</option>
             </select>
+            <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder="Select a team"
+                optionFilterProp="children"
+                onChange={handleChange}
+                filterOption={(input, option) =>
+                  option.props.children
+                    .toLowerCase()
+                    .indexOf(input.toLowerCase()) >= 0
+                }
+              >
+                {teamsAndIds &&
+                  teamsAndIds.map(teams => {
+                    return (
+                      <Option key={teams.id} value={teams.id}>
+                        {teams.name}
+                      </Option>
+                    );
+                  })}
+              </Select>
             <Icon type="question-circle" />
           </div>
 
