@@ -47,7 +47,10 @@ function Dashboard() {
   }, [dispatch]);
 
   return (
-    <Layout style={{ backgroundColor: 'white', marginTop: '2px' }} className="dashboard">
+    <Layout
+      style={{ backgroundColor: "white", marginTop: "2px" }}
+      className="dashboard"
+    >
       {/* <HeaderWrapper className="dashboard-header">
         <StyledHeading>My Dashboard</StyledHeading>
       </HeaderWrapper> */}
@@ -97,7 +100,7 @@ function Dashboard() {
                 alt="graduation cap"
                 src={grad_cap}
               />
-              <p style={{ margin: "0px" }}>{string.education}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{string.education}</p>
             </div>
             <div
               style={{
@@ -111,7 +114,7 @@ function Dashboard() {
                 alt="book"
                 src={book}
               />
-              <p style={{ margin: "0px" }}>{string.major}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{string.major}</p>
             </div>
             <div
               style={{
@@ -122,18 +125,23 @@ function Dashboard() {
             >
               <img
                 style={{ height: "30px", marginRight: "10px" }}
-                alt="ataxes"
+                alt="taxes"
                 src={tax}
               />
-              <p style={{ margin: "0px" }}>{string.state}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{string.colindex}</p>
             </div>
-            <div style={{ display: "flex", alignItems: "center" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center"
+              }}
+            >
               <img
                 style={{ height: "30px", marginRight: "10px" }}
                 alt="city"
                 src={city}
               />
-              <p style={{ margin: "0px" }}>{string.city}</p>
+              <p style={{ margin: "0px", width: '100%' }}>{string.city}</p>
             </div>
             {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
           </StyledDiv>
@@ -200,7 +208,6 @@ function Dashboard() {
       <Content style={{ margin: "0 16px" }}>
         <PostGraduation />
       </Content>
-
     </Layout>
   );
 }
