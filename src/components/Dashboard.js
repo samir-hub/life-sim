@@ -5,32 +5,31 @@ import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
 import Menu from "antd/es/menu";
 import "antd/es/menu/style/css";
-import Avatar from "antd/es/avatar";
 import "antd/es/avatar/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import styled from "styled-components";
-import people_working from "../people_working.png";
 import grad_cap from "../grad_cap.svg";
 import book from "../book.svg";
 import tax from "../tax.svg";
 import city from "../city.svg";
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
-import { entriesIntToString } from "../utils/entriesIntToString";
+//import { entriesIntToString } from "../utils/entriesIntToString";
 import PostGraduation from "./PostGraduation";
 
-const { Meta } = Card;
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+
+const { Content, Sider } = Layout;
 
 function Dashboard() {
-  const [isCollapsed, setIsCollapsed] = useState({ collapsed: false });
+  // const [isCollapsed, setIsCollapsed] = useState({ collapsed: false });
+  const [active, setActive] = useState("1");
 
-  const onCollapse = collapsed => {
-    console.log(collapsed);
-    setIsCollapsed({ collapsed });
-  };
+  // const onCollapse = collapsed => {
+  //   console.log(collapsed);
+  //   setIsCollapsed({ collapsed });
+  // };
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
@@ -41,41 +40,23 @@ function Dashboard() {
   //let string = entriesIntToString(state.formattedEntryData);
 
   const dispatch = useDispatch();
-  let username = "Samir";
 
   useEffect(() => {
     dispatch(fetchEntry());
   }, [dispatch]);
 
-  console.log('state in Dashboard', state)
 
   return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
-      {/* <HeaderWrapper className="dashboard-header">
-        <StyledHeading>My Dashboard</StyledHeading>
-      </HeaderWrapper> */}
+
       <Sider theme="light">
         <Card
           hoverable={true}
           style={{ width: 200, cursor: "auto" }}
-          // cover={<img alt="People working" src={people_working} />}
-          // actions={[
-          //   <Icon type="setting" key="setting" />,
-          //   <Icon type="edit" key="edit" />,
-          //   <Icon type="ellipsis" key="ellipsis" />
-          // ]}
         >
-          {/* <Meta
-            avatar={
-              <Avatar  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-            }
-
-            //title={username}
-            //description="You Selected:"
-          /> */}
           {state.userInfo && state.userInfo.details && <StyledDiv key={1}>
             <div
               style={{
@@ -154,8 +135,10 @@ function Dashboard() {
           theme="light"
           defaultSelectedKeys={["1"]}
           mode="inline"
+          
         >
           <Menu.Item
+          onClick={()=> setActive("1")}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -169,6 +152,7 @@ function Dashboard() {
             <span>Post-Graduation</span>
           </Menu.Item>
           <Menu.Item
+          onClick={() => setActive("2")}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -182,6 +166,7 @@ function Dashboard() {
             <span>Income</span>
           </Menu.Item>
           <Menu.Item
+          onClick={() =>setActive("3")}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -194,6 +179,7 @@ function Dashboard() {
             <span>Expenses</span>
           </Menu.Item>
           <Menu.Item
+          onClick={() => setActive("4")}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -209,7 +195,7 @@ function Dashboard() {
       </Sider>
 
       <Content style={{ margin: "0 16px" }}>
-        <PostGraduation />
+        {active === "1" ? <PostGraduation /> : active ==="2" ? <h1>income</h1> : active ==="3" ? <h1>expenses</h1> : active ==="4" ? <h1>budget</h1> : <h1>not</h1>}
       </Content>
     </Layout>
   );
@@ -223,20 +209,20 @@ const StyledDiv = styled.div`
   width: 100%;
 `;
 
-const HeaderWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 80px;
-`;
+// const HeaderWrapper = styled.div`
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   height: 80px;
+// `;
 
-const StyledHeading = styled.h1`
-  margin-left: 100px;
-`;
+// const StyledHeading = styled.h1`
+//   margin-left: 100px;
+// `;
 
-const DashboardWrapper = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 80px;
-`;
+// const DashboardWrapper = styled.div`
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   height: 80px;
+// `;

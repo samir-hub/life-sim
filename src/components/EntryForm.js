@@ -8,6 +8,8 @@ import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import Tooltip from "antd/es/tooltip";
+import "antd/es/tooltip/style/css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
@@ -18,8 +20,7 @@ import cities from "../data/cities";
 const { Option } = Select;
 
 function EntryForm() {
-
-  const id = localStorage.getItem('userid')
+  const id = localStorage.getItem("userid");
 
   const history = useHistory();
 
@@ -70,7 +71,9 @@ function EntryForm() {
     dispatch(postFormattedEntry(id, userEntry));
     history.push("/dashboard");
   };
-  
+
+  const text = <span>This is the explanation that I will write in the future for each field to help the user.</span>;
+
   return (
     <ComponentWrapper>
       <ImageWrapper>
@@ -109,7 +112,9 @@ function EntryForm() {
                 Out-of-State College
               </Option>
             </Select>
-            <Icon type="question-circle" />
+            <Tooltip title={text} placement="top">
+              <Icon type="question-circle" />
+            </Tooltip>
           </div>
 
           <div className="entryform-select-div">
@@ -154,7 +159,9 @@ function EntryForm() {
                 Hard Sciences
               </Option>
             </Select>
-            <Icon type="question-circle" />
+            <Tooltip title={text} placement="top">
+              <Icon type="question-circle" />
+            </Tooltip>
           </div>
 
           <div className="entryform-select-div">
@@ -179,7 +186,9 @@ function EntryForm() {
                 );
               })}
             </Select>
-            <Icon type="question-circle" />
+            <Tooltip title={text} placement="top">
+              <Icon type="question-circle" />
+            </Tooltip>
           </div>
 
           <Button
@@ -231,5 +240,3 @@ const ComponentWrapper = styled.div`
     }
   }
 `;
-
-
