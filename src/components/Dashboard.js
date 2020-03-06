@@ -13,7 +13,6 @@ import grad_cap from "../grad_cap.svg";
 import book from "../book.svg";
 import tax from "../tax.svg";
 import city from "../city.svg";
-import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 //import { entriesIntToString } from "../utils/entriesIntToString";
@@ -34,7 +33,8 @@ function Dashboard() {
     return {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
-      isFetching: state.isFetching
+      isFetching: state.isFetching,
+      isPosting: state.isPosting
     };
   });
 
@@ -44,9 +44,10 @@ function Dashboard() {
 
   useEffect(() => {
     dispatch(fetchEntry());
-  }, [dispatch]);
+  }, [dispatch, state.isPosting]);
 
-  console.log(state.isFetching)
+  console.log('isFetching', state.isFetching)
+  console.log('isPosting', state.isPosting)
 
   return  (
     <Layout
@@ -86,7 +87,7 @@ function Dashboard() {
                 alt="graduation cap"
                 src={grad_cap}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].education}</p>
+              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].education}</h1>
             </div>
             <div
               style={{
@@ -100,7 +101,7 @@ function Dashboard() {
                 alt="book"
                 src={book}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].major}</p>
+              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) :state.userInfo.details[state.userInfo.details.length-1] &&  state.userInfo.details[state.userInfo.details.length-1].major}</h1>
             </div>
             <div
               style={{
@@ -114,7 +115,7 @@ function Dashboard() {
                 alt="taxes"
                 src={tax}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].colindex}</p>
+              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching  ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].colindex}</h1>
             </div>
             <div
               style={{
@@ -127,7 +128,7 @@ function Dashboard() {
                 alt="city"
                 src={city}
               />
-              <p style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<h1>fetching</h1>) : state.userInfo.details[state.userInfo.details.length-1].city}</p>
+              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].city}</h1>
             </div>
             {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
           </StyledDiv>}
