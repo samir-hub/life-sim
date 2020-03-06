@@ -53,18 +53,6 @@ function EntryForm() {
       <FormWrapper>
         <form onSubmit={handlePostEntry} className="userentry-form">
           <div className="entryform-select-div">
-            <select
-              name="education"
-              onChange={handleChange}
-              value={userEntry.education}
-              className="entryform-select"
-            >
-              <option>Select Your Education Level</option>
-              <option>No College</option>
-              <option>Community College</option>
-              <option>In-State College</option>
-              <option>Out-of-State College</option>
-            </select>
             <Select
                 showSearch
                 style={{ width: 200 }}
@@ -81,45 +69,27 @@ function EntryForm() {
                       <Option key={1} value={"No College"}>
                       No College
                       </Option>
-                      <Option key={1} value={"No College"}>
-                      No College
+                      <Option key={2} value={"Community College"}>
+                      Community College
                       </Option>
-                      <Option key={1} value={"No College"}>
-                      No College
+                      <Option key={3} value={"In-State College"}>
+                      In-State College
                       </Option>
-                      <Option key={1} value={"No College"}>
-                      No College
+                      <Option key={4} value={"Out-of-State College"}>
+                      Out-of-State College
                       </Option>
-                      <Option key={1} value={"No College"}>
-                      No College
-                      </Option>
+             
    
               </Select>
             <Icon type="question-circle" />
           </div>
 
           <div className="entryform-select-div">
-            <select
-              name="major"
-              onChange={handleChange}
-              value={userEntry.major}
-              className="entryform-select"
-            >
-              <option>Select Your Major</option>
-              <option>Arts and Humanities</option>
-              <option>Business</option>
-              <option>Education</option>
-              <option>Music</option>
-              <option>Engineering</option>
-              <option>Nursing</option>
-              <option>Medicine</option>
-              <option>Social Sciences</option>
-              <option>Hard Sciences</option>
-            </select>
+   
             <Select
                 showSearch
                 style={{ width: 200 }}
-                placeholder="Select a team"
+                placeholder="Select Your Major"
                 optionFilterProp="children"
                 onChange={handleChange}
                 filterOption={(input, option) =>
@@ -128,33 +98,44 @@ function EntryForm() {
                     .indexOf(input.toLowerCase()) >= 0
                 }
               >
-                {teamsAndIds &&
-                  teamsAndIds.map(teams => {
-                    return (
-                      <Option key={teams.id} value={teams.id}>
-                        {teams.name}
+    
+                      <Option key={1} value={"Arts and Humanities"}>
+                      Arts and Humanities
                       </Option>
-                    );
-                  })}
+                      <Option key={2} value={"Business"}>
+                      Business
+                      </Option>
+                      <Option key={1} value={"Education"}>
+                      Education
+                      </Option>
+                      <Option key={1} value={"Music"}>
+                      Music
+                      </Option>
+                      <Option key={1} value={"Engineering"}>
+                      Engineering
+                      </Option>
+                      <Option key={1} value={"Nursing"}>
+                      Nursing
+                      </Option>
+                      <Option key={1} value={"Medicine"}>
+                      Medicine
+                      </Option>
+                      <Option key={1} value={"Social Sciences"}>
+                      Social Sciences
+                      </Option>
+                      <Option key={1} value={"Hard Sciences"}>
+                      Hard Sciences
+                      </Option>
+     
               </Select>
             <Icon type="question-circle" />
           </div>
 
           <div className="entryform-select-div">
-            <select
-              name="state"
-              onChange={handleChange}
-              value={userEntry.state}
-              className="entryform-select"
-            >
-              <option>State Income Tax?</option>
-              <option>No State Income Tax</option>
-              <option>State Income Tax</option>
-            </select>
             <Select
                 showSearch
                 style={{ width: 200 }}
-                placeholder="Select a team"
+                placeholder="Select Your City"
                 optionFilterProp="children"
                 onChange={handleChange}
                 filterOption={(input, option) =>
@@ -163,50 +144,10 @@ function EntryForm() {
                     .indexOf(input.toLowerCase()) >= 0
                 }
               >
-                {teamsAndIds &&
-                  teamsAndIds.map(teams => {
+                {cities.map(city => {
                     return (
-                      <Option key={teams.id} value={teams.id}>
-                        {teams.name}
-                      </Option>
-                    );
-                  })}
-              </Select>
-            <Icon type="question-circle" />
-          </div>
-
-          <div className="entryform-select-div">
-            <select
-              name="city"
-              onChange={handleChange}
-              value={userEntry.city}
-              className="entryform-select"
-            >
-              <option>City Size</option>
-              <option>Small City</option>
-              <option>Medium City</option>
-              <option>Large City</option>
-              <option>Very Large City</option>
-              <option>Immense City</option>
-              {/* <option>NYC/SF/Seattle/DC/Oakland/Boston/LA</option> */}
-            </select>
-            <Select
-                showSearch
-                style={{ width: 200 }}
-                placeholder="Select a team"
-                optionFilterProp="children"
-                onChange={handleChange}
-                filterOption={(input, option) =>
-                  option.props.children
-                    .toLowerCase()
-                    .indexOf(input.toLowerCase()) >= 0
-                }
-              >
-                {teamsAndIds &&
-                  teamsAndIds.map(teams => {
-                    return (
-                      <Option key={teams.id} value={teams.id}>
-                        {teams.name}
+                      <Option key={city.id} value={city.city}>
+                        {city.city}
                       </Option>
                     );
                   })}
