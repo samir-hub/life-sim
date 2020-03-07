@@ -64,7 +64,7 @@ function Login(props) {
       <StyledDiv>
         <h1 className="login-card-title">LifeSim</h1>
         <p className="login-card-text">
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
         </p>

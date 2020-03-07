@@ -8,6 +8,8 @@ import "antd/es/menu/style/css";
 import "antd/es/avatar/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import Tooltip from "antd/es/tooltip";
+import "antd/es/tooltip/style/css";
 import styled from "styled-components";
 import grad_cap from "../grad_cap.svg";
 import book from "../book.svg";
@@ -17,7 +19,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 //import { entriesIntToString } from "../utils/entriesIntToString";
 import PostGraduation from "./PostGraduation";
-
 
 const { Content, Sider } = Layout;
 
@@ -46,102 +47,136 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting]);
 
-  console.log('isFetching', state.isFetching)
-  console.log('isPosting', state.isPosting)
+  console.log("isFetching", state.isFetching);
+  console.log("isPosting", state.isPosting);
 
-  return  (
+  return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
-
       <Sider theme="light">
-        <Card
-          hoverable={true}
-          style={{ width: 200, cursor: "auto" }}
-        >
-          {state.userInfo && state.userInfo.details && <StyledDiv key={1}>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: "20px"
-              }}
-            >
-              <img
-                style={{ height: "30px", marginRight: "10px" }}
-                alt="graduation cap"
-                src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-              />
-              <p style={{ margin: "0px", fontSize: "25px" }}>{state.userInfo.username}</p>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: "10px"
-              }}
-            >
-              <img
-                style={{ height: "30px", marginRight: "10px" }}
-                alt="graduation cap"
-                src={grad_cap}
-              />
-              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].education}</h1>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: "10px"
-              }}
-            >
-              <img
-                style={{ height: "30px", marginRight: "10px" }}
-                alt="book"
-                src={book}
-              />
-              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) :state.userInfo.details[state.userInfo.details.length-1] &&  state.userInfo.details[state.userInfo.details.length-1].major}</h1>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: "10px"
-              }}
-            >
-              <img
-                style={{ height: "30px", marginRight: "10px" }}
-                alt="taxes"
-                src={tax}
-              />
-              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching  ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].colindex}</h1>
-            </div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center"
-              }}
-            >
-              <img
-                style={{ height: "30px", marginRight: "10px" }}
-                alt="city"
-                src={city}
-              />
-              <h1 style={{ margin: "0px", width: '100%' }}>{state.isFetching ? (<p>fetching</p>) : state.userInfo.details[state.userInfo.details.length-1] && state.userInfo.details[state.userInfo.details.length-1].city}</h1>
-            </div>
-            {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
-          </StyledDiv>}
+        <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
+          {state.userInfo && state.userInfo.details && (
+            <StyledDiv key={1}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingBottom: "20px"
+                }}
+              >
+                <img
+                  style={{ height: "30px", marginRight: "10px" }}
+                  alt="graduation cap"
+                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                />
+                <p style={{ margin: "0px", fontSize: "25px" }}>
+                  {state.userInfo.username}
+                </p>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingBottom: "10px"
+                }}
+              >
+                <img
+                  style={{ height: "30px", marginRight: "10px" }}
+                  alt="graduation cap"
+                  src={grad_cap}
+                />
+                <h1 style={{ margin: "0px", width: "100%" }}>
+                  {state.isFetching ? (
+                    <p>fetching</p>
+                  ) : (
+                    state.userInfo.details[state.userInfo.details.length - 1] &&
+                    state.userInfo.details[state.userInfo.details.length - 1]
+                      .education
+                  )}
+                </h1>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingBottom: "10px"
+                }}
+              >
+                <img
+                  style={{ height: "30px", marginRight: "10px" }}
+                  alt="book"
+                  src={book}
+                />
+                <h1 style={{ margin: "0px", width: "100%" }}>
+                  {state.isFetching ? (
+                    <p>fetching</p>
+                  ) : (
+                    state.userInfo.details[state.userInfo.details.length - 1] &&
+                    state.userInfo.details[state.userInfo.details.length - 1]
+                      .major
+                  )}
+                </h1>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingBottom: "10px"
+                }}
+              >
+                <img
+                  style={{ height: "30px", marginRight: "10px" }}
+                  alt="taxes"
+                  src={tax}
+                />
+                <h1 style={{ margin: "0px", width: "100%" }}>
+                  {state.isFetching ? (
+                    <p>fetching</p>
+                  ) : (
+                    state.userInfo.details[state.userInfo.details.length - 1] &&
+                    state.userInfo.details[state.userInfo.details.length - 1]
+                      .colindex
+                  )}
+                </h1>
+                <Tooltip title={"This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values."} placement="right">
+              <Icon type="question-circle" />
+            </Tooltip>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center"
+                }}
+              >
+                <img
+                  style={{ height: "30px", marginRight: "10px" }}
+                  alt="city"
+                  src={city}
+                />
+                <h1 style={{ margin: "0px", width: "100%" }}>
+                  {state.isFetching ? (
+                    <p>fetching</p>
+                  ) : (
+                    state.userInfo.details[state.userInfo.details.length - 1] &&
+                    state.userInfo.details[state.userInfo.details.length - 1]
+                      .city
+                  )}
+                </h1>
+              </div>
+              {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
+            </StyledDiv>
+          )}
         </Card>
         <Menu
-          style={{ height: "56vh" }}
+          style={{ height: "49vh" }}
           theme="light"
           defaultSelectedKeys={["1"]}
           mode="inline"
-          
         >
           <Menu.Item
-          onClick={()=> setActive("1")}
+            onClick={() => setActive("1")}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -155,7 +190,7 @@ function Dashboard() {
             <span>Post-Graduation</span>
           </Menu.Item>
           <Menu.Item
-          onClick={() => setActive("2")}
+            onClick={() => setActive("2")}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -169,7 +204,7 @@ function Dashboard() {
             <span>Income</span>
           </Menu.Item>
           <Menu.Item
-          onClick={() =>setActive("3")}
+            onClick={() => setActive("3")}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -182,7 +217,7 @@ function Dashboard() {
             <span>Expenses</span>
           </Menu.Item>
           <Menu.Item
-          onClick={() => setActive("4")}
+            onClick={() => setActive("4")}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -198,7 +233,17 @@ function Dashboard() {
       </Sider>
 
       <Content style={{ margin: "0 16px" }}>
-        {active === "1" ? <PostGraduation /> : active ==="2" ? <h1>income</h1> : active ==="3" ? <h1>expenses</h1> : active ==="4" ? <h1>budget</h1> : <h1>not</h1>}
+        {active === "1" ? (
+          <PostGraduation />
+        ) : active === "2" ? (
+          <h1>income</h1>
+        ) : active === "3" ? (
+          <h1>expenses</h1>
+        ) : active === "4" ? (
+          <h1>budget</h1>
+        ) : (
+          <h1>not</h1>
+        )}
       </Content>
     </Layout>
   );
