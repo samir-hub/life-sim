@@ -48,13 +48,6 @@ function EntryForm() {
     });
   }
 
-  function onChangeTwo(value) {
-    setUserEntry({
-      ...userEntry,
-      major: value
-    });
-  }
-
   function onChangeThree(value) {
     let result = newCities.filter(city => city.city === value);
     setUserEntry({
