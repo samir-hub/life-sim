@@ -15,7 +15,8 @@ import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
 //import { entriesStringToInt } from "../utils/entriesStringToInt";
 import man_planning from "../man_planning.png";
-import cities from "../data/cities";
+import newCities from "../data/newCities";
+import majors from '../data/majors';
 
 const { Option } = Select;
 
@@ -27,13 +28,17 @@ function EntryForm() {
   const [userEntry, setUserEntry] = useState({
     education: "",
     major: "",
+    avgmajor: "",
+    lowmajor: "",
+    highmajor: "",
     city: "",
     colindex: "",
+    avgrent: "",
+    avgwage: "",
     rentindex: "",
     colplusrentindex: "",
     groceriesindex: "",
-    restaurantpriceindex: "",
-    localpurchasingpowerindex: ""
+    restaurantpriceindex: ""
   });
 
   function onChangeOne(value) {
@@ -51,16 +56,28 @@ function EntryForm() {
   }
 
   function onChangeThree(value) {
-    let result = cities.filter(city => city.city === value);
+    let result = newCities.filter(city => city.city === value);
     setUserEntry({
       ...userEntry,
       city: value,
       colindex: result[0].colindex,
+      avgrent: result[0].avgrent,
+      avgwage: result[0].avgwage,
       rentindex: result[0].rentindex,
       colplusrentindex: result[0].colplusrentindex,
       groceriesindex: result[0].groceriesindex,
-      restaurantpriceindex: result[0].restaurantpriceindex,
-      localpurchasingpowerindex: result[0].localpurchasingpowerindex
+      restaurantpriceindex: result[0].restaurantpriceindex
+    });
+  }
+
+  function onChangeFour(value) {
+    let result = majors.filter(major => major.major === value);
+    setUserEntry({
+      ...userEntry,
+      major: value,
+      avgmajor: result[0].avgmajor,
+      lowmajor: result[0].lowmajor,
+      highmajor: result[0].highmajor,
     });
   }
 
@@ -72,7 +89,12 @@ function EntryForm() {
     history.push("/dashboard");
   };
 
-  const text = <span>This is the explanation that I will write in the future for each field to help the user.</span>;
+  const text = (
+    <span>
+      This is the explanation that I will write in the future for each field to
+      help the user.
+    </span>
+  );
 
   return (
     <ComponentWrapper>
@@ -122,42 +144,22 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Select Your Major"
+              placeholder="Select Your City"
               optionFilterProp="children"
-              onChange={onChangeTwo}
+              onChange={onChangeFour}
               filterOption={(input, option) =>
                 option.props.children
                   .toLowerCase()
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              <Option key={1} value={"Arts and Humanities"}>
-                Arts and Humanities
-              </Option>
-              <Option key={2} value={"Business"}>
-                Business
-              </Option>
-              <Option key={1} value={"Education"}>
-                Education
-              </Option>
-              <Option key={1} value={"Music"}>
-                Music
-              </Option>
-              <Option key={1} value={"Engineering"}>
-                Engineering
-              </Option>
-              <Option key={1} value={"Nursing"}>
-                Nursing
-              </Option>
-              <Option key={1} value={"Medicine"}>
-                Medicine
-              </Option>
-              <Option key={1} value={"Social Sciences"}>
-                Social Sciences
-              </Option>
-              <Option key={1} value={"Hard Sciences"}>
-                Hard Sciences
-              </Option>
+              {majors.map(major => {
+                return (
+                  <Option key={major.id} value={major.major}>
+                    {major.major}
+                  </Option>
+                );
+              })}
             </Select>
             <Tooltip title={text} placement="top">
               <Icon type="question-circle" />
@@ -178,7 +180,7 @@ function EntryForm() {
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              {cities.map(city => {
+              {newCities.map(city => {
                 return (
                   <Option key={city.id} value={city.city}>
                     {city.city}
