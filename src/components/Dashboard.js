@@ -5,7 +5,6 @@ import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
 import Menu from "antd/es/menu";
 import "antd/es/menu/style/css";
-import "antd/es/avatar/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Tooltip from "antd/es/tooltip";
@@ -19,6 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 //import { entriesIntToString } from "../utils/entriesIntToString";
 import PostGraduation from "./PostGraduation";
+import Income from "./Income";
 
 const { Content, Sider } = Layout;
 
@@ -47,8 +47,8 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting]);
 
-  console.log("isFetching", state.isFetching);
-  console.log("isPosting", state.isPosting);
+  // console.log("isFetching", state.isFetching);
+  // console.log("isPosting", state.isPosting);
 
   return (
     <Layout
@@ -140,7 +140,7 @@ function Dashboard() {
                       .colindex
                   )}
                 </h1>
-                <Tooltip title={"This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values."} placement="right">
+                <Tooltip title={"This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."} placement="right">
               <Icon type="question-circle" />
             </Tooltip>
               </div>
@@ -236,7 +236,7 @@ function Dashboard() {
         {active === "1" ? (
           <PostGraduation />
         ) : active === "2" ? (
-          <h1>income</h1>
+          <Income/>
         ) : active === "3" ? (
           <h1>expenses</h1>
         ) : active === "4" ? (

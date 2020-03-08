@@ -105,7 +105,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Select Your Education Level"
+              placeholder="Plans After High School?"
               optionFilterProp="children"
               onChange={onChangeOne}
               filterOption={(input, option) =>
@@ -137,7 +137,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Select Your City"
+              placeholder="What Major?"
               optionFilterProp="children"
               onChange={onChangeFour}
               filterOption={(input, option) =>
@@ -164,7 +164,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Select Your City"
+              placeholder="Where Do You Want to Live?"
               optionFilterProp="children"
               onChange={onChangeThree}
               filterOption={(input, option) =>
