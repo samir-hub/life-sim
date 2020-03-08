@@ -3,17 +3,26 @@ import PageHeader from "antd/es/page-header";
 import "antd/es/page-header/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
-import Tag from "antd/es/tag";
-import "antd/es/tag/style/css";
 import Typography from "antd/es/typography";
 import "antd/es/typography/style/css";
 import Row from "antd/es/row";
 import "antd/es/row/style/css";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import wallet from "../wallet.svg";
 
 const { Paragraph } = Typography;
 
 function Income() {
+
+  const state = useSelector(state => {
+    return {
+      formattedEntryData: state.formattedEntryData,
+      userInfo: state.userInfo,
+      isFetching: state.isFetching,
+      isPosting: state.isPosting
+    };
+  });
 
   const content = (
     <div className="content">
@@ -56,19 +65,41 @@ function Income() {
       </Row>
     );
   };
+
+  console.log('state in Income', state.userInfo)
+
   return (
     <StyledDiv>
       <PageHeader
-        title="Title"
+        title={<img
+          style={{ height: "50px", marginRight: "10px" }}
+          alt="wallet"
+          src={wallet}
+        />}
         className="site-page-header"
-        subTitle="This is a subtitle"
-        tags={<Tag color="blue">Running</Tag>}
         extra={[
-          <Button key="3">Operation</Button>,
-          <Button key="2">Operation</Button>,
-          <Button key="1" type="primary">
-            Primary
-          </Button>
+          <React.Fragment key="1">
+          <h3 key="1" style={{ margin: "0px", width: "100%" }}>
+            {` Est. Gross Monthly Income: $`} 
+          {state.isFetching ? (
+            <p>fetching</p>
+          ) : (
+            state.userInfo.details[state.userInfo.details.length - 1] &&
+            ((state.userInfo.details[state.userInfo.details.length - 1]
+              .avgmajor)/12).toFixed(2)
+          )}
+        </h3>
+        <h3 key="2" style={{ margin: "0px", width: "100%" }}>
+        {` Est. Net Monthly Income: $`} 
+      {state.isFetching ? (
+        <p>fetching</p>
+      ) : (
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        ((((state.userInfo.details[state.userInfo.details.length - 1]
+          .avgmajor)/12))*.85).toFixed(2)
+      )}
+    </h3>
+    </React.Fragment>
         ]}
       >
         <Content>{content}</Content>

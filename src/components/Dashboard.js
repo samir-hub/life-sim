@@ -24,7 +24,7 @@ const { Content, Sider } = Layout;
 
 function Dashboard() {
   // const [isCollapsed, setIsCollapsed] = useState({ collapsed: false });
-  const [active, setActive] = useState("1");
+  const [active, setActive] = useState("2");
 
   // const onCollapse = collapsed => {
   //   console.log(collapsed);
