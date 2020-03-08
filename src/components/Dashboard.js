@@ -24,7 +24,7 @@ const { Content, Sider } = Layout;
 
 function Dashboard() {
   // const [isCollapsed, setIsCollapsed] = useState({ collapsed: false });
-  const [active, setActive] = useState("2");
+  const [active, setActive] = useState("1");
 
   // const onCollapse = collapsed => {
   //   console.log(collapsed);
@@ -140,9 +140,14 @@ function Dashboard() {
                       .colindex
                   )}
                 </h1>
-                <Tooltip title={"This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."} placement="right">
-              <Icon type="question-circle" />
-            </Tooltip>
+                <Tooltip
+                  title={
+                    "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
+                  }
+                  placement="right"
+                >
+                  <Icon type="question-circle" />
+                </Tooltip>
               </div>
               <div
                 style={{
@@ -236,7 +241,7 @@ function Dashboard() {
         {active === "1" ? (
           <PostGraduation />
         ) : active === "2" ? (
-          <Income/>
+          <Income />
         ) : active === "3" ? (
           <h1>expenses</h1>
         ) : active === "4" ? (

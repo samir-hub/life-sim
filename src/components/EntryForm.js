@@ -16,7 +16,7 @@ import { postFormattedEntry } from "../actions";
 //import { entriesStringToInt } from "../utils/entriesStringToInt";
 import man_planning from "../man_planning.png";
 import newCities from "../data/newCities";
-import majors from '../data/majors';
+import majors from "../data/majors";
 
 const { Option } = Select;
 
@@ -70,7 +70,7 @@ function EntryForm() {
       major: value,
       avgmajor: result[0].avgmajor,
       lowmajor: result[0].lowmajor,
-      highmajor: result[0].highmajor,
+      highmajor: result[0].highmajor
     });
   }
 

@@ -7,7 +7,11 @@ function PostGraduation() {
     <ComponentWrapper>
       <TextWrapper>
         {/* <h1 className="postgraduation-title">Congratulations!</h1> */}
-        <h3 className="postgraduation-text"><span className="postgraduation-lorem">Congratulations,</span> you are well on your way to a successful start into adulthood. This is your dashboard. Use the sider to navigate and plan your future!</h3>
+        <h3 className="postgraduation-text">
+          <span className="postgraduation-lorem">Congratulations,</span> you are
+          well on your way to a successful start into adulthood. This is your
+          dashboard. Use the sider to navigate and plan your future!
+        </h3>
       </TextWrapper>
       <ImageWrapper>
         <img
@@ -42,11 +46,11 @@ const TextWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  .postgraduation-lorem{
-    color: #F38704; 
+  .postgraduation-lorem {
+    color: #f38704;
   }
-  .postgraduation-text{
-    font-size: 2rem; 
-    width: 70%; 
+  .postgraduation-text {
+    font-size: 2rem;
+    width: 70%;
   }
 `;
