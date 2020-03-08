@@ -14,25 +14,6 @@ import styled from "styled-components";
 const { Paragraph } = Typography;
 
 function Income() {
-  const IconLink = ({ src, text }) => (
-    <a
-      href="/"
-      style={{
-        marginRight: 16,
-        display: "flex",
-        alignItems: "center"
-      }}
-    >
-      <img
-        style={{
-          marginRight: 8
-        }}
-        src={src}
-        alt="start"
-      />
-      {text}
-    </a>
-  );
 
   const content = (
     <div className="content">
