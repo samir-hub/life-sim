@@ -64,40 +64,46 @@ function Income() {
 
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
+      title: 'Earnings',
+      dataIndex: 'earnings',
+      key: 'earnings',
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: 'rate',
+      dataIndex: 'rate',
+      key: 'rate',
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: 'hours',
+      dataIndex: 'hours',
+      key: 'hours',
+    },
+    {
+      title: 'total',
+      dataIndex: 'total',
+      key: 'total',
     },
   ];
   
   const data = [
     {
       key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
+      earnings: 'Regular',
+      rate: {},
+      hours: 'New York No. 1 Lake Park',
+      total: 4
 
     },
     {
       key: '2',
-      name: 'Jim Green',
+      name: 'PTO',
       age: 42,
       address: 'London No. 1 Lake Park',
     
     },
     {
       key: '3',
-      name: 'Joe Black',
+      name: 'Overtime',
       age: 32,
       address: 'Sidney No. 1 Lake Park',
 
