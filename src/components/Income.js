@@ -152,31 +152,36 @@ function Income() {
     {
       key: '1',
       statutory: 'Federal Income Tax',
-      rate: (state.userInfo.details[state.userInfo.details.length - 1]
-      .avgmajor / 1920).toFixed(2),
       hours: '',
-      total: (state.userInfo.details[state.userInfo.details.length - 1]
-        .avgmajor / 24).toFixed(2)
+      total: -(state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24 * 0.1).toFixed(2)
 
     },
     {
       key: '2',
       statutory: 'Social Security Tax',
-      rate: (state.userInfo.details[state.userInfo.details.length - 1]
-      .avgmajor / 1920).toFixed(2),
       hours: '',
-      total: (state.userInfo.details[state.userInfo.details.length - 1]
+      total: -(state.userInfo.details[state.userInfo.details.length - 1]
         .avgmajor / 24 * 0.062).toFixed(2)
     
     },
     {
       key: '3',
       statutory: 'Medicare Tax',
-      rate: (state.userInfo.details[state.userInfo.details.length - 1]
-      .avgmajor / 1920 * 1.5).toFixed(2),
       hours: '',
-      total: (state.userInfo.details[state.userInfo.details.length - 1]
+      total: -(state.userInfo.details[state.userInfo.details.length - 1]
         .avgmajor / 24 * 0.009).toFixed(2)
+
+    },
+    {
+      key: '4',
+      statutory: 'Net Pay',
+      hours: '',
+      total: ((state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24) - (state.userInfo.details[state.userInfo.details.length - 1]
+          .avgmajor / 24 * 0.1) - (state.userInfo.details[state.userInfo.details.length - 1]
+            .avgmajor / 24 * 0.062) - (state.userInfo.details[state.userInfo.details.length - 1]
+              .avgmajor / 24 * 0.009)).toFixed(2)
 
     }
   ];
@@ -222,58 +227,13 @@ function Income() {
                 ).toFixed(2)
               )}
             </h3>
-            <h3 key="3" style={{ margin: "0px", width: "100%" }}>
-              {` Est. Net Bi-Weekly Check: $`}
-              {state.isFetching ? (
-                <p>fetching</p>
-              ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
-                  (state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor /
-                    24) *
-                  0.85
-                ).toFixed(2)
-              )}
-            </h3>
           </React.Fragment>
         ]}
       >
         <Content>{content}</Content>
       </PageHeader>
       <Card className="income-card" hoverable={true}>
-        {/* <div className="income-earnings">
-          <h1 className="income-earnings-title">Earnings</h1>
-          <h3 className="income-earnings-subtitle">rate</h3>
-          <h3 className="income-earnings-subtitle">hours</h3>
-          <h3 className="income-earnings-subtitle">total</h3>
-        </div>
-        <div className="income-earnings">
-          <p className="second-row-title">Regular</p>
-          <p className="income-earnings-subtitle second-row">
-            {state.isFetching ? (
-              <p>fetching</p>
-            ) : (
-              state.userInfo.details[state.userInfo.details.length - 1] &&
-              (
-                state.userInfo.details[state.userInfo.details.length - 1]
-                  .avgmajor / 1920
-              ).toFixed(2)
-            )}
-          </p>
-          <p className="income-earnings-subtitle second-row">80.0</p>
-          <p className="income-earnings-subtitle second-row">
-            {state.isFetching ? (
-              <p>fetching</p>
-            ) : (
-              state.userInfo.details[state.userInfo.details.length - 1] &&
-              (
-                state.userInfo.details[state.userInfo.details.length - 1]
-                  .avgmajor / 24
-              ).toFixed(2)
-            )}
-          </p>
-        </div> */}
+        <h1>Bi-Weekly Pay Stub:</h1>
         <Table pagination={false} columns={columns} dataSource={data} />
         <Table pagination={false} columns={deduColumns} dataSource={deduData} />
       </Card>
@@ -293,8 +253,12 @@ const StyledDiv = styled.div`
   }
   .income-card {
     margin-top: 10px;
-    height: 70vh;
+    margin-bottom: 10px;
+    height: 85vh;
     width: 45%;
+    .ant-table-row:nth-child(4) {
+    background: lightgray;
+  }
     .income-earnings {
       display: flex;
       align-items: flex-end;
