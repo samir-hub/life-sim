@@ -114,6 +114,78 @@ function Income() {
       total: 0
 
     },
+    {
+      key: '4',
+      earnings: '',
+      rate: 'Gross Pay',
+      hours: '',
+      total: (state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)
+
+    }
+  ];
+
+  const deduColumns = [
+    {
+      title: 'Earnings',
+      dataIndex: 'earnings',
+      key: 'earnings',
+    },
+    {
+      title: 'rate',
+      dataIndex: 'rate',
+      key: 'rate',
+    },
+    {
+      title: 'hours',
+      dataIndex: 'hours',
+      key: 'hours',
+    },
+    {
+      title: 'total',
+      dataIndex: 'total',
+      key: 'total',
+    },
+  ];
+  
+  const deduData = [
+    {
+      key: '1',
+      earnings: 'Regular',
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920).toFixed(2),
+      hours: 80,
+      total: (state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)
+
+    },
+    {
+      key: '2',
+      earnings: 'PTO',
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920).toFixed(2),
+      hours: 0,
+      total: 0
+    
+    },
+    {
+      key: '3',
+      earnings: 'Overtime',
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920 * 1.5).toFixed(2),
+      hours: 0,
+      total: 0
+
+    },
+    {
+      key: '4',
+      earnings: '',
+      rate: 'Gross Pay',
+      hours: '',
+      total: (state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)
+
+    }
   ];
 
   console.log("state in Income", state.userInfo);
@@ -210,6 +282,7 @@ function Income() {
           </p>
         </div> */}
         <Table pagination={false} columns={columns} dataSource={data} />
+        <Table pagination={false} columns={deduColumns} dataSource={deduData} />
       </Card>
     </StyledDiv>
   );
