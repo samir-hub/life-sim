@@ -127,22 +127,22 @@ function Income() {
 
   const deduColumns = [
     {
-      title: 'Earnings',
-      dataIndex: 'earnings',
-      key: 'earnings',
+      title: 'Deductions',
+      dataIndex: 'deductions',
+      key: 'deductions',
     },
     {
-      title: 'rate',
-      dataIndex: 'rate',
-      key: 'rate',
+      title: 'Statutory',
+      dataIndex: 'statutory',
+      key: 'statutory',
     },
     {
-      title: 'hours',
+      title: '',
       dataIndex: 'hours',
       key: 'hours',
     },
     {
-      title: 'total',
+      title: '',
       dataIndex: 'total',
       key: 'total',
     },
