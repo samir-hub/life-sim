@@ -98,16 +98,20 @@ function Income() {
     },
     {
       key: '2',
-      name: 'PTO',
-      age: 42,
-      address: 'London No. 1 Lake Park',
+      earnings: 'PTO',
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920).toFixed(2),
+      hours: 0,
+      total: 0
     
     },
     {
       key: '3',
-      name: 'Overtime',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
+      earnings: 'Overtime',
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920 * 1.5).toFixed(2),
+      hours: 0,
+      total: 0
 
     },
   ];
