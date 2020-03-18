@@ -151,39 +151,32 @@ function Income() {
   const deduData = [
     {
       key: '1',
-      earnings: 'Regular',
+      statutory: 'Federal Income Tax',
       rate: (state.userInfo.details[state.userInfo.details.length - 1]
       .avgmajor / 1920).toFixed(2),
-      hours: 80,
+      hours: '',
       total: (state.userInfo.details[state.userInfo.details.length - 1]
         .avgmajor / 24).toFixed(2)
 
     },
     {
       key: '2',
-      earnings: 'PTO',
+      statutory: 'Social Security Tax',
       rate: (state.userInfo.details[state.userInfo.details.length - 1]
       .avgmajor / 1920).toFixed(2),
-      hours: 0,
-      total: 0
+      hours: '',
+      total: (state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24 * 0.062).toFixed(2)
     
     },
     {
       key: '3',
-      earnings: 'Overtime',
+      statutory: 'Medicare Tax',
       rate: (state.userInfo.details[state.userInfo.details.length - 1]
       .avgmajor / 1920 * 1.5).toFixed(2),
-      hours: 0,
-      total: 0
-
-    },
-    {
-      key: '4',
-      earnings: '',
-      rate: 'Gross Pay',
       hours: '',
       total: (state.userInfo.details[state.userInfo.details.length - 1]
-        .avgmajor / 24).toFixed(2)
+        .avgmajor / 24 * 0.009).toFixed(2)
 
     }
   ];
@@ -300,7 +293,7 @@ const StyledDiv = styled.div`
   }
   .income-card {
     margin-top: 10px;
-    height: 63vh;
+    height: 70vh;
     width: 45%;
     .income-earnings {
       display: flex;
