@@ -89,9 +89,11 @@ function Income() {
     {
       key: '1',
       earnings: 'Regular',
-      rate: {},
-      hours: 'New York No. 1 Lake Park',
-      total: 4
+      rate: (state.userInfo.details[state.userInfo.details.length - 1]
+      .avgmajor / 1920).toFixed(2),
+      hours: 80,
+      total: (state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)
 
     },
     {
