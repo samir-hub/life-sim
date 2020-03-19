@@ -38,7 +38,7 @@ function Income() {
         information to calculate an estimate that will help you plan for the
         future. Many different factors will determine your income. We use your
         information to calculate an estimate that will help you plan for the
-        future.
+        future. <strong>Gross Monthly Income</strong> refers to the estimated monthly income <strong>before</strong> any taxes or any other deductions are taken out. <strong>Net Monthly Income</strong> refers to the estimated monthly income <strong>after</strong> all taxes and other deductions are taken out. A <strong>Biweekly Pay Stub</strong> is a detailed view of your income and deductions for a two week period. Most people get paid every two weeks. 
       </Paragraph>
     </div>
   );
@@ -233,7 +233,7 @@ function Income() {
         <Content>{content}</Content>
       </PageHeader>
       <Card className="income-card" hoverable={true}>
-        <h1>Bi-Weekly Pay Stub:</h1>
+        <h1>Biweekly Pay Stub:</h1>
         <Table pagination={false} columns={columns} dataSource={data} />
         <Table pagination={false} columns={deduColumns} dataSource={deduData} />
       </Card>
