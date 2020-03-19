@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
@@ -16,9 +16,11 @@ import "antd/es/card/style/css";
 
 function Login(props) {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false)
 
   const handleSubmit = e => {
     e.preventDefault();
+    setIsLoading(true)
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
@@ -36,6 +38,7 @@ function Login(props) {
           )
           .then(res => {
             console.log(res.data);
+            setIsLoading(false)
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
             //   props.setLoginToken(true);
@@ -97,6 +100,7 @@ function Login(props) {
         </Form.Item>
         <Form.Item>
           <Button
+            loading={isLoading}
             style={{ width: "100%" }}
             type="primary"
             htmlType="submit"

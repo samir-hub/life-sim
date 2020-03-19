@@ -92,8 +92,8 @@ function Income() {
       rate: (state.userInfo.details[state.userInfo.details.length - 1]
       .avgmajor / 1920).toFixed(2),
       hours: 80,
-      total: (state.userInfo.details[state.userInfo.details.length - 1]
-        .avgmajor / 24).toFixed(2)
+      total: ((state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
     },
     {
@@ -119,8 +119,8 @@ function Income() {
       earnings: '',
       rate: 'Gross Pay',
       hours: '',
-      total: (state.userInfo.details[state.userInfo.details.length - 1]
-        .avgmajor / 24).toFixed(2)
+      total: ((state.userInfo.details[state.userInfo.details.length - 1]
+        .avgmajor / 24).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
     }
   ];
@@ -177,11 +177,11 @@ function Income() {
       key: '4',
       statutory: 'Net Pay',
       hours: '',
-      total: ((state.userInfo.details[state.userInfo.details.length - 1]
+      total: (((state.userInfo.details[state.userInfo.details.length - 1]
         .avgmajor / 24) - (state.userInfo.details[state.userInfo.details.length - 1]
           .avgmajor / 24 * 0.1) - (state.userInfo.details[state.userInfo.details.length - 1]
             .avgmajor / 24 * 0.062) - (state.userInfo.details[state.userInfo.details.length - 1]
-              .avgmajor / 24 * 0.009)).toFixed(2)
+              .avgmajor / 24 * 0.009)).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
     }
   ];
@@ -207,10 +207,10 @@ function Income() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
+                ((
                   state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor / 12
-                ).toFixed(2)
+                ).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
             </h3>
             <h3 key="2" style={{ margin: "0px", width: "100%" }}>
@@ -219,12 +219,12 @@ function Income() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
+                ((
                   (state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor /
                     12) *
                   0.85
-                ).toFixed(2)
+                ).toFixed(2)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
             </h3>
           </React.Fragment>
