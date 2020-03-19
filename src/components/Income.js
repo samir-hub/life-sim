@@ -186,8 +186,6 @@ function Income() {
     }
   ];
 
-  console.log("state in Income", state.userInfo);
-  
   return (
     <StyledDiv>
       <PageHeader
