@@ -11,7 +11,7 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import wallet from "../wallet.svg";
+import payment from "../payment.svg";
 
 const { Paragraph } = Typography;
 
@@ -69,7 +69,7 @@ function Expenses() {
           <img
             style={{ height: "50px", marginRight: "10px" }}
             alt="wallet"
-            src={wallet}
+            src={payment}
           />
         }
         className="site-page-header"
