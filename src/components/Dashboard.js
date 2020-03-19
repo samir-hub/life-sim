@@ -19,6 +19,7 @@ import { fetchEntry } from "../actions";
 //import { entriesIntToString } from "../utils/entriesIntToString";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
+import Expenses from "./Expenses";
 
 const { Content, Sider } = Layout;
 
@@ -71,7 +72,10 @@ function Dashboard() {
                   alt="graduation cap"
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                 />
-                <p style={{ margin: "0px", fontSize: "25px" }}>
+                <p
+                  className="dashboard-username"
+                  style={{ margin: "0px", fontSize: "25px" }}
+                >
                   {state.userInfo.username}
                 </p>
               </div>
@@ -243,7 +247,7 @@ function Dashboard() {
         ) : active === "2" ? (
           <Income />
         ) : active === "3" ? (
-          <h1>expenses</h1>
+          <Expenses />
         ) : active === "4" ? (
           <h1>budget</h1>
         ) : (
@@ -260,6 +264,9 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  .dashboard-username {
+    text-transform: capitalize;
+  }
 `;
 
 // const HeaderWrapper = styled.div`

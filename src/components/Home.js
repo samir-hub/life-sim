@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import guy_crossing_arms from "../guy_crossing_arms.png";
 import WrappedLogin from "./Login";
 
 function Home() {
-  const [loggedIn, setLoggedIn] = useState();
+  // const [loggedIn, setLoggedIn] = useState();
 
-  let token = localStorage.getItem("token");
+  // let token = localStorage.getItem("token");
 
-  useEffect(() => {
-    setLoggedIn(token);
-  }, [token]);
+  // useEffect(() => {
+  //   setLoggedIn(token);
+  // }, [token]);
   return (
     <div
       style={{

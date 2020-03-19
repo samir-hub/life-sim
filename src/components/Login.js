@@ -16,11 +16,11 @@ import "antd/es/card/style/css";
 
 function Login(props) {
   const history = useHistory();
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
-    setIsLoading(true)
+    setIsLoading(true);
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
@@ -38,7 +38,7 @@ function Login(props) {
           )
           .then(res => {
             console.log(res.data);
-            setIsLoading(false)
+            setIsLoading(false);
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
             //   props.setLoginToken(true);
@@ -49,7 +49,7 @@ function Login(props) {
             axiosWithAuth()
               .get("/users/getuserinfo")
               .then(res => {
-                console.log(res)
+                console.log(res);
                 localStorage.setItem("userid", res.data.userid);
                 //   props.setLoginToken(true);
                 history.push(`/entryform`);

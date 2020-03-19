@@ -215,6 +215,9 @@ const ComponentWrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
+  .ant-select-selection__placeholder{
+    color: #696969;
+  }
   .entryform-card {
     /* width: 40%;
   height: 70vh; */

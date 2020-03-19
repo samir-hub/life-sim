@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
@@ -15,8 +15,10 @@ import "antd/es/card/style/css";
 
 function Register(props) {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(false);
   const handleSubmit = e => {
     e.preventDefault();
+    setIsLoading(true);
     props.form.validateFields((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
@@ -28,6 +30,7 @@ function Register(props) {
           })
           .then(res => {
             console.log(res);
+            setIsLoading(false);
             history.push("/");
           })
           .catch(err => console.error(err));
@@ -86,6 +89,7 @@ function Register(props) {
           </Form.Item>
           <Form.Item>
             <Button
+              loading={isLoading}
               style={{ width: "100%" }}
               type="primary"
               htmlType="submit"
