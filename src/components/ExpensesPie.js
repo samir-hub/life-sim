@@ -29,14 +29,14 @@ const MoodPie = () => {
       restaurant: 48.56
     },
     medical: {
-      premium: null,
-      medExpenses: null
+      premiums: 50,
+      medExpenses: 20
     },
     transportation: {
-      carPayment: null,
-      insurance: null,
-      gas: null,
-      carMaintenance: null
+      carPayment: 300,
+      insurance: 150,
+      gas: 100,
+      carMaintenance: 20
     },
     necessities: {
       internet: 62.77,
