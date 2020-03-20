@@ -16,38 +16,60 @@ const MoodPie = () => {
     };
   });
 
+  const groceriesPrice = 471.34 * (state.isFetching
+    ? 1
+    : state.userInfo.details[state.userInfo.details.length - 1] &&
+     (state.userInfo.details[state.userInfo.details.length - 1].groceriesindex/100))
+
+  const formattedGroceries = parseFloat(groceriesPrice.toFixed(2)) 
+
+  const restaurantPrice = 48.56 * (state.isFetching
+    ? 1
+    : state.userInfo.details[state.userInfo.details.length - 1] &&
+     (state.userInfo.details[state.userInfo.details.length - 1].restaurantpriceindex/100))
+
+  const formattedRestaurant = parseFloat(restaurantPrice.toFixed(2)) 
+
   const expenses = {
     housing: {
       rent: state.isFetching
         ? 1000
         : state.userInfo.details[state.userInfo.details.length - 1] &&
           state.userInfo.details[state.userInfo.details.length - 1].avgrent,
-      utilities: 100
+      utilities: 100.00
     },
     food: {
-      groceries: 471.34,
-      restaurant: 48.56
+      groceries: formattedGroceries,
+      restaurant: formattedRestaurant
     },
     medical: {
-      premiums: 50,
-      medExpenses: 20
+      premiums: 50.00,
+      medExpenses: 20.00
     },
     transportation: {
-      carPayment: 300,
-      insurance: 150,
-      gas: 100,
-      carMaintenance: 20
+      carPayment: 300.00,
+      insurance: 150.00,
+      gas: 100.00,
+      carMaintenance: 20.00
     },
     necessities: {
       internet: 62.77,
-      cell: 114,
-      tv: 50,
-      studentLoans: null
+      cell: 114.00,
+      tv: 50.00,
+      studentLoans: state.isFetching
+        ? 200
+        : (state.userInfo.details[state.userInfo.details.length - 1] &&
+            state.userInfo.details[state.userInfo.details.length - 1]
+              .education === "Community College") ||
+          state.userInfo.details[state.userInfo.details.length - 1]
+            .education === "No College"
+        ? 0.00
+        : 271.00
     },
     personal: {
-      clothing: null,
-      entertainment: null,
-      other: null
+      clothing: 30.00,
+      entertainment: 50.00,
+      other: 0.00
     }
   };
 
@@ -55,12 +77,20 @@ const MoodPie = () => {
     datasets: [
       {
         data: [
-          state.isFetching
-            ? 1000
-            : state.userInfo.details[state.userInfo.details.length - 1] &&
-              state.userInfo.details[state.userInfo.details.length - 1].avgrent,
-          20,
-          30
+          expenses.housing.rent + expenses.housing.utilities,
+          parseFloat((expenses.food.groceries + expenses.food.restaurant).toFixed(2)),
+          expenses.medical.premiums + expenses.medical.medExpenses,
+          expenses.transportation.carMaintenance +
+            expenses.transportation.carPayment +
+            expenses.transportation.gas +
+            expenses.transportation.insurance,
+          expenses.necessities.cell +
+            expenses.necessities.internet +
+            expenses.necessities.studentLoans +
+            expenses.necessities.tv,
+          expenses.personal.clothing +
+            expenses.personal.entertainment +
+            expenses.personal.other
         ],
         backgroundColor: [
           "#00917A",
@@ -90,7 +120,7 @@ const MoodPie = () => {
     ]
   };
   const options = {
-    cutoutPercentage: 20,
+    cutoutPercentage: 50,
     legend: {
       display: false,
       position: "bottom",
@@ -101,27 +131,16 @@ const MoodPie = () => {
     }
   };
 
+  console.log(expenses);
+
   return (
     <div>
-      <PieChartH2>Expenses</PieChartH2>
+      <h1>Expenses</h1>
       <Pie height={400} width={400} data={data} options={options} />
       {/* <PieLegend totalMoods={totalMoods} /> */}
     </div>
   );
 };
 
-const PieChartH2 = styled.div`
-  height: 19px;
-  margin-left: 9px;
-  margin-bottom: 19px;
-
-  font-family: Fira Sans;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-
-  color: #0c423b;
-`;
 
 export default MoodPie;
