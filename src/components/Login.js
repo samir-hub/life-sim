@@ -23,7 +23,6 @@ function Login(props) {
     setIsLoading(true);
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         axios
           .post(
             "http://localhost:2019/login",
@@ -37,7 +36,6 @@ function Login(props) {
             }
           )
           .then(res => {
-            console.log(res.data);
             setIsLoading(false);
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
@@ -49,7 +47,6 @@ function Login(props) {
             axiosWithAuth()
               .get("/users/getuserinfo")
               .then(res => {
-                console.log(res);
                 localStorage.setItem("userid", res.data.userid);
                 //   props.setLoginToken(true);
                 history.push(`/entryform`);
