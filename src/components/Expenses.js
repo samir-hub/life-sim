@@ -7,11 +7,10 @@ import Typography from "antd/es/typography";
 import "antd/es/typography/style/css";
 import Row from "antd/es/row";
 import "antd/es/row/style/css";
-import Card from "antd/es/card";
-import "antd/es/card/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import payment from "../payment.svg";
+import ExpensesPie from './ExpensesPie';
 
 const { Paragraph } = Typography;
 
@@ -106,9 +105,7 @@ function Expenses() {
       >
         <Content>{content}</Content>
       </PageHeader>
-      <Card className="income-card" hoverable={true}>
-        
-      </Card>
+      <ExpensesPie/>
     </StyledDiv>
   );
 }
