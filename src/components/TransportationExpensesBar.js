@@ -6,7 +6,7 @@ import { HorizontalBar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 //import PieLegend from './PieLegend';
 
-const HousingExpensesBar = () => {
+const TransportationExpensesBar = () => {
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
@@ -80,19 +80,31 @@ const HousingExpensesBar = () => {
   };
 
   const data = {
-    labels: ["Housing"],
+    labels: ["Transport"],
     datasets: [
       {
-        label: "Rent",
-        backgroundColor: "#a88add",
+        label: "Car Payment",
+        backgroundColor: "#865794",
         stack: "2",
-        data: [expenses.housing.rent]
+        data: [expenses.transportation.carPayment]
       },
       {
-        label: "Utilities",
-        backgroundColor: "#0cc2aa",
+        label: "Insurance",
+        backgroundColor: "#AC7DBA",
         stack: "2",
-        data: [expenses.housing.utilities]
+        data: [expenses.transportation.insurance]
+      },
+      {
+        label: "Gas",
+        backgroundColor: "#D3A4E1",
+        stack: "2",
+        data: [expenses.transportation.gas]
+      },
+      {
+        label: "Car Maintenance",
+        backgroundColor: "#F9CAFF",
+        stack: "2",
+        data: [expenses.transportation.carMaintenance]
       }
     ]
   };
@@ -124,4 +136,4 @@ const HousingExpensesBar = () => {
   );
 };
 
-export default HousingExpensesBar;
+export default TransportationExpensesBar;

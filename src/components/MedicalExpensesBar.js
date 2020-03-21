@@ -84,13 +84,13 @@ const MedicalExpensesBar = () => {
     datasets: [
       {
         label: "Premiums",
-        backgroundColor: "#a88add",
+        backgroundColor: "#C95086",
         stack: "2",
         data: [expenses.medical.premiums]
       },
       {
         label: "Medical Expenses",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#FC83B9",
         stack: "2",
         data: [expenses.medical.medExpenses]
       }

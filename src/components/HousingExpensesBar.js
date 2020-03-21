@@ -84,13 +84,13 @@ const HousingExpensesBar = () => {
     datasets: [
       {
         label: "Rent",
-        backgroundColor: "#a88add",
+        backgroundColor: "#F38704",
         stack: "2",
         data: [expenses.housing.rent]
       },
       {
         label: "Utilities",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#FFBA37",
         stack: "2",
         data: [expenses.housing.utilities]
       }

@@ -84,13 +84,13 @@ const FoodExpensesBar = () => {
     datasets: [
       {
         label: "Groceries",
-        backgroundColor: "#a88add",
+        backgroundColor: "#F35B59",
         stack: "2",
         data: [expenses.food.groceries]
       },
       {
         label: "Restaurants",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#FF8E8C",
         stack: "2",
         data: [expenses.food.restaurant]
       }

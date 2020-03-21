@@ -83,26 +83,26 @@ const NecessitiesExpensesBar = () => {
     labels: ["Necessities"],
     datasets: [
       {
-        label: "Cell",
-        backgroundColor: "#a88add",
-        stack: "2",
-        data: [expenses.necessities.cell]
-      },
-      {
-        label: "Utilities",
-        backgroundColor: "#0cc2aa",
-        stack: "2",
-        data: [expenses.necessities.internet]
-      },
-      {
-        label: "Utilities",
-        backgroundColor: "#0cc2aa",
+        label: "Student Loans",
+        backgroundColor: "#475580",
         stack: "2",
         data: [expenses.necessities.studentLoans]
       },
       {
-        label: "Utilities",
-        backgroundColor: "#0cc2aa",
+        label: "Internet",
+        backgroundColor: "#6D7BA6",
+        stack: "2",
+        data: [expenses.necessities.internet]
+      },
+      {
+        label: "Cell",
+        backgroundColor: "#94A2CD",
+        stack: "2",
+        data: [expenses.necessities.cell]
+      },
+      {
+        label: "TV",
+        backgroundColor: "#BAC8F3",
         stack: "2",
         data: [expenses.necessities.tv]
       }
