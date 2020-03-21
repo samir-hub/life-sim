@@ -37,7 +37,7 @@ const Navigation = () => {
 
   return (
     <Layout className="layout">
-      <Header style={{ background: "#fff", display: 'flex', paddingLeft: '5px' }}>
+      <Header style={{ background: "#fff", display: 'flex', paddingLeft: '5px', paddingRight: '5px' }}>
         <LogoDiv >
           <img className="logo" alt="logo" src={path_logo}/>
         </LogoDiv>
@@ -99,7 +99,10 @@ const Navigation = () => {
               lineHeight: "64px",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              width: '100%',
+              borderBottom: '1px solid #e8e8e8',
+              height: '66px'
             }}
           >
             <Menu

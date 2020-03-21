@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import payment from "../payment.svg";
 import ExpensesPie from "./ExpensesPie";
+import ExpensesBar from "./ExpensesBar";
 import housing from "../housing.svg";
 import food from "../food.svg";
 import medical from "../medical.svg";
@@ -128,7 +129,7 @@ function Expenses() {
       <ExpensesDiv>
         <ExpensesPie />
         <Card className="expenses-card">
-      <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Housing</h4><img className="expenses-icon" alt="housing" src={housing}/></div></div>
+      <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Housing</h4><img className="expenses-icon" alt="housing" src={housing}/></div><ExpensesBar></ExpensesBar></div>
           <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Food</h4><img className="expenses-icon" alt="food" src={food}/></div></div>
           <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Medical</h4><img className="expenses-icon" alt="medical" src={medical}/></div></div>
           <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Transport</h4><img className="expenses-icon" alt="transportation" src={transportation}/></div></div>

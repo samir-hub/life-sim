@@ -1,12 +1,12 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 import React from "react";
-import { Pie } from "react-chartjs-2";
+import { HorizontalBar } from "react-chartjs-2";
 //import styled from "styled-components";
 import { useSelector } from "react-redux";
 //import PieLegend from './PieLegend';
 
-const ExpensesPie = () => {
+const ExpensesBar = () => {
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
@@ -145,9 +145,9 @@ const ExpensesPie = () => {
 
   return (
     <div>
-      <Pie height={400} width={400} data={data} options={options} />
+      <HorizontalBar height={400} width={400} data={data} options={options} />
     </div>
   );
 };
 
-export default ExpensesPie;
+export default ExpensesBar;
