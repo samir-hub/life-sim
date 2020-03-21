@@ -80,7 +80,7 @@ const TransportationExpensesBar = () => {
   };
 
   const data = {
-    labels: ["Transport"],
+    labels: ["Transport   "],
     datasets: [
       {
         label: "Car Payment",
@@ -124,14 +124,18 @@ const TransportationExpensesBar = () => {
           stacked: true
         }
       ]
-    }
+    },
+    tooltips: {
+      yAlign: 'above'
+  },
+  hover: { mode: null }
   };
 
   console.log(expenses);
 
   return (
     <div>
-      <HorizontalBar height={110} width={300} data={data} options={options} />
+      <HorizontalBar height={110} width={500} data={data} options={options} />
     </div>
   );
 };

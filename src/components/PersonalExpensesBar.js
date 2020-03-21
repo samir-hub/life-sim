@@ -80,7 +80,7 @@ const PersonalExpensesBar = () => {
   };
 
   const data = {
-    labels: ["Personal"],
+    labels: ["Personal    "],
     datasets: [
       {
         label: "Enterntainment",
@@ -118,14 +118,16 @@ const PersonalExpensesBar = () => {
           stacked: true
         }
       ]
-    }
+    },
+    tooltips: {
+      yAlign: 'above'
+  },
+  hover: { mode: null }
   };
-
-  console.log(expenses);
 
   return (
     <div>
-      <HorizontalBar height={110} width={300} data={data} options={options} />
+      <HorizontalBar height={110} width={500} data={data} options={options} />
     </div>
   );
 };

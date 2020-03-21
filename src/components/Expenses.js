@@ -42,7 +42,8 @@ function Expenses() {
     <div className="content">
       <Paragraph
         style={{
-          textAlign: "left"
+          textAlign: "left",
+          fontSize: '15px'
         }}
       >
         Many different factors will determine your income. We use your
