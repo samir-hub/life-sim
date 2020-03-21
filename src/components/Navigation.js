@@ -7,6 +7,8 @@ import Menu from "antd/es/menu";
 import "antd/es/menu/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
+import path_logo from '../path_logo.svg';
+import styled from "styled-components";
 
 const { Header } = Layout;
 
@@ -35,8 +37,10 @@ const Navigation = () => {
 
   return (
     <Layout className="layout">
-      <Header style={{ background: "#fff" }}>
-        <div className="logo" />
+      <Header style={{ background: "#fff", display: 'flex', paddingLeft: '5px' }}>
+        <LogoDiv >
+          <img className="logo" alt="logo" src={path_logo}/>
+        </LogoDiv>
 
         {loggedIn ? (
           <div
@@ -44,7 +48,10 @@ const Navigation = () => {
               lineHeight: "64px",
               display: "flex",
               justifyContent: "center",
-              alignItems: "center"
+              alignItems: "center",
+              width: '100%',
+              borderBottom: '1px solid #e8e8e8',
+              height: '66px'
             }}
           >
             <Menu
@@ -136,3 +143,10 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+const LogoDiv = styled.div`
+  .logo {
+    height: 60px; 
+    border-radius: 10px; 
+  }
+`;
