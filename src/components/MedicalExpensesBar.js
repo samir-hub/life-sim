@@ -6,7 +6,7 @@ import { HorizontalBar } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 //import PieLegend from './PieLegend';
 
-const ExpensesBar = () => {
+const MedicalExpensesBar = () => {
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
@@ -80,74 +80,46 @@ const ExpensesBar = () => {
   };
 
   const data = {
+    labels: ["Medical"],
     datasets: [
       {
-        data: [
-          expenses.housing.rent + expenses.housing.utilities,
-          parseFloat(
-            (expenses.food.groceries + expenses.food.restaurant).toFixed(2)
-          ),
-          expenses.medical.premiums + expenses.medical.medExpenses,
-          expenses.transportation.carMaintenance +
-            expenses.transportation.carPayment +
-            expenses.transportation.gas +
-            expenses.transportation.insurance,
-          expenses.necessities.cell +
-            expenses.necessities.internet +
-            expenses.necessities.studentLoans +
-            expenses.necessities.tv,
-          expenses.personal.clothing +
-            expenses.personal.entertainment +
-            expenses.personal.other
-        ],
-        backgroundColor: [
-          "#F38704",
-          "#F35B59",
-          "#C95086",
-          "#865794",
-          "#475580",
-          "#2F4858"
-        ],
-        hoverBackgroundColor: [
-          "#FF9411",
-          "#FF6866",
-          "#D65D93",
-          "#9364A1",
-          "#54628D",
-          "#3C5565"
-        ]
+        label: "Premiums",
+        backgroundColor: "#a88add",
+        stack: "2",
+        data: [expenses.medical.premiums]
+      },
+      {
+        label: "Medical Expenses",
+        backgroundColor: "#0cc2aa",
+        stack: "2",
+        data: [expenses.medical.medExpenses]
       }
-    ],
-
-    // These labels appear in the legend and in the tooltips when hovering different arcs
-    labels: [
-      "Housing",
-      "Food",
-      "Medical",
-      "Transportation",
-      "Other Necessities",
-      "Personal Expenses"
     ]
   };
+
   const options = {
-    cutoutPercentage: 50,
     legend: {
-      display: false,
-      position: "bottom",
-      labels: {
-        fontColor: "#333",
-        usePointStyle: true
-      }
+      display: false
+    },
+    scales: {
+      xAxes: [
+        {
+          stacked: true
+        }
+      ],
+      yAxes: [
+        {
+          stacked: true
+        }
+      ]
     }
   };
 
-  console.log(expenses);
-
   return (
     <div>
-      <HorizontalBar height={400} width={400} data={data} options={options} />
+      <HorizontalBar height={110} width={300} data={data} options={options} />
     </div>
   );
 };
 
-export default ExpensesBar;
+export default MedicalExpensesBar;
