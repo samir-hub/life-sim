@@ -13,6 +13,12 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import payment from "../payment.svg";
 import ExpensesPie from "./ExpensesPie";
+import housing from "../housing.svg";
+import food from "../food.svg";
+import medical from "../medical.svg";
+import transportation from "../transportation.svg";
+import necessities from "../necessities.svg";
+import personal from "../personal.svg";
 
 const { Paragraph } = Typography;
 
@@ -121,7 +127,14 @@ function Expenses() {
       </PageHeader>
       <ExpensesDiv>
         <ExpensesPie />
-        <Card className="expenses-card"></Card>
+        <Card className="expenses-card">
+          <div className="expenses-card-div"><img className="expenses-icon" alt="housing" src={housing}/></div>
+          <div className="expenses-card-div"><img className="expenses-icon" alt="food" src={food}/></div>
+          <div className="expenses-card-div"><img className="expenses-icon" alt="medical" src={medical}/></div>
+          <div className="expenses-card-div"><img className="expenses-icon" alt="transportation" src={transportation}/></div>
+          <div className="expenses-card-div"><img className="expenses-icon" alt="necessities" src={necessities}/></div>
+          <div className="expenses-card-div"><img className="expenses-icon" alt="personal" src={personal}/></div>
+        </Card>
       </ExpensesDiv>
     </StyledDiv>
   );
@@ -145,8 +158,21 @@ const ExpensesDiv = styled.div`
   align-content: center;
   justify-content: space-evenly;
   width: 100%;
-  height: 100%; 
+
+  .ant-card-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
   .expenses-card {
-    width: 45%;
+    .expenses-card-div {
+      width: 500px;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .expenses-icon {
+      height: 60px;
+    }
   }
 `;
