@@ -128,12 +128,12 @@ function Expenses() {
       <ExpensesDiv>
         <ExpensesPie />
         <Card className="expenses-card">
-          <div className="expenses-card-div"><img className="expenses-icon" alt="housing" src={housing}/></div>
-          <div className="expenses-card-div"><img className="expenses-icon" alt="food" src={food}/></div>
-          <div className="expenses-card-div"><img className="expenses-icon" alt="medical" src={medical}/></div>
-          <div className="expenses-card-div"><img className="expenses-icon" alt="transportation" src={transportation}/></div>
-          <div className="expenses-card-div"><img className="expenses-icon" alt="necessities" src={necessities}/></div>
-          <div className="expenses-card-div"><img className="expenses-icon" alt="personal" src={personal}/></div>
+      <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Housing</h4><img className="expenses-icon" alt="housing" src={housing}/></div></div>
+          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Food</h4><img className="expenses-icon" alt="food" src={food}/></div></div>
+          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Medical</h4><img className="expenses-icon" alt="medical" src={medical}/></div></div>
+          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Transport</h4><img className="expenses-icon" alt="transportation" src={transportation}/></div></div>
+          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Necessities</h4><img className="expenses-icon" alt="necessities" src={necessities}/></div></div>
+          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Personal</h4><img className="expenses-icon" alt="personal" src={personal}/></div></div>
         </Card>
       </ExpensesDiv>
     </StyledDiv>
@@ -166,13 +166,16 @@ const ExpensesDiv = styled.div`
   }
   .expenses-card {
     .expenses-card-div {
-      width: 500px;
+      width: 600px;
       display: flex;
       justify-content: flex-start;
+      .expenses-card-inner {
+        width: 70px; 
+      }
     }
 
     .expenses-icon {
-      height: 60px;
+      height: 40px;
     }
   }
 `;
