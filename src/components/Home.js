@@ -1,6 +1,10 @@
 import React from "react";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
+import Button from "antd/es/button";
+import "antd/es/button/style/css";
 import guy_crossing_arms from "../guy_crossing_arms.png";
 import WrappedLogin from "./Login";
+import styled from "styled-components";
 
 function Home() {
   // const [loggedIn, setLoggedIn] = useState();
@@ -10,23 +14,57 @@ function Home() {
   // useEffect(() => {
   //   setLoggedIn(token);
   // }, [token]);
+  const history = useHistory();
+  const handleClick = () => {
+    history.push('/login')
+  }
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-around",
-        alignItems: "center"
-      }}
-      className="home"
-    >
-      <WrappedLogin />
+    <HomeWrapper>
+      <div className="home-login">
+        <WrappedLogin />
+      </div>
       <img
-        style={{ height: "90vh" }}
+        className="home-image"
         alt="Guy crossing arms"
         src={guy_crossing_arms}
       ></img>
-    </div>
+      <div>
+        <h2>Plan out your future using MyPath. Let's get started!</h2>
+        <Button
+          onClick={handleClick}
+          type="primary"
+          shape="round"
+          icon="rocket"
+          size={"large"}
+          style={{ height: "50px", width: "200px" }}
+        >
+          Start
+        </Button>
+      </div>
+    </HomeWrapper>
   );
 }
 
 export default Home;
+
+const HomeWrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+    padding: 10px;
+  }
+  .home-login {
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  .home-image {
+    height: 90vh;
+    @media only screen and (max-width: 600px) {
+      height: 50vh;
+      margin-top: 40px;
+    }
+  }
+`;
