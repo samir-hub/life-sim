@@ -107,7 +107,7 @@ function Login(props) {
           <Form.Item>
             <Button
               loading={isLoading}
-              style={{ width: "100%" }}
+              style={{ width: "285px" }}
               type="primary"
               htmlType="submit"
               className="login-form-button"
@@ -143,14 +143,21 @@ const StyledDiv = styled.div`
 
 const WrapperDiv = styled.div`
   @media only screen and (max-width: 600px) {
-    width: 300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 20px; 
   }
   .login-card {
     width: 500px;
   }
   @media only screen and (max-width: 600px) {
     .login-card {
-    width: 300px;
+    width: 90%;
   }
+  }
+  .login-form {
+    width: 100%;
   }
 `;

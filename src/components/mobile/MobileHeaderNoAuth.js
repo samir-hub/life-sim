@@ -1,17 +1,25 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import path_logo from "../../path_logo.svg";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
 import styled from "styled-components";
 
 const MobileHeaderNoAuth = () => {
+  const location = useLocation();
   return (
     <MHWrapper className="mobile-header">
-      <NavLink to="/login">
-        <Icon className="login-icon" type="login" />
-      </NavLink>
-      <div className='mobile-logo'>
+      {location.pathname === "/" && (
+        <NavLink to="/login">
+          <Icon className="login-icon" type="login" />
+        </NavLink>
+      )}
+      {location.pathname === "/login" && (
+        <NavLink to="/">
+          <Icon className="login-icon" type="left-circle" />
+        </NavLink>
+      )}
+      <div className="mobile-logo">
         <img className="logo" src={path_logo} alt="logo" />
       </div>
     </MHWrapper>
@@ -33,17 +41,17 @@ const MHWrapper = styled.div`
   .login-icon {
     height: auto;
     transform: scale(2.2);
-    float: left; 
-    margin: 20px 0 0 20px; 
+    float: left;
+    margin: 20px 0 0 20px;
   }
   .mobile-logo {
     display: inline-block;
-    width: 50px; 
-  .logo {
-    display: inline-block;
-    height: auto;
-    border-radius: 10px;
-    float: center; 
-  }
+    width: 50px;
+    margin-right: 28px;
+    .logo {
+      display: inline-block;
+      height: auto;
+      border-radius: 10px;
+    }
   }
 `;
