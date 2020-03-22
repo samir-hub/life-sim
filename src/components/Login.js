@@ -25,7 +25,7 @@ function Login(props) {
       if (!err) {
         axios
           .post(
-            "http://localhost:2019/login",
+            "https://samirlilienfeld-mypath.herokuapp.com/login",
             `grant_type=password&username=${values.username}&password=${values.password}`,
             {
               headers: {
@@ -62,7 +62,7 @@ function Login(props) {
   return (
     <Card style={{ width: "500px" }}>
       <StyledDiv>
-        <h1 className="login-card-title">LifeSim</h1>
+        <h1 className="login-card-title">MyPath</h1>
         <p className="login-card-text">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad

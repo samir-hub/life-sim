@@ -149,7 +149,7 @@ export default Navigation;
 
 const LogoDiv = styled.div`
   .logo {
-    height: 60px; 
+    height: 50px; 
     border-radius: 10px; 
   }
 `;

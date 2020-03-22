@@ -9,7 +9,6 @@ export const fetchEntry = () => dispatch => {
   axiosWithAuth()
     .get(`/users/getuserinfo`)
         .then(res => {
-            console.log(res)
             dispatch({ type: FETCH_ENTRY, payload: res.data })
         })
         //.catch(err => dispatch({ type: FETCH_ENTRY_FAIL, payload: err }))

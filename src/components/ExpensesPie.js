@@ -124,7 +124,7 @@ const ExpensesPie = () => {
       "Housing",
       "Food",
       "Medical",
-      "Transportation",
+      "Transport",
       "Other Necessities",
       "Personal Expenses"
     ]
@@ -132,20 +132,19 @@ const ExpensesPie = () => {
   const options = {
     cutoutPercentage: 50,
     legend: {
-      display: false,
+      display: true,
       position: "bottom",
       labels: {
         fontColor: "#333",
-        usePointStyle: true
+        usePointStyle: true,
+        fontSize: 15
       }
     }
   };
 
-  console.log(expenses);
-
   return (
     <div>
-      <Pie height={400} width={400} data={data} options={options} />
+      <Pie  height={450} width={450} data={data} options={options} />
     </div>
   );
 };

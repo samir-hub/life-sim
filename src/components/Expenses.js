@@ -80,8 +80,6 @@ function Expenses() {
     );
   };
 
-  console.log("state in Expenses", state.userInfo);
-
   return (
     <StyledDiv>
       <PageHeader

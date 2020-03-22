@@ -24,13 +24,8 @@ import Expenses from "./Expenses";
 const { Content, Sider } = Layout;
 
 function Dashboard() {
-  // const [isCollapsed, setIsCollapsed] = useState({ collapsed: false });
   const [active, setActive] = useState("1");
 
-  // const onCollapse = collapsed => {
-  //   console.log(collapsed);
-  //   setIsCollapsed({ collapsed });
-  // };
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,

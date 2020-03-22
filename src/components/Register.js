@@ -21,15 +21,13 @@ function Register(props) {
     setIsLoading(true);
     props.form.validateFields((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         axios
-          .post("http://localhost:2019/createnewuser", {
+          .post("https://samirlilienfeld-mypath.herokuapp.com/createnewuser", {
             username: values.username,
             password: values.password,
             primaryemail: values.primaryemail
           })
           .then(res => {
-            console.log(res);
             setIsLoading(false);
             history.push("/");
           })
