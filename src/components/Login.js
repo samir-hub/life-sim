@@ -60,55 +60,65 @@ function Login(props) {
   const { getFieldDecorator } = props.form;
 
   return (
-    <Card style={{ width: "500px" }}>
-      <StyledDiv>
-        <h1 className="login-card-title">MyPath</h1>
-        <p className="login-card-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
-        </p>
-      </StyledDiv>
-      <Form
-        style={{ width: "300px", margin: "0 auto" }}
-        onSubmit={handleSubmit}
-        className="login-form"
-      >
-        <Form.Item>
-          {getFieldDecorator("username", {
-            rules: [{ required: true, message: "Please input your username!" }]
-          })(
-            <Input
-              prefix={<Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />}
-              placeholder="Username"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          {getFieldDecorator("password", {
-            rules: [{ required: true, message: "Please input your Password!" }]
-          })(
-            <Input
-              prefix={<Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />}
-              type="password"
-              placeholder="Password"
-            />
-          )}
-        </Form.Item>
-        <Form.Item>
-          <Button
-            loading={isLoading}
-            style={{ width: "100%" }}
-            type="primary"
-            htmlType="submit"
-            className="login-form-button"
-          >
-            Log in
-          </Button>
-          Or <NavLink to="/register">register now!</NavLink>
-        </Form.Item>
-      </Form>
-    </Card>
+    <WrapperDiv>
+      <Card className="login-card">
+        <StyledDiv>
+          <h1 className="login-card-title">MyPath</h1>
+          <p className="login-card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+          </p>
+        </StyledDiv>
+        <Form
+          style={{ width: "300px", margin: "0 auto" }}
+          onSubmit={handleSubmit}
+          className="login-form"
+        >
+          <Form.Item>
+            {getFieldDecorator("username", {
+              rules: [
+                { required: true, message: "Please input your username!" }
+              ]
+            })(
+              <Input
+                prefix={
+                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                placeholder="Username"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            {getFieldDecorator("password", {
+              rules: [
+                { required: true, message: "Please input your Password!" }
+              ]
+            })(
+              <Input
+                prefix={
+                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                type="password"
+                placeholder="Password"
+              />
+            )}
+          </Form.Item>
+          <Form.Item>
+            <Button
+              loading={isLoading}
+              style={{ width: "100%" }}
+              type="primary"
+              htmlType="submit"
+              className="login-form-button"
+            >
+              Log in
+            </Button>
+            Or <NavLink to="/register">register now!</NavLink>
+          </Form.Item>
+        </Form>
+      </Card>
+    </WrapperDiv>
   );
 }
 
@@ -128,5 +138,19 @@ const StyledDiv = styled.div`
   .login-card-text {
     width: 80%;
     font-size: 17px;
+  }
+`;
+
+const WrapperDiv = styled.div`
+  @media only screen and (max-width: 600px) {
+    width: 300px;
+  }
+  .login-card {
+    width: 500px;
+  }
+  @media only screen and (max-width: 600px) {
+    .login-card {
+    width: 300px;
+  }
   }
 `;
