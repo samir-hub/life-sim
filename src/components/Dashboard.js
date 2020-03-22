@@ -51,7 +51,7 @@ function Dashboard() {
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
-      <Sider theme="light">
+      <Sider breakpoint="lg" collapsedWidth="0" theme="light">
         <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
           {state.userInfo && state.userInfo.details && (
             <StyledDiv key={1}>

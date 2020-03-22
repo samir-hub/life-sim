@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import path_logo from "../../path_logo.svg";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
@@ -7,6 +7,13 @@ import styled from "styled-components";
 
 const MobileHeaderNoAuth = () => {
   const location = useLocation();
+  const history = useHistory();
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userid");
+    localStorage.removeItem("username");
+    history.push("/");
+  };
   return (
     <MHWrapper className="mobile-header">
       {location.pathname === "/" && (
@@ -18,6 +25,9 @@ const MobileHeaderNoAuth = () => {
         <NavLink to="/">
           <Icon className="login-icon" type="left-circle" />
         </NavLink>
+      )}
+      {location.pathname !== "/login" && location.pathname !== "/" && (
+        <Icon onClick={handleLogout} className="login-icon" type="logout" />
       )}
       <div className="mobile-logo">
         <img className="logo" src={path_logo} alt="logo" />

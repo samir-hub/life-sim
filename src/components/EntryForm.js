@@ -105,7 +105,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Plans After High School?"
+              placeholder="College Plans?"
               optionFilterProp="children"
               onChange={onChangeOne}
               filterOption={(input, option) =>
@@ -164,7 +164,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Where Do You Want to Live?"
+              placeholder="Where Will You Live?"
               optionFilterProp="children"
               onChange={onChangeThree}
               filterOption={(input, option) =>
@@ -205,6 +205,9 @@ function EntryForm() {
 export default EntryForm;
 
 const ImageWrapper = styled.div`
+ @media only screen and (max-width: 600px) {
+      display: none; 
+    }
   .entryform-image {
     height: 680px;
   }
@@ -224,17 +227,27 @@ const ComponentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
-
+    @media only screen and (max-width: 600px) {
+      width: 90%;
+      margin-top: 40px; 
+    }
     .userentry-form {
       display: flex;
       flex-direction: column;
     }
     .entryform-select {
-      width: 70%;
+      width: 100%;
       margin: 50px;
     }
     .entryform-select-div {
       width: 100%;
+      @media only screen and (max-width: 600px) {
+      display: flex; 
+      align-items: center;
+      .anticon-question-circle {
+        display: none; 
+      }
+    }
     }
   }
 `;

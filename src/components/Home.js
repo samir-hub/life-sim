@@ -28,7 +28,7 @@ function Home() {
         alt="Guy crossing arms"
         src={guy_crossing_arms}
       ></img>
-      <div>
+      <div className="home-mobile">
         <h2>Plan out your future using MyPath. Let's get started!</h2>
         <Button
           onClick={handleClick}
@@ -65,6 +65,12 @@ const HomeWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       height: 50vh;
       margin-top: 40px;
+    }
+  }
+  .home-mobile {
+    display: none; 
+    @media only screen and (max-width: 600px) {
+      display: block; 
     }
   }
 `;
