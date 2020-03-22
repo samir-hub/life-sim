@@ -4,6 +4,7 @@ import path_logo from "../../path_logo.svg";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
 import styled from "styled-components";
+import MobileMenu from "../mobile/MobileMenu";
 
 const MobileHeaderNoAuth = () => {
   const location = useLocation();
@@ -32,6 +33,9 @@ const MobileHeaderNoAuth = () => {
       <div className="mobile-logo">
         <img className="logo" src={path_logo} alt="logo" />
       </div>
+      <div className="mobile-menu">
+      <MobileMenu/>
+      </div>
     </MHWrapper>
   );
 };
@@ -57,11 +61,15 @@ const MHWrapper = styled.div`
   .mobile-logo {
     display: inline-block;
     width: 50px;
-    margin-right: 28px;
+    margin-left: 28px;
     .logo {
       display: inline-block;
       height: auto;
       border-radius: 10px;
     }
+  }
+  .mobile-menu {
+    float: right;
+    margin: 10px 20px 0 0;
   }
 `;
