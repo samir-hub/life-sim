@@ -2,7 +2,7 @@
 /* eslint-disable array-callback-return */
 import React from "react";
 import { Pie } from "react-chartjs-2";
-//import styled from "styled-components";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 //import PieLegend from './PieLegend';
 
@@ -142,11 +142,48 @@ const ExpensesPie = () => {
     }
   };
 
+  const mobileOptions = {
+    responsive: false, 
+    cutoutPercentage: 50,
+    legend: {
+      display: false,
+      position: "bottom",
+      labels: {
+        fontColor: "#333",
+        usePointStyle: true,
+        fontSize: 15
+      }
+    }
+  };
+
   return (
-    <div>
-      <Pie  height={450} width={450} data={data} options={options} />
-    </div>
+    <WrapperDiv>
+      <div className="desktop">
+        <Pie height={450} width={450} data={data} options={options} />
+      </div>
+      <div className="mobile">
+        <Pie height={300} width={300} data={data} options={mobileOptions} />
+      </div>
+    </WrapperDiv>
   );
 };
 
 export default ExpensesPie;
+
+const WrapperDiv = styled.div`
+  .desktop {
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  .mobile {
+    display: none;
+    @media only screen and (max-width: 600px) {
+      display: block;
+      
+    }
+    canvas {
+      margin: 0 auto; 
+    }
+  }
+`;
