@@ -344,7 +344,7 @@ const StyledDiv = styled.div`
     @media only screen and (max-width: 600px) {
       width: auto;
       border: none; 
-      box-shadow: none; 
+      box-shadow: none;
     }
     .ant-table-row:nth-child(4) {
       background: lightgray;

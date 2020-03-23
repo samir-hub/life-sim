@@ -43,7 +43,7 @@ function Expenses() {
       <Paragraph
         style={{
           textAlign: "left",
-          fontSize: '15px'
+          fontSize: "15px"
         }}
       >
         Many different factors will determine your income. We use your
@@ -86,14 +86,15 @@ function Expenses() {
         title={
           <img
             style={{ height: "50px", marginRight: "10px" }}
-            alt="wallet"
+            alt="payment"
             src={payment}
+            className="income-icon"
           />
         }
         className="site-page-header"
         extra={[
           <React.Fragment key="1">
-            <h3 key="1" style={{ margin: "0px", width: "100%" }}>
+            <h3 className="income-h3" key="1"  style={{ margin: "0px", width: "100%" }}>
               {` Est. Gross Monthly Income: $`}
               {state.isFetching ? (
                 <p>fetching</p>
@@ -108,7 +109,7 @@ function Expenses() {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
             </h3>
-            <h3 key="2" style={{ margin: "0px", width: "100%" }}>
+            <h3 className="income-h3" key="2"  style={{ margin: "0px", width: "100%" }}>
               {` Est. Net Monthly Income: $`}
               {state.isFetching ? (
                 <p>fetching</p>
@@ -133,12 +134,56 @@ function Expenses() {
       <ExpensesDiv>
         <ExpensesPie />
         <Card className="expenses-card">
-      <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Housing</h4><img className="expenses-icon" alt="housing" src={housing}/></div><HousingExpensesBar/></div>
-          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Food</h4><img className="expenses-icon" alt="food" src={food}/></div><FoodExpensesBar/></div>
-          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Medical</h4><img className="expenses-icon" alt="medical" src={medical}/></div><MedicalExpensesBar/></div>
-          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Transport</h4><img className="expenses-icon" alt="transportation" src={transportation}/></div><TransportationExpensesBar/></div>
-          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Necessities</h4><img className="expenses-icon" alt="necessities" src={necessities}/></div><NecessitiesExpensesBar/></div>
-          <div className="expenses-card-div"><div className="expenses-card-inner"><h4>Personal</h4><img className="expenses-icon" alt="personal" src={personal}/></div><PersonalExpensesBar/></div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Housing</h4>
+              <img className="expenses-icon" alt="housing" src={housing} />
+            </div>
+            <HousingExpensesBar />
+          </div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Food</h4>
+              <img className="expenses-icon" alt="food" src={food} />
+            </div>
+            <FoodExpensesBar />
+          </div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Medical</h4>
+              <img className="expenses-icon" alt="medical" src={medical} />
+            </div>
+            <MedicalExpensesBar />
+          </div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Transport</h4>
+              <img
+                className="expenses-icon"
+                alt="transportation"
+                src={transportation}
+              />
+            </div>
+            <TransportationExpensesBar />
+          </div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Necessities</h4>
+              <img
+                className="expenses-icon"
+                alt="necessities"
+                src={necessities}
+              />
+            </div>
+            <NecessitiesExpensesBar />
+          </div>
+          <div className="expenses-card-div">
+            <div className="expenses-card-inner">
+              <h4>Personal</h4>
+              <img className="expenses-icon" alt="personal" src={personal} />
+            </div>
+            <PersonalExpensesBar />
+          </div>
         </Card>
       </ExpensesDiv>
     </StyledDiv>
@@ -151,10 +196,43 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .income-h3 {
+    margin: 0;
+    width: 100%;
+    @media only screen and (max-width: 600px) {
+      width: 60%;
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+  .income-icon {
+    height: 50px;
+    margin-right: 10px;
+    @media only screen and (max-width: 600px) {
+      height: 40px;
+    }
+  }
   .ant-page-header {
     margin-top: 13px;
     margin-bottom: 20px;
     border: 1px solid #e8e8e8;
+  }
+  .ant-page-header-heading {
+    @media only screen and (max-width: 600px) {
+      display: flex;
+      align-content: center;
+    }
+  }
+  .ant-page-header-content {
+    @media only screen and (max-width: 600px) {
+      height: 100px;
+      overflow-y: scroll;
+    }
+  }
+  .ant-page-header-heading-extra {
+    @media only screen and (max-width: 600px) {
+      padding: 0;
+    }
   }
 `;
 
@@ -163,6 +241,9 @@ const ExpensesDiv = styled.div`
   align-content: center;
   justify-content: space-evenly;
   width: 100%;
+  @media only screen and (max-width: 600px) {
+      flex-direction: column; 
+    }
 
   .ant-card-body {
     height: 100%;
@@ -175,7 +256,7 @@ const ExpensesDiv = styled.div`
       display: flex;
       justify-content: flex-start;
       .expenses-card-inner {
-        width: 70px; 
+        width: 70px;
       }
     }
 

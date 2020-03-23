@@ -2,7 +2,7 @@
 /* eslint-disable array-callback-return */
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
-//import styled from "styled-components";
+import styled from "styled-components";
 import { useSelector } from "react-redux";
 //import PieLegend from './PieLegend';
 
@@ -80,7 +80,6 @@ const NecessitiesExpensesBar = () => {
   };
 
   const data = {
-    labels: ["Necessities"],
     datasets: [
       {
         label: "Student Loans",
@@ -132,10 +131,29 @@ const NecessitiesExpensesBar = () => {
   };
 
   return (
-    <div>
-      <HorizontalBar height={110} width={500} data={data} options={options} />
-    </div>
+    <WrapperDiv>
+      <div className="desktop">
+        <HorizontalBar height={110} width={500} data={data} options={options} />
+      </div>
+      <div className="mobile">
+        <HorizontalBar height={110} width={250} data={data} options={options} />
+      </div>
+    </WrapperDiv>
   );
 };
 
 export default NecessitiesExpensesBar;
+
+const WrapperDiv = styled.div`
+  .desktop {
+    @media only screen and (max-width: 600px) {
+      display: none; 
+    }
+  }
+  .mobile {
+    display: none; 
+    @media only screen and (max-width: 600px) {
+      display: block; 
+    }
+  }
+`;
