@@ -54,6 +54,7 @@ const HomeWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     padding: 10px;
+    height: 80vh; 
   }
   .home-login {
     @media only screen and (max-width: 600px) {

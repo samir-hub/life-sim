@@ -6,7 +6,6 @@ function PostGraduation() {
   return (
     <ComponentWrapper>
       <div className="pg-text">
-        {/* <h1 className="postgraduation-title">Congratulations!</h1> */}
         <h3 className="postgraduation-text">
           <span className="postgraduation-lorem">Congratulations,</span> you are
           well on your way to a successful start into adulthood. This is your
@@ -33,8 +32,9 @@ const ComponentWrapper = styled.div`
   height: 100%;
   @media only screen and (max-width: 600px) {
     flex-direction: column;
-    height: 80%; 
     min-width: 375px; 
+    justify-content: space-evenly; 
+    height: 80vh; 
 
   }
   .pg-text {
@@ -45,10 +45,8 @@ const ComponentWrapper = styled.div`
     width: 100%;
     height: 100%;
     @media only screen and (max-width: 600px) {
-      justify-content: flex-start;
-      height: 50%; 
-      margin-bottom: 30px; 
-      padding-top: 60px; 
+      height: 40%; 
+      justify-content: flex-start; 
     }
     .postgraduation-lorem {
       color: #f38704;

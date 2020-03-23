@@ -85,7 +85,6 @@ function Expenses() {
       <PageHeader
         title={
           <img
-            style={{ height: "50px", marginRight: "10px" }}
             alt="payment"
             src={payment}
             className="income-icon"
