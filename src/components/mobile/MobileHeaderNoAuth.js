@@ -70,6 +70,6 @@ const MHWrapper = styled.div`
   }
   .mobile-menu {
     float: right;
-    margin: 10px 20px 0 0;
+    margin: 10px 10px 0 0;
   }
 `;
