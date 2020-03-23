@@ -10,6 +10,7 @@ body {
 @media only screen and (max-width: 991px) {
   body {
     -webkit-user-select: none;
+    -webkit-touch-callout: none;
   }
 }
 

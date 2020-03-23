@@ -39,7 +39,7 @@ function Register(props) {
 
   return (
     <DivWrapper>
-      <Card style={{ width: "500px" }}>
+      <Card className="register-card">
         <StyledDiv>
           <h1 className="register-card-title">Create an Account</h1>
         </StyledDiv>
@@ -111,6 +111,9 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @media only screen and (max-width: 600px) {
+    height: 150px;
+  }
   .register-card-title {
     font-size: 40px;
   }
@@ -121,4 +124,15 @@ const DivWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  @media only screen and (max-width: 600px) {
+    margin-top: 20px;
+  }
+  .register-card {
+    width: 500px;
+  }
+  @media only screen and (max-width: 600px) {
+    .register-card {
+      width: 90%;
+    }
+  }
 `;
