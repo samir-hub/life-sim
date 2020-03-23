@@ -34,7 +34,7 @@ const MobileHeaderNoAuth = () => {
         <img className="logo" src={path_logo} alt="logo" />
       </div>
       <div className="mobile-menu">
-      <MobileMenu/>
+        <MobileMenu />
       </div>
     </MHWrapper>
   );
@@ -47,24 +47,32 @@ const MHWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     display: inline-block;
     width: 100%;
-    padding-top: 6px;
+    padding-top: 10px;
     padding-bottom: 6px;
     border-bottom: 0.05px solid gray;
     border-radius: 5px;
+    position: relative;
   }
   .login-icon {
     height: auto;
-    transform: scale(2.2);
+    transform: scale(2.5);
     float: left;
     margin: 20px 0 0 20px;
+    
   }
   .mobile-logo {
     display: inline-block;
     width: 50px;
-    margin-left: 28px;
+    height: 50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    top: 50%;
+    margin-top: -25px;
+
     .logo {
-      display: inline-block;
-      height: auto;
+      /* display: inline-block;
+      height: auto; */
       border-radius: 10px;
     }
   }
