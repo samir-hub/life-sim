@@ -192,7 +192,7 @@ function Income() {
       <PageHeader
         title={
           <img
-            style={{ height: "50px", marginRight: "10px" }}
+            className="income-icon"
             alt="wallet"
             src={wallet}
           />
@@ -246,6 +246,13 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .income-icon {
+    height: 50px; 
+    margin-right: 10px; 
+    @media only screen and (max-width: 600px) {
+      height: 40px;  
+    }
+  }
   .ant-page-header {
     margin-top: 13px;
     border: 1px solid #e8e8e8;
