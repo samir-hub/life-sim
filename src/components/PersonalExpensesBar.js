@@ -119,7 +119,10 @@ const PersonalExpensesBar = () => {
       ]
     },
     tooltips: {
-      yAlign: 'above'
+      yAlign: 'above',
+      titleFontSize: 0,
+      titleSpacing: 0,
+      titleMarginBottom: 0
   },
   hover: { mode: null }
   };
@@ -130,7 +133,7 @@ const PersonalExpensesBar = () => {
         <HorizontalBar height={110} width={500} data={data} options={options} />
       </div>
       <div className="mobile">
-        <HorizontalBar height={110} width={250} data={data} options={options} />
+        <HorizontalBar height={110} width={275} data={data} options={options} />
       </div>
     </WrapperDiv>
   );

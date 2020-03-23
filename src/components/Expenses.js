@@ -249,6 +249,9 @@ const ExpensesDiv = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 600px) {
+      padding: 15px 0; 
+    }
   }
   .expenses-card {
     .expenses-card-div {

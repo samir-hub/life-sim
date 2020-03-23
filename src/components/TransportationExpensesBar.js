@@ -125,7 +125,10 @@ const TransportationExpensesBar = () => {
       ]
     },
     tooltips: {
-      yAlign: 'above'
+      yAlign: 'above',
+      titleFontSize: 0,
+      titleSpacing: 0,
+      titleMarginBottom: 0
   },
   hover: { mode: null }
   };
@@ -136,7 +139,7 @@ const TransportationExpensesBar = () => {
       <HorizontalBar height={110} width={500} data={data} options={options} />
     </div>
     <div className="mobile">
-      <HorizontalBar height={110} width={250} data={data} options={options} />
+      <HorizontalBar height={110} width={275} data={data} options={options} />
     </div>
   </WrapperDiv>
   );
@@ -145,6 +148,7 @@ const TransportationExpensesBar = () => {
 export default TransportationExpensesBar;
 
 const WrapperDiv = styled.div`
+
   .desktop {
     @media only screen and (max-width: 600px) {
       display: none; 
@@ -155,5 +159,6 @@ const WrapperDiv = styled.div`
     @media only screen and (max-width: 600px) {
       display: block; 
     }
+
   }
 `;
