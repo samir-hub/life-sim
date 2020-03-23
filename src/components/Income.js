@@ -330,13 +330,21 @@ const StyledDiv = styled.div`
       padding: 0;
     }
   }
+  .ant-card-body {
+    @media only screen and (max-width: 600px) {
+      width: 90%;
+      
+    }
+  }
   .income-card {
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 85vh;
+    height: auto;
     width: 45%;
     @media only screen and (max-width: 600px) {
-      width: 95%;
+      width: auto;
+      border: none; 
+      box-shadow: none; 
     }
     .ant-table-row:nth-child(4) {
       background: lightgray;

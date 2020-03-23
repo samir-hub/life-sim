@@ -60,7 +60,7 @@ function MobileMenu() {
 
   return (
     <div id="components-dropdown-demo-dropdown-button">
-      <Dropdown overlay={menu}>
+      <Dropdown trigger={['click']} overlay={menu}>
         <Button>
           <Icon type="menu" />
         </Button>
