@@ -38,6 +38,69 @@ function Expenses() {
     };
   });
 
+  const groceriesPrice =
+    471.34 *
+    (state.isFetching
+      ? 1
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1]
+          .groceriesindex / 100);
+
+  const formattedGroceries = parseFloat(groceriesPrice.toFixed(2));
+
+  const restaurantPrice =
+    48.56 *
+    (state.isFetching
+      ? 1
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1]
+          .restaurantpriceindex / 100);
+
+  const formattedRestaurant = parseFloat(restaurantPrice.toFixed(2));
+
+  const expenses = {
+    housing: {
+      rent: state.isFetching
+        ? 1000
+        : state.userInfo.details[state.userInfo.details.length - 1] &&
+          state.userInfo.details[state.userInfo.details.length - 1].avgrent,
+      utilities: 100.0
+    },
+    food: {
+      groceries: formattedGroceries,
+      restaurant: formattedRestaurant
+    },
+    medical: {
+      premiums: 50.0,
+      medExpenses: 20.0
+    },
+    transportation: {
+      carPayment: 300.0,
+      insurance: 150.0,
+      gas: 100.0,
+      carMaintenance: 20.0
+    },
+    necessities: {
+      internet: 62.77,
+      cell: 114.0,
+      tv: 50.0,
+      studentLoans: state.isFetching
+        ? 200
+        : (state.userInfo.details[state.userInfo.details.length - 1] &&
+            state.userInfo.details[state.userInfo.details.length - 1]
+              .education === "Community College") ||
+          state.userInfo.details[state.userInfo.details.length - 1]
+            .education === "No College"
+        ? 0.0
+        : 271.0
+    },
+    personal: {
+      clothing: 30.0,
+      entertainment: 50.0,
+      other: 0.0
+    }
+  };
+
   const content = (
     <div className="content">
       <Paragraph
@@ -46,17 +109,7 @@ function Expenses() {
           fontSize: "15px"
         }}
       >
-        Many different factors will determine your income. We use your
-        information to calculate an estimate that will help you plan for the
-        future. Many different factors will determine your income. We use your
-        information to calculate an estimate that will help you plan for the
-        future. <strong>Gross Monthly Income</strong> refers to the estimated
-        monthly income <strong>before</strong> any taxes or any other deductions
-        are taken out. <strong>Net Monthly Income</strong> refers to the
-        estimated monthly income <strong>after</strong> all taxes and other
-        deductions are taken out. A <strong>Biweekly Pay Stub</strong> is a
-        detailed view of your income and deductions for a two week period. Most
-        people get paid every two weeks.
+        A chart is worth a thousand words! The pie chart below shows your estimated expenses broken down by category. The bar charts further break down each category. You can hover or tap on each slice/section to see the numbers for all charts.
       </Paragraph>
     </div>
   );
@@ -83,32 +136,15 @@ function Expenses() {
   return (
     <StyledDiv>
       <PageHeader
-        title={
-          <img
-            alt="payment"
-            src={payment}
-            className="income-icon"
-          />
-        }
+        title={<img alt="payment" src={payment} className="income-icon" />}
         className="site-page-header"
         extra={[
           <React.Fragment key="1">
-            <h3 className="income-h3" key="1"  style={{ margin: "0px", width: "100%" }}>
-              {` Est. Gross Monthly Income: $`}
-              {state.isFetching ? (
-                <p>fetching</p>
-              ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
-                  state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor / 12
-                )
-                  .toFixed(2)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              )}
-            </h3>
-            <h3 className="income-h3" key="2"  style={{ margin: "0px", width: "100%" }}>
+            <h3
+              className="income-h3"
+              key="2"
+              style={{ margin: "0px", width: "100%" }}
+            >
               {` Est. Net Monthly Income: $`}
               {state.isFetching ? (
                 <p>fetching</p>
@@ -124,6 +160,35 @@ function Expenses() {
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
+            </h3>
+            <h3
+              className="income-h3 expenses"
+              key="1"
+              style={{ margin: "0px", width: "100%" }}
+            >
+              {` Est. Monthly Expenses: $`}
+              {(
+                expenses.housing.rent +
+                expenses.housing.utilities +
+                expenses.food.groceries +
+                expenses.food.restaurant +
+                expenses.medical.medExpenses +
+                expenses.medical.premiums +
+                expenses.transportation.carMaintenance +
+                expenses.transportation.carPayment +
+                expenses.transportation.gas +
+                expenses.transportation.insurance +
+                expenses.necessities.cell +
+                expenses.necessities.internet +
+                expenses.necessities.studentLoans +
+                expenses.necessities.tv +
+                expenses.personal.clothing +
+                expenses.personal.entertainment +
+                expenses.personal.other
+              )
+                .toFixed(2)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
           </React.Fragment>
         ]}
@@ -198,11 +263,15 @@ const StyledDiv = styled.div`
   .income-h3 {
     margin: 0;
     width: 100%;
+    color: #009039; 
     @media only screen and (max-width: 600px) {
       width: 60%;
       font-size: 12px;
       text-align: right;
     }
+  }
+  .expenses {
+    color: #C35355; 
   }
   .income-icon {
     height: 50px;
@@ -241,15 +310,15 @@ const ExpensesDiv = styled.div`
   justify-content: space-evenly;
   width: 100%;
   @media only screen and (max-width: 600px) {
-      flex-direction: column; 
-    }
+    flex-direction: column;
+  }
 
   .ant-card-body {
     height: 100%;
     display: flex;
     flex-direction: column;
     @media only screen and (max-width: 600px) {
-      padding: 15px 0; 
+      padding: 15px 0;
     }
   }
   .expenses-card {
