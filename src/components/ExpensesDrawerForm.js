@@ -18,6 +18,7 @@ import "antd/es/card/style/css";
 function ExpensesDrawerForm(props) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const [disabledInput, setDisabledInput] = useState(true);
 
   const state = useSelector(state => {
     return {
@@ -48,7 +49,7 @@ function ExpensesDrawerForm(props) {
 
   const formattedRestaurant = parseFloat(restaurantPrice.toFixed(2));
 
-  let expenses = {
+  const [expenses, setExpenses] = useState({
     rent: state.isFetching
       ? 1000
       : state.userInfo.details[state.userInfo.details.length - 1] &&
@@ -77,48 +78,54 @@ function ExpensesDrawerForm(props) {
     clothing: 30.0,
     entertainment: 50.0,
     pOther: 0.0
-  };
+  })
+
+  const handleEdit = e => {
+    e.preventDefault();
+    setDisabledInput(!disabledInput);
+}
 
   const handleSubmit = e => {
     e.preventDefault();
-    setIsLoading(true);
-    const clientID = process.env.REACT_APP_CLIENT_ID;
-    const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
-    props.form.validateFields((err, values) => {
-      if (!err) {
-        axios
-          .post(
-            "https://samirlilienfeld-mypath.herokuapp.com/login",
-            `grant_type=password&username=${values.username}&password=${values.password}`,
-            {
-              headers: {
-                // btoa is converting our client id/client secret into base64
-                Authorization: `Basic ${btoa(`${clientID}:${clientSecret}`)}`,
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
-            }
-          )
-          .then(res => {
-            setIsLoading(false);
-            localStorage.setItem("token", res.data.access_token);
-            localStorage.setItem("username", values.username);
-            //   props.setLoginToken(true);
-            //   props.history.push("/");
-            //   props.history.push("/");
-          })
-          .then(() => {
-            axiosWithAuth()
-              .get("/users/getuserinfo")
-              .then(res => {
-                localStorage.setItem("userid", res.data.userid);
-                //   props.setLoginToken(true);
-                history.push(`/entryform`);
-              })
-              .catch(err => console.dir(err));
-          })
-          .catch(err => console.dir(err));
-      }
-    });
+    console.log(e)
+    // setIsLoading(true);
+    // const clientID = process.env.REACT_APP_CLIENT_ID;
+    // const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
+    // props.form.validateFields((err, values) => {
+    //   if (!err) {
+    //     axios
+    //       .post(
+    //         "https://samirlilienfeld-mypath.herokuapp.com/login",
+    //         `grant_type=password&username=${values.username}&password=${values.password}`,
+    //         {
+    //           headers: {
+    //             // btoa is converting our client id/client secret into base64
+    //             Authorization: `Basic ${btoa(`${clientID}:${clientSecret}`)}`,
+    //             "Content-Type": "application/x-www-form-urlencoded"
+    //           }
+    //         }
+    //       )
+    //       .then(res => {
+    //         setIsLoading(false);
+    //         localStorage.setItem("token", res.data.access_token);
+    //         localStorage.setItem("username", values.username);
+    //         //   props.setLoginToken(true);
+    //         //   props.history.push("/");
+    //         //   props.history.push("/");
+    //       })
+    //       .then(() => {
+    //         axiosWithAuth()
+    //           .get("/users/getuserinfo")
+    //           .then(res => {
+    //             localStorage.setItem("userid", res.data.userid);
+    //             //   props.setLoginToken(true);
+    //             history.push(`/entryform`);
+    //           })
+    //           .catch(err => console.dir(err));
+    //       })
+    //       .catch(err => console.dir(err));
+    //   }
+    // });
   };
   const { getFieldDecorator } = props.form;
 
@@ -152,7 +159,17 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Rent</p>
                 <Form.Item>
                   {getFieldDecorator("rent")(
-                    <Input placeholder={expenses.rent} />
+                    <Input
+                    
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.rent}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -160,7 +177,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Utilities</p>
                 <Form.Item>
                   {getFieldDecorator("utilities")(
-                    <Input placeholder={expenses.utilities} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.utilities}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -173,7 +199,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Groceries</p>
                 <Form.Item>
                   {getFieldDecorator("groceries")(
-                    <Input placeholder={expenses.groceries} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.groceries}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -181,7 +216,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Restaurants</p>
                 <Form.Item>
                   {getFieldDecorator("restaurant")(
-                    <Input placeholder={expenses.restaurant} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.restaurant}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -194,7 +238,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Premium</p>
                 <Form.Item>
                   {getFieldDecorator("premiums")(
-                    <Input placeholder={expenses.premiums} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.premiums}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -202,7 +255,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Med. Expenses</p>
                 <Form.Item>
                   {getFieldDecorator("medExpenses")(
-                    <Input placeholder={expenses.medExpenses} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.medExpenses}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -216,7 +278,16 @@ function ExpensesDrawerForm(props) {
                   <p className="form-item-label">Cell</p>
                   <Form.Item>
                     {getFieldDecorator("cell")(
-                      <Input placeholder={expenses.cell} />
+                      <Input
+                      disabled={disabledInput}
+                        prefix={
+                          <Icon
+                            type="dollar"
+                            style={{ color: "rgba(0,0,0,.45)" }}
+                          />
+                        }
+                        placeholder={expenses.cell}
+                      />
                     )}
                   </Form.Item>
                 </div>
@@ -226,7 +297,16 @@ function ExpensesDrawerForm(props) {
                   <p className="form-item-label">Internet</p>
                   <Form.Item>
                     {getFieldDecorator("internet")(
-                      <Input placeholder={expenses.internet} />
+                      <Input
+                      disabled={disabledInput}
+                        prefix={
+                          <Icon
+                            type="dollar"
+                            style={{ color: "rgba(0,0,0,.45)" }}
+                          />
+                        }
+                        placeholder={expenses.internet}
+                      />
                     )}
                   </Form.Item>
                 </div>
@@ -236,7 +316,16 @@ function ExpensesDrawerForm(props) {
                   <p className="form-item-label">TV</p>
                   <Form.Item>
                     {getFieldDecorator("tv")(
-                      <Input placeholder={expenses.tv} />
+                      <Input
+                      disabled={disabledInput}
+                        prefix={
+                          <Icon
+                            type="dollar"
+                            style={{ color: "rgba(0,0,0,.45)" }}
+                          />
+                        }
+                        placeholder={expenses.tv}
+                      />
                     )}
                   </Form.Item>
                 </div>
@@ -246,7 +335,16 @@ function ExpensesDrawerForm(props) {
                   <p className="form-item-label">Student Loans</p>
                   <Form.Item>
                     {getFieldDecorator("studentLoans")(
-                      <Input placeholder={expenses.studentLoans} />
+                      <Input
+                      disabled={disabledInput}
+                        prefix={
+                          <Icon
+                            type="dollar"
+                            style={{ color: "rgba(0,0,0,.45)" }}
+                          />
+                        }
+                        placeholder={expenses.studentLoans}
+                      />
                     )}
                   </Form.Item>
                 </div>
@@ -260,7 +358,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Car Payment</p>
                 <Form.Item>
                   {getFieldDecorator("carPayment")(
-                    <Input placeholder={expenses.carPayment} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.carPayment}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -268,7 +375,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Insurance</p>
                 <Form.Item>
                   {getFieldDecorator("insurance")(
-                    <Input placeholder={expenses.insurance} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.insurance}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -276,7 +392,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Gas</p>
                 <Form.Item>
                   {getFieldDecorator("gas")(
-                    <Input placeholder={expenses.gas} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.gas}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -284,7 +409,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Car Maintenance</p>
                 <Form.Item>
                   {getFieldDecorator("carMaintenance")(
-                    <Input placeholder={expenses.carMaintenance} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.carMaintenance}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -297,7 +431,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Clothing</p>
                 <Form.Item>
                   {getFieldDecorator("clothing")(
-                    <Input placeholder={expenses.clothing} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.clothing}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -305,7 +448,16 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Entertainment</p>
                 <Form.Item>
                   {getFieldDecorator("entertainment")(
-                    <Input placeholder={expenses.entertainment} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.entertainment}
+                    />
                   )}
                 </Form.Item>
               </div>
@@ -313,26 +465,33 @@ function ExpensesDrawerForm(props) {
                 <p className="form-item-label">Other</p>
                 <Form.Item>
                   {getFieldDecorator("pOther")(
-                    <Input placeholder={expenses.pOther} />
+                    <Input
+                    disabled={disabledInput}
+                      prefix={
+                        <Icon
+                          type="dollar"
+                          style={{ color: "rgba(0,0,0,.45)" }}
+                        />
+                      }
+                      placeholder={expenses.pOther}
+                    />
                   )}
                 </Form.Item>
               </div>
             </div>
           </div>
-          <div className="form-item-div">
+          <div className="form-item-div buttons">
             <Form.Item>
               <Button
                 loading={isLoading}
-                style={{ width: "285px" }}
                 type="primary"
-                htmlType="submit"
+                onClick={handleEdit}
                 className="login-form-button"
               >
                 Edit
               </Button>
               <Button
                 loading={isLoading}
-                style={{ width: "285px" }}
                 type="secondary"
                 htmlType="submit"
                 className="login-form-button"
@@ -412,12 +571,18 @@ const WrapperDiv = styled.div`
         flex-wrap: wrap;
         .form-item-each {
           width: 150px;
+          .ant-input {
+              font-size: 20px; 
+          }
         }
       }
       .form-item-title {
         margin-right: 10px;
         margin-top: 5px;
       }
+    }
+    .buttons {
+        width: 300px; 
     }
   }
 `;
