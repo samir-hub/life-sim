@@ -65,9 +65,7 @@ function Login(props) {
         <StyledDiv>
           <h1 className="login-card-title">MyPath</h1>
           <p className="login-card-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+            Transitioning into adulthood can be challenging. The biggest obstacle is often financial planning. With MyPath, you can plan for a successful financial future by entering just a few data points. Login below or create an account to get started!
           </p>
         </StyledDiv>
         <Form
@@ -135,9 +133,19 @@ const StyledDiv = styled.div`
   .login-card-title {
     font-size: 40px;
   }
+  @media only screen and (max-width: 600px) {
+    .login-card-title {
+    margin-bottom: 0;  
+  }
+  }
   .login-card-text {
     width: 80%;
     font-size: 17px;
+  }
+  @media only screen and (max-width: 600px) {
+    .login-card-text {
+    font-size: 15px; 
+  }
   }
 `;
 
