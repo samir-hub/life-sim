@@ -24,7 +24,7 @@ import Expenses from "./Expenses";
 const { Content, Sider } = Layout;
 
 function Dashboard() {
-  const [active, setActive] = useState("1");
+  const [active, setActive] = useState("3");
 
   const state = useSelector(state => {
     return {

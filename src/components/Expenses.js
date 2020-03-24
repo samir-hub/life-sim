@@ -25,6 +25,7 @@ import transportation from "../assets/transportation.svg";
 import necessities from "../assets/necessities.svg";
 import personal from "../assets/personal.svg";
 import payment from "../assets/payment.svg";
+import ExpensesDrawer from "./ExpensesDrawer";
 
 const { Paragraph } = Typography;
 
@@ -190,6 +191,7 @@ function Expenses() {
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
+            <ExpensesDrawer/>
           </React.Fragment>
         ]}
       >
