@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
-import guy_crossing_arms from "../guy_crossing_arms.png";
+import guy_crossing_arms from "../assets/guy_crossing_arms.png";
 import WrappedLogin from "./Login";
 import styled from "styled-components";
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
-import path_logo from "../../path_logo.svg";
+import path_logo from "../../assets/path_logo.svg";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
 import styled from "styled-components";

@@ -1,8 +1,6 @@
 import React from "react";
 import PageHeader from "antd/es/page-header";
 import "antd/es/page-header/style/css";
-// import Button from "antd/es/button";
-// import "antd/es/button/style/css";
 import Typography from "antd/es/typography";
 import "antd/es/typography/style/css";
 import Row from "antd/es/row";
@@ -13,7 +11,7 @@ import Table from "antd/es/table";
 import "antd/es/table/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import wallet from "../wallet.svg";
+import wallet from "../assets/wallet.svg";
 
 const { Paragraph } = Typography;
 

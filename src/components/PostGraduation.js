@@ -1,6 +1,6 @@
 import React from "react";
-import woman_goal from "../woman_goal.png";
 import styled from "styled-components";
+import woman_goal from "../assets/woman_goal.png";
 
 function PostGraduation() {
   return (

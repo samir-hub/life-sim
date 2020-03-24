@@ -4,7 +4,6 @@ import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-//import PieLegend from './PieLegend';
 
 const HousingExpensesBar = () => {
   const state = useSelector(state => {

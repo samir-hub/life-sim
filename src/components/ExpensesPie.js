@@ -4,7 +4,6 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-//import PieLegend from './PieLegend';
 
 const ExpensesPie = () => {
   const state = useSelector(state => {

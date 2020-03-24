@@ -14,7 +14,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { postFormattedEntry } from "../actions";
 //import { entriesStringToInt } from "../utils/entriesStringToInt";
-import man_planning from "../man_planning.png";
+import man_planning from "../assets/man_planning.png";
 import newCities from "../data/newCities";
 import majors from "../data/majors";
 

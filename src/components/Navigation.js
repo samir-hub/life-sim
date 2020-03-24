@@ -6,7 +6,7 @@ import Menu from "antd/es/menu";
 import "antd/es/menu/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
-import path_logo from "../path_logo.svg";
+import path_logo from "../assets/path_logo.svg";
 import styled from "styled-components";
 
 const { Header } = Layout;

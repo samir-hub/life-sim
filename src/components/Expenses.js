@@ -11,7 +11,6 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import payment from "../payment.svg";
 import ExpensesPie from "./ExpensesPie";
 import HousingExpensesBar from "./HousingExpensesBar";
 import FoodExpensesBar from "./FoodExpensesBar";
@@ -19,12 +18,13 @@ import MedicalExpensesBar from "./MedicalExpensesBar";
 import TransportationExpensesBar from "./TransportationExpensesBar";
 import NecessitiesExpensesBar from "./NecessitiesExpensesBar";
 import PersonalExpensesBar from "./PersonalExpensesBar";
-import housing from "../housing.svg";
-import food from "../food.svg";
-import medical from "../medical.svg";
-import transportation from "../transportation.svg";
-import necessities from "../necessities.svg";
-import personal from "../personal.svg";
+import housing from "../assets/housing.svg";
+import food from "../assets/food.svg";
+import medical from "../assets/medical.svg";
+import transportation from "../assets/transportation.svg";
+import necessities from "../assets/necessities.svg";
+import personal from "../assets/personal.svg";
+import payment from "../assets/payment.svg";
 
 const { Paragraph } = Typography;
 
