@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
@@ -17,6 +18,66 @@ import "antd/es/card/style/css";
 function ExpensesDrawerForm(props) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+
+  const state = useSelector(state => {
+    return {
+      formattedEntryData: state.formattedEntryData,
+      userInfo: state.userInfo,
+      isFetching: state.isFetching,
+      isPosting: state.isPosting
+    };
+  });
+
+  const groceriesPrice =
+    471.34 *
+    (state.isFetching
+      ? 1
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1]
+          .groceriesindex / 100);
+
+  const formattedGroceries = parseFloat(groceriesPrice.toFixed(2));
+
+  const restaurantPrice =
+    48.56 *
+    (state.isFetching
+      ? 1
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1]
+          .restaurantpriceindex / 100);
+
+  const formattedRestaurant = parseFloat(restaurantPrice.toFixed(2));
+
+  let expenses = {
+    rent: state.isFetching
+      ? 1000
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].avgrent,
+    utilities: 100.0,
+    groceries: formattedGroceries,
+    restaurant: formattedRestaurant,
+    premiums: 50.0,
+    medExpenses: 20.0,
+    carPayment: 300.0,
+    insurance: 150.0,
+    gas: 100.0,
+    carMaintenance: 20.0,
+    internet: 62.77,
+    cell: 114.0,
+    tv: 50.0,
+    studentLoans: state.isFetching
+      ? 200
+      : (state.userInfo.details[state.userInfo.details.length - 1] &&
+          state.userInfo.details[state.userInfo.details.length - 1]
+            .education === "Community College") ||
+        state.userInfo.details[state.userInfo.details.length - 1].education ===
+          "No College"
+      ? 0.0
+      : 271.0,
+    clothing: 30.0,
+    entertainment: 50.0,
+    pOther: 0.0
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -67,6 +128,8 @@ function ExpensesDrawerForm(props) {
     }
   };
 
+  console.log(expenses);
+
   return (
     <WrapperDiv>
       <Card className="login-card">
@@ -85,141 +148,175 @@ function ExpensesDrawerForm(props) {
           <div className="form-item-div">
             <h3 className="form-item-title">Housing</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Rent</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Utilities</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Rent</p>
+                <Form.Item>
+                  {getFieldDecorator("rent")(
+                    <Input placeholder={expenses.rent} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Utilities</p>
+                <Form.Item>
+                  {getFieldDecorator("utilities")(
+                    <Input placeholder={expenses.utilities} />
+                  )}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Food</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Groceries</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Restaurant</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Groceries</p>
+                <Form.Item>
+                  {getFieldDecorator("groceries")(
+                    <Input placeholder={expenses.groceries} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Restaurants</p>
+                <Form.Item>
+                  {getFieldDecorator("restaurant")(
+                    <Input placeholder={expenses.restaurant} />
+                  )}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Medical</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Premium</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Med. Expenses</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Premium</p>
+                <Form.Item>
+                  {getFieldDecorator("premiums")(
+                    <Input placeholder={expenses.premiums} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Med. Expenses</p>
+                <Form.Item>
+                  {getFieldDecorator("medExpenses")(
+                    <Input placeholder={expenses.medExpenses} />
+                  )}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Necessities</h3>
             <div className="form-item-inner">
               <div className="form-item-each">
-                <p className="form-item-label">Cell</p>
-                <Form.Item>
-                  {getFieldDecorator("username", {
-                    rules: [{ type: "number" }]
-                  })(<Input placeholder="Username" />)}
-                </Form.Item>
+                <div className="form-item-each">
+                  <p className="form-item-label">Cell</p>
+                  <Form.Item>
+                    {getFieldDecorator("cell")(
+                      <Input placeholder={expenses.cell} />
+                    )}
+                  </Form.Item>
+                </div>
               </div>
               <div className="form-item-each">
-                <p className="form-item-label">Internet</p>
-                <Form.Item>
-                  {getFieldDecorator("username", {
-                    rules: [{ type: "number" }]
-                  })(<Input placeholder="Username" />)}
-                </Form.Item>
+                <div className="form-item-each">
+                  <p className="form-item-label">Internet</p>
+                  <Form.Item>
+                    {getFieldDecorator("internet")(
+                      <Input placeholder={expenses.internet} />
+                    )}
+                  </Form.Item>
+                </div>
               </div>
               <div className="form-item-each">
-                <p className="form-item-label">TV</p>
-                <Form.Item>
-                  {getFieldDecorator("username", {
-                    rules: [{ type: "number" }]
-                  })(<Input placeholder="Username" />)}
-                </Form.Item>
+                <div className="form-item-each">
+                  <p className="form-item-label">TV</p>
+                  <Form.Item>
+                    {getFieldDecorator("tv")(
+                      <Input placeholder={expenses.tv} />
+                    )}
+                  </Form.Item>
+                </div>
               </div>
               <div className="form-item-each">
-                <p className="form-item-label">Student Loans</p>
-                <Form.Item>
-                  {getFieldDecorator("password", {
-                    rules: [{ type: "number" }]
-                  })(<Input placeholder="Password" />)}
-                </Form.Item>
+                <div className="form-item-each">
+                  <p className="form-item-label">Student Loans</p>
+                  <Form.Item>
+                    {getFieldDecorator("studentLoans")(
+                      <Input placeholder={expenses.studentLoans} />
+                    )}
+                  </Form.Item>
+                </div>
               </div>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Transport</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Car Payment</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Insurance</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
-              <p className="form-item-label">Gas</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Car Maintenance</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Car Payment</p>
+                <Form.Item>
+                  {getFieldDecorator("carPayment")(
+                    <Input placeholder={expenses.carPayment} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Insurance</p>
+                <Form.Item>
+                  {getFieldDecorator("insurance")(
+                    <Input placeholder={expenses.insurance} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Gas</p>
+                <Form.Item>
+                  {getFieldDecorator("gas")(
+                    <Input placeholder={expenses.gas} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Car Maintenance</p>
+                <Form.Item>
+                  {getFieldDecorator("carMaintenance")(
+                    <Input placeholder={expenses.carMaintenance} />
+                  )}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Personal</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Clothing</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Entertainment</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
-              <p className="form-item-label">Other</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [{ type: "number" }]
-                })(<Input placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Clothing</p>
+                <Form.Item>
+                  {getFieldDecorator("clothing")(
+                    <Input placeholder={expenses.clothing} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Entertainment</p>
+                <Form.Item>
+                  {getFieldDecorator("entertainment")(
+                    <Input placeholder={expenses.entertainment} />
+                  )}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Other</p>
+                <Form.Item>
+                  {getFieldDecorator("pOther")(
+                    <Input placeholder={expenses.pOther} />
+                  )}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
