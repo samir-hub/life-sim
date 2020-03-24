@@ -36,7 +36,7 @@ function Home() {
           shape="round"
           icon="rocket"
           size={"large"}
-          style={{ height: "50px", width: "200px" }}
+          style={{ height: "50px", width: "200px", marginTop: '10px' }}
         >
           Start
         </Button>

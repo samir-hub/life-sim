@@ -65,7 +65,10 @@ function Login(props) {
         <StyledDiv>
           <h1 className="login-card-title">MyPath</h1>
           <p className="login-card-text">
-            Transitioning into adulthood can be challenging. The biggest obstacle is often financial planning. With MyPath, you can plan for a successful financial future by entering just a few data points. Login below or create an account to get started!
+            Transitioning into adulthood can be challenging. The biggest
+            obstacle is often financial planning. With MyPath, you can plan for
+            a successful financial future by entering just a few data points.
+            Login below or create an account to get started!
           </p>
         </StyledDiv>
         <Form
@@ -131,12 +134,14 @@ const StyledDiv = styled.div`
   justify-content: space-around;
   align-items: center;
   .login-card-title {
+    font-family: "Libre Baskerville", serif;
     font-size: 40px;
+    color: #f38704;
   }
   @media only screen and (max-width: 600px) {
     .login-card-title {
-    margin-bottom: 0;  
-  }
+      margin-bottom: 0;
+    }
   }
   .login-card-text {
     width: 80%;
@@ -144,8 +149,8 @@ const StyledDiv = styled.div`
   }
   @media only screen and (max-width: 600px) {
     .login-card-text {
-    font-size: 15px; 
-  }
+      font-size: 15px;
+    }
   }
 `;
 
@@ -154,17 +159,17 @@ const WrapperDiv = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center; 
-    margin-top: 20px; 
+    align-items: center;
+    margin-top: 20px;
   }
   .login-card {
     width: 500px;
   }
   @media only screen and (max-width: 600px) {
     .login-card {
-    width: 90%;
-    height: 80vh; 
-  }
+      width: 90%;
+      height: 80vh;
+    }
   }
   .login-form {
     width: 100%;
