@@ -106,7 +106,7 @@ function EntryForm() {
             alt="man planning"
           ></img>
           <h3 className="entryform-mobile-text">
-            Transitioning into adulthood can be challenging.
+            Enter your information below to get started:
           </h3>
         </div>
         <form onSubmit={handlePostEntry} className="userentry-form">
@@ -241,6 +241,7 @@ const ComponentWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       width: 90%;
       margin-top: 20px;
+      height: 80vh; 
     }
     .userentry-form {
       display: flex;
@@ -255,7 +256,7 @@ const ComponentWrapper = styled.div`
       @media only screen and (max-width: 600px) {
         display: flex;
         align-items: center;
-        height: 70px; 
+        height: 100px; 
         .anticon-question-circle {
           display: none;
         }
@@ -271,12 +272,12 @@ const ComponentWrapper = styled.div`
       .entryform-mobile-image {
         height: 100px; 
         display: inline-block;
-        margin-bottom: 25px; 
+        margin-bottom: 10px; 
       }
       .entryform-mobile-text {
         width: 180px; 
         display: inline-block;
-
+        font-size: 16px; 
       }
     }
   }
