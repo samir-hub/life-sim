@@ -4,6 +4,7 @@ import "antd/es/drawer/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import styled from "styled-components";
+import WrappedExpensesForm from "./ExpensesDrawerForm";
 
 function ExpensesDrawer() {
   const [visible, setVisible] = useState(false);
@@ -25,10 +26,9 @@ function ExpensesDrawer() {
         closable={false}
         onClose={onClose}
         visible={visible}
+        width='35%'
       >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
+        <WrappedExpensesForm/>
       </Drawer>
     </DrawerWrapper>
   );
