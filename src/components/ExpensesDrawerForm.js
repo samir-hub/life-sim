@@ -61,6 +61,12 @@ function ExpensesDrawerForm(props) {
   };
   const { getFieldDecorator } = props.form;
 
+  const validateMessages = {
+    types: {
+      number: "Not a valid number!"
+    }
+  };
+
   return (
     <WrapperDiv>
       <Card className="login-card">
@@ -71,6 +77,7 @@ function ExpensesDrawerForm(props) {
           </p>
         </StyledDiv>
         <Form
+          validatemessages={validateMessages}
           style={{ width: "300px", margin: "0 auto" }}
           onSubmit={handleSubmit}
           className="login-form"
@@ -80,15 +87,15 @@ function ExpensesDrawerForm(props) {
             <div className="form-item-inner">
               <p className="form-item-label">Rent</p>
               <Form.Item>
-               <Input placeholder="Username" />
+                {getFieldDecorator("username", {
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Utilities</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
@@ -98,18 +105,14 @@ function ExpensesDrawerForm(props) {
               <p className="form-item-label">Groceries</p>
               <Form.Item>
                 {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
+                  rules: [{ type: "number" }]
                 })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Restaurant</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
@@ -119,63 +122,52 @@ function ExpensesDrawerForm(props) {
               <p className="form-item-label">Premium</p>
               <Form.Item>
                 {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
+                  rules: [{ type: "number" }]
                 })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Med. Expenses</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Necessities</h3>
             <div className="form-item-inner">
-              <p className="form-item-label">Cell</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
-                })(<Input placeholder="Username" />)}
-              </Form.Item>
-              <p className="form-item-label">Internet</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
-              </Form.Item>
-              <p className="form-item-label">TV</p>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
-              </Form.Item>
-              <p className="form-item-label">Student Loans</p>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
-              </Form.Item>
+              <div className="form-item-each">
+                <p className="form-item-label">Cell</p>
+                <Form.Item>
+                  {getFieldDecorator("username", {
+                    rules: [{ type: "number" }]
+                  })(<Input placeholder="Username" />)}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Internet</p>
+                <Form.Item>
+                  {getFieldDecorator("username", {
+                    rules: [{ type: "number" }]
+                  })(<Input placeholder="Username" />)}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">TV</p>
+                <Form.Item>
+                  {getFieldDecorator("username", {
+                    rules: [{ type: "number" }]
+                  })(<Input placeholder="Username" />)}
+                </Form.Item>
+              </div>
+              <div className="form-item-each">
+                <p className="form-item-label">Student Loans</p>
+                <Form.Item>
+                  {getFieldDecorator("password", {
+                    rules: [{ type: "number" }]
+                  })(<Input placeholder="Password" />)}
+                </Form.Item>
+              </div>
             </div>
           </div>
           <div className="form-item-div">
@@ -184,34 +176,26 @@ function ExpensesDrawerForm(props) {
               <p className="form-item-label">Car Payment</p>
               <Form.Item>
                 {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
+                  rules: [{ type: "number" }]
                 })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Insurance</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
               <p className="form-item-label">Gas</p>
               <Form.Item>
                 {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
+                  rules: [{ type: "number" }]
                 })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Car Maintenance</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
@@ -221,26 +205,20 @@ function ExpensesDrawerForm(props) {
               <p className="form-item-label">Clothing</p>
               <Form.Item>
                 {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
+                  rules: [{ type: "number" }]
                 })(<Input placeholder="Username" />)}
               </Form.Item>
               <p className="form-item-label">Entertainment</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
               <p className="form-item-label">Other</p>
               <Form.Item>
                 {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(<Input type="password" placeholder="Password" />)}
+                  rules: [{ type: "number" }]
+                })(<Input placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
@@ -334,6 +312,10 @@ const WrapperDiv = styled.div`
       .form-item-inner {
         display: flex;
         align-content: center;
+        flex-wrap: wrap;
+        .form-item-each {
+          width: 150px;
+        }
       }
       .form-item-title {
         margin-right: 10px;
