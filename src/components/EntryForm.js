@@ -99,6 +99,16 @@ function EntryForm() {
         />
       </ImageWrapper>
       <Card className="entryform-card">
+        <div className="entryform-mobile-div">
+          <img
+            className="entryform-mobile-image"
+            src={man_planning}
+            alt="man planning"
+          ></img>
+          <h3 className="entryform-mobile-text">
+            Transitioning into adulthood can be challenging.
+          </h3>
+        </div>
         <form onSubmit={handlePostEntry} className="userentry-form">
           <div className="entryform-select-div">
             <Select
@@ -205,9 +215,9 @@ function EntryForm() {
 export default EntryForm;
 
 const ImageWrapper = styled.div`
- @media only screen and (max-width: 600px) {
-      display: none; 
-    }
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
   .entryform-image {
     height: 680px;
   }
@@ -218,7 +228,8 @@ const ComponentWrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   height: 100%;
-  .ant-select-selection__placeholder{
+
+  .ant-select-selection__placeholder {
     color: #696969;
   }
   .entryform-card {
@@ -229,7 +240,7 @@ const ComponentWrapper = styled.div`
     align-content: space-evenly;
     @media only screen and (max-width: 600px) {
       width: 90%;
-      margin-top: 40px; 
+      margin-top: 20px;
     }
     .userentry-form {
       display: flex;
@@ -242,12 +253,31 @@ const ComponentWrapper = styled.div`
     .entryform-select-div {
       width: 100%;
       @media only screen and (max-width: 600px) {
-      display: flex; 
-      align-items: center;
-      .anticon-question-circle {
-        display: none; 
+        display: flex;
+        align-items: center;
+        height: 70px; 
+        .anticon-question-circle {
+          display: none;
+        }
       }
     }
+    .entryform-mobile-div {
+      display: none;
+      @media only screen and (max-width: 600px) {
+        display: inline-block;
+        width: 100%; 
+        margin-top: 15px; 
+      }
+      .entryform-mobile-image {
+        height: 100px; 
+        display: inline-block;
+        margin-bottom: 25px; 
+      }
+      .entryform-mobile-text {
+        width: 180px; 
+        display: inline-block;
+
+      }
     }
   }
 `;

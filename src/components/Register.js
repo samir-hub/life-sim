@@ -41,7 +41,7 @@ function Register(props) {
     <DivWrapper>
       <Card className="register-card">
         <StyledDiv>
-          <h1 className="register-card-title">Create an Account</h1>
+          <h2 className="register-card-title">Create Your Account</h2>
         </StyledDiv>
         <Form
           style={{ width: "300px", margin: "0 auto" }}
@@ -116,6 +116,11 @@ const StyledDiv = styled.div`
   }
   .register-card-title {
     font-size: 40px;
+  }
+  @media only screen and (max-width: 600px) {
+    .register-card-title {
+    font-size: 30px;
+  }
   }
 `;
 
