@@ -21,6 +21,8 @@ function Login(props) {
   const handleSubmit = e => {
     e.preventDefault();
     setIsLoading(true);
+    const clientID = process.env.REACT_APP_CLIENT_ID;
+    const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
     props.form.validateFields((err, values) => {
       if (!err) {
         axios
@@ -30,7 +32,7 @@ function Login(props) {
             {
               headers: {
                 // btoa is converting our client id/client secret into base64
-                Authorization: `Basic ${btoa("lambda-client:lambda-secret")}`,
+                Authorization: `Basic ${btoa(`${clientID}:${clientSecret}`)}`,
                 "Content-Type": "application/x-www-form-urlencoded"
               }
             }
