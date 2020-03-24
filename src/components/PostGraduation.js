@@ -35,7 +35,7 @@ const ComponentWrapper = styled.div`
     min-width: 375px; 
     justify-content: space-evenly; 
     height: 80vh; 
-
+    padding-right: 10px; 
   }
   .pg-text {
     display: flex;
@@ -47,6 +47,7 @@ const ComponentWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       height: 40%; 
       justify-content: flex-start; 
+
     }
     .postgraduation-lorem {
       color: #f38704;

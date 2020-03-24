@@ -143,7 +143,7 @@ function Dashboard() {
                   title={
                     "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
                   }
-                  placement="right"
+                  placement="top"
                 >
                   <Icon type="question-circle" />
                 </Tooltip>
@@ -236,7 +236,7 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-      <Content style={{ margin: "0 16px" }}>
+      <Content style={{ margin: "0 5px" }}>
         {active === "1" ? (
           <PostGraduation />
         ) : active === "2" ? (
@@ -262,6 +262,11 @@ const StyledDiv = styled.div`
   .dashboard-username {
     text-transform: capitalize;
   }
+  /* @media only screen and (max-width: 600px) {
+        .anticon-question-circle {
+          display: none;
+        }
+      } */
 `;
 
 // const HeaderWrapper = styled.div`

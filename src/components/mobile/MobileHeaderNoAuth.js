@@ -27,7 +27,12 @@ const MobileHeaderNoAuth = () => {
           <Icon className="login-icon" type="left-circle" />
         </NavLink>
       )}
-      {location.pathname !== "/login" && location.pathname !== "/" && (
+      {location.pathname === "/register" && (
+        <NavLink to="/">
+          <Icon className="login-icon" type="left-circle" />
+        </NavLink>
+      )}
+      {location.pathname !== "/login" && location.pathname !== "/" && location.pathname !== "/register" && (
         <Icon onClick={handleLogout} className="login-icon" type="logout" />
       )}
       <div className="mobile-logo">

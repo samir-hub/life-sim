@@ -41,6 +41,7 @@ function Register(props) {
     <DivWrapper>
       <Card className="register-card">
         <StyledDiv>
+          <Icon type="user" style={{ color: '#f38704', fontSize: "40px" }} />
           <h2 className="register-card-title">Create Your Account</h2>
         </StyledDiv>
         <Form
@@ -107,20 +108,22 @@ const WrappedRegister = Form.create({ name: "register_form" })(Register);
 export default WrappedRegister;
 
 const StyledDiv = styled.div`
-  height: 250px;
+  height: 200px;
   display: flex;
-  flex-direction: column;
   justify-content: space-around;
+  align-items: center; 
   @media only screen and (max-width: 600px) {
     height: 150px;
   }
   .register-card-title {
     font-size: 40px;
+    margin: 0; 
+    color: #2F4858;
   }
   @media only screen and (max-width: 600px) {
     .register-card-title {
-    font-size: 30px;
-  }
+      font-size: 25px;
+    }
   }
 `;
 
@@ -138,7 +141,7 @@ const DivWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     .register-card {
       width: 90%;
-      height: 80vh; 
+      height: 80vh;
     }
   }
 `;
