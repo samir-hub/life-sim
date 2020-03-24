@@ -82,10 +82,25 @@ function EntryForm() {
     history.push("/dashboard");
   };
 
-  const text = (
+  const collegeText = (
     <span>
-      This is the explanation that I will write in the future for each field to
-      help the user.
+      Do you plan on attending college? If so, it is good to know that not all
+      colleges are created equal. Not taking into account financial aid and
+      scholarships, the list to the left is sorted by cost in ascending order.
+      Although cost is important, attending the right college can be a great
+      investment.
+    </span>
+  );
+  const majorText = (
+    <span>
+      When choosing a major, think about your interests, values passions and
+      abilities.
+    </span>
+  );
+  const cityText = (
+    <span>
+      Cost of living varies by city. For example, average rent is usually higher
+      in densely populated areas.
     </span>
   );
 
@@ -137,7 +152,7 @@ function EntryForm() {
                 Out-of-State College
               </Option>
             </Select>
-            <Tooltip title={text} placement="top">
+            <Tooltip title={collegeText} placement="right">
               <Icon type="question-circle" />
             </Tooltip>
           </div>
@@ -164,7 +179,7 @@ function EntryForm() {
                 );
               })}
             </Select>
-            <Tooltip title={text} placement="top">
+            <Tooltip title={majorText} placement="right">
               <Icon type="question-circle" />
             </Tooltip>
           </div>
@@ -174,7 +189,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="Where Will You Live?"
+              placeholder="What City?"
               optionFilterProp="children"
               onChange={onChangeThree}
               filterOption={(input, option) =>
@@ -191,7 +206,7 @@ function EntryForm() {
                 );
               })}
             </Select>
-            <Tooltip title={text} placement="top">
+            <Tooltip title={cityText} placement="right">
               <Icon type="question-circle" />
             </Tooltip>
           </div>
@@ -232,6 +247,7 @@ const ComponentWrapper = styled.div`
   .ant-select-selection__placeholder {
     color: #696969;
   }
+
   .entryform-card {
     /* width: 40%;
   height: 70vh; */
@@ -241,7 +257,7 @@ const ComponentWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       width: 90%;
       margin-top: 20px;
-      height: 80vh; 
+      height: 80vh;
     }
     .userentry-form {
       display: flex;
@@ -256,28 +272,28 @@ const ComponentWrapper = styled.div`
       @media only screen and (max-width: 600px) {
         display: flex;
         align-items: center;
-        height: 100px; 
-        .anticon-question-circle {
+        height: 100px;
+        /* .anticon-question-circle {
           display: none;
-        }
+        } */
       }
     }
     .entryform-mobile-div {
       display: none;
       @media only screen and (max-width: 600px) {
         display: inline-block;
-        width: 100%; 
-        margin-top: 15px; 
+        width: 100%;
+        margin-top: 15px;
       }
       .entryform-mobile-image {
-        height: 100px; 
+        height: 100px;
         display: inline-block;
-        margin-bottom: 10px; 
+        margin-bottom: 10px;
       }
       .entryform-mobile-text {
-        width: 180px; 
+        width: 180px;
         display: inline-block;
-        font-size: 16px; 
+        font-size: 16px;
       }
     }
   }
