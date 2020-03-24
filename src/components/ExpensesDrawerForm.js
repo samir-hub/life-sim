@@ -78,110 +78,82 @@ function ExpensesDrawerForm(props) {
           <div className="form-item-div">
             <h3 className="form-item-title">Housing</h3>
             <div className="form-item-inner">
-              <p>Rent</p>  
+              <p className="form-item-label">Rent</p>
               <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+               <Input placeholder="Username" />
               </Form.Item>
-              <p>Utilities</p>  
+              <p className="form-item-label">Utilities</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Food</h3>
             <div className="form-item-inner">
+              <p className="form-item-label">Groceries</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
                     { required: true, message: "Please input your username!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+                })(<Input placeholder="Username" />)}
               </Form.Item>
+              <p className="form-item-label">Restaurant</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Medical</h3>
             <div className="form-item-inner">
+              <p className="form-item-label">Premium</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
                     { required: true, message: "Please input your username!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+                })(<Input placeholder="Username" />)}
               </Form.Item>
+              <p className="form-item-label">Med. Expenses</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Necessities</h3>
             <div className="form-item-inner">
+              <p className="form-item-label">Cell</p>
+              <Form.Item>
+                {getFieldDecorator("username", {
+                  rules: [
+                    { required: true, message: "Please input your username!" }
+                  ]
+                })(<Input placeholder="Username" />)}
+              </Form.Item>
+              <p className="form-item-label">Internet</p>
+              <Form.Item>
+                {getFieldDecorator("password", {
+                  rules: [
+                    { required: true, message: "Please input your Password!" }
+                  ]
+                })(<Input type="password" placeholder="Password" />)}
+              </Form.Item>
+              <p className="form-item-label">TV</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
@@ -196,161 +168,79 @@ function ExpensesDrawerForm(props) {
                   />
                 )}
               </Form.Item>
+              <p className="form-item-label">Student Loans</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
-              </Form.Item>
-              <Form.Item>
-                {getFieldDecorator("username", {
-                  rules: [
-                    { required: true, message: "Please input your username!" }
-                  ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
-              </Form.Item>
-              <Form.Item>
-                {getFieldDecorator("password", {
-                  rules: [
-                    { required: true, message: "Please input your Password!" }
-                  ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Transport</h3>
             <div className="form-item-inner">
+              <p className="form-item-label">Car Payment</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
                     { required: true, message: "Please input your username!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+                })(<Input placeholder="Username" />)}
               </Form.Item>
+              <p className="form-item-label">Insurance</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
+              <p className="form-item-label">Gas</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
                     { required: true, message: "Please input your username!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+                })(<Input placeholder="Username" />)}
               </Form.Item>
+              <p className="form-item-label">Car Maintenance</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
           <div className="form-item-div">
             <h3 className="form-item-title">Personal</h3>
             <div className="form-item-inner">
+              <p className="form-item-label">Clothing</p>
               <Form.Item>
                 {getFieldDecorator("username", {
                   rules: [
                     { required: true, message: "Please input your username!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    placeholder="Username"
-                  />
-                )}
+                })(<Input placeholder="Username" />)}
               </Form.Item>
+              <p className="form-item-label">Entertainment</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
+              <p className="form-item-label">Other</p>
               <Form.Item>
                 {getFieldDecorator("password", {
                   rules: [
                     { required: true, message: "Please input your Password!" }
                   ]
-                })(
-                  <Input
-                    prefix={
-                      <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                    }
-                    type="password"
-                    placeholder="Password"
-                  />
-                )}
+                })(<Input type="password" placeholder="Password" />)}
               </Form.Item>
             </div>
           </div>
@@ -443,7 +333,7 @@ const WrapperDiv = styled.div`
       align-items: flex-start;
       .form-item-inner {
         display: flex;
-        margin-top: 5px; 
+        align-content: center;
       }
       .form-item-title {
         margin-right: 10px;
