@@ -14,6 +14,7 @@ import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import { formatDrawerValues } from "../utils/formatDrawerValues";
 
 function ExpensesDrawerForm(props) {
   const history = useHistory();
@@ -78,16 +79,18 @@ function ExpensesDrawerForm(props) {
     clothing: 30.0,
     entertainment: 50.0,
     pOther: 0.0
-  })
+  });
 
   const handleEdit = e => {
     e.preventDefault();
     setDisabledInput(!disabledInput);
-}
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(e)
+    props.form.validateFields((err, values) => {
+      setExpenses(formatDrawerValues(values));
+    });
     // setIsLoading(true);
     // const clientID = process.env.REACT_APP_CLIENT_ID;
     // const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
@@ -160,8 +163,8 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("rent")(
                     <Input
-                    
-                    disabled={disabledInput}
+                      type="number"
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -178,7 +181,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("utilities")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -200,7 +203,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("groceries")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -217,7 +220,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("restaurant")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -239,7 +242,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("premiums")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -256,7 +259,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("medExpenses")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -279,7 +282,7 @@ function ExpensesDrawerForm(props) {
                   <Form.Item>
                     {getFieldDecorator("cell")(
                       <Input
-                      disabled={disabledInput}
+                        disabled={disabledInput}
                         prefix={
                           <Icon
                             type="dollar"
@@ -298,7 +301,7 @@ function ExpensesDrawerForm(props) {
                   <Form.Item>
                     {getFieldDecorator("internet")(
                       <Input
-                      disabled={disabledInput}
+                        disabled={disabledInput}
                         prefix={
                           <Icon
                             type="dollar"
@@ -317,7 +320,7 @@ function ExpensesDrawerForm(props) {
                   <Form.Item>
                     {getFieldDecorator("tv")(
                       <Input
-                      disabled={disabledInput}
+                        disabled={disabledInput}
                         prefix={
                           <Icon
                             type="dollar"
@@ -336,7 +339,7 @@ function ExpensesDrawerForm(props) {
                   <Form.Item>
                     {getFieldDecorator("studentLoans")(
                       <Input
-                      disabled={disabledInput}
+                        disabled={disabledInput}
                         prefix={
                           <Icon
                             type="dollar"
@@ -359,7 +362,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("carPayment")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -376,7 +379,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("insurance")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -393,7 +396,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("gas")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -410,7 +413,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("carMaintenance")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -432,7 +435,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("clothing")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -449,7 +452,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("entertainment")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -466,7 +469,7 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("pOther")(
                     <Input
-                    disabled={disabledInput}
+                      disabled={disabledInput}
                       prefix={
                         <Icon
                           type="dollar"
@@ -572,7 +575,7 @@ const WrapperDiv = styled.div`
         .form-item-each {
           width: 150px;
           .ant-input {
-              font-size: 20px; 
+            font-size: 20px;
           }
         }
       }
@@ -582,7 +585,7 @@ const WrapperDiv = styled.div`
       }
     }
     .buttons {
-        width: 300px; 
+      width: 300px;
     }
   }
 `;
