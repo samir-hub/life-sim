@@ -38,7 +38,20 @@ function EntryForm() {
     rentindex: "",
     colplusrentindex: "",
     groceriesindex: "",
-    restaurantpriceindex: ""
+    restaurantpriceindex: "",
+    utilities: 100.0,
+    premiums: 50.0,
+    medExpenses: 20.0,
+    carPayment: 300.0,
+    insurance: 150.0,
+    gas: 100.0,
+    carMaintenance: 20.0,
+    internet: 62.77,
+    cell: 114.0,
+    tv: 50.0,
+    clothing: 30.0,
+    entertainment: 50.0,
+    pOther: 0.0
   });
 
   function onChangeOne(value) {
