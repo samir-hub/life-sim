@@ -15,6 +15,9 @@ function ExpensesDrawer() {
   const onClose = () => {
     setVisible(false);
   };
+
+  let screen = window.screen.width;
+
   return (
     <DrawerWrapper>
       <Button type="primary" onClick={showDrawer}>
@@ -26,7 +29,7 @@ function ExpensesDrawer() {
         closable={false}
         onClose={onClose}
         visible={visible}
-        width='35%'
+        width={screen < 600 ? "75%" : "35%"}
       >
         <WrappedExpensesForm/>
       </Drawer>

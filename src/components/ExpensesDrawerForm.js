@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import axios from "axios";
-import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
 import Form from "antd/es/form";
 import "antd/es/form/style/css";
@@ -15,12 +12,10 @@ import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
-import { formatDrawerValues } from "../utils/formatDrawerValues";
+//import { formatDrawerValues } from "../utils/formatDrawerValues";
 import { putDetails } from "../actions";
 
 function ExpensesDrawerForm(props) {
-  const history = useHistory();
-  const [isLoading, setIsLoading] = useState(false);
   const [disabledInput, setDisabledInput] = useState(true);
 
   const state = useSelector(state => {
@@ -129,16 +124,12 @@ function ExpensesDrawerForm(props) {
     }
   };
 
-  console.log(expenses);
-  console.log("isEditing", state.isEditing);
-
   return (
     <WrapperDiv>
       <Card className="login-card">
         <StyledDiv>
           <p className="login-card-text">
-            Transitioning into adulthood can be challenging. The biggest
-            obstacle is often financial planning.
+            You can view and edit your expenses below.
           </p>
         </StyledDiv>
         <Form
@@ -475,10 +466,9 @@ function ExpensesDrawerForm(props) {
               </div>
             </div>
           </div>
-          <div className="form-item-div buttons">
+          <div className="form-item-each">
             <Form.Item>
               <Button
-                loading={isLoading}
                 type="primary"
                 onClick={handleEdit}
                 className="login-form-button"
@@ -486,7 +476,6 @@ function ExpensesDrawerForm(props) {
                 Edit
               </Button>
               <Button
-                loading={isLoading}
                 type="secondary"
                 htmlType="submit"
                 className="login-form-button"
@@ -547,8 +536,7 @@ const WrapperDiv = styled.div`
   }
   @media only screen and (max-width: 600px) {
     .login-card {
-      width: 90%;
-      height: 80vh;
+      width: 100%;
     }
   }
   .login-form {
@@ -560,6 +548,9 @@ const WrapperDiv = styled.div`
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      @media only screen and (max-width: 600px) {
+        width: 150px;
+      }
       .form-item-inner {
         display: flex;
         align-content: center;
@@ -576,8 +567,21 @@ const WrapperDiv = styled.div`
         margin-top: 5px;
       }
     }
-    .buttons {
-      width: 300px;
+    .ant-form-item-control {
+      width: 100%;
+      display: flex; 
+      justify-content: space-around;
+      @media only screen and (max-width: 600px) {
+        width: 150px; 
+      }
+
+      .login-form-button {
+        margin: 0 10px; 
+        width: 100px; 
+        @media only screen and (max-width: 600px) {
+        width: 150px; 
+      }
+      }
     }
   }
 `;
