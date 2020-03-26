@@ -44,6 +44,8 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting, state.isEditing]);
 
+  console.log(state)
+
   return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}

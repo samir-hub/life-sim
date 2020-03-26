@@ -21,8 +21,8 @@ function Login(props) {
   const handleSubmit = e => {
     e.preventDefault();
     setIsLoading(true);
-    const clientID = process.env.REACT_APP_CLIENT_ID;
-    const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
+    const clientID = "lambda-client";
+    const clientSecret = "lambda-secret";
     props.form.validateFields((err, values) => {
       if (!err) {
         axios
