@@ -15,61 +15,86 @@ const ExpensesPie = () => {
     };
   });
 
-  const groceriesPrice =
-    471.34 *
-    (state.isFetching
-      ? 1
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1]
-          .groceriesindex / 100);
-
-  const formattedGroceries = parseFloat(groceriesPrice.toFixed(2));
-
-  const restaurantPrice =
-    48.56 *
-    (state.isFetching
-      ? 1
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1]
-          .restaurantpriceindex / 100);
-
-  const formattedRestaurant = parseFloat(restaurantPrice.toFixed(2));
-
   const expenses = {
     housing: {
       rent: state.isFetching
         ? 1000
         : state.userInfo.details[state.userInfo.details.length - 1] &&
           state.userInfo.details[state.userInfo.details.length - 1].rent,
-      utilities: 100.0
+      utilities: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].utilities
     },
     food: {
-      groceries: formattedGroceries,
-      restaurant: formattedRestaurant
+      groceries: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].groceries,
+      restaurant: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].restaurant
     },
     medical: {
-      premiums: 50.0,
-      medExpenses: 20.0
+      premiums: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].premiums,
+      medExpenses: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].medExpenses
     },
     transportation: {
-      carPayment: 300.0,
-      insurance: 150.0,
-      gas: 100.0,
-      carMaintenance: 20.0
+      carPayment: state.isFetching
+      ? 300
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].carPayment,
+      insurance: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].insurance,
+      gas: state.isFetching
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].gas,
+      carMaintenance: state.isFetching
+      ? 20
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].carMaintenance
     },
     necessities: {
-      internet: 62.77,
-      cell: 114.0,
-      tv: 50.0,
+      internet: state.isFetching
+      ? 62.77
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].internet,
+      cell: state.isFetching
+      ? 114
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].cell,
+      tv: state.isFetching
+      ? 50
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].tv,
       studentLoans: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
         state.userInfo.details[state.userInfo.details.length - 1].studentLoans
     },
     personal: {
-      clothing: 30.0,
-      entertainment: 50.0,
-      other: 0.0
+      clothing: state.isFetching
+      ? 0
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].clothing,
+      entertainment: state.isFetching
+      ? 0
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].entertainment,
+      other: state.isFetching
+      ? 0
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].pOther
     }
   };
 
