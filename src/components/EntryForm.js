@@ -33,46 +33,75 @@ function EntryForm() {
     highmajor: "",
     city: "",
     colindex: "",
-    avgrent: "",
+    rent: "",
     avgwage: "",
     rentindex: "",
     colplusrentindex: "",
     groceriesindex: "",
     restaurantpriceindex: "",
-    utilities: 100.0,
-    premiums: 50.0,
-    medExpenses: 20.0,
-    carPayment: 300.0,
-    insurance: 150.0,
-    gas: 100.0,
-    carMaintenance: 20.0,
-    internet: 62.77,
-    cell: 114.0,
-    tv: 50.0,
-    clothing: 30.0,
-    entertainment: 50.0,
-    pOther: 0.0
+    groceries: "",
+    restaurant: "",
+    studentLoans: "",
+    utilities: "",
+    premiums: "",
+    medExpenses: "",
+    carPayment: "",
+    insurance: "",
+    gas: "",
+    carMaintenance: "",
+    internet: "",
+    cell: "",
+    tv: "",
+    clothing: "",
+    entertainment: "",
+    pOther: ""
   });
 
   function onChangeOne(value) {
+    let loansValue =
+      value === "Community College" || value === "No College" ? 0.0 : 271.0;
+
     setUserEntry({
       ...userEntry,
-      education: value
+      education: value,
+      studentLoans: loansValue,
+      utilities: 100.0,
+      premiums: 50.0,
+      medExpenses: 20.0,
+      carPayment: 300.0,
+      insurance: 150.0,
+      gas: 100.0,
+      carMaintenance: 20.0,
+      internet: 62.77,
+      cell: 114.0,
+      tv: 50.0,
+      clothing: 30.0,
+      entertainment: 50.0,
+      pOther: 0.0
     });
   }
 
   function onChangeThree(value) {
     let result = newCities.filter(city => city.city === value);
+
+    let groceriesPrice = 471.34 * (result[0].groceriesindex / 100);
+    let formattedGroceries = parseFloat(groceriesPrice.toFixed(2));
+
+    let restaurantPrice = 48.56 * (result[0].restaurantpriceindex / 100);
+    let formattedRestaurant = parseFloat(restaurantPrice.toFixed(2));
+
     setUserEntry({
       ...userEntry,
       city: value,
       colindex: result[0].colindex,
-      avgrent: result[0].avgrent,
+      rent: result[0].avgrent,
       avgwage: result[0].avgwage,
       rentindex: result[0].rentindex,
       colplusrentindex: result[0].colplusrentindex,
       groceriesindex: result[0].groceriesindex,
-      restaurantpriceindex: result[0].restaurantpriceindex
+      restaurantpriceindex: result[0].restaurantpriceindex,
+      groceries: formattedGroceries,
+      restaurant: formattedRestaurant
     });
   }
 

@@ -24,14 +24,15 @@ import Expenses from "./Expenses";
 const { Content, Sider } = Layout;
 
 function Dashboard() {
-  const [active, setActive] = useState("3");
+  const [active, setActive] = useState("1");
 
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
-      isPosting: state.isPosting
+      isPosting: state.isPosting,
+      isEditing: state.isEditing
     };
   });
 
@@ -41,10 +42,7 @@ function Dashboard() {
 
   useEffect(() => {
     dispatch(fetchEntry());
-  }, [dispatch, state.isPosting]);
-
-  // console.log("isFetching", state.isFetching);
-  // console.log("isPosting", state.isPosting);
+  }, [dispatch, state.isPosting, state.isEditing]);
 
   return (
     <Layout

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink, useHistory } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import styled from "styled-components";
@@ -15,6 +16,7 @@ import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import { formatDrawerValues } from "../utils/formatDrawerValues";
+import { putDetails } from "../actions";
 
 function ExpensesDrawerForm(props) {
   const history = useHistory();
@@ -26,7 +28,8 @@ function ExpensesDrawerForm(props) {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
-      isPosting: state.isPosting
+      isPosting: state.isPosting,
+      isEditing: state.isEditing
     };
   });
 
@@ -54,7 +57,7 @@ function ExpensesDrawerForm(props) {
     rent: state.isFetching
       ? 1000
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].avgrent,
+        state.userInfo.details[state.userInfo.details.length - 1].rent,
     utilities: 100.0,
     groceries: formattedGroceries,
     restaurant: formattedRestaurant,
@@ -68,14 +71,9 @@ function ExpensesDrawerForm(props) {
     cell: 114.0,
     tv: 50.0,
     studentLoans: state.isFetching
-      ? 200
-      : (state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1]
-            .education === "Community College") ||
-        state.userInfo.details[state.userInfo.details.length - 1].education ===
-          "No College"
-      ? 0.0
-      : 271.0,
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].studentLoans,
     clothing: 30.0,
     entertainment: 50.0,
     pOther: 0.0
@@ -86,49 +84,17 @@ function ExpensesDrawerForm(props) {
     setDisabledInput(!disabledInput);
   };
 
+  const dispatch = useDispatch();
+
   const handleSubmit = e => {
     e.preventDefault();
+    let detailsId =
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.userInfo.details[state.userInfo.details.length - 1].detailsid;
     props.form.validateFields((err, values) => {
       setExpenses(formatDrawerValues(values));
+      dispatch(putDetails(detailsId, values));
     });
-    // setIsLoading(true);
-    // const clientID = process.env.REACT_APP_CLIENT_ID;
-    // const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
-    // props.form.validateFields((err, values) => {
-    //   if (!err) {
-    //     axios
-    //       .post(
-    //         "https://samirlilienfeld-mypath.herokuapp.com/login",
-    //         `grant_type=password&username=${values.username}&password=${values.password}`,
-    //         {
-    //           headers: {
-    //             // btoa is converting our client id/client secret into base64
-    //             Authorization: `Basic ${btoa(`${clientID}:${clientSecret}`)}`,
-    //             "Content-Type": "application/x-www-form-urlencoded"
-    //           }
-    //         }
-    //       )
-    //       .then(res => {
-    //         setIsLoading(false);
-    //         localStorage.setItem("token", res.data.access_token);
-    //         localStorage.setItem("username", values.username);
-    //         //   props.setLoginToken(true);
-    //         //   props.history.push("/");
-    //         //   props.history.push("/");
-    //       })
-    //       .then(() => {
-    //         axiosWithAuth()
-    //           .get("/users/getuserinfo")
-    //           .then(res => {
-    //             localStorage.setItem("userid", res.data.userid);
-    //             //   props.setLoginToken(true);
-    //             history.push(`/entryform`);
-    //           })
-    //           .catch(err => console.dir(err));
-    //       })
-    //       .catch(err => console.dir(err));
-    //   }
-    // });
   };
   const { getFieldDecorator } = props.form;
 
@@ -139,6 +105,8 @@ function ExpensesDrawerForm(props) {
   };
 
   console.log(expenses);
+  console.log("isEditing", state.isEditing);
+
 
   return (
     <WrapperDiv>

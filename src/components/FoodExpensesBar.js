@@ -40,7 +40,7 @@ const FoodExpensesBar = () => {
       rent: state.isFetching
         ? 1000
         : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].avgrent,
+          state.userInfo.details[state.userInfo.details.length - 1].rent,
       utilities: 100.0
     },
     food: {
@@ -62,14 +62,9 @@ const FoodExpensesBar = () => {
       cell: 114.0,
       tv: 50.0,
       studentLoans: state.isFetching
-        ? 200
-        : (state.userInfo.details[state.userInfo.details.length - 1] &&
-            state.userInfo.details[state.userInfo.details.length - 1]
-              .education === "Community College") ||
-          state.userInfo.details[state.userInfo.details.length - 1]
-            .education === "No College"
-        ? 0.0
-        : 271.0
+      ? 100
+      : state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.userInfo.details[state.userInfo.details.length - 1].studentLoans
     },
     personal: {
       clothing: 30.0,
