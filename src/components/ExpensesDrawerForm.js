@@ -100,6 +100,8 @@ function ExpensesDrawerForm(props) {
         state.userInfo.details[state.userInfo.details.length - 1].pOther
   };
 
+  let screen = window.screen.width;
+
   const handleEdit = e => {
     e.preventDefault();
     setDisabledInput(!disabledInput);
@@ -136,7 +138,7 @@ function ExpensesDrawerForm(props) {
         </StyledDiv>
         <Form
           validatemessages={validateMessages}
-          style={{ width: "300px", margin: "0 auto" }}
+          style={{ width: screen > 600 ? "300px": "150px", margin: "0 auto" }}
           onSubmit={handleSubmit}
           className="login-form"
         >
