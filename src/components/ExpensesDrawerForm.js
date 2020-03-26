@@ -109,6 +109,8 @@ function ExpensesDrawerForm(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
+    props.onClose();
+    setDisabledInput(!disabledInput);
     let detailsId =
       state.userInfo.details[state.userInfo.details.length - 1] &&
       state.userInfo.details[state.userInfo.details.length - 1].detailsid;
@@ -146,7 +148,6 @@ function ExpensesDrawerForm(props) {
                 <Form.Item>
                   {getFieldDecorator("rent")(
                     <Input
-                      type="number"
                       disabled={disabledInput}
                       prefix={
                         <Icon
@@ -469,14 +470,14 @@ function ExpensesDrawerForm(props) {
           <div className="form-item-each">
             <Form.Item>
               <Button
-                type="primary"
+                type="secondary"
                 onClick={handleEdit}
                 className="login-form-button"
               >
                 Edit
               </Button>
               <Button
-                type="secondary"
+                type="primary"
                 htmlType="submit"
                 className="login-form-button"
               >

@@ -310,6 +310,9 @@ const StyledDiv = styled.div`
   .ant-page-header {
     margin-top: 13px;
     border: 1px solid #e8e8e8;
+    @media only screen and (max-width: 600px) {
+      padding-left: 30px; 
+    }
   }
   .ant-page-header-heading {
     @media only screen and (max-width: 600px) {

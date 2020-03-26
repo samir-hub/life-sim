@@ -31,7 +31,7 @@ function ExpensesDrawer() {
         visible={visible}
         width={screen < 600 ? "75%" : "35%"}
       >
-        <WrappedExpensesForm/>
+        <WrappedExpensesForm onClose={onClose}/>
       </Drawer>
     </DrawerWrapper>
   );
