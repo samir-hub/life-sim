@@ -225,7 +225,7 @@ function Expenses() {
         <Content>{content}</Content>
       </PageHeader>
       <ExpensesDiv>
-        <ExpensesPie />
+        <ExpensesPie housing={expenses.housing} food={expenses.food} medical={expenses.medical} transportation={expenses.transportation} necessities={expenses.necessities} personal={expenses.personal}/>
         <Card className="expenses-card">
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -246,7 +246,7 @@ function Expenses() {
               <h4>Medical</h4>
               <img className="expenses-icon" alt="medical" src={medical} />
             </div>
-            <MedicalExpensesBar />
+            <MedicalExpensesBar medical={expenses.medical}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -257,7 +257,7 @@ function Expenses() {
                 src={transportation}
               />
             </div>
-            <TransportationExpensesBar />
+            <TransportationExpensesBar transportation={expenses.transportation}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -268,14 +268,14 @@ function Expenses() {
                 src={necessities}
               />
             </div>
-            <NecessitiesExpensesBar />
+            <NecessitiesExpensesBar necessities={expenses.necessities}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Personal</h4>
               <img className="expenses-icon" alt="personal" src={personal} />
             </div>
-            <PersonalExpensesBar />
+            <PersonalExpensesBar personal={expenses.personal}/>
           </div>
         </Card>
       </ExpensesDiv>

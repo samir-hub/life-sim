@@ -3,44 +3,21 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-const MedicalExpensesBar = () => {
-  const state = useSelector(state => {
-    return {
-      formattedEntryData: state.formattedEntryData,
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
-      isPosting: state.isPosting
-    };
-  });
-
-  const expenses = {
-    medical: {
-      premiums: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].premiums,
-      medExpenses: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].medExpenses
-    }
-  };
-
+const MedicalExpensesBar = ({ medical }) => {
   const data = {
     datasets: [
       {
         label: "Premiums",
         backgroundColor: "#C95086",
         stack: "2",
-        data: [expenses.medical.premiums]
+        data: [medical.premiums]
       },
       {
         label: "Medical Expenses",
         backgroundColor: "#FC83B9",
         stack: "2",
-        data: [expenses.medical.medExpenses]
+        data: [medical.medExpenses]
       }
     ]
   };

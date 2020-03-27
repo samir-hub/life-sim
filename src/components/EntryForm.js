@@ -61,8 +61,11 @@ function EntryForm() {
     let loansValue =
       value === "Community College" || value === "No College" ? 0.0 : 271.0;
 
+    let noCollegeAvgMajor = value === "No College" ? 35256 : "";
+
     setUserEntry({
       ...userEntry,
+      avgmajor: noCollegeAvgMajor,
       education: value,
       studentLoans: loansValue,
       utilities: 100.0,
@@ -201,6 +204,7 @@ function EntryForm() {
 
           <div className="entryform-select-div">
             <Select
+              disabled={userEntry.education === "No College" ? true : false}
               className="entryform-select"
               showSearch
               style={{ width: 300 }}

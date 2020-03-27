@@ -3,65 +3,33 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-const TransportationExpensesBar = () => {
-  const state = useSelector(state => {
-    return {
-      formattedEntryData: state.formattedEntryData,
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
-      isPosting: state.isPosting
-    };
-  });
-
-  const expenses = {
-    transportation: {
-      carPayment: state.isFetching
-        ? 300
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].carPayment,
-      insurance: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].insurance,
-      gas: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].gas,
-      carMaintenance: state.isFetching
-        ? 20
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1]
-            .carMaintenance
-    }
-  };
-
+const TransportationExpensesBar = ({ transportation }) => {
   const data = {
     datasets: [
       {
         label: "Car Payment",
         backgroundColor: "#865794",
         stack: "2",
-        data: [expenses.transportation.carPayment]
+        data: [transportation.carPayment]
       },
       {
         label: "Insurance",
         backgroundColor: "#AC7DBA",
         stack: "2",
-        data: [expenses.transportation.insurance]
+        data: [transportation.insurance]
       },
       {
         label: "Gas",
         backgroundColor: "#D3A4E1",
         stack: "2",
-        data: [expenses.transportation.gas]
+        data: [transportation.gas]
       },
       {
         label: "Car Maintenance",
         backgroundColor: "#F9CAFF",
         stack: "2",
-        data: [expenses.transportation.carMaintenance]
+        data: [transportation.carMaintenance]
       }
     ]
   };

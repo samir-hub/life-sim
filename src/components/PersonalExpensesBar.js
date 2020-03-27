@@ -3,55 +3,27 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-const PersonalExpensesBar = () => {
-  const state = useSelector(state => {
-    return {
-      formattedEntryData: state.formattedEntryData,
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
-      isPosting: state.isPosting
-    };
-  });
-
-  const expenses = {
-    personal: {
-      clothing: state.isFetching
-        ? 0
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].clothing,
-      entertainment: state.isFetching
-        ? 0
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1]
-            .entertainment,
-      other: state.isFetching
-        ? 0
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].pOther
-    }
-  };
-
+const PersonalExpensesBar = ({ personal }) => {
   const data = {
     datasets: [
       {
         label: "Entertainment",
         backgroundColor: "#2F4858",
         stack: "2",
-        data: [expenses.personal.entertainment]
+        data: [personal.entertainment]
       },
       {
         label: "Clothing",
         backgroundColor: "#556E7E",
         stack: "2",
-        data: [expenses.personal.clothing]
+        data: [personal.clothing]
       },
       {
         label: "Other",
         backgroundColor: "#7C95A5",
         stack: "2",
-        data: [expenses.personal.other]
+        data: [personal.other]
       }
     ]
   };

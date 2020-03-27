@@ -32,72 +32,72 @@ function ExpensesDrawerForm(props) {
     rent: state.isFetching
       ? 1000
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].rent,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].rent),
     utilities: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].utilities,
+      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].utilities),
     groceries: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].groceries,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].groceries),
     restaurant: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].restaurant,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].restaurant),
     premiums: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].premiums,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].premiums),
     medExpenses: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].medExpenses,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].medExpenses),
     carPayment: state.isFetching
       ? 300
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].carPayment,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carPayment),
     insurance: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].insurance,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].insurance),
     gas: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].gas,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
     carMaintenance: state.isFetching
       ? 20
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1]
-          .carMaintenance,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1]
+          .carMaintenance),
     internet: state.isFetching
       ? 62.77
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].internet,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].internet),
     cell: state.isFetching
       ? 114
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].cell,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].cell),
     tv: state.isFetching
       ? 50
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].tv,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
     studentLoans: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].studentLoans,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].studentLoans),
     clothing: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].clothing,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].clothing),
     entertainment: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].entertainment,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].entertainment),
     pOther: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].pOther
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].pOther)
   };
 
   let screen = window.screen.width;
