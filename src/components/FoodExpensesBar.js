@@ -3,44 +3,21 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
 
-const FoodExpensesBar = () => {
-  const state = useSelector(state => {
-    return {
-      formattedEntryData: state.formattedEntryData,
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
-      isPosting: state.isPosting
-    };
-  });
-
-  const expenses = {
-    food: {
-      groceries: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].groceries,
-      restaurant: state.isFetching
-        ? 100
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].restaurant
-    }
-  };
-
+const FoodExpensesBar = ({ food }) => {
   const data = {
     datasets: [
       {
         label: "Groceries",
         backgroundColor: "#F35B59",
         stack: "2",
-        data: [expenses.food.groceries]
+        data: [food.groceries]
       },
       {
         label: "Restaurants",
         backgroundColor: "#FF8E8C",
         stack: "2",
-        data: [expenses.food.restaurant]
+        data: [food.restaurant]
       }
     ]
   };

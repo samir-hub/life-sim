@@ -7,7 +7,7 @@ const axiosWithAuth = () => {
     headers: {
       Authorization: `Bearer ${token}`
     },
-    baseURL: `https://samirlilienfeld-mypath.herokuapp.com`
+    baseURL: `http://localhost:2019`
   });
 };
 

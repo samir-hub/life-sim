@@ -22,7 +22,7 @@ function Register(props) {
     props.form.validateFields((err, values) => {
       if (!err) {
         axios
-          .post("https://samirlilienfeld-mypath.herokuapp.com/createnewuser", {
+          .post("http://localhost:2019/createnewuser", {
             username: values.username,
             password: values.password,
             primaryemail: values.primaryemail

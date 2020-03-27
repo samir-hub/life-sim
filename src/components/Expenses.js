@@ -46,81 +46,81 @@ function Expenses() {
       rent: state.isFetching
         ? 1000
         : state.userInfo.details[state.userInfo.details.length - 1] &&
-          state.userInfo.details[state.userInfo.details.length - 1].rent,
+          Math.floor(state.userInfo.details[state.userInfo.details.length - 1].rent),
       utilities: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].utilities
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].utilities)
     },
     food: {
       groceries: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].groceries,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].groceries),
       restaurant: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].restaurant
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].restaurant)
     },
     medical: {
       premiums: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].premiums,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].premiums),
       medExpenses: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].medExpenses
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].medExpenses)
     },
     transportation: {
       carPayment: state.isFetching
       ? 300
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].carPayment,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carPayment),
       insurance: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].insurance,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].insurance),
       gas: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].gas,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
       carMaintenance: state.isFetching
       ? 20
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].carMaintenance
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carMaintenance)
     },
     necessities: {
       internet: state.isFetching
       ? 62.77
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].internet,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].internet),
       cell: state.isFetching
       ? 114
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].cell,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].cell),
       tv: state.isFetching
       ? 50
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].tv,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
       studentLoans: state.isFetching
       ? 100
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].studentLoans
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].studentLoans)
     },
     personal: {
       clothing: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].clothing,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].clothing),
       entertainment: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].entertainment,
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].entertainment),
       other: state.isFetching
       ? 0
       : state.userInfo.details[state.userInfo.details.length - 1] &&
-        state.userInfo.details[state.userInfo.details.length - 1].pOther
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].pOther)
     }
   };
 
@@ -232,14 +232,14 @@ function Expenses() {
               <h4>Housing</h4>
               <img className="expenses-icon" alt="housing" src={housing} />
             </div>
-            <HousingExpensesBar />
+            <HousingExpensesBar housing={expenses.housing}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Food</h4>
               <img className="expenses-icon" alt="food" src={food} />
             </div>
-            <FoodExpensesBar />
+            <FoodExpensesBar food={expenses.food}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
