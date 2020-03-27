@@ -169,7 +169,6 @@ function Dashboard() {
                   )}
                 </h1>
               </div>
-              {/* <div style={{ display:'flex', alignItems: 'center'}}><img style={{ height:'30px', marginRight: '10px'  }} alt='graduation cap' src={grad_cap}/><p style={{ margin:'0px' }}>{string.col}</p></div> */}
             </StyledDiv>
           )}
         </Card>
