@@ -117,6 +117,12 @@ function ExpensesDrawerForm(props) {
       state.userInfo.details[state.userInfo.details.length - 1] &&
       state.userInfo.details[state.userInfo.details.length - 1].detailsid;
     props.form.validateFields((err, values) => {
+      for(let item in values){
+        if(values[item] === "0" || values[item] === "0.0" || values[item] === "0.00"){
+            values[item] = 0.1
+        }
+    }
+      console.log(values)
       dispatch(putDetails(detailsId, values));
     });
   };
