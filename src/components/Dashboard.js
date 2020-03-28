@@ -112,9 +112,9 @@ function Dashboard() {
                   {state.isFetching ? (
                     <p>fetching</p>
                   ) : (
-                    state.userInfo.details[state.userInfo.details.length - 1] && state.userInfo.details[state.userInfo.details.length - 1] === "" ?
-                    state.userInfo.details[state.userInfo.details.length - 1]
-                      .major : "H.S. Diploma"
+                    state.userInfo.details[state.userInfo.details.length - 1] && state.userInfo.details[state.userInfo.details.length - 1].major === "" ? "H.S. Diploma"
+                    : state.userInfo.details[state.userInfo.details.length - 1]
+                    .major 
                   )}
                 </h1>
               </div>
