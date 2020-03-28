@@ -122,7 +122,6 @@ function ExpensesDrawerForm(props) {
             values[item] = 0.1
         }
     }
-      console.log(values)
       dispatch(putDetails(detailsId, values));
     });
   };

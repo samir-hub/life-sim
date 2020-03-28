@@ -9,6 +9,7 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Table from "antd/es/table";
 import "antd/es/table/style/css";
+import IncomeDrawer from './IncomeDrawer';
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import wallet from "../assets/wallet.svg";
@@ -35,15 +36,14 @@ function Income() {
       >
         Many different factors will determine your income. We use your
         information to calculate an estimate that will help you plan for the
-        future. Many different factors will determine your income. We use your
-        information to calculate an estimate that will help you plan for the
-        future. <strong>Gross Monthly Income</strong> refers to the estimated
-        monthly income <strong>before</strong> any taxes or any other deductions
-        are taken out. <strong>Net Monthly Income</strong> refers to the
-        estimated monthly income <strong>after</strong> all taxes and other
-        deductions are taken out. A <strong>Biweekly Pay Stub</strong> is a
-        detailed view of your income and deductions for a two week period. Most
-        people get paid every two weeks.
+        future. We use your information to calculate an estimate that will help
+        you plan for the future. <strong>Gross Monthly Income</strong> refers to
+        the estimated monthly income <strong>before</strong> any taxes or any
+        other deductions are taken out. <strong>Net Monthly Income</strong>{" "}
+        refers to the estimated monthly income <strong>after</strong> all taxes
+        and other deductions are taken out. A <strong>Biweekly Pay Stub</strong>{" "}
+        is a detailed view of your income and deductions for a two week period.
+        Most people get paid every two weeks.
       </Paragraph>
     </div>
   );
@@ -235,10 +235,10 @@ function Income() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
+                Math.floor((
                   state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor / 12
-                )
+                ))
                   .toFixed(2)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -254,17 +254,18 @@ function Income() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
+                Math.floor((
                   (state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor /
                     12) *
                   0.85
-                )
+                ))
                   .toFixed(2)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
             </h3>
+            <IncomeDrawer/>
           </React.Fragment>
         ]}
       >
@@ -311,7 +312,7 @@ const StyledDiv = styled.div`
     margin-top: 13px;
     border: 1px solid #e8e8e8;
     @media only screen and (max-width: 600px) {
-      padding-left: 30px; 
+      padding-left: 30px;
     }
   }
   .ant-page-header-heading {
@@ -334,7 +335,6 @@ const StyledDiv = styled.div`
   .ant-card-body {
     @media only screen and (max-width: 600px) {
       width: 90%;
-      
     }
   }
   .income-card {
@@ -344,7 +344,7 @@ const StyledDiv = styled.div`
     width: 45%;
     @media only screen and (max-width: 600px) {
       width: auto;
-      border: none; 
+      border: none;
       box-shadow: none;
     }
     .ant-table-row:nth-child(4) {

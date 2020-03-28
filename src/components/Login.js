@@ -41,16 +41,12 @@ function Login(props) {
             setIsLoading(false);
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
-            //   props.setLoginToken(true);
-            //   props.history.push("/");
-            //   props.history.push("/");
           })
           .then(() => {
             axiosWithAuth()
               .get("/users/getuserinfo")
               .then(res => {
                 localStorage.setItem("userid", res.data.userid);
-                //   props.setLoginToken(true);
                 history.push(`/entryform`);
               })
               .catch(err => console.dir(err));

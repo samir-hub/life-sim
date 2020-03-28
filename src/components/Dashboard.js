@@ -44,7 +44,7 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting, state.isEditing]);
 
-  console.log(state)
+  // console.log(state)
 
   return (
     <Layout
@@ -219,7 +219,7 @@ function Dashboard() {
             <Icon type="wallet" />
             <span>Expenses</span>
           </Menu.Item>
-          <Menu.Item
+          {/* <Menu.Item
             onClick={() => setActive("4")}
             style={{
               display: "flex",
@@ -231,7 +231,7 @@ function Dashboard() {
           >
             <Icon type="profile" />
             <span>Budget</span>
-          </Menu.Item>
+          </Menu.Item> */}
         </Menu>
       </Sider>
 

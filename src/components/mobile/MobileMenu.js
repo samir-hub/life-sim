@@ -47,14 +47,14 @@ function MobileMenu() {
         <Icon type="home" />
         <NavLink to="/">Home</NavLink>
       </Menu.Item>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="2">
+      {/* <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="2">
         <Icon type="info-circle" />
         <NavLink to="/about">About</NavLink>
       </Menu.Item>
       <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="3">
         <Icon type="message" />
         <NavLink to="/contact">Contact</NavLink>
-      </Menu.Item>
+      </Menu.Item> */}
     </Menu>
   );
 

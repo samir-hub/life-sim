@@ -159,7 +159,7 @@ function Expenses() {
     );
   };
 
-  console.log(expenses)
+  // console.log(expenses)
 
   return (
     <StyledDiv>
@@ -178,12 +178,12 @@ function Expenses() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                (
+                Math.floor((
                   (state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor /
                     12) *
                   0.85
-                )
+                ))
                   .toFixed(2)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
