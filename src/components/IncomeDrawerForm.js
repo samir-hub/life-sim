@@ -27,12 +27,11 @@ function IncomeDrawerForm(props) {
   });
 
   const income = {
-    avgmajor: state.isFetching
-      ? 1000
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].avgmajor
-        )
+    avgmajor:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor
+      )
   };
 
   let screen = window.screen.width;

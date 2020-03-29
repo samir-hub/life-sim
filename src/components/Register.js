@@ -72,8 +72,6 @@ function Register(props) {
 
   const { getFieldDecorator } = props.form;
 
-  console.log(screen)
-
   return (
     <DivWrapper>
       <Card className="register-card">
