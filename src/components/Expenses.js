@@ -33,91 +33,109 @@ function Expenses() {
   const state = useSelector(state => {
     return {
       userInfo: state.userInfo,
-      isFetching: state.isFetching,
+      isFetching: state.isFetching
     };
   });
 
-
   const expenses = {
     housing: {
-      rent: state.isFetching
-        ? 1000
-        : state.userInfo.details[state.userInfo.details.length - 1] &&
-          Math.floor(state.userInfo.details[state.userInfo.details.length - 1].rent),
-      utilities: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].utilities)
+      rent:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].rent
+        ),
+      utilities:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].utilities
+        )
     },
     food: {
-      groceries: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].groceries),
-      restaurant: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].restaurant)
+      groceries:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].groceries
+        ),
+      restaurant:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].restaurant
+        )
     },
     medical: {
-      premiums: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].premiums),
-      medExpenses: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].medExpenses)
+      premiums:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].premiums
+        ),
+      medExpenses:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].medExpenses
+        )
     },
     transportation: {
-      carPayment: state.isFetching
-      ? 300
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carPayment),
-      insurance: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].insurance),
-      gas: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
-      carMaintenance: state.isFetching
-      ? 20
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carMaintenance)
+      carPayment:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].carPayment
+        ),
+      insurance:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].insurance
+        ),
+      gas:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].gas
+        ),
+      carMaintenance:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1]
+            .carMaintenance
+        )
     },
     necessities: {
-      internet: state.isFetching
-      ? 62.77
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].internet),
-      cell: state.isFetching
-      ? 114
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].cell),
-      tv: state.isFetching
-      ? 50
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
-      studentLoans: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].studentLoans)
+      internet:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].internet
+        ),
+      cell:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].cell
+        ),
+      tv:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].tv
+        ),
+      studentLoans:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].studentLoans
+        )
     },
     personal: {
-      clothing: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].clothing),
-      entertainment: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].entertainment),
-      other: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].pOther)
+      clothing:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].clothing
+        ),
+      entertainment:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1]
+            .entertainment
+        ),
+      other:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].pOther
+        )
     }
   };
 
@@ -175,12 +193,12 @@ function Expenses() {
                 <p>fetching</p>
               ) : (
                 state.userInfo.details[state.userInfo.details.length - 1] &&
-                Math.floor((
+                Math.floor(
                   (state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor /
                     12) *
-                  0.85
-                ))
+                    0.85
+                )
                   .toFixed(2)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
@@ -222,28 +240,35 @@ function Expenses() {
         <Content>{content}</Content>
       </PageHeader>
       <ExpensesDiv>
-        <ExpensesPie housing={expenses.housing} food={expenses.food} medical={expenses.medical} transportation={expenses.transportation} necessities={expenses.necessities} personal={expenses.personal}/>
+        <ExpensesPie
+          housing={expenses.housing}
+          food={expenses.food}
+          medical={expenses.medical}
+          transportation={expenses.transportation}
+          necessities={expenses.necessities}
+          personal={expenses.personal}
+        />
         <Card className="expenses-card">
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Housing</h4>
               <img className="expenses-icon" alt="housing" src={housing} />
             </div>
-            <HousingExpensesBar housing={expenses.housing}/>
+            <HousingExpensesBar housing={expenses.housing} />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Food</h4>
               <img className="expenses-icon" alt="food" src={food} />
             </div>
-            <FoodExpensesBar food={expenses.food}/>
+            <FoodExpensesBar food={expenses.food} />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Medical</h4>
               <img className="expenses-icon" alt="medical" src={medical} />
             </div>
-            <MedicalExpensesBar medical={expenses.medical}/>
+            <MedicalExpensesBar medical={expenses.medical} />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -254,7 +279,9 @@ function Expenses() {
                 src={transportation}
               />
             </div>
-            <TransportationExpensesBar transportation={expenses.transportation}/>
+            <TransportationExpensesBar
+              transportation={expenses.transportation}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -265,14 +292,14 @@ function Expenses() {
                 src={necessities}
               />
             </div>
-            <NecessitiesExpensesBar necessities={expenses.necessities}/>
+            <NecessitiesExpensesBar necessities={expenses.necessities} />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Personal</h4>
               <img className="expenses-icon" alt="personal" src={personal} />
             </div>
-            <PersonalExpensesBar personal={expenses.personal}/>
+            <PersonalExpensesBar personal={expenses.personal} />
           </div>
         </Card>
       </ExpensesDiv>

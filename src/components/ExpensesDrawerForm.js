@@ -26,75 +26,87 @@ function ExpensesDrawerForm(props) {
   });
 
   const expenses = {
-    rent: state.isFetching
-      ? 1000
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].rent),
-    utilities: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].utilities),
-    groceries: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].groceries),
-    restaurant: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].restaurant),
-    premiums: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].premiums),
-    medExpenses: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].medExpenses),
-    carPayment: state.isFetching
-      ? 300
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].carPayment),
-    insurance: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].insurance),
-    gas: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
-    carMaintenance: state.isFetching
-      ? 20
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1]
-          .carMaintenance),
-    internet: state.isFetching
-      ? 62.77
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].internet),
-    cell: state.isFetching
-      ? 114
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].cell),
-    tv: state.isFetching
-      ? 50
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
-    studentLoans: state.isFetching
-      ? 100
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].studentLoans),
-    clothing: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].clothing),
-    entertainment: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].entertainment),
-    pOther: state.isFetching
-      ? 0
-      : state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].pOther)
+    rent:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].rent
+      ),
+    utilities:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].utilities
+      ),
+    groceries:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].groceries
+      ),
+    restaurant:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].restaurant
+      ),
+    premiums:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].premiums
+      ),
+    medExpenses:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].medExpenses
+      ),
+    carPayment:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].carPayment
+      ),
+    insurance:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].insurance
+      ),
+    gas:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
+    carMaintenance:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].carMaintenance
+      ),
+    internet:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].internet
+      ),
+    cell:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].cell
+      ),
+    tv:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
+    studentLoans:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].studentLoans
+      ),
+    clothing:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].clothing
+      ),
+    entertainment:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].entertainment
+      ),
+    pOther:
+      state.userInfo.details[state.userInfo.details.length - 1] &&
+      Math.floor(
+        state.userInfo.details[state.userInfo.details.length - 1].pOther
+      )
   };
 
   let screen = window.screen.width;
@@ -114,11 +126,15 @@ function ExpensesDrawerForm(props) {
       state.userInfo.details[state.userInfo.details.length - 1] &&
       state.userInfo.details[state.userInfo.details.length - 1].detailsid;
     props.form.validateFields((err, values) => {
-      for(let item in values){
-        if(values[item] === "0" || values[item] === "0.0" || values[item] === "0.00"){
-            values[item] = 0.1
+      for (let item in values) {
+        if (
+          values[item] === "0" ||
+          values[item] === "0.0" ||
+          values[item] === "0.00"
+        ) {
+          values[item] = 0.1;
         }
-    }
+      }
       dispatch(putDetails(detailsId, values));
     });
   };
@@ -140,7 +156,7 @@ function ExpensesDrawerForm(props) {
         </StyledDiv>
         <Form
           validatemessages={validateMessages}
-          style={{ width: screen > 600 ? "300px": "150px", margin: "0 auto" }}
+          style={{ width: screen > 600 ? "300px" : "150px", margin: "0 auto" }}
           onSubmit={handleSubmit}
           className="login-form"
         >
@@ -574,18 +590,18 @@ const WrapperDiv = styled.div`
     }
     .ant-form-item-control {
       width: 100%;
-      display: flex; 
+      display: flex;
       justify-content: space-around;
       @media only screen and (max-width: 600px) {
-        width: 150px; 
+        width: 150px;
       }
 
       .login-form-button {
-        margin: 0 10px; 
-        width: 100px; 
+        margin: 0 10px;
+        width: 100px;
         @media only screen and (max-width: 600px) {
-        width: 150px; 
-      }
+          width: 150px;
+        }
       }
     }
   }
