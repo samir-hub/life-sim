@@ -79,7 +79,7 @@ function IncomeDrawerForm(props) {
       <Card className="login-card">
         <StyledDiv>
           <p className="login-card-text">
-            You can view and edit your expenses below.
+            You can view and edit your gross yearly income below.
           </p>
         </StyledDiv>
         <Form
@@ -89,7 +89,7 @@ function IncomeDrawerForm(props) {
           className="login-form"
         >
           <div className="form-item-div">
-            <h3 className="form-item-title">Housing</h3>
+            <h3 className="form-item-title">Income</h3>
             <div className="form-item-inner">
               <div className="form-item-each">
                 <p className="form-item-label">Gross Yearly Salary</p>

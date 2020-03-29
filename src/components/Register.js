@@ -27,21 +27,27 @@ function Register(props) {
             password: values.password,
             primaryemail: values.primaryemail
           })
-          .then(res => {
+          .then(() => {
             setIsLoading(false);
             history.push("/");
           })
-          .catch(err => console.error(err));
+          .catch(err => {
+            setIsLoading(false);
+            console.log(err.response.data.detail);
+          });
+      } else {
+        setIsLoading(false);
       }
     });
   };
+
   const { getFieldDecorator } = props.form;
 
   return (
     <DivWrapper>
       <Card className="register-card">
         <StyledDiv>
-          <Icon type="user" style={{ color: '#f38704', fontSize: "40px" }} />
+          <Icon type="user" style={{ color: "#f38704", fontSize: "40px" }} />
           <h2 className="register-card-title">Create Your Account</h2>
         </StyledDiv>
         <Form
@@ -61,9 +67,17 @@ function Register(props) {
               />
             )}
           </Form.Item>
-          <Form.Item>
+          <Form.Item
+            rules={[
+              {
+                type: "email"
+              }
+            ]}
+          >
             {getFieldDecorator("primaryemail", {
-              rules: [{ required: true, message: "Please input your E-mail" }]
+              rules: [
+                { required: true, type: "email", message: "Not a valid E-mail" }
+              ]
             })(
               <Input
                 prefix={
@@ -111,14 +125,14 @@ const StyledDiv = styled.div`
   height: 200px;
   display: flex;
   justify-content: space-around;
-  align-items: center; 
+  align-items: center;
   @media only screen and (max-width: 600px) {
     height: 150px;
   }
   .register-card-title {
     font-size: 40px;
-    margin: 0; 
-    color: #2F4858;
+    margin: 0;
+    color: #2f4858;
   }
   @media only screen and (max-width: 600px) {
     .register-card-title {
