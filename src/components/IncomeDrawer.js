@@ -24,7 +24,7 @@ function IncomeDrawer() {
         View Details
       </Button>
       <Drawer
-        title="Detailed Expenses"
+        title="Income"
         placement="right"
         closable={false}
         onClose={onClose}

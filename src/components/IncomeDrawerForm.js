@@ -92,7 +92,7 @@ function IncomeDrawerForm(props) {
             <h3 className="form-item-title">Income</h3>
             <div className="form-item-inner">
               <div className="form-item-each">
-                <p className="form-item-label">Gross Yearly Salary</p>
+                <p className="form-item-label">Gross Yearly Income</p>
                 <Form.Item>
                   {getFieldDecorator("avgmajor")(
                     <Input
