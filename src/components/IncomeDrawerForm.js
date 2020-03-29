@@ -22,9 +22,7 @@ function IncomeDrawerForm(props) {
     return {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
-      isFetching: state.isFetching,
-      isPosting: state.isPosting,
-      isEditing: state.isEditing
+      isFetching: state.isFetching
     };
   });
 

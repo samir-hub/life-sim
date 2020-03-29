@@ -32,11 +32,8 @@ const { Paragraph } = Typography;
 function Expenses() {
   const state = useSelector(state => {
     return {
-      formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
-      isPosting: state.isPosting,
-      isEditing: state.isEditing
     };
   });
 
