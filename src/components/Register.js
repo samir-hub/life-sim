@@ -12,6 +12,8 @@ import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import message from "antd/es/message";
+import "antd/es/message/style/css";
 
 function Register(props) {
   const history = useHistory();
@@ -33,12 +35,19 @@ function Register(props) {
           })
           .catch(err => {
             setIsLoading(false);
-            console.log(err.response.data.detail);
+            if(err.response.data.detail === `${values.username} is already taken!`){
+              error(values.username)
+            }
+            
           });
       } else {
         setIsLoading(false);
       }
     });
+  };
+
+  const error = (username) => {
+    message.error(`${username} is already taken. Please choose a different username.`, 6);
   };
 
   const { getFieldDecorator } = props.form;
