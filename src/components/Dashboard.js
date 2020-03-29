@@ -9,6 +9,8 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Tooltip from "antd/es/tooltip";
 import "antd/es/tooltip/style/css";
+import Empty from "antd/es/empty";
+import "antd/es/empty/style/css";
 import styled from "styled-components";
 import grad_cap from "../assets/grad_cap.svg";
 import book from "../assets/book.svg";
@@ -52,126 +54,133 @@ function Dashboard() {
       className="dashboard"
     >
       <Sider breakpoint="lg" collapsedWidth="0" theme="light">
-        <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
-          {state.userInfo && state.userInfo.details && (
-            <StyledDiv key={1}>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingBottom: "20px"
-                }}
-              >
-                <img
-                  style={{ height: "30px", marginRight: "10px" }}
-                  alt="graduation cap"
-                  src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
-                />
-                <p
-                  className="dashboard-username"
-                  style={{ margin: "0px", fontSize: "25px" }}
+        {state.isFetching ? (
+          <Empty
+            style={{
+              minHeight: "315px",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center"
+            }}
+          />
+        ) : (
+          <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
+            {state.userInfo && state.userInfo.details && (
+              <StyledDiv key={1}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingBottom: "20px"
+                  }}
                 >
-                  {state.userInfo.username}
-                </p>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingBottom: "10px"
-                }}
-              >
-                <img
-                  style={{ height: "30px", marginRight: "10px" }}
-                  alt="graduation cap"
-                  src={grad_cap}
-                />
-                <h1 style={{ margin: "0px", width: "100%" }}>
-                  {state.isFetching ? (
-                    <p>fetching</p>
-                  ) : (
-                    state.userInfo.details[state.userInfo.details.length - 1] &&
-                    state.userInfo.details[state.userInfo.details.length - 1]
-                      .education
-                  )}
-                </h1>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingBottom: "10px"
-                }}
-              >
-                <img
-                  style={{ height: "30px", marginRight: "10px" }}
-                  alt="book"
-                  src={book}
-                />
-                <h1 style={{ margin: "0px", width: "100%" }}>
-                  {state.isFetching ? (
-                    <p>fetching</p>
-                  ) : (
-                    state.userInfo.details[state.userInfo.details.length - 1] && (state.userInfo.details[state.userInfo.details.length - 1].major === "" ? "H.S. Diploma"
-                    : state.userInfo.details[state.userInfo.details.length - 1]
-                    .major )
-                  )}
-                </h1>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  paddingBottom: "10px"
-                }}
-              >
-                <img
-                  style={{ height: "30px", marginRight: "10px" }}
-                  alt="taxes"
-                  src={tax}
-                />
-                <h1 style={{ margin: "0px", width: "100%" }}>
-                  {state.isFetching ? (
-                    <p>fetching</p>
-                  ) : (
-                    state.userInfo.details[state.userInfo.details.length - 1] &&
-                    state.userInfo.details[state.userInfo.details.length - 1]
-                      .colindex
-                  )}
-                </h1>
-                <Tooltip
-                  title={
-                    "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
-                  }
-                  placement="top"
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    alt="graduation cap"
+                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                  />
+                  <p
+                    className="dashboard-username"
+                    style={{ margin: "0px", fontSize: "25px" }}
+                  >
+                    {state.userInfo.username}
+                  </p>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingBottom: "10px"
+                  }}
                 >
-                  <Icon type="question-circle" />
-                </Tooltip>
-              </div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center"
-                }}
-              >
-                <img
-                  style={{ height: "30px", marginRight: "10px" }}
-                  alt="city"
-                  src={city}
-                />
-                <h1 style={{ margin: "0px", width: "100%" }}>
-                  {state.isFetching ? (
-                    <p>fetching</p>
-                  ) : (
-                    state.userInfo.details[state.userInfo.details.length - 1] &&
-                    state.userInfo.details[state.userInfo.details.length - 1]
-                      .city
-                  )}
-                </h1>
-              </div>
-            </StyledDiv>
-          )}
-        </Card>
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    alt="graduation cap"
+                    src={grad_cap}
+                  />
+                  <h1 style={{ margin: "0px", width: "100%" }}>
+                    {state.userInfo.details[
+                      state.userInfo.details.length - 1
+                    ] &&
+                      state.userInfo.details[state.userInfo.details.length - 1]
+                        .education}
+                  </h1>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingBottom: "10px"
+                  }}
+                >
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    alt="book"
+                    src={book}
+                  />
+                  <h1 style={{ margin: "0px", width: "100%" }}>
+                    {state.userInfo.details[
+                      state.userInfo.details.length - 1
+                    ] &&
+                      (state.userInfo.details[state.userInfo.details.length - 1]
+                        .major === ""
+                        ? "H.S. Diploma"
+                        : state.userInfo.details[
+                            state.userInfo.details.length - 1
+                          ].major)}
+                  </h1>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingBottom: "10px"
+                  }}
+                >
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    alt="taxes"
+                    src={tax}
+                  />
+                  <h1 style={{ margin: "0px", width: "100%" }}>
+                    {state.userInfo.details[
+                      state.userInfo.details.length - 1
+                    ] &&
+                      state.userInfo.details[state.userInfo.details.length - 1]
+                        .colindex}
+                  </h1>
+                  <Tooltip
+                    title={
+                      "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
+                    }
+                    placement="top"
+                  >
+                    <Icon type="question-circle" />
+                  </Tooltip>
+                </div>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center"
+                  }}
+                >
+                  <img
+                    style={{ height: "30px", marginRight: "10px" }}
+                    alt="city"
+                    src={city}
+                  />
+                  <h1 style={{ margin: "0px", width: "100%" }}>
+                    {state.userInfo.details[
+                      state.userInfo.details.length - 1
+                    ] &&
+                      state.userInfo.details[state.userInfo.details.length - 1]
+                        .city}
+                  </h1>
+                </div>
+              </StyledDiv>
+            )}
+          </Card>
+        )}
         <Menu
           style={{ height: "49vh" }}
           theme="light"
