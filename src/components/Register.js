@@ -18,6 +18,23 @@ import "antd/es/message/style/css";
 function Register(props) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+
+  let screen = window.screen.width;
+
+  const error = username => {
+    message.error(
+      `${username} is already taken. Please choose a different username.`,
+      6
+    );
+  };
+
+  const success = () => {
+    message.success(
+      `Your account was created successfully. Login with your new credentials to confirm.`,
+      6
+    );
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
     setIsLoading(true);
@@ -31,14 +48,21 @@ function Register(props) {
           })
           .then(() => {
             setIsLoading(false);
-            history.push("/");
+            success();
+            if (screen > 600) {
+              history.push("/");
+            } else {
+              history.push("/login");
+            }
           })
           .catch(err => {
             setIsLoading(false);
-            if(err.response.data.detail === `${values.username} is already taken!`){
-              error(values.username)
+            if (
+              err.response.data.detail ===
+              `${values.username} is already taken!`
+            ) {
+              error(values.username);
             }
-            
           });
       } else {
         setIsLoading(false);
@@ -46,11 +70,9 @@ function Register(props) {
     });
   };
 
-  const error = (username) => {
-    message.error(`${username} is already taken. Please choose a different username.`, 6);
-  };
-
   const { getFieldDecorator } = props.form;
+
+  console.log(screen)
 
   return (
     <DivWrapper>
