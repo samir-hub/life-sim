@@ -59,7 +59,7 @@ function EntryForm() {
 
   function onChangeOne(value) {
     let loansValue =
-      value === "Community College" || value === "No College" ? 0.0 : 271.0;
+      value === "Associate's Degree" || value === "No College" ? 0.0 : 271.0;
 
     let noCollegeAvgMajor = value === "No College" ? 35256 : "";
 
@@ -175,7 +175,7 @@ function EntryForm() {
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
-              placeholder="College Plans?"
+              placeholder="Degree Type?"
               optionFilterProp="children"
               onChange={onChangeOne}
               filterOption={(input, option) =>
@@ -187,14 +187,14 @@ function EntryForm() {
               <Option key={1} value={"No College"}>
                 No College
               </Option>
-              <Option key={2} value={"Community College"}>
-                Community College
+              <Option key={2} value={"Associate's Degree"}>
+              Associate Degree
               </Option>
-              <Option key={3} value={"In-State College"}>
-                In-State College
+              <Option key={3} value={"Bachelor's Degree"}>
+              Bachelor's Degree
               </Option>
-              <Option key={4} value={"Out-of-State College"}>
-                Out-of-State College
+              <Option key={4} value={"Advanced Degree"}>
+              Advanced Degree
               </Option>
             </Select>
             <Tooltip title={collegeText} placement="right">
@@ -218,14 +218,14 @@ function EntryForm() {
               }
             >
               {majors.map(major => {
-                let isCC = false;
-                if (userEntry.education === "Community College") {
-                  isCC = true;
+                let isAssociate = false;
+                if (userEntry.education === "Associate's Degree") {
+                  isAssociate = true;
                 }
                 return (
                   <Option
                     disabled={
-                      isCC &&
+                      isAssociate &&
                       (major.id === "4" ||
                         major.id === "5" ||
                         major.id === "9" ||
