@@ -13,10 +13,16 @@ import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import message from "antd/es/message";
+import "antd/es/message/style/css";
 
 function Login(props) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+
+  const error = () => {
+    message.error(`Invalid username or password. Please try again.`, 6);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -27,7 +33,7 @@ function Login(props) {
       if (!err) {
         axios
           .post(
-            "https://samirlilienfeld-mypath.herokuapp.com/login",
+            "http://localhost:2019/login",
             `grant_type=password&username=${values.username}&password=${values.password}`,
             {
               headers: {
@@ -51,7 +57,13 @@ function Login(props) {
               })
               .catch(err => console.dir(err));
           })
-          .catch(err => console.dir(err));
+          .catch(err => {
+            setIsLoading(false);
+            if (err.response.data.error_description === `Bad credentials`) {
+              setIsLoading(false);
+              error();
+            }
+          });
       }
     });
   };
