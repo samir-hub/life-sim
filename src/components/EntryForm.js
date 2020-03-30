@@ -142,11 +142,13 @@ function EntryForm() {
 
   const collegeText = (
     <span>
-      Do you plan on attending college? If so, it is good to know that not all
-      colleges are created equal. Not taking into account financial aid and
-      scholarships, the list to the left is sorted by cost in ascending order.
-      Although cost is important, attending the right college can be a great
-      investment.
+      Do you plan on attending college? If so, it is good to research different degree types. They all vary in length, cost and return on investment. You can read more <a href="https://study.com/different_degrees.html" target="_blank" rel="noopener noreferrer">here</a>.
+    </span>
+  );
+
+  const advDegreeText = (
+    <span>
+      Advanced degrees refer to master's and doctorate degrees. 
     </span>
   );
   const majorText = (
@@ -201,7 +203,7 @@ function EntryForm() {
                 No College
               </Option>
               <Option key={2} value={"Associate's Degree"}>
-                Associate Degree
+                Associate's Degree
               </Option>
               <Option key={3} value={"Bachelor's Degree"}>
                 Bachelor's Degree
@@ -241,7 +243,7 @@ function EntryForm() {
                 Medical School
               </Option>
             </Select>
-            <Tooltip title={collegeText} placement="right">
+            <Tooltip title={advDegreeText} placement="right">
               <Icon type="question-circle" />
             </Tooltip>
           </div>
@@ -389,7 +391,7 @@ const ComponentWrapper = styled.div`
       @media only screen and (max-width: 600px) {
         display: flex;
         align-items: center;
-        height: 100px;
+        height: 80px;
         /* .anticon-question-circle {
           display: none;
         } */
