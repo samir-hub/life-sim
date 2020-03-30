@@ -21,7 +21,7 @@ function IncomeDrawer() {
   return (
     <DrawerWrapper>
       <Button type="primary" onClick={showDrawer}>
-        View Details
+        Expand
       </Button>
       <Drawer
         title="Income"

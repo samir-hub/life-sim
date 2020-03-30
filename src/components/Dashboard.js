@@ -46,8 +46,6 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting, state.isEditing]);
 
-  // console.log(state)
-
   return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
@@ -270,27 +268,4 @@ const StyledDiv = styled.div`
   .dashboard-username {
     text-transform: capitalize;
   }
-  /* @media only screen and (max-width: 600px) {
-        .anticon-question-circle {
-          display: none;
-        }
-      } */
 `;
-
-// const HeaderWrapper = styled.div`
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-//   height: 80px;
-// `;
-
-// const StyledHeading = styled.h1`
-//   margin-left: 100px;
-// `;
-
-// const DashboardWrapper = styled.div`
-//   display: flex;
-//   justify-content: flex-start;
-//   align-items: center;
-//   height: 80px;
-// `;

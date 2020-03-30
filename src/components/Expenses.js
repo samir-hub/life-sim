@@ -174,8 +174,6 @@ function Expenses() {
     );
   };
 
-  // console.log(expenses)
-
   return (
     <StyledDiv>
       <PageHeader

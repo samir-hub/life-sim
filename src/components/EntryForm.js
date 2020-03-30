@@ -218,8 +218,30 @@ function EntryForm() {
               }
             >
               {majors.map(major => {
+                let isCC = false;
+                if (userEntry.education === "Community College") {
+                  isCC = true;
+                }
                 return (
-                  <Option key={major.id} value={major.major}>
+                  <Option
+                    disabled={
+                      isCC &&
+                      (major.id === "4" ||
+                        major.id === "5" ||
+                        major.id === "9" ||
+                        major.id === "11" ||
+                        major.id === "15" ||
+                        major.id === "16" ||
+                        major.id === "21" ||
+                        major.id === "26" ||
+                        major.id === "36" ||
+                        major.id === "41")
+                        ? true
+                        : false
+                    }
+                    key={major.id}
+                    value={major.major}
+                  >
                     {major.major}
                   </Option>
                 );
