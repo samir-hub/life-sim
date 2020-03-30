@@ -84,6 +84,19 @@ function EntryForm() {
     });
   }
 
+  function onChangeTwo(value) {
+    let loansValue =
+      value === "Law School" ? 1367.0 : (value === "Business School") ? 692 : 2052;
+    let avgMajor =
+      value === "Law School" ? 151026 : (value === "Business School") ? 79043 : 231000;
+    setUserEntry({
+      ...userEntry,
+      major: value,
+      studentLoans: loansValue,
+      avgmajor: avgMajor
+    });
+  }
+
   function onChangeThree(value) {
     let result = newCities.filter(city => city.city === value);
 
@@ -188,13 +201,44 @@ function EntryForm() {
                 No College
               </Option>
               <Option key={2} value={"Associate's Degree"}>
-              Associate Degree
+                Associate Degree
               </Option>
               <Option key={3} value={"Bachelor's Degree"}>
-              Bachelor's Degree
+                Bachelor's Degree
               </Option>
               <Option key={4} value={"Advanced Degree"}>
-              Advanced Degree
+                Advanced Degree
+              </Option>
+            </Select>
+            <Tooltip title={collegeText} placement="right">
+              <Icon type="question-circle" />
+            </Tooltip>
+          </div>
+          <div className="entryform-select-div">
+            <Select
+              disabled={
+                userEntry.education === "Advanced Degree" ? false : true
+              }
+              className="entryform-select"
+              showSearch
+              style={{ width: 300 }}
+              placeholder="Which Adv. Degree?"
+              optionFilterProp="children"
+              onChange={onChangeTwo}
+              filterOption={(input, option) =>
+                option.props.children
+                  .toLowerCase()
+                  .indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              <Option key={1} value={"Law School"}>
+                Law School
+              </Option>
+              <Option key={2} value={"Business School"}>
+                Business School
+              </Option>
+              <Option key={3} value={"Medical School"}>
+                Medical School
               </Option>
             </Select>
             <Tooltip title={collegeText} placement="right">
@@ -204,7 +248,12 @@ function EntryForm() {
 
           <div className="entryform-select-div">
             <Select
-              disabled={userEntry.education === "No College" ? true : false}
+              disabled={
+                userEntry.education === "No College" ||
+                userEntry.education === "Advanced Degree"
+                  ? true
+                  : false
+              }
               className="entryform-select"
               showSearch
               style={{ width: 300 }}
