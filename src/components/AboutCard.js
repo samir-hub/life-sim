@@ -12,7 +12,7 @@ function AboutCard() {
   return (
     <Card
       className="about-card"
-      style={{ width: 200 }}
+      style={{ width: 300 }}
       cover={<img alt="example" src={samir} />}
       actions={[
         <a
@@ -40,7 +40,7 @@ function AboutCard() {
     >
       <Meta
         title="Samir Lilienfeld"
-        description="Samir Lilienfeld is our Junior Full-Stack Developer. He specializes in React and building RESTful APIs."
+        description="Samir Lilienfeld is the creator of MyPath. He specializes in React and building RESTful APIs."
       />
     </Card>
   );
