@@ -34,8 +34,7 @@ function Income() {
       >
         Many different factors will determine your income. We use your
         information to calculate an estimate that will help you plan for the
-        future. We use your information to calculate an estimate that will help
-        you plan for the future. <strong>Gross Monthly Income</strong> refers to
+        future. <strong>Gross Monthly Income</strong> refers to
         the estimated monthly income <strong>before</strong> any taxes or any
         other deductions are taken out. <strong>Net Monthly Income</strong>{" "}
         refers to the estimated monthly income <strong>after</strong> all taxes
