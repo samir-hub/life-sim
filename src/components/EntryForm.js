@@ -184,6 +184,9 @@ function EntryForm() {
             Enter your information below to get started:
           </h3>
         </div>
+        <h2 className="entryform-text">
+            Enter your information below to get started:
+          </h2>
         <form onSubmit={handlePostEntry} className="userentry-form">
           <div className="entryform-select-div">
             <Select
@@ -388,6 +391,9 @@ const ComponentWrapper = styled.div`
     }
     .entryform-select-div {
       width: 100%;
+      height: 100px;
+      display: flex; 
+      align-items: center; 
       @media only screen and (max-width: 600px) {
         display: flex;
         align-items: center;
@@ -395,6 +401,11 @@ const ComponentWrapper = styled.div`
         /* .anticon-question-circle {
           display: none;
         } */
+      }
+    }
+    .entryform-text {
+      @media only screen and (max-width: 600px) {
+        display: none; 
       }
     }
     .entryform-mobile-div {
