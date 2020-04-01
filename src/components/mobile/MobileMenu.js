@@ -20,11 +20,15 @@ function MobileMenu() {
 
   const menu = loggedIn ? (
     <Menu>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="1">
-        <Icon type="home" />
-        <NavLink to="/">Home</NavLink>
+      <Menu.Item style={{ display: "flex", alignItems: "center" }} key="4">
+        <Icon type="star" />
+        <NavLink to="/entryform">Get Started</NavLink>
       </Menu.Item>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="2">
+      <Menu.Item style={{ display: "flex", alignItems: "center" }} key="5">
+        <Icon type="user" />
+        <NavLink to="/dashboard">My Dashboard</NavLink>
+      </Menu.Item>
+      <Menu.Item style={{ display: "flex", alignItems: "center" }} key="2">
         <Icon type="info-circle" />
         <NavLink to="/about">About</NavLink>
       </Menu.Item>
@@ -32,22 +36,14 @@ function MobileMenu() {
         <Icon type="message" />
         <NavLink to="/contact">Contact</NavLink>
       </Menu.Item> */}
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="4">
-        <Icon type="star" />
-        <NavLink to="/entryform">Get Started</NavLink>
-      </Menu.Item>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="5">
-        <Icon type="user" />
-        <NavLink to="/dashboard">My Dashboard</NavLink>
-      </Menu.Item>
     </Menu>
   ) : (
     <Menu>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="1">
+      <Menu.Item style={{ display: "flex", alignItems: "center" }} key="1">
         <Icon type="home" />
         <NavLink to="/">Home</NavLink>
       </Menu.Item>
-      <Menu.Item style={{display: 'flex', alignItems: 'center'}} key="2">
+      <Menu.Item style={{ display: "flex", alignItems: "center" }} key="2">
         <Icon type="info-circle" />
         <NavLink to="/about">About</NavLink>
       </Menu.Item>

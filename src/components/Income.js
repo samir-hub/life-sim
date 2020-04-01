@@ -48,14 +48,14 @@ function Income() {
           )}
         </span>
         . Many different factors will determine the actual amount. We use your
-        information to calculate an estimate that will help you plan for the
-        future. <strong>Gross Monthly Income</strong> refers to the estimated
-        monthly income <strong>before</strong> any taxes or any other deductions
-        are taken out. <strong>Net Monthly Income</strong> refers to the
-        estimated monthly income <strong>after</strong> all taxes and other
-        deductions are taken out. A <strong>Biweekly Pay Stub</strong> is a
-        detailed view of your income and deductions for a two week period. Most
-        people get paid every two weeks.
+        information and some statistical analysis to calculate these estimates.{" "}
+        <strong>Gross Monthly Income</strong> refers to the estimated monthly
+        income <strong>before</strong> any taxes or any other deductions are
+        taken out. <strong>Net Monthly Income</strong> refers to the estimated
+        monthly income <strong>after</strong> all taxes and other deductions are
+        taken out. A <strong>Biweekly Pay Stub</strong> is a detailed view of
+        your income and deductions for a two week period. Most people get paid
+        every two weeks.
       </Paragraph>
     </div>
   );

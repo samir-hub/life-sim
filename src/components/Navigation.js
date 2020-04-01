@@ -73,8 +73,11 @@ const Navigation = () => {
                   width: "90%"
                 }}
               >
-                <Menu.Item key="/">
-                  <NavLink to="/">Home</NavLink>
+                <Menu.Item key="/entryform">
+                  <NavLink to="/entryform">Get Started</NavLink>
+                </Menu.Item>
+                <Menu.Item key="/dashboard">
+                  <NavLink to="/dashboard">My Dashboard</NavLink>
                 </Menu.Item>
                 <Menu.Item key="/about">
                   <NavLink to="/about">About</NavLink>
@@ -82,12 +85,6 @@ const Navigation = () => {
                 {/* <Menu.Item key="/contact">
                   <NavLink to="/contact">Contact</NavLink>
                 </Menu.Item> */}
-                <Menu.Item key="/entryform">
-                  <NavLink to="/entryform">Get Started</NavLink>
-                </Menu.Item>
-                <Menu.Item key="/dashboard">
-                  <NavLink to="/dashboard">My Dashboard</NavLink>
-                </Menu.Item>
               </Menu>
               <Button
                 onClick={handleLogout}
