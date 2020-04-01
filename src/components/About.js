@@ -5,48 +5,42 @@ import AboutCard from "./AboutCard";
 
 function About() {
   return (
-      <AboutWrapper>
-        <HeroWrapper>
-          <img
-            className="about-cover"
-            alt="mypath-logo"
-            src={about_cover}
-          ></img>
-        </HeroWrapper>
-        <div className="about-content">
-          <p className="about-text">
-            <span className="about-span">MyPath is </span>eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
-          </p>
-          <p className="about-text">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores et quas molestias excepturi sint occaecati cupiditate non
-            provident, similique sunt in culpa qui officia deserunt mollitia
-            animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis
-            est et expedita distinctio. Nam libero tempore, cum soluta nobis est
-            eligendi optio cumque nihil impedit quo minus id quod maxime placeat
-            facere possimus, omnis voluptas assumenda est, omnis dolor
-            repellendus. Temporibus autem quibusdam et aut officiis debitis aut
-            rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint
-            et molestiae non recusandae. Itaque earum rerum hic tenetur a
-            sapiente delectus, ut aut reiciendis voluptatibus maiores alias
-            consequatur aut perferendis doloribus asperiores repellat.
-          </p>
-          <AboutCard />
-        </div>
-      </AboutWrapper>
+    <AboutWrapper>
+      <HeroWrapper>
+        <img className="about-cover" alt="mypath-logo" src={about_cover}></img>
+      </HeroWrapper>
+      <div className="about-content">
+        <p className="about-text">
+          <span className="about-span">MyPath </span>is dedicated to helping
+          high school students and young adults plan for the future. Money
+          management is a complicated issue and you should consult a
+          professional before making any decisions, but MyPath is a useful
+          guide. We make it easy. You will be asked to answer a few questions
+          and MyPath will create your financial profile. Your profile will let
+          you view and edit your expected income and expenses. <br></br>
+          To calculate your financial profile data, we take information from
+          reliable resources like the U.S. Bureau of Labor Statistics and
+          perform some statistical analysis. While these numbers are just
+          estimates, we are constantly improving our analysis and methods, so
+          they serve as a great guide to help you plan for the future.
+        </p>
+        <p className="about-text">
+          <span className="about-span-second">The income data</span> is taken
+          from theloanmajor.com and the U.S. Census Bureau. The statutory
+          deduction tax rates were taken from the IRS. <br></br>
+          <span className="about-span-second">The expenses data</span> comes
+          from smartasset.com and cnbc.com. The data to estimate student loan
+          payment comes from U.S. New and World Report, SoFi.com and
+          smartasset.com. <br></br>
+          <span className="about-span-second">Samir Lilienfeld</span> is the
+          creator of MyPath. He is a Full Stack Web Developer who specializes in
+          crafting responsive UI, building single page applications, developing
+          Web APIs, and managing teams in a professional environment using Agile
+          methodology.
+        </p>
+        <AboutCard />
+      </div>
+    </AboutWrapper>
   );
 }
 
@@ -67,19 +61,22 @@ const HeroWrapper = styled.div`
 
 const AboutWrapper = styled.div`
   .about-content {
-    margin: 20px; 
+    margin: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     .about-span {
-        color: #f38704;
-        font-size: 40px; 
+      color: #f38704;
+      font-size: 40px;
+    }
+    .about-span-second {
+      color: #f38704;
     }
     .about-text {
       width: 30%;
-      text-align: left; 
-      font-weight: bold; 
-      font-size: 16px;  
+      text-align: left;
+      font-weight: bold;
+      font-size: 16px;
     }
   }
 `;
