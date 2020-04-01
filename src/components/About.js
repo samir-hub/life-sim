@@ -36,7 +36,8 @@ function About() {
           creator of MyPath. He is a Full Stack Web Developer who specializes in
           crafting responsive UI, building single page applications, developing
           Web APIs, and managing teams in a professional environment using Agile
-          methodology.
+          methodology. Moreover, he holds a Bachelor's of Science degree from
+          the University of Texas at Austin 🤘🏼.
         </p>
         <AboutCard />
       </div>
@@ -54,8 +55,14 @@ const HeroWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media only screen and (max-width: 600px) {
+    margin-top: 0;
+    }
   .about-cover {
     max-width: 10%;
+    @media only screen and (max-width: 600px) {
+      max-width: 30%;
+    }
   }
 `;
 
@@ -65,6 +72,9 @@ const AboutWrapper = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+      flex-direction: column; 
+    }
     .about-span {
       color: #f38704;
       font-size: 40px;
@@ -77,6 +87,9 @@ const AboutWrapper = styled.div`
       text-align: left;
       font-weight: bold;
       font-size: 16px;
+      @media only screen and (max-width: 600px) {
+      width: 80%;
+    }
     }
   }
 `;
