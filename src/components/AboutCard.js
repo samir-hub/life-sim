@@ -3,7 +3,6 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
-import styled from "styled-components";
 import samir from "../assets/samir.jpg";
 
 const { Meta } = Card;
