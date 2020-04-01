@@ -67,6 +67,9 @@ const HeroWrapper = styled.div`
 `;
 
 const AboutWrapper = styled.div`
+@media only screen and (max-width: 600px) {
+     margin-top: -6px; 
+    }
   .about-content {
     margin: 20px;
     display: flex;
@@ -88,7 +91,7 @@ const AboutWrapper = styled.div`
       font-weight: bold;
       font-size: 16px;
       @media only screen and (max-width: 600px) {
-      width: 80%;
+      width: 90%;
     }
     }
   }

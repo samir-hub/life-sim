@@ -54,8 +54,7 @@ const MHWrapper = styled.div`
     width: 100%;
     padding-top: 10px;
     padding-bottom: 6px;
-    border-bottom: 1px solid gray;
-    border-radius: 5px;
+    border-bottom: 0.05px solid gray;
     position: relative;
   }
   .login-icon {
