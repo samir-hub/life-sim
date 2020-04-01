@@ -79,9 +79,9 @@ const Navigation = () => {
                 <Menu.Item key="/about">
                   <NavLink to="/about">About</NavLink>
                 </Menu.Item>
-                <Menu.Item key="/contact">
+                {/* <Menu.Item key="/contact">
                   <NavLink to="/contact">Contact</NavLink>
-                </Menu.Item>
+                </Menu.Item> */}
                 <Menu.Item key="/entryform">
                   <NavLink to="/entryform">Get Started</NavLink>
                 </Menu.Item>
@@ -130,9 +130,9 @@ const Navigation = () => {
                 <Menu.Item key="/about">
                   <NavLink to="/about">About</NavLink>
                 </Menu.Item>
-                <Menu.Item key="/contact">
+                {/* <Menu.Item key="/contact">
                   <NavLink to="/contact">Contact</NavLink>
-                </Menu.Item>
+                </Menu.Item> */}
               </Menu>
               <Button
                 onClick={handleRegister}

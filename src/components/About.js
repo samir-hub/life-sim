@@ -26,12 +26,73 @@ function About() {
         </p>
         <p className="about-text">
           <span className="about-span-second">The income data</span> is taken
-          from theloanmajor.com and the U.S. Census Bureau. The statutory
-          deduction tax rates were taken from the IRS. <br></br>
+          from{" "}
+          <a
+            href="https://www.theloanmajor.com/starting-salaries/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            theloanmajor.com
+          </a>{" "}
+          and the{" "}
+          <a
+            href="https://www.census.gov/programs-surveys/acs/data.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            U.S. Census Bureau
+          </a>
+          . The statutory deduction tax rates were taken from the{" "}
+          <a
+            href="https://www.irs.gov/taxtopics/tc751"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            IRS
+          </a>
+          . <br></br>
           <span className="about-span-second">The expenses data</span> comes
-          from smartasset.com and cnbc.com. The data to estimate student loan
-          payment comes from U.S. New and World Report, SoFi.com and
-          smartasset.com. <br></br>
+          from{" "}
+          <a
+            href="https://smartasset.com/mortgage/what-is-the-cost-of-living-in-new-york-city"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            smartasset.com
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://www.cnbc.com/2019/03/07/heres-the-share-of-income-that-goes-to-rent-in-cities-across-the-us.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            cnbc.com
+          </a>
+          . The data to estimate student loan payment comes from{" "}
+          <a
+            href="https://www.usnews.com/education/best-graduate-schools/top-business-schools/articles/mba-salary-jobs"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            U.S. New and World Report
+          </a>
+          ,{" "}
+          <a
+            href="https://www.sofi.com/learn/content/average-graduate-student-loan-debt/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SoFi.com
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://smartasset.com/student-loans/student-loan-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            smartasset.com
+          </a>
+          . <br></br>
           <span className="about-span-second">Samir Lilienfeld</span> is the
           creator of MyPath. He is a Full Stack Web Developer who specializes in
           crafting responsive UI, building single page applications, developing
@@ -57,7 +118,7 @@ const HeroWrapper = styled.div`
   align-items: center;
   @media only screen and (max-width: 600px) {
     margin-top: 0;
-    }
+  }
   .about-cover {
     max-width: 10%;
     @media only screen and (max-width: 600px) {
@@ -67,16 +128,16 @@ const HeroWrapper = styled.div`
 `;
 
 const AboutWrapper = styled.div`
-@media only screen and (max-width: 600px) {
-     margin-top: -6px; 
-    }
+  @media only screen and (max-width: 600px) {
+    margin-top: -6px;
+  }
   .about-content {
     margin: 20px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     @media only screen and (max-width: 600px) {
-      flex-direction: column; 
+      flex-direction: column;
     }
     .about-span {
       color: #f38704;
@@ -91,8 +152,8 @@ const AboutWrapper = styled.div`
       font-weight: bold;
       font-size: 16px;
       @media only screen and (max-width: 600px) {
-      width: 90%;
-    }
+        width: 90%;
+      }
     }
   }
 `;
