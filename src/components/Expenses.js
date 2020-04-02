@@ -26,6 +26,7 @@ import necessities from "../assets/necessities.svg";
 import personal from "../assets/personal.svg";
 import payment from "../assets/payment.svg";
 import ExpensesDrawer from "./ExpensesDrawer";
+import ExpensesBar from "./ExpensesBar";
 
 const { Paragraph } = Typography;
 
@@ -252,7 +253,8 @@ function Expenses() {
               <h4>Housing</h4>
               <img className="expenses-icon" alt="housing" src={housing} />
             </div>
-            <HousingExpensesBar housing={expenses.housing} />
+            {/* <HousingExpensesBar housing={expenses.housing} /> */}
+            <ExpensesBar category={expenses.housing} labels={["Rent", "Utilities"]} colors={["#F38704", "#FFBA37"]}/>
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
