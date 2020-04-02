@@ -12,12 +12,6 @@ import "antd/es/card/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import ExpensesPie from "./ExpensesPie";
-import HousingExpensesBar from "./HousingExpensesBar";
-import FoodExpensesBar from "./FoodExpensesBar";
-import MedicalExpensesBar from "./MedicalExpensesBar";
-import TransportationExpensesBar from "./TransportationExpensesBar";
-import NecessitiesExpensesBar from "./NecessitiesExpensesBar";
-import PersonalExpensesBar from "./PersonalExpensesBar";
 import housing from "../assets/housing.svg";
 import food from "../assets/food.svg";
 import medical from "../assets/medical.svg";
@@ -253,7 +247,6 @@ function Expenses() {
               <h4>Housing</h4>
               <img className="expenses-icon" alt="housing" src={housing} />
             </div>
-            {/* <HousingExpensesBar housing={expenses.housing} /> */}
             <ExpensesBar category={expenses.housing} labels={["Rent", "Utilities"]} colors={["#F38704", "#FFBA37"]}/>
           </div>
           <div className="expenses-card-div">
@@ -261,7 +254,6 @@ function Expenses() {
               <h4>Food</h4>
               <img className="expenses-icon" alt="food" src={food} />
             </div>
-            {/* <FoodExpensesBar food={expenses.food} /> */}
             <ExpensesBar category={expenses.food} labels={["Groceries", "Restaurants"]} colors={["#F35B59", "#FF8E8C"]}/>
           </div>
           <div className="expenses-card-div">
@@ -269,7 +261,6 @@ function Expenses() {
               <h4>Medical</h4>
               <img className="expenses-icon" alt="medical" src={medical} />
             </div>
-            {/* <MedicalExpensesBar medical={expenses.medical} /> */}
             <ExpensesBar category={expenses.medical} labels={["Premiums", "Medical Expenses"]} colors={["#C95086", "#FC83B9"]}/>
           </div>
           <div className="expenses-card-div">
@@ -281,9 +272,6 @@ function Expenses() {
                 src={transportation}
               />
             </div>
-            {/* <TransportationExpensesBar
-              transportation={expenses.transportation}
-            /> */}
             <ExpensesBar category={expenses.transportation} labels={["Car Payment", "Insurance", "Gas", "Car Maintenance"]} colors={["#865794", "#AC7DBA", "#D3A4E1", "#F9CAFF"]}/>
           </div>
           <div className="expenses-card-div">
@@ -295,7 +283,6 @@ function Expenses() {
                 src={necessities}
               />
             </div>
-            {/* <NecessitiesExpensesBar necessities={expenses.necessities} /> */}
             <ExpensesBar category={expenses.necessities} labels={["Student Loans", "Internet", "Cell", "TV"]} colors={["#475580", "#6D7BA6", "#94A2CD", "#BAC8F3"]}/>
           </div>
           <div className="expenses-card-div">
@@ -303,7 +290,6 @@ function Expenses() {
               <h4>Personal</h4>
               <img className="expenses-icon" alt="personal" src={personal} />
             </div>
-            {/* <PersonalExpensesBar personal={expenses.personal} /> */}
             <ExpensesBar category={expenses.personal} labels={["Entertainment", "Clothing", "Other"]} colors={["#2F4858", "#556E7E", "#7C95A5"]}/>
           </div>
         </Card>
