@@ -93,26 +93,25 @@ function Expenses() {
         )
     },
     necessities: {
-      internet:
+      studentLoans:
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].internet
+          state.userInfo.details[state.userInfo.details.length - 1].studentLoans
         ),
       cell:
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].cell
         ),
+      internet:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].internet
+        ),
+
       tv:
         state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].tv
-        ),
-      studentLoans:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].studentLoans
-        )
+        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv)
     },
     personal: {
       clothing:
@@ -247,21 +246,33 @@ function Expenses() {
               <h4>Housing</h4>
               <img className="expenses-icon" alt="housing" src={housing} />
             </div>
-            <ExpensesBar category={expenses.housing} labels={["Rent", "Utilities"]} colors={["#F38704", "#FFBA37"]}/>
+            <ExpensesBar
+              category={expenses.housing}
+              labels={["Rent", "Utilities"]}
+              colors={["#F38704", "#FFBA37"]}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Food</h4>
               <img className="expenses-icon" alt="food" src={food} />
             </div>
-            <ExpensesBar category={expenses.food} labels={["Groceries", "Restaurants"]} colors={["#F35B59", "#FF8E8C"]}/>
+            <ExpensesBar
+              category={expenses.food}
+              labels={["Groceries", "Restaurants"]}
+              colors={["#F35B59", "#FF8E8C"]}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Medical</h4>
               <img className="expenses-icon" alt="medical" src={medical} />
             </div>
-            <ExpensesBar category={expenses.medical} labels={["Premiums", "Medical Expenses"]} colors={["#C95086", "#FC83B9"]}/>
+            <ExpensesBar
+              category={expenses.medical}
+              labels={["Premiums", "Medical Expenses"]}
+              colors={["#C95086", "#FC83B9"]}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -272,7 +283,11 @@ function Expenses() {
                 src={transportation}
               />
             </div>
-            <ExpensesBar category={expenses.transportation} labels={["Car Payment", "Insurance", "Gas", "Car Maintenance"]} colors={["#865794", "#AC7DBA", "#D3A4E1", "#F9CAFF"]}/>
+            <ExpensesBar
+              category={expenses.transportation}
+              labels={["Car Payment", "Insurance", "Gas", "Car Maintenance"]}
+              colors={["#865794", "#AC7DBA", "#D3A4E1", "#F9CAFF"]}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -283,14 +298,22 @@ function Expenses() {
                 src={necessities}
               />
             </div>
-            <ExpensesBar category={expenses.necessities} labels={["Student Loans", "Internet", "Cell", "TV"]} colors={["#475580", "#6D7BA6", "#94A2CD", "#BAC8F3"]}/>
+            <ExpensesBar
+              category={expenses.necessities}
+              labels={["Student Loans", "Cell", "Internet", "TV"]}
+              colors={["#475580", "#6D7BA6", "#94A2CD", "#BAC8F3"]}
+            />
           </div>
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
               <h4>Personal</h4>
               <img className="expenses-icon" alt="personal" src={personal} />
             </div>
-            <ExpensesBar category={expenses.personal} labels={["Entertainment", "Clothing", "Other"]} colors={["#2F4858", "#556E7E", "#7C95A5"]}/>
+            <ExpensesBar
+              category={expenses.personal}
+              labels={["Clothing", "Entertainment", "Other"]}
+              colors={["#2F4858", "#556E7E", "#7C95A5"]}
+            />
           </div>
         </Card>
       </ExpensesDiv>

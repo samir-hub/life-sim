@@ -54,8 +54,6 @@ const ExpensesBar = ({ category, labels, colors }) => {
     hover: { mode: null }
   };
 
-  console.log(createDataset(category))
-
   return (
     <WrapperDiv>
       <div className="desktop">
