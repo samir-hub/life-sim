@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
 import path_logo from "../../assets/path_logo.svg";
 import Icon from "antd/es/icon";
@@ -7,6 +7,13 @@ import styled from "styled-components";
 import MobileMenu from "../mobile/MobileMenu";
 
 const MobileHeaderNoAuth = () => {
+  const [loggedIn, setLoggedIn] = useState();
+
+  let token = localStorage.getItem("token");
+
+  useEffect(() => {
+    setLoggedIn(token);
+  }, [token]);
   const location = useLocation();
   const history = useHistory();
   const handleLogout = () => {
@@ -22,6 +29,16 @@ const MobileHeaderNoAuth = () => {
           <Icon className="login-icon" type="login" />
         </NavLink>
       )}
+      {location.pathname === "/about" && !loggedIn && (
+        <NavLink to="/">
+          <Icon className="login-icon" type="login" />
+        </NavLink>
+      )}
+      {location.pathname === "/about" && loggedIn && (
+        <NavLink to="/">
+          <Icon style={{color: "#595959"}} onClick={handleLogout} className="login-icon" type="logout" />
+        </NavLink>
+      )}
       {location.pathname === "/login" && (
         <NavLink to="/">
           <Icon className="login-icon" type="left-circle" />
@@ -32,7 +49,7 @@ const MobileHeaderNoAuth = () => {
           <Icon className="login-icon" type="left-circle" />
         </NavLink>
       )}
-      {location.pathname !== "/login" && location.pathname !== "/" && location.pathname !== "/register" && (
+      {location.pathname !== "/login" && location.pathname !== "/about" && location.pathname !== "/" && location.pathname !== "/register" && (
         <Icon onClick={handleLogout} className="login-icon" type="logout" />
       )}
       <div className="mobile-logo">

@@ -5,6 +5,7 @@ import "antd/es/button/style/css";
 import guy_crossing_arms from "../assets/guy_crossing_arms.png";
 import WrappedLogin from "./Login";
 import styled from "styled-components";
+import AppleModal from "./mobile/AppleModal";
 
 function Home() {
   // const [loggedIn, setLoggedIn] = useState();
@@ -16,10 +17,11 @@ function Home() {
   // }, [token]);
   const history = useHistory();
   const handleClick = () => {
-    history.push('/login')
-  }
+    history.push("/login");
+  };
   return (
     <HomeWrapper>
+      <AppleModal/>
       <div className="home-login">
         <WrappedLogin />
       </div>
@@ -28,6 +30,7 @@ function Home() {
         alt="Guy crossing arms"
         src={guy_crossing_arms}
       ></img>
+
       <div className="home-mobile">
         <h2>Plan out your future using MyPath. Let's get started!</h2>
         <Button
@@ -36,9 +39,9 @@ function Home() {
           shape="round"
           icon="rocket"
           size={"large"}
-          style={{ height: "50px", width: "200px", marginTop: '10px' }}
+          style={{ height: "50px", width: "200px", marginTop: "10px" }}
         >
-          Begin
+          Start
         </Button>
       </div>
     </HomeWrapper>
@@ -54,7 +57,7 @@ const HomeWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     padding: 10px;
-    height: 80vh; 
+    height: 80vh;
   }
   .home-login {
     @media only screen and (max-width: 600px) {
@@ -69,9 +72,9 @@ const HomeWrapper = styled.div`
     }
   }
   .home-mobile {
-    display: none; 
+    display: none;
     @media only screen and (max-width: 600px) {
-      display: block; 
+      display: block;
     }
   }
 `;
