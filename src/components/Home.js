@@ -38,7 +38,7 @@ function Home() {
           size={"large"}
           style={{ height: "50px", width: "200px", marginTop: '10px' }}
         >
-          Start
+          Begin
         </Button>
       </div>
     </HomeWrapper>
