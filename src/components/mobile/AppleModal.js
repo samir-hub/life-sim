@@ -43,7 +43,7 @@ function AppleModal() {
         }}
       >
         For a better experience,{" "}
-        {!iOSSafari && <strong>open this page in Safari</strong>}, press the
+        {!iOSSafari && <strong>open this page in Safari,</strong>} press the
         share button <IoIosShare color="#f38704" size={20} /> in the bottom
         navigation, scroll down, and select <strong>Add to Home Screen</strong>.
       </p>

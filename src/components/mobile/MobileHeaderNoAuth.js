@@ -30,7 +30,7 @@ const MobileHeaderNoAuth = () => {
         </NavLink>
       )}
       {location.pathname === "/about" && !loggedIn && (
-        <NavLink to="/">
+        <NavLink to="/login">
           <Icon className="login-icon" type="login" />
         </NavLink>
       )}
