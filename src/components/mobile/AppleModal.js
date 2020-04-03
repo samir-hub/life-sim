@@ -8,8 +8,8 @@ function AppleModal() {
   const [isVisible, setIsVisible] = useState(showModal);
   const userAgent = window.navigator.userAgent;
   const iOS = !!userAgent.match(/iPad/i) || !!userAgent.match(/iPhone/i);
-  const webkit = !!userAgent.match(/WebKit/i);
-  const iOSSafari = iOS && webkit && !userAgent.match(/CriOS/i);
+  // const webkit = !!userAgent.match(/WebKit/i);
+  // const iOSSafari = iOS && webkit && !userAgent.match(/CriOS/i);
   const isStandalone =
     window.matchMedia("(display-mode: standalone)").matches ||
     window.navigator.standalone ||
@@ -42,10 +42,10 @@ function AppleModal() {
           margin: "0"
         }}
       >
-        For a better experience,{" "}
-        {!iOSSafari && <strong>open this page in Safari,</strong>} press the
-        share button <IoIosShare color="#f38704" size={20} /> in the bottom
-        navigation, scroll down, and select <strong>Add to Home Screen</strong>.
+        For a better experience, <strong>open this page in Safari,</strong>{" "}
+        press the share button <IoIosShare color="#f38704" size={20} /> in the
+        bottom navigation, scroll down, and select{" "}
+        <strong>Add to Home Screen</strong>.
       </p>
     </Modal>
   ) : null;
