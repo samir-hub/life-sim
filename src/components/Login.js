@@ -15,6 +15,7 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import message from "antd/es/message";
 import "antd/es/message/style/css";
+import DemoButton from "./DemoButton";
 
 function Login(props) {
   const history = useHistory();
@@ -125,6 +126,7 @@ function Login(props) {
             >
               Log in
             </Button>
+            <DemoButton/>
             Or <NavLink to="/register">register now!</NavLink>
           </Form.Item>
         </Form>
