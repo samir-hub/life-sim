@@ -379,7 +379,7 @@ const ComponentWrapper = styled.div`
     @media only screen and (max-width: 600px) {
       width: 90%;
       margin-top: 20px;
-      height: 80vh;
+      min-height: 80vh;
     }
     .userentry-form {
       display: flex;

@@ -178,7 +178,7 @@ const WrapperDiv = styled.div`
   @media only screen and (max-width: 600px) {
     .login-card {
       width: 90%;
-      height: 80vh;
+      min-height: 80vh;
     }
   }
   .login-form {
