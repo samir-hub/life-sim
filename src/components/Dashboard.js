@@ -22,23 +22,26 @@ import { fetchEntry } from "../actions";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
 import Expenses from "./Expenses";
+import DemoModal from "./DemoModal";
+import { dashDesktop } from "../data/demos";
+import { dashMobile } from "../data/demos";
 
 const { Content, Sider } = Layout;
 
 function Dashboard() {
   const [active, setActive] = useState("1");
 
-  const state = useSelector(state => {
+  const state = useSelector((state) => {
     return {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
       isPosting: state.isPosting,
-      isEditing: state.isEditing
+      isEditing: state.isEditing,
     };
   });
 
-  //let string = entriesIntToString(state.formattedEntryData);
+  let screen = window.screen.width;
 
   const dispatch = useDispatch();
 
@@ -51,6 +54,7 @@ function Dashboard() {
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
+     {screen > 600 ? <DemoModal loStoName={"DashDemo"} title={"Dashboard"} text={dashDesktop}/> : <DemoModal loStoName={"DashDemo"} title={"Dashboard"} text={dashMobile}/>}
       <Sider breakpoint="lg" collapsedWidth="0" theme="light">
         {state.isFetching ? (
           <Empty
@@ -58,7 +62,7 @@ function Dashboard() {
               minHeight: "315px",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           />
         ) : (
@@ -69,7 +73,7 @@ function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    paddingBottom: "20px"
+                    paddingBottom: "20px",
                   }}
                 >
                   <img
@@ -88,7 +92,7 @@ function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    paddingBottom: "10px"
+                    paddingBottom: "10px",
                   }}
                 >
                   <img
@@ -108,7 +112,7 @@ function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    paddingBottom: "10px"
+                    paddingBottom: "10px",
                   }}
                 >
                   <img
@@ -132,7 +136,7 @@ function Dashboard() {
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    paddingBottom: "10px"
+                    paddingBottom: "10px",
                   }}
                 >
                   <img
@@ -159,7 +163,7 @@ function Dashboard() {
                 <div
                   style={{
                     display: "flex",
-                    alignItems: "center"
+                    alignItems: "center",
                   }}
                 >
                   <img
@@ -192,7 +196,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: "30px 0"
+              padding: "30px 0",
             }}
             key="1"
           >
@@ -206,7 +210,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: "30px 0"
+              padding: "30px 0",
             }}
             key="2"
           >
@@ -219,7 +223,7 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: "30px 0"
+              padding: "30px 0",
             }}
             key="3"
           >

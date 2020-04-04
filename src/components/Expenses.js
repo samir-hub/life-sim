@@ -21,14 +21,16 @@ import personal from "../assets/personal.svg";
 import payment from "../assets/payment.svg";
 import ExpensesDrawer from "./ExpensesDrawer";
 import ExpensesBar from "./ExpensesBar";
+import DemoModal from "./DemoModal";
+import { expensesDemo } from "../data/demos";
 
 const { Paragraph } = Typography;
 
 function Expenses() {
-  const state = useSelector(state => {
+  const state = useSelector((state) => {
     return {
       userInfo: state.userInfo,
-      isFetching: state.isFetching
+      isFetching: state.isFetching,
     };
   });
 
@@ -43,7 +45,7 @@ function Expenses() {
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].utilities
-        )
+        ),
     },
     food: {
       groceries:
@@ -55,7 +57,7 @@ function Expenses() {
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].restaurant
-        )
+        ),
     },
     medical: {
       premiums:
@@ -67,7 +69,7 @@ function Expenses() {
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].medExpenses
-        )
+        ),
     },
     transportation: {
       carPayment:
@@ -90,7 +92,7 @@ function Expenses() {
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1]
             .carMaintenance
-        )
+        ),
     },
     necessities: {
       studentLoans:
@@ -111,7 +113,9 @@ function Expenses() {
 
       tv:
         state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv)
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].tv
+        ),
     },
     personal: {
       clothing:
@@ -129,8 +133,8 @@ function Expenses() {
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].pOther
-        )
-    }
+        ),
+    },
   };
 
   const content = (
@@ -138,7 +142,7 @@ function Expenses() {
       <Paragraph
         style={{
           textAlign: "left",
-          fontSize: "15px"
+          fontSize: "15px",
         }}
       >
         A chart is worth a thousand words! The pie chart below shows your
@@ -159,7 +163,7 @@ function Expenses() {
           className="extra"
           style={{
             marginLeft: 80,
-            marginTop: 16
+            marginTop: 16,
           }}
         >
           {extraContent}
@@ -226,7 +230,7 @@ function Expenses() {
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
             <ExpensesDrawer />
-          </React.Fragment>
+          </React.Fragment>,
         ]}
       >
         <Content>{content}</Content>
@@ -317,6 +321,11 @@ function Expenses() {
           </div>
         </Card>
       </ExpensesDiv>
+      <DemoModal
+        loStoName={"ExpensesDemo"}
+        title={"Expenses"}
+        text={expensesDemo}
+      />
     </StyledDiv>
   );
 }

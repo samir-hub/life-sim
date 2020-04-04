@@ -17,6 +17,8 @@ import { postFormattedEntry } from "../actions";
 import man_planning from "../assets/man_planning.png";
 import newCities from "../data/newCities";
 import majors from "../data/majors";
+import DemoModal from "./DemoModal";
+import { getStarted } from "../data/demos";
 
 const { Option } = Select;
 
@@ -166,6 +168,7 @@ function EntryForm() {
 
   return (
     <ComponentWrapper>
+      <DemoModal loStoName={"GetStartedDemo"} title={"Get Started"} text={getStarted}/>
       <ImageWrapper>
         <img
           className="entryform-image"

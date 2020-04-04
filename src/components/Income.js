@@ -10,9 +10,11 @@ import "antd/es/card/style/css";
 import Table from "antd/es/table";
 import "antd/es/table/style/css";
 import IncomeDrawer from "./IncomeDrawer";
+import DemoModal from "./DemoModal";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import wallet from "../assets/wallet.svg";
+import { income } from "../data/demos";
 
 const { Paragraph } = Typography;
 
@@ -232,6 +234,7 @@ function Income() {
 
   return (
     <StyledDiv>
+      <DemoModal loStoName={"IncomeDemo"} title={"Income"} text={income}/>
       <PageHeader
         title={<img className="income-icon" alt="wallet" src={wallet} />}
         className="site-page-header"
