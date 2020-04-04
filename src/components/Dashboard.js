@@ -188,6 +188,7 @@ function Dashboard() {
           theme="light"
           defaultSelectedKeys={["1"]}
           mode="inline"
+          selectedKeys={[active]}
         >
           <Menu.Item
             onClick={() => setActive("1")}
@@ -201,7 +202,7 @@ function Dashboard() {
             key="1"
           >
             <Icon type="rocket" />
-            <span>Post-Graduation</span>
+            <span>Home</span>
           </Menu.Item>
           <Menu.Item
             onClick={() => setActive("2")}
@@ -248,7 +249,7 @@ function Dashboard() {
 
       <Content style={{ margin: "0 5px", minWidth: "300px" }}>
         {active === "1" ? (
-          <PostGraduation />
+          <PostGraduation setActive={setActive} />
         ) : active === "2" ? (
           <Income />
         ) : active === "3" ? (

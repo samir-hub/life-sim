@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import woman_goal from "../assets/woman_goal.png";
 
-function PostGraduation() {
+function PostGraduation({setActive}) {
   return (
     <ComponentWrapper>
       <div className="pg-text">
         <h3 className="postgraduation-text">
           <span className="postgraduation-lorem">Congratulations,</span> you are
           well on your way to a successful start into adulthood. This is your
-          dashboard. Use the sider to navigate and plan your future!
+          Dashboard. Check out your projected <span className="pg-span" onClick={()=> {setActive("2")}}>Income</span> and <span className="pg-span" onClick={()=> {setActive("3")}}>Expenses</span>.
         </h3>
       </div>
       <div className="pg-image">
@@ -54,6 +54,11 @@ const ComponentWrapper = styled.div`
     }
     .postgraduation-lorem {
       color: #f38704;
+    }
+    .pg-span {
+      font-weight: bold;
+      color: #1890FF; 
+      cursor: pointer; 
     }
     .postgraduation-text {
       font-size: 2rem;
