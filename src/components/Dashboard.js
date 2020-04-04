@@ -16,6 +16,7 @@ import grad_cap from "../assets/grad_cap.svg";
 import book from "../assets/book.svg";
 import tax from "../assets/tax.svg";
 import city from "../assets/city.svg";
+import user from "../assets/user.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
 //import { entriesIntToString } from "../utils/entriesIntToString";
@@ -79,7 +80,7 @@ function Dashboard() {
                   <img
                     style={{ height: "30px", marginRight: "10px" }}
                     alt="graduation cap"
-                    src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
+                    src={user}
                   />
                   <p
                     className="dashboard-username"

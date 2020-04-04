@@ -56,7 +56,6 @@ const ComponentWrapper = styled.div`
       color: #f38704;
     }
     .pg-span {
-      font-weight: bold;
       color: #1890FF; 
       cursor: pointer; 
     }
