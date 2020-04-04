@@ -19,18 +19,20 @@ function Home() {
   const handleClick = () => {
     history.push("/login");
   };
+ 
   return (
     <HomeWrapper>
-      <AppleModal/>
+      <AppleModal />
       <div className="home-login">
         <WrappedLogin />
       </div>
-      <img
-        className="home-image"
-        alt="Guy crossing arms"
-        src={guy_crossing_arms}
-      ></img>
-
+      <div className="image-wrapper">
+        <img
+          className="home-image"
+          alt="Guy crossing arms"
+          src={guy_crossing_arms}
+        ></img>
+      </div>
       <div className="home-mobile">
         <h2>Plan out your future using MyPath. Let's get started!</h2>
         <Button
@@ -50,6 +52,8 @@ function Home() {
 
 export default Home;
 
+const height = window.screen.height;
+
 const HomeWrapper = styled.div`
   display: flex;
   justify-content: space-around;
@@ -64,13 +68,17 @@ const HomeWrapper = styled.div`
       display: none;
     }
   }
-  .home-image {
-    height: 90vh;
-    @media only screen and (max-width: 600px) {
-      height: 50vh;
-      margin-top: 40px;
+  .image-wrapper {
+    min-width: ${height*0.9}px;
+    .home-image {
+      height: 90vh;
+      @media only screen and (max-width: 600px) {
+        height: 45vh;
+        margin-top: 20px;
+      }
     }
   }
+
   .home-mobile {
     display: none;
     @media only screen and (max-width: 600px) {

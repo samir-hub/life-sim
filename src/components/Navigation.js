@@ -153,6 +153,7 @@ const Navigation = () => {
 export default Navigation;
 
 const LogoDiv = styled.div`
+  min-width: 50px; 
   .logo {
     height: 50px;
     border-radius: 10px;
