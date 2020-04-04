@@ -33,8 +33,8 @@ const ComponentWrapper = styled.div`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     min-width: 375px; 
-    justify-content: space-evenly; 
-    height: 80vh; 
+    justify-content: space-around; 
+    max-height: 600px; 
     padding-right: 10px; 
   }
   .pg-text {
@@ -56,7 +56,9 @@ const ComponentWrapper = styled.div`
       font-size: 2rem;
       width: 70%;
       @media only screen and (max-width: 600px) {
+        width: 80%; 
         font-size: 1.3rem;
+        margin-top: 20px; 
       }
     }
   }
