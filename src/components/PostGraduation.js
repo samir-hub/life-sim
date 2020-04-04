@@ -30,23 +30,26 @@ const ComponentWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   height: 100%;
+  padding: 0 40px; 
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     min-width: 375px; 
     justify-content: space-around; 
     max-height: 600px; 
     padding-right: 10px; 
+    padding: 0 10px 0 0; 
   }
   .pg-text {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
     height: 100%;
     @media only screen and (max-width: 600px) {
       height: 40%; 
       justify-content: flex-start; 
+      align-items: center;
 
     }
     .postgraduation-lorem {
@@ -54,7 +57,7 @@ const ComponentWrapper = styled.div`
     }
     .postgraduation-text {
       font-size: 2rem;
-      width: 70%;
+      width: 80%;
       @media only screen and (max-width: 600px) {
         width: 80%; 
         font-size: 1.3rem;
