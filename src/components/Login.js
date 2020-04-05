@@ -25,10 +25,10 @@ function Login(props) {
     message.error(`Invalid username or password. Please try again.`, 6);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    const clientID = process.env.REACT_APP_CLIENT_ID; 
+    const clientID = process.env.REACT_APP_CLIENT_ID;
     const clientSecret = process.env.REACT_APP_CLIENT_SECRET;
     props.form.validateFields((err, values) => {
       if (!err) {
@@ -40,11 +40,11 @@ function Login(props) {
               headers: {
                 // btoa is converting our client id/client secret into base64
                 Authorization: `Basic ${btoa(`${clientID}:${clientSecret}`)}`,
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
             }
           )
-          .then(res => {
+          .then((res) => {
             setIsLoading(false);
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
@@ -52,13 +52,13 @@ function Login(props) {
           .then(() => {
             axiosWithAuth()
               .get("/users/getuserinfo")
-              .then(res => {
+              .then((res) => {
                 localStorage.setItem("userid", res.data.userid);
                 history.push(`/entryform`);
               })
-              .catch(err => console.dir(err));
+              .catch((err) => console.dir(err));
           })
-          .catch(err => {
+          .catch((err) => {
             setIsLoading(false);
             if (err.response.data.error_description === `Bad credentials`) {
               setIsLoading(false);
@@ -90,8 +90,8 @@ function Login(props) {
           <Form.Item>
             {getFieldDecorator("username", {
               rules: [
-                { required: true, message: "Please input your username!" }
-              ]
+                { required: true, message: "Please input your username!" },
+              ],
             })(
               <Input
                 prefix={
@@ -104,8 +104,8 @@ function Login(props) {
           <Form.Item>
             {getFieldDecorator("password", {
               rules: [
-                { required: true, message: "Please input your Password!" }
-              ]
+                { required: true, message: "Please input your Password!" },
+              ],
             })(
               <Input
                 prefix={
@@ -126,7 +126,7 @@ function Login(props) {
             >
               Log in
             </Button>
-            <DemoButton/>
+            <DemoButton />
             Or <NavLink to="/register">register now!</NavLink>
           </Form.Item>
         </Form>
@@ -176,6 +176,11 @@ const WrapperDiv = styled.div`
   }
   .login-card {
     width: 500px;
+  }
+  @media only screen and (max-width: 600px) {
+    .ant-card-body {
+      padding: 0;
+    }
   }
   @media only screen and (max-width: 600px) {
     .login-card {

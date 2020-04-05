@@ -54,7 +54,19 @@ function Dashboard() {
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
-     {screen > 600 ? <DemoModal loStoName={"DashDemo"} title={"Dashboard"} text={dashDesktop}/> : <DemoModal loStoName={"DashDemo"} title={"Dashboard"} text={dashMobile}/>}
+      {screen > 600 ? (
+        <DemoModal
+          loStoName={"DashDemo"}
+          title={"Dashboard"}
+          text={dashDesktop}
+        />
+      ) : (
+        <DemoModal
+          loStoName={"DashDemo"}
+          title={"Dashboard"}
+          text={dashMobile}
+        />
+      )}
       <Sider breakpoint="lg" collapsedWidth="0" theme="light">
         {state.isFetching ? (
           <Empty
@@ -76,11 +88,13 @@ function Dashboard() {
                     paddingBottom: "20px",
                   }}
                 >
-                  <img
-                    style={{ height: "30px", marginRight: "10px" }}
-                    alt="graduation cap"
-                    src={user}
-                  />
+                  <div className="icon-wrapper">
+                    <img
+                      style={{ height: "30px", marginRight: "10px" }}
+                      alt="user outline"
+                      src={user}
+                    />
+                  </div>
                   <p
                     className="dashboard-username"
                     style={{ margin: "0px", fontSize: "25px" }}
@@ -95,11 +109,13 @@ function Dashboard() {
                     paddingBottom: "10px",
                   }}
                 >
-                  <img
-                    style={{ height: "30px", marginRight: "10px" }}
-                    alt="graduation cap"
-                    src={grad_cap}
-                  />
+                  <div className="icon-wrapper">
+                    <img
+                      style={{ height: "30px", marginRight: "10px" }}
+                      alt="graduation cap"
+                      src={grad_cap}
+                    />
+                  </div>
                   <h1 style={{ margin: "0px", width: "100%" }}>
                     {state.userInfo.details[
                       state.userInfo.details.length - 1
@@ -115,11 +131,13 @@ function Dashboard() {
                     paddingBottom: "10px",
                   }}
                 >
-                  <img
-                    style={{ height: "30px", marginRight: "10px" }}
-                    alt="book"
-                    src={book}
-                  />
+                  <div className="icon-wrapper">
+                    <img
+                      style={{ height: "30px", marginRight: "10px" }}
+                      alt="book"
+                      src={book}
+                    />
+                  </div>
                   <h1 style={{ margin: "0px", width: "100%" }}>
                     {state.userInfo.details[
                       state.userInfo.details.length - 1
@@ -139,11 +157,13 @@ function Dashboard() {
                     paddingBottom: "10px",
                   }}
                 >
-                  <img
-                    style={{ height: "30px", marginRight: "10px" }}
-                    alt="taxes"
-                    src={tax}
-                  />
+                  <div className="icon-wrapper">
+                    <img
+                      style={{ height: "30px", marginRight: "10px" }}
+                      alt="taxes"
+                      src={tax}
+                    />
+                  </div>
                   <h1 style={{ margin: "0px", width: "100%" }}>
                     {state.userInfo.details[
                       state.userInfo.details.length - 1
@@ -166,11 +186,13 @@ function Dashboard() {
                     alignItems: "center",
                   }}
                 >
+                  <div className="icon-wrapper">
                   <img
                     style={{ height: "30px", marginRight: "10px" }}
                     alt="city"
                     src={city}
                   />
+                  </div>
                   <h1 style={{ margin: "0px", width: "100%" }}>
                     {state.userInfo.details[
                       state.userInfo.details.length - 1
@@ -272,5 +294,10 @@ const StyledDiv = styled.div`
   width: 100%;
   .dashboard-username {
     text-transform: capitalize;
+  }
+  .icon-wrapper {
+    min-height: 30px;
+    min-width: 30px;
+    margin-right: 10px; 
   }
 `;

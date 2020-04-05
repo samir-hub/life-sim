@@ -11,7 +11,7 @@ function AboutCard() {
   return (
     <Card
       className="about-card"
-      style={{ width: 300 }}
+      style={{ width: 300, minHeight: 482 }}
       cover={<img alt="example" src={samir} />}
       actions={[
         <a
