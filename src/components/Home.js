@@ -77,6 +77,9 @@ const HomeWrapper = styled.div`
         margin-top: 20px;
       }
     }
+    @media only screen and (max-width: 600px) {
+      min-width: ${height*0.45}px;
+      }
   }
 
   .home-mobile {
