@@ -70,6 +70,7 @@ const ComponentWrapper = styled.div`
     }
   }
   .pg-image {
+    min-width: 500px; 
     .postgraduation-image {
       height: 500px;
       @media only screen and (max-width: 600px) {

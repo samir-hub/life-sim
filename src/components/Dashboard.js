@@ -19,7 +19,6 @@ import city from "../assets/city.svg";
 import user from "../assets/user.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchEntry } from "../actions";
-//import { entriesIntToString } from "../utils/entriesIntToString";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
 import Expenses from "./Expenses";
