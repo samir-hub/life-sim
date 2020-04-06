@@ -66,6 +66,7 @@ function Login(props) {
             }
           });
       } else {
+        // Remove loading spinner from button when user leaves an empty field
         setIsLoading(false)
       }
     });
