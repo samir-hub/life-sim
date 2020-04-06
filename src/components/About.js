@@ -4,6 +4,9 @@ import about_cover from "../assets/about_cover.png";
 import AboutCard from "./AboutCard";
 
 function About() {
+
+  const screen = window.screen.width; 
+
   return (
     <AboutWrapper>
       <HeroWrapper>
@@ -15,9 +18,9 @@ function About() {
           high school students and young adults plan for the future. Money
           management is a complicated issue and you should consult a
           professional before making any decisions, but MyPath is a useful
-          guide. We make it easy. You will be asked to answer a few questions
+          guide.{screen < 600 && <><br></br><br></br></>} We make it easy. You will be asked to answer a few questions
           and MyPath will create your financial profile. Your profile will let
-          you view and edit your expected income and expenses. <br></br>
+          you view and edit your expected income and expenses. {screen < 600 && <br></br>}<br></br>
           To calculate your financial profile data, we take information from
           reliable resources like the U.S. Bureau of Labor Statistics and
           perform some statistical analysis. While these numbers are just
@@ -50,7 +53,7 @@ function About() {
           >
             IRS
           </a>
-          . <br></br>
+          . {screen < 600 && <br></br>}<br></br>
           <span className="about-span-second">The expenses data</span> comes
           from{" "}
           <a
@@ -92,7 +95,7 @@ function About() {
           >
             smartasset.com
           </a>
-          . <br></br>
+          . {screen < 600 && <br></br>}<br></br>
           <span className="about-span-second">Samir Lilienfeld</span> is the
           creator of MyPath. He is a Full Stack Web Developer who specializes in
           crafting responsive UI, building single page applications, developing
