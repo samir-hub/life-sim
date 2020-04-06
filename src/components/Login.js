@@ -65,6 +65,8 @@ function Login(props) {
               error();
             }
           });
+      } else {
+        setIsLoading(false)
       }
     });
   };
