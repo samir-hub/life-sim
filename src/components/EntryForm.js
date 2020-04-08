@@ -55,7 +55,7 @@ function EntryForm() {
     tv: "",
     clothing: "",
     entertainment: "",
-    pOther: ""
+    pOther: "",
   });
 
   function onChangeOne(value) {
@@ -81,25 +81,33 @@ function EntryForm() {
       tv: 50.0,
       clothing: 30.0,
       entertainment: 50.0,
-      pOther: 0.0
+      pOther: 0.0,
     });
   }
 
   function onChangeTwo(value) {
     let loansValue =
-      value === "Law School" ? 1367.0 : (value === "Business School") ? 692 : 2052;
+      value === "Law School"
+        ? 1367.0
+        : value === "Business School"
+        ? 692
+        : 2052;
     let avgMajor =
-      value === "Law School" ? 151026 : (value === "Business School") ? 79043 : 231000;
+      value === "Law School"
+        ? 151026
+        : value === "Business School"
+        ? 79043
+        : 231000;
     setUserEntry({
       ...userEntry,
       major: value,
       studentLoans: loansValue,
-      avgmajor: avgMajor
+      avgmajor: avgMajor,
     });
   }
 
   function onChangeThree(value) {
-    let result = newCities.filter(city => city.city === value);
+    let result = newCities.filter((city) => city.city === value);
 
     let groceriesPrice = 471.34 * (result[0].groceriesindex / 100);
     let formattedGroceries = parseFloat(groceriesPrice.toFixed(2));
@@ -118,24 +126,28 @@ function EntryForm() {
       groceriesindex: result[0].groceriesindex,
       restaurantpriceindex: result[0].restaurantpriceindex,
       groceries: formattedGroceries,
-      restaurant: formattedRestaurant
+      restaurant: formattedRestaurant,
     });
   }
 
   function onChangeFour(value) {
-    let result = majors.filter(major => major.major === value);
+    let result = majors.filter((major) => major.major === value);
+    let adjustedIncome =
+      userEntry.education === "Associate's Degree"
+        ? result[0].avgmajor / 1.26
+        : result[0].avgmajor;
     setUserEntry({
       ...userEntry,
       major: value,
-      avgmajor: result[0].avgmajor,
+      avgmajor: adjustedIncome,
       lowmajor: result[0].lowmajor,
-      highmajor: result[0].highmajor
+      highmajor: result[0].highmajor,
     });
   }
 
   const dispatch = useDispatch();
 
-  const handlePostEntry = e => {
+  const handlePostEntry = (e) => {
     e.preventDefault();
     dispatch(postFormattedEntry(id, userEntry));
     history.push("/dashboard");
@@ -143,14 +155,22 @@ function EntryForm() {
 
   const collegeText = (
     <span>
-      Do you plan on attending college? If so, it is good to research different degree types. They all vary in length, cost and return on investment. You can read more <a href="https://study.com/different_degrees.html" target="_blank" rel="noopener noreferrer">here</a>.
+      Do you plan on attending college? If so, it is good to research different
+      degree types. They all vary in length, cost and return on investment. You
+      can read more{" "}
+      <a
+        href="https://study.com/different_degrees.html"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        here
+      </a>
+      .
     </span>
   );
 
   const advDegreeText = (
-    <span>
-      Advanced degrees refer to master's and doctorate degrees. 
-    </span>
+    <span>Advanced degrees refer to master's and doctorate degrees.</span>
   );
   const majorText = (
     <span>
@@ -167,7 +187,11 @@ function EntryForm() {
 
   return (
     <ComponentWrapper>
-      <DemoModal loStoName={"GetStartedDemo"} title={"Get Started"} text={getStarted}/>
+      <DemoModal
+        loStoName={"GetStartedDemo"}
+        title={"Get Started"}
+        text={getStarted}
+      />
       <ImageWrapper>
         <img
           className="entryform-image"
@@ -187,8 +211,8 @@ function EntryForm() {
           </h3>
         </div>
         <h2 className="entryform-text">
-            Enter your information below to get started:
-          </h2>
+          Enter your information below to get started:
+        </h2>
         <form onSubmit={handlePostEntry} className="userentry-form">
           <div className="entryform-select-div">
             <Select
@@ -273,7 +297,7 @@ function EntryForm() {
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              {majors.map(major => {
+              {majors.map((major) => {
                 let isAssociate = false;
                 if (userEntry.education === "Associate's Degree") {
                   isAssociate = true;
@@ -322,7 +346,7 @@ function EntryForm() {
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              {newCities.map(city => {
+              {newCities.map((city) => {
                 return (
                   <Option key={city.id} value={city.city}>
                     {city.city}
@@ -354,7 +378,7 @@ function EntryForm() {
 export default EntryForm;
 
 const ImageWrapper = styled.div`
-min-width: 680px; 
+  min-width: 680px;
   @media only screen and (max-width: 600px) {
     display: none;
   }
@@ -395,8 +419,8 @@ const ComponentWrapper = styled.div`
     .entryform-select-div {
       width: 100%;
       height: 100px;
-      display: flex; 
-      align-items: center; 
+      display: flex;
+      align-items: center;
       @media only screen and (max-width: 600px) {
         display: flex;
         align-items: center;
@@ -408,7 +432,7 @@ const ComponentWrapper = styled.div`
     }
     .entryform-text {
       @media only screen and (max-width: 600px) {
-        display: none; 
+        display: none;
       }
     }
     .entryform-mobile-div {
