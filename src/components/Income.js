@@ -19,52 +19,35 @@ import { income } from "../data/demos";
 const { Paragraph } = Typography;
 
 function Income() {
-  const state = useSelector((state) => {
+  const state = useSelector(state => {
     return {
       userInfo: state.userInfo,
-      isFetching: state.isFetching,
+      isFetching: state.isFetching
     };
   });
-
-  const getYearlyIncome = () => {
-    if (
-      state.userInfo.details[state.userInfo.details.length - 1].education ===
-      "Associate's Degree"
-    ) {
-      return (
-        state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-            1.26
-        )
-      );
-    } else {
-      return (
-        state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-            1.26
-        )
-      );
-    }
-  };
 
   const content = (
     <div className="content">
       <Paragraph
         style={{
           textAlign: "left",
-          fontSize: "15px",
+          fontSize: "15px"
         }}
       >
         Your estimated yearly income is{" "}
         <span className="income-yearly">
           {" $"}
-          {state.userInfo.details[state.userInfo.details.length - 1] &&
-            getYearlyIncome()
+          {state.isFetching ? (
+            <p>fetching</p>
+          ) : (
+            state.userInfo.details[state.userInfo.details.length - 1] &&
+            Math.floor(
+              state.userInfo.details[state.userInfo.details.length - 1].avgmajor
+            )
               .toFixed(2)
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+          )}
         </span>
         . Many different factors will determine the actual amount. We use your
         information and some statistical analysis to calculate these estimates.{" "}
@@ -89,7 +72,7 @@ function Income() {
           className="extra"
           style={{
             marginLeft: 80,
-            marginTop: 16,
+            marginTop: 16
           }}
         >
           {extraContent}
@@ -102,83 +85,97 @@ function Income() {
     {
       title: "Earnings",
       dataIndex: "earnings",
-      key: "earnings",
+      key: "earnings"
     },
     {
       title: "rate",
       dataIndex: "rate",
-      key: "rate",
+      key: "rate"
     },
     {
       title: "hours",
       dataIndex: "hours",
-      key: "hours",
+      key: "hours"
     },
     {
       title: "total",
       dataIndex: "total",
-      key: "total",
-    },
+      key: "total"
+    }
   ];
 
   const data = [
     {
       key: "1",
       earnings: "Regular",
-      rate: (getYearlyIncome() / 1920).toFixed(2),
+      rate: (
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        1920
+      ).toFixed(2),
       hours: 80,
-      total: (getYearlyIncome() / 24)
+      total: (
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
+      )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     },
     {
       key: "2",
       earnings: "PTO",
-      rate: (getYearlyIncome() / 1920).toFixed(2),
+      rate: (
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        1920
+      ).toFixed(2),
       hours: 0,
-      total: 0,
+      total: 0
     },
     {
       key: "3",
       earnings: "Overtime",
-      rate: ((getYearlyIncome() / 1920) * 1.5).toFixed(2),
+      rate: (
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          1920) *
+        1.5
+      ).toFixed(2),
       hours: 0,
-      total: 0,
+      total: 0
     },
     {
       key: "4",
       earnings: "",
       rate: "Gross Pay",
       hours: "",
-      total: (getYearlyIncome() / 24)
+      total: (
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
+      )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-    },
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
   ];
 
   const deduColumns = [
     {
       title: "Deductions",
       dataIndex: "deductions",
-      key: "deductions",
+      key: "deductions"
     },
     {
       title: "Statutory",
       dataIndex: "statutory",
-      key: "statutory",
+      key: "statutory"
     },
     {
       title: "",
       dataIndex: "hours",
-      key: "hours",
+      key: "hours"
     },
     {
       title: "",
       dataIndex: "total",
-      key: "total",
-    },
+      key: "total"
+    }
   ];
 
   const deduData = [
@@ -186,39 +183,58 @@ function Income() {
       key: "1",
       statutory: "Federal Income Tax",
       hours: "",
-      total: -((getYearlyIncome() / 24) * 0.1).toFixed(2),
+      total: -(
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+        0.1
+      ).toFixed(2)
     },
     {
       key: "2",
       statutory: "Social Security Tax",
       hours: "",
-      total: -((getYearlyIncome() / 24) * 0.062).toFixed(2),
+      total: -(
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+        0.062
+      ).toFixed(2)
     },
     {
       key: "3",
       statutory: "Medicare Tax",
       hours: "",
-      total: -((getYearlyIncome() / 24) * 0.009).toFixed(2),
+      total: -(
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+        0.009
+      ).toFixed(2)
     },
     {
       key: "4",
       statutory: "Net Pay",
       hours: "",
       total: (
-        getYearlyIncome() / 24 -
-        (getYearlyIncome() / 24) * 0.1 -
-        (getYearlyIncome() / 24) * 0.062 -
-        (getYearlyIncome() / 24) * 0.009
+        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24 -
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+          0.1 -
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+          0.062 -
+        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+          24) *
+          0.009
       )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-    },
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
   ];
 
   return (
     <StyledDiv>
-      <DemoModal loStoName={"IncomeDemo"} title={"Income"} text={income} />
+      <DemoModal loStoName={"IncomeDemo"} title={"Income"} text={income}/>
       <PageHeader
         title={<img className="income-icon" alt="wallet" src={wallet} />}
         className="site-page-header"
@@ -230,11 +246,18 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Gross Monthly Income: $`}
-              {state.userInfo.details[state.userInfo.details.length - 1] &&
-                (getYearlyIncome() / 12)
+              {state.isFetching ? (
+                <p>fetching</p>
+              ) : (
+                state.userInfo.details[state.userInfo.details.length - 1] &&
+                Math.floor(
+                  state.userInfo.details[state.userInfo.details.length - 1]
+                    .avgmajor / 12
+                )
                   .toFixed(2)
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              )}
             </h3>
             <h3
               className="income-h3"
@@ -242,14 +265,23 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Net Monthly Income: $`}
-              {state.userInfo.details[state.userInfo.details.length - 1] &&
-                ((getYearlyIncome() / 12) * 0.85)
+              {state.isFetching ? (
+                <p>fetching</p>
+              ) : (
+                state.userInfo.details[state.userInfo.details.length - 1] &&
+                Math.floor(
+                  (state.userInfo.details[state.userInfo.details.length - 1]
+                    .avgmajor /
+                    12) *
+                    0.85
+                )
                   .toFixed(2)
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              )}
             </h3>
             <IncomeDrawer />
-          </React.Fragment>,
+          </React.Fragment>
         ]}
       >
         <Content>{content}</Content>

@@ -216,7 +216,6 @@ const WrapperDiv = styled.div`
       @media only screen and (max-width: 600px) {
         width: 150px;
       }
-
       .login-form-button {
         margin: 0 10px;
         width: 100px;
