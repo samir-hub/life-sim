@@ -116,16 +116,16 @@ function Expenses() {
         ),
     },
     personal: {
-      clothing:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
-        Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].clothing
-        ),
       entertainment:
         state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1]
             .entertainment
+        ),
+      clothing:
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].clothing
         ),
       other:
         state.userInfo.details[state.userInfo.details.length - 1] &&
@@ -313,7 +313,7 @@ function Expenses() {
             </div>
             <ExpensesBar
               category={expenses.personal}
-              labels={["Clothing", "Entertainment", "Other"]}
+              labels={["Entertainment", "Clothing", "Other"]}
               colors={["#2F4858", "#556E7E", "#7C95A5"]}
             />
           </div>
