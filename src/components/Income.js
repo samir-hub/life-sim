@@ -19,35 +19,58 @@ import { income } from "../data/demos";
 const { Paragraph } = Typography;
 
 function Income() {
-  const state = useSelector(state => {
+  const state = useSelector((state) => {
     return {
       userInfo: state.userInfo,
-      isFetching: state.isFetching
+      isFetching: state.isFetching,
     };
   });
+
+  const getYearlyIncome = () => {
+    if (
+      state.userInfo.details[state.userInfo.details.length - 1].education ===
+      "Associate's Degree"
+    ) {
+      return (
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+            1.26
+        )
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+      );
+    }else {
+      return ( state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+            1.26
+        )
+          .toFixed(2)
+          .toString()
+          .replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+    }
+  };
 
   const content = (
     <div className="content">
       <Paragraph
         style={{
           textAlign: "left",
-          fontSize: "15px"
+          fontSize: "15px",
         }}
       >
         Your estimated yearly income is{" "}
         <span className="income-yearly">
           {" $"}
-          {state.isFetching ? (
-            <p>fetching</p>
-          ) : (
-            state.userInfo.details[state.userInfo.details.length - 1] &&
+          {state.userInfo.details[state.userInfo.details.length - 1] &&
             Math.floor(
               state.userInfo.details[state.userInfo.details.length - 1].avgmajor
             )
               .toFixed(2)
               .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-          )}
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>
         . Many different factors will determine the actual amount. We use your
         information and some statistical analysis to calculate these estimates.{" "}
@@ -72,7 +95,7 @@ function Income() {
           className="extra"
           style={{
             marginLeft: 80,
-            marginTop: 16
+            marginTop: 16,
           }}
         >
           {extraContent}
@@ -85,23 +108,23 @@ function Income() {
     {
       title: "Earnings",
       dataIndex: "earnings",
-      key: "earnings"
+      key: "earnings",
     },
     {
       title: "rate",
       dataIndex: "rate",
-      key: "rate"
+      key: "rate",
     },
     {
       title: "hours",
       dataIndex: "hours",
-      key: "hours"
+      key: "hours",
     },
     {
       title: "total",
       dataIndex: "total",
-      key: "total"
-    }
+      key: "total",
+    },
   ];
 
   const data = [
@@ -118,7 +141,7 @@ function Income() {
       )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
     },
     {
       key: "2",
@@ -128,7 +151,7 @@ function Income() {
         1920
       ).toFixed(2),
       hours: 0,
-      total: 0
+      total: 0,
     },
     {
       key: "3",
@@ -139,7 +162,7 @@ function Income() {
         1.5
       ).toFixed(2),
       hours: 0,
-      total: 0
+      total: 0,
     },
     {
       key: "4",
@@ -151,31 +174,31 @@ function Income() {
       )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    }
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    },
   ];
 
   const deduColumns = [
     {
       title: "Deductions",
       dataIndex: "deductions",
-      key: "deductions"
+      key: "deductions",
     },
     {
       title: "Statutory",
       dataIndex: "statutory",
-      key: "statutory"
+      key: "statutory",
     },
     {
       title: "",
       dataIndex: "hours",
-      key: "hours"
+      key: "hours",
     },
     {
       title: "",
       dataIndex: "total",
-      key: "total"
-    }
+      key: "total",
+    },
   ];
 
   const deduData = [
@@ -187,7 +210,7 @@ function Income() {
         (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
           24) *
         0.1
-      ).toFixed(2)
+      ).toFixed(2),
     },
     {
       key: "2",
@@ -197,7 +220,7 @@ function Income() {
         (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
           24) *
         0.062
-      ).toFixed(2)
+      ).toFixed(2),
     },
     {
       key: "3",
@@ -207,7 +230,7 @@ function Income() {
         (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
           24) *
         0.009
-      ).toFixed(2)
+      ).toFixed(2),
     },
     {
       key: "4",
@@ -228,13 +251,13 @@ function Income() {
       )
         .toFixed(2)
         .toString()
-        .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-    }
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    },
   ];
 
   return (
     <StyledDiv>
-      <DemoModal loStoName={"IncomeDemo"} title={"Income"} text={income}/>
+      <DemoModal loStoName={"IncomeDemo"} title={"Income"} text={income} />
       <PageHeader
         title={<img className="income-icon" alt="wallet" src={wallet} />}
         className="site-page-header"
@@ -281,7 +304,7 @@ function Income() {
               )}
             </h3>
             <IncomeDrawer />
-          </React.Fragment>
+          </React.Fragment>,
         ]}
       >
         <Content>{content}</Content>
