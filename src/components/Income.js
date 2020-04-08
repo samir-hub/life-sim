@@ -37,19 +37,15 @@ function Income() {
           state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
             1.26
         )
-          .toFixed(2)
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
       );
-    }else {
-      return ( state.userInfo.details[state.userInfo.details.length - 1] &&
+    } else {
+      return (
+        state.userInfo.details[state.userInfo.details.length - 1] &&
         Math.floor(
           state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
             1.26
         )
-          .toFixed(2)
-          .toString()
-          .replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+      );
     }
   };
 
@@ -65,9 +61,7 @@ function Income() {
         <span className="income-yearly">
           {" $"}
           {state.userInfo.details[state.userInfo.details.length - 1] &&
-            Math.floor(
-              state.userInfo.details[state.userInfo.details.length - 1].avgmajor
-            )
+            getYearlyIncome()
               .toFixed(2)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
@@ -131,14 +125,9 @@ function Income() {
     {
       key: "1",
       earnings: "Regular",
-      rate: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-        1920
-      ).toFixed(2),
+      rate: (getYearlyIncome() / 1920).toFixed(2),
       hours: 80,
-      total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
-      )
+      total: (getYearlyIncome() / 24)
         .toFixed(2)
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -146,21 +135,14 @@ function Income() {
     {
       key: "2",
       earnings: "PTO",
-      rate: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-        1920
-      ).toFixed(2),
+      rate: (getYearlyIncome() / 1920).toFixed(2),
       hours: 0,
       total: 0,
     },
     {
       key: "3",
       earnings: "Overtime",
-      rate: (
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          1920) *
-        1.5
-      ).toFixed(2),
+      rate: ((getYearlyIncome() / 1920) * 1.5).toFixed(2),
       hours: 0,
       total: 0,
     },
@@ -169,9 +151,7 @@ function Income() {
       earnings: "",
       rate: "Gross Pay",
       hours: "",
-      total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
-      )
+      total: (getYearlyIncome() / 24)
         .toFixed(2)
         .toString()
         .replace(/\B(?=(\d{3})+(?!\d))/g, ","),
@@ -206,48 +186,29 @@ function Income() {
       key: "1",
       statutory: "Federal Income Tax",
       hours: "",
-      total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-        0.1
-      ).toFixed(2),
+      total: -((getYearlyIncome() / 24) * 0.1).toFixed(2),
     },
     {
       key: "2",
       statutory: "Social Security Tax",
       hours: "",
-      total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-        0.062
-      ).toFixed(2),
+      total: -((getYearlyIncome() / 24) * 0.062).toFixed(2),
     },
     {
       key: "3",
       statutory: "Medicare Tax",
       hours: "",
-      total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-        0.009
-      ).toFixed(2),
+      total: -((getYearlyIncome() / 24) * 0.009).toFixed(2),
     },
     {
       key: "4",
       statutory: "Net Pay",
       hours: "",
       total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-          0.1 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-          0.062 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
-          24) *
-          0.009
+        getYearlyIncome() / 24 -
+        (getYearlyIncome() / 24) * 0.1 -
+        (getYearlyIncome() / 24) * 0.062 -
+        (getYearlyIncome() / 24) * 0.009
       )
         .toFixed(2)
         .toString()
@@ -269,18 +230,11 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Gross Monthly Income: $`}
-              {state.isFetching ? (
-                <p>fetching</p>
-              ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
-                Math.floor(
-                  state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor / 12
-                )
+              {state.userInfo.details[state.userInfo.details.length - 1] &&
+                (getYearlyIncome() / 12)
                   .toFixed(2)
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              )}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
             <h3
               className="income-h3"
@@ -288,20 +242,11 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Net Monthly Income: $`}
-              {state.isFetching ? (
-                <p>fetching</p>
-              ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
-                Math.floor(
-                  (state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor /
-                    12) *
-                    0.85
-                )
+              {state.userInfo.details[state.userInfo.details.length - 1] &&
+                ((getYearlyIncome() / 12) * 0.85)
                   .toFixed(2)
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              )}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
             <IncomeDrawer />
           </React.Fragment>,

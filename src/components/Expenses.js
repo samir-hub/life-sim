@@ -32,6 +32,29 @@ function Expenses() {
     };
   });
 
+  const getYearlyIncome = () => {
+    if (
+      state.userInfo.details[state.userInfo.details.length - 1].education ===
+      "Associate's Degree"
+    ) {
+      return (
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+            1.26
+        )
+      );
+    } else {
+      return (
+        state.userInfo.details[state.userInfo.details.length - 1] &&
+        Math.floor(
+          state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+            1.26
+        )
+      );
+    }
+  };
+
   const expenses = {
     housing: {
       rent:
@@ -183,20 +206,11 @@ function Expenses() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Net Monthly Income: $`}
-              {state.isFetching ? (
-                <p>fetching</p>
-              ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
-                Math.floor(
-                  (state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor /
-                    12) *
-                    0.85
-                )
+              {state.userInfo.details[state.userInfo.details.length - 1] &&
+                ((getYearlyIncome() / 12) * 0.85)
                   .toFixed(2)
                   .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-              )}
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
             <h3
               className="income-h3 expenses"
