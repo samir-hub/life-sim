@@ -148,8 +148,10 @@ function Summary() {
 
   const content = (
     <div className="content">
-      <h5>Available Money After All Expenses</h5>
-      {disposableIncome > 0 ? (
+      <h3 style={{
+            color: "white"
+          }}>Available Money After All Expenses:</h3>
+      {disposableIncome >= 0 ? (
         <div
           style={{
             display: "flex",
@@ -157,8 +159,7 @@ function Summary() {
             justifyContent: "center",
           }}
         >
-          <span>+ </span>
-          <h1 style={{ margin: 0, padding: 0 }}>
+          <h1 style={{ margin: 0, padding: 0, color: "white", fontSize: '40px' }}>
             $
             {disposableIncome
               .toFixed(2)
@@ -166,9 +167,25 @@ function Summary() {
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
         </div>
-      ) : null}
+      ) : (
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <h1 style={{ margin: 0, padding: 0, color: "white", fontSize: '40px' }}>
+            $
+            {disposableIncome
+              .toFixed(2)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </h1>
+        </div>
+      )}
       <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
-        <Card style={{ width: "30%", background: "#009039", borderRadius: '10px' }}>
+        <Card style={{ width: "30%", background: "#009039", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#009039' }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h2 style={{ color: "white" }}>Income</h2>
             <h2 style={{ color: "white" }}>
@@ -186,7 +203,7 @@ function Summary() {
             </h2>
           </div>
         </Card>
-        <Card style={{ width: "30%", background: "#c35355", borderRadius: '10px' }}>
+        <Card style={{ width: "30%", background: "#c35355", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#c35355' }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h2 style={{ color: "white" }}>Expenses</h2>
             <h2 style={{ color: "white" }}>
@@ -392,7 +409,7 @@ function Summary() {
 
   return (
     <StyledDiv>
-      <PageHeader className="site-page-header">
+      <PageHeader style={{ background: "#2F4858", borderRadius: "5px" }} className="site-page-header">
         <Content>{content}</Content>
       </PageHeader>
       <Card className="income-card" hoverable={true}>
