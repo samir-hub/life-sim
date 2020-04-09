@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import PageHeader from "antd/es/page-header";
 import "antd/es/page-header/style/css";
 import Row from "antd/es/row";
@@ -7,9 +8,9 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
-import girl_rocket from "../assets/girl_rocket.png"; 
+import girl_rocket from "../assets/girl_rocket.png";
 
-function Summary({setActive}) {
+function Summary({ setActive }) {
   const state = useSelector((state) => {
     return {
       userInfo: state.userInfo,
@@ -147,9 +148,13 @@ function Summary({setActive}) {
 
   const content = (
     <div className="content">
-      <h3 style={{
-            color: "white"
-          }}>Available Money After All Expenses:</h3>
+      <h3
+        style={{
+          color: "white",
+        }}
+      >
+        Available Money After All Expenses:
+      </h3>
       {disposableIncome >= 0 ? (
         <div
           style={{
@@ -158,7 +163,9 @@ function Summary({setActive}) {
             justifyContent: "center",
           }}
         >
-          <h1 style={{ margin: 0, padding: 0, color: "white", fontSize: '40px' }}>
+          <h1
+            style={{ margin: 0, padding: 0, color: "white", fontSize: "40px" }}
+          >
             $
             {disposableIncome
               .toFixed(2)
@@ -174,7 +181,9 @@ function Summary({setActive}) {
             justifyContent: "center",
           }}
         >
-          <h1 style={{ margin: 0, padding: 0, color: "white", fontSize: '40px' }}>
+          <h1
+            style={{ margin: 0, padding: 0, color: "white", fontSize: "40px" }}
+          >
             $
             {disposableIncome
               .toFixed(2)
@@ -183,9 +192,29 @@ function Summary({setActive}) {
           </h1>
         </div>
       )}
-      <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
-        <Card style={{ width: "30%", background: "#009039", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#009039' }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginTop: "10px",
+        }}
+      >
+        <Card
+          style={{
+            width: "30%",
+            background: "#009039",
+            borderRadius: "10px",
+            boxShadow: "10px 10px 19px -14px rgba(0,0,0,0.75)",
+            borderColor: "#009039",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <h2 style={{ color: "white", margin: 0 }}>Income</h2>
             <h2 style={{ color: "white", margin: 0 }}>
               $
@@ -202,8 +231,22 @@ function Summary({setActive}) {
             </h2>
           </div>
         </Card>
-        <Card style={{ width: "30%", background: "#c35355", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#c35355' }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <Card
+          style={{
+            width: "30%",
+            background: "#c35355",
+            borderRadius: "10px",
+            boxShadow: "10px 10px 19px -14px rgba(0,0,0,0.75)",
+            borderColor: "#c35355",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <h2 style={{ color: "white", margin: 0 }}>Expenses</h2>
             <h2 style={{ color: "white", margin: 0 }}>
               $
@@ -257,14 +300,42 @@ function Summary({setActive}) {
 
   return (
     <StyledDiv>
-      <PageHeader style={{ background: "#2F4858", borderRadius: "5px" }} className="site-page-header">
+      <PageHeader
+        style={{ background: "#2F4858", borderRadius: "5px" }}
+        className="site-page-header"
+      >
         <Content>{content}</Content>
       </PageHeader>
       <div className="summary-content">
-          <h1>Are the numbers what you expected? You can keep playing with the data by editing your <span className="pg-span" onClick={()=> {setActive("2")}}>Income</span> and/or <span className="pg-span" onClick={()=> {setActive("3")}}>Expenses</span> or by entering brand-new data.</h1>
-          <div className="summary-image-wrapper">
-          <img className="summary-image" alt="girl and rocket" src={girl_rocket}/>
-          </div>
+        <h1 className="summary-text">
+          Are the numbers what you expected? You can keep playing with the data
+          by editing your{" "}
+          <span
+            className="summary-span"
+            onClick={() => {
+              setActive("2");
+            }}
+          >
+            Income
+          </span>{" "}
+          and/or{" "}
+          <span
+            className="summary-span"
+            onClick={() => {
+              setActive("3");
+            }}
+          >
+            Expenses
+          </span>{" "}
+          or by <NavLink to="/entryform">entering brand-new data</NavLink>.
+        </h1>
+        <div className="summary-image-wrapper">
+          <img
+            className="summary-image"
+            alt="girl and rocket"
+            src={girl_rocket}
+          />
+        </div>
       </div>
     </StyledDiv>
   );
@@ -320,14 +391,27 @@ const StyledDiv = styled.div`
       padding: 0;
     }
   }
-
-  .summary-image-wrapper {
-    min-width: 400px; 
-    .summary-image {
-      height: 400px;
-      @media only screen and (max-width: 600px) {
-        height: 250px;
+  .summary-content {
+      display: flex; 
+      justify-content: space-around; 
+      align-items: center; 
+      .summary-text {
+          width: 40%; 
+          text-align: left; 
+          font-size: 2rem;
+      }
+    .summary-span {
+      color: #1890ff;
+      cursor: pointer;
+    }
+    .summary-image-wrapper {
+      min-width: 400px;
+      .summary-image {
+        height: 400px;
+        @media only screen and (max-width: 600px) {
+          height: 250px;
+        }
       }
     }
-  } 
+  }
 `;
