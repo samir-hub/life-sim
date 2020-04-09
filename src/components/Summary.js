@@ -168,10 +168,10 @@ function Summary() {
         </div>
       ) : null}
       <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <Card style={{ width: "30%" }}>
+        <Card style={{ width: "30%", background: "#009039", borderRadius: '10px' }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h2>Income</h2>
-            <h2>
+            <h2 style={{ color: "white" }}>Income</h2>
+            <h2 style={{ color: "white" }}>
               $
               {state.userInfo.details[state.userInfo.details.length - 1] &&
                 Math.floor(
@@ -186,10 +186,10 @@ function Summary() {
             </h2>
           </div>
         </Card>
-        <Card style={{ width: "30%" }}>
+        <Card style={{ width: "30%", background: "#c35355", borderRadius: '10px' }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h2>Expenses</h2>
-            <h2>
+            <h2 style={{ color: "white" }}>Expenses</h2>
+            <h2 style={{ color: "white" }}>
               $
               {(
                 expenses.housing.rent +
