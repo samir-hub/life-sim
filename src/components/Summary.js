@@ -330,9 +330,9 @@ function Summary({ setActive }) {
             Are the numbers what you expected? You can keep playing with the
             data! You can:
           </h1>
-          <Button onClick={() => handleClick("2")}>Edit Income</Button>
-          <Button onClick={() => handleClick("3")}>Edit Expenses</Button>
-          <Button onClick={() => handleClick("4")}>Enter New Data</Button>
+          <Button ghost={true} style={{ marginBottom: "5px" }} type="primary" onClick={() => handleClick("2")}>Edit Income</Button>
+          <Button ghost={true} style={{ marginBottom: "5px" }} type="primary" onClick={() => handleClick("3")}>Edit Expenses</Button>
+          <Button type="primary" onClick={() => handleClick("4")}>Enter New Data</Button>
         </div>
       )}
     </StyledDiv>
@@ -424,6 +424,7 @@ const StyledDiv = styled.div`
   }
   .summary-content-mobile {
       display: flex; 
+      margin-top: 20px; 
       flex-direction: column; 
       justify-content: space-around; 
   }
