@@ -186,9 +186,9 @@ function Summary() {
       )}
       <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
         <Card style={{ width: "30%", background: "#009039", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#009039' }}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h2 style={{ color: "white" }}>Income</h2>
-            <h2 style={{ color: "white" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2 style={{ color: "white", margin: 0 }}>Income</h2>
+            <h2 style={{ color: "white", margin: 0 }}>
               $
               {state.userInfo.details[state.userInfo.details.length - 1] &&
                 Math.floor(
@@ -204,9 +204,9 @@ function Summary() {
           </div>
         </Card>
         <Card style={{ width: "30%", background: "#c35355", borderRadius: '10px', boxShadow: '10px 10px 19px -14px rgba(0,0,0,0.75)', borderColor: '#c35355' }}>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h2 style={{ color: "white" }}>Expenses</h2>
-            <h2 style={{ color: "white" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2 style={{ color: "white", margin: 0 }}>Expenses</h2>
+            <h2 style={{ color: "white", margin: 0 }}>
               $
               {(
                 expenses.housing.rent +
