@@ -9,6 +9,7 @@ import Table from "antd/es/table";
 import "antd/es/table/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+import girl_rocket from "../assets/girl_rocket.png"; 
 
 function Summary() {
   const state = useSelector((state) => {
@@ -412,17 +413,11 @@ function Summary() {
       <PageHeader style={{ background: "#2F4858", borderRadius: "5px" }} className="site-page-header">
         <Content>{content}</Content>
       </PageHeader>
-      <Card className="income-card" hoverable={true}>
-        <h1>Biweekly Pay Stub:</h1>
-        <div className="income-tables">
-          <Table pagination={false} columns={columns} dataSource={data} />
-          <Table
-            pagination={false}
-            columns={deduColumns}
-            dataSource={deduData}
-          />
-        </div>
-      </Card>
+      <div className="summary-content">
+          <div className="summary-image-wrapper">
+          <img className="summary-image" alt="girl and rocket" src={girl_rocket}/>
+          </div>
+      </div>
     </StyledDiv>
   );
 }
@@ -477,48 +472,14 @@ const StyledDiv = styled.div`
       padding: 0;
     }
   }
-  .ant-card-body {
-    @media only screen and (max-width: 600px) {
-      width: 90%;
-    }
-  }
-  .income-card {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height: auto;
-    width: 45%;
-    @media only screen and (max-width: 600px) {
-      width: auto;
-      border: none;
-      box-shadow: none;
-    }
-    .ant-table-row:nth-child(4) {
-      background: lightgray;
-    }
-    .income-earnings {
-      display: flex;
-      align-items: flex-end;
-      border-bottom: 2px solid #e8e8e8;
-      .income-earnings-title {
-        width: 40%;
-        margin-right: 100px;
-        margin-bottom: 0;
-        text-align: left;
-      }
-      .second-row-title {
-        width: 40%;
-        margin-right: 100px;
-        margin-bottom: 0;
-        text-align: left;
-      }
-      .income-earnings-subtitle {
-        padding: 0 10px;
-        margin-bottom: 0;
-        text-align: right;
-      }
-      .second-row {
-        text-align: right;
+
+  .summary-image-wrapper {
+    min-width: 400px; 
+    .summary-image {
+      height: 400px;
+      @media only screen and (max-width: 600px) {
+        height: 250px;
       }
     }
-  }
+  } 
 `;
