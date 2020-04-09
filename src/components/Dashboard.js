@@ -278,7 +278,7 @@ function Dashboard() {
         ) : active === "3" ? (
           <Expenses />
         ) : active === "4" ? (
-          <Summary />
+          <Summary setActive={setActive}/>
         ) : (
           <h1>not</h1>
         )}
