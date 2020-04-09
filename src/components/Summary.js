@@ -1,22 +1,33 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import PageHeader from "antd/es/page-header";
 import "antd/es/page-header/style/css";
 import Row from "antd/es/row";
 import "antd/es/row/style/css";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
+import Button from "antd/es/button";
+import "antd/es/button/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import girl_rocket from "../assets/girl_rocket.png";
 
 function Summary({ setActive }) {
+  const history = useHistory();
   const state = useSelector((state) => {
     return {
       userInfo: state.userInfo,
       isFetching: state.isFetching,
     };
   });
+
+  const handleClick = (item) => {
+    if (item === "4") {
+      history.push("/entryform");
+    } else {
+      setActive(`${item}`);
+    }
+  };
 
   const screen = window.screen.width;
 
@@ -212,6 +223,7 @@ function Summary({ setActive }) {
             borderRadius: "10px",
             boxShadow: "10px 10px 19px -14px rgba(0,0,0,0.75)",
             borderColor: "#c35355",
+            marginTop: screen < 600 ? "5px" : "0",
           }}
         >
           <div
@@ -280,37 +292,49 @@ function Summary({ setActive }) {
       >
         <Content>{content}</Content>
       </PageHeader>
-      <div className="summary-content">
-        <h1 className="summary-text">
-          Are the numbers what you expected? You can keep playing with the data
-          by editing your{" "}
-          <span
-            className="summary-span"
-            onClick={() => {
-              setActive("2");
-            }}
-          >
-            Income
-          </span>{" "}
-          and/or{" "}
-          <span
-            className="summary-span"
-            onClick={() => {
-              setActive("3");
-            }}
-          >
-            Expenses
-          </span>{" "}
-          or by <NavLink to="/entryform">entering brand-new data</NavLink>.
-        </h1>
-        <div className="summary-image-wrapper">
-          <img
-            className="summary-image"
-            alt="girl and rocket"
-            src={girl_rocket}
-          />
+      {screen >= 600 ? (
+        <div className="summary-content">
+          <h1 className="summary-text">
+            Are the numbers what you expected? You can keep playing with the
+            data by editing your{" "}
+            <span
+              className="summary-span"
+              onClick={() => {
+                setActive("2");
+              }}
+            >
+              Income
+            </span>{" "}
+            and/or{" "}
+            <span
+              className="summary-span"
+              onClick={() => {
+                setActive("3");
+              }}
+            >
+              Expenses
+            </span>{" "}
+            or by <NavLink to="/entryform">entering brand-new data</NavLink>.
+          </h1>
+          <div className="summary-image-wrapper">
+            <img
+              className="summary-image"
+              alt="girl and rocket"
+              src={girl_rocket}
+            />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="summary-content-mobile">
+          <h1 className="summary-text">
+            Are the numbers what you expected? You can keep playing with the
+            data! You can:
+          </h1>
+          <Button onClick={() => handleClick("2")}>Edit Income</Button>
+          <Button onClick={() => handleClick("3")}>Edit Expenses</Button>
+          <Button onClick={() => handleClick("4")}>Enter New Data</Button>
+        </div>
+      )}
     </StyledDiv>
   );
 }
@@ -330,8 +354,8 @@ const StyledDiv = styled.div`
     .content-h3 {
       color: white;
       @media only screen and (max-width: 600px) {
-          font-size: 15px;
-        }
+        font-size: 15px;
+      }
     }
     .content-disposable-div {
       display: flex;
@@ -391,13 +415,17 @@ const StyledDiv = styled.div`
   }
   .ant-page-header-content {
     @media only screen and (max-width: 600px) {
-
     }
   }
   .ant-page-header-heading-extra {
     @media only screen and (max-width: 600px) {
       padding: 0;
     }
+  }
+  .summary-content-mobile {
+      display: flex; 
+      flex-direction: column; 
+      justify-content: space-around; 
   }
   .summary-content {
     display: flex;
@@ -414,6 +442,9 @@ const StyledDiv = styled.div`
     }
     .summary-image-wrapper {
       min-width: 400px;
+      @media only screen and (max-width: 600px) {
+        display: none;
+      }
       .summary-image {
         height: 400px;
         @media only screen and (max-width: 600px) {
