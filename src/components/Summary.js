@@ -18,6 +18,8 @@ function Summary({ setActive }) {
     };
   });
 
+  const screen = window.screen.width;
+
   const expenses = {
     housing: {
       rent:
@@ -148,24 +150,10 @@ function Summary({ setActive }) {
 
   const content = (
     <div className="content">
-      <h3
-        style={{
-          color: "white",
-        }}
-      >
-        Available Money After All Expenses:
-      </h3>
+      <h3 className="content-h3">Available Money After All Expenses:</h3>
       {disposableIncome >= 0 ? (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1
-            style={{ margin: 0, padding: 0, color: "white", fontSize: "40px" }}
-          >
+        <div className="content-disposable-div">
+          <h1 className="content-disposable-h1">
             $
             {disposableIncome
               .toFixed(2)
@@ -174,16 +162,8 @@ function Summary({ setActive }) {
           </h1>
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <h1
-            style={{ margin: 0, padding: 0, color: "white", fontSize: "40px" }}
-          >
+        <div className="content-disposable-div">
+          <h1 className="content-disposable-h1" style={{}}>
             $
             {disposableIncome
               .toFixed(2)
@@ -192,16 +172,10 @@ function Summary({ setActive }) {
           </h1>
         </div>
       )}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-evenly",
-          marginTop: "10px",
-        }}
-      >
+      <div className="summary-card-div">
         <Card
           style={{
-            width: "30%",
+            width: screen < 600 ? "100%" : "30%",
             background: "#009039",
             borderRadius: "10px",
             boxShadow: "10px 10px 19px -14px rgba(0,0,0,0.75)",
@@ -233,7 +207,7 @@ function Summary({ setActive }) {
         </Card>
         <Card
           style={{
-            width: "30%",
+            width: screen < 600 ? "100%" : "30%",
             background: "#c35355",
             borderRadius: "10px",
             boxShadow: "10px 10px 19px -14px rgba(0,0,0,0.75)",
@@ -347,6 +321,41 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* .site-page-header {
+    @media only screen and (max-width: 600px) {
+          height: 500px; 
+        }
+  } */
+  .content {
+    .content-h3 {
+      color: white;
+      @media only screen and (max-width: 600px) {
+          font-size: 15px;
+        }
+    }
+    .content-disposable-div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .content-disposable-h1 {
+        margin: 0;
+        padding: 0;
+        color: white;
+        font-size: 40px;
+        @media only screen and (max-width: 600px) {
+          font-size: 20px;
+        }
+      }
+    }
+    .summary-card-div {
+      display: flex;
+      justify-content: space-evenly;
+      margin-top: 10px;
+      @media only screen and (max-width: 600px) {
+        flex-direction: column;
+      }
+    }
+  }
   .income-yearly {
     font-weight: bold;
   }
@@ -382,8 +391,7 @@ const StyledDiv = styled.div`
   }
   .ant-page-header-content {
     @media only screen and (max-width: 600px) {
-      height: 100px;
-      overflow-y: scroll;
+
     }
   }
   .ant-page-header-heading-extra {
@@ -392,14 +400,14 @@ const StyledDiv = styled.div`
     }
   }
   .summary-content {
-      display: flex; 
-      justify-content: space-around; 
-      align-items: center; 
-      .summary-text {
-          width: 40%; 
-          text-align: left; 
-          font-size: 2rem;
-      }
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .summary-text {
+      width: 40%;
+      text-align: left;
+      font-size: 2rem;
+    }
     .summary-span {
       color: #1890ff;
       cursor: pointer;
