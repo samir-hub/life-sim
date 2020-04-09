@@ -22,6 +22,7 @@ import { fetchEntry } from "../actions";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
 import Expenses from "./Expenses";
+import Summary from "./Summary"; 
 import DemoModal from "./DemoModal";
 import { dashDesktop } from "../data/demos";
 import { dashMobile } from "../data/demos";
@@ -253,7 +254,7 @@ function Dashboard() {
             <Icon type="wallet" />
             <span>Expenses</span>
           </Menu.Item>
-          {/* <Menu.Item
+          <Menu.Item
             onClick={() => setActive("4")}
             style={{
               display: "flex",
@@ -264,8 +265,8 @@ function Dashboard() {
             key="4"
           >
             <Icon type="profile" />
-            <span>Budget</span>
-          </Menu.Item> */}
+            <span>Summary</span>
+          </Menu.Item>
         </Menu>
       </Sider>
 
@@ -277,7 +278,7 @@ function Dashboard() {
         ) : active === "3" ? (
           <Expenses />
         ) : active === "4" ? (
-          <h1>budget</h1>
+          <Summary />
         ) : (
           <h1>not</h1>
         )}
