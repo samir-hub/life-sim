@@ -167,7 +167,7 @@ function Summary() {
           </h1>
         </div>
       ) : null}
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <div style={{ display: "flex", justifyContent: "space-evenly", marginTop: "10px" }}>
         <Card style={{ width: "30%", background: "#009039", borderRadius: '10px' }}>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <h2 style={{ color: "white" }}>Income</h2>
