@@ -295,8 +295,7 @@ function Summary({ setActive }) {
       {screen >= 600 ? (
         <div className="summary-content">
           <h1 className="summary-text">
-            Are the numbers what you expected? You can keep playing with the
-            data by editing your{" "}
+            Are the numbers what you expected? You can choose a different path by editing your{" "}
             <span
               className="summary-span"
               onClick={() => {
