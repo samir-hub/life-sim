@@ -287,7 +287,7 @@ function Summary({ setActive }) {
   return (
     <StyledDiv>
       <PageHeader
-        style={{ background: "#2F4858", borderRadius: "5px" }}
+        style={{ background: "#414756", borderRadius: "5px" }}
         className="site-page-header"
       >
         <Content>{content}</Content>
@@ -327,8 +327,8 @@ function Summary({ setActive }) {
       ) : (
         <div className="summary-content-mobile">
           <h1 className="summary-text">
-            Are the numbers what you expected? You can keep playing with the
-            data! You can:
+            Are the numbers what you expected? Go back and keep playing with the
+            data!
           </h1>
           <Button ghost={true} style={{ marginBottom: "5px" }} type="primary" onClick={() => handleClick("2")}>Edit Income</Button>
           <Button ghost={true} style={{ marginBottom: "5px" }} type="primary" onClick={() => handleClick("3")}>Edit Expenses</Button>
