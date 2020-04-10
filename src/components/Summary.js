@@ -327,8 +327,8 @@ function Summary({ setActive }) {
       ) : (
         <div className="summary-content-mobile">
           <h1 className="summary-text">
-            Are the numbers what you expected? Go back and keep playing with the
-            data!
+            Are the numbers what you expected? Go back, try a different path,
+            and see how it will affect the result!
           </h1>
           <Button
             size={"large"}
@@ -368,11 +368,9 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* .site-page-header {
-    @media only screen and (max-width: 600px) {
-          height: 500px; 
-        }
-  } */
+  @media only screen and (max-width: 600px) {
+    min-width: 375px;
+  }
   .content {
     .content-h3 {
       color: white;
@@ -451,6 +449,9 @@ const StyledDiv = styled.div`
     align-items: center;
     flex-direction: column;
     justify-content: space-around;
+    .summary-text-div {
+      width: 100%;
+    }
   }
   .summary-content {
     display: flex;
