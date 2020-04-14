@@ -22,7 +22,8 @@ import { fetchEntry } from "../actions";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
 import Expenses from "./Expenses";
-import Summary from "./Summary"; 
+import Summary from "./Summary";
+import Compare from "./Compare";
 import DemoModal from "./DemoModal";
 import { dashDesktop } from "../data/demos";
 import { dashMobile } from "../data/demos";
@@ -188,11 +189,11 @@ function Dashboard() {
                   }}
                 >
                   <div className="icon-wrapper">
-                  <img
-                    style={{ height: "30px", marginRight: "10px" }}
-                    alt="city"
-                    src={city}
-                  />
+                    <img
+                      style={{ height: "30px", marginRight: "10px" }}
+                      alt="city"
+                      src={city}
+                    />
                   </div>
                   <h1 style={{ margin: "0px", width: "100%" }}>
                     {state.userInfo.details[
@@ -260,12 +261,25 @@ function Dashboard() {
               display: "flex",
               justifyContent: "flex-start",
               alignItems: "center",
-              padding: "30px 0"
+              padding: "30px 0",
             }}
             key="4"
           >
             <Icon type="profile" />
             <span>Summary</span>
+          </Menu.Item>
+          <Menu.Item
+            onClick={() => setActive("5")}
+            style={{
+              display: "flex",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              padding: "30px 0",
+            }}
+            key="5"
+          >
+            <Icon type="bar-chart" />
+            <span>Compare</span>
           </Menu.Item>
         </Menu>
       </Sider>
@@ -278,7 +292,9 @@ function Dashboard() {
         ) : active === "3" ? (
           <Expenses />
         ) : active === "4" ? (
-          <Summary setActive={setActive}/>
+          <Summary setActive={setActive} />
+        ) : active === "5" ? (
+          <Compare setActive={setActive} />
         ) : (
           <h1>not</h1>
         )}
@@ -299,6 +315,6 @@ const StyledDiv = styled.div`
   .icon-wrapper {
     min-height: 30px;
     min-width: 30px;
-    margin-right: 10px; 
+    margin-right: 10px;
   }
 `;
