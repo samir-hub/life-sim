@@ -18,4 +18,9 @@ function Compare({ userInfo }) {
 
 export default Compare;
 
-const StyledDiv = styled.div``;
+const StyledDiv = styled.div`
+    .compare-cards-wrapper {
+        display: flex; 
+        width: 100%; 
+    }
+`;
