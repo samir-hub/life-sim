@@ -3,11 +3,13 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import styled from "styled-components";
 
-function DetailsCard({ userInfo }) {
-  console.log(userInfo);
+function DetailsCard({ education }) {
+
   return (
     <StyledDiv>
-      <Card></Card>
+        <Card>
+          <h1>{education}</h1>
+        </Card>
     </StyledDiv>
   );
 }

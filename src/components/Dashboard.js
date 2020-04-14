@@ -294,7 +294,7 @@ function Dashboard() {
         ) : active === "4" ? (
           <Summary setActive={setActive} />
         ) : active === "5" ? (
-          <Compare setActive={setActive} />
+          <Compare userInfo={state.userInfo} setActive={setActive} />
         ) : (
           <h1>not</h1>
         )}
