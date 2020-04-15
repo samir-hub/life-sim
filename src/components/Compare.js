@@ -3,14 +3,15 @@ import styled from "styled-components";
 import DetailsCard from "./DetailsCard";
 
 function Compare({ userInfo }) {
-
-    console.log(userInfo)
+  console.log(userInfo);
   return (
     <StyledDiv>
       <div className="compare-cards-wrapper">
-          {userInfo.details.map(detail => {
-              return <DetailsCard key={detail.detailsid} education={detail.education}/>
-          })}
+        {userInfo.details.map((detail) => {
+          return (
+            <DetailsCard key={detail.detailsid} education={detail.education} />
+          );
+        })}
       </div>
     </StyledDiv>
   );
@@ -19,8 +20,10 @@ function Compare({ userInfo }) {
 export default Compare;
 
 const StyledDiv = styled.div`
-    .compare-cards-wrapper {
-        display: flex; 
-        width: 100%; 
-    }
+  .compare-cards-wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `;
