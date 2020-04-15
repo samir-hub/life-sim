@@ -10,7 +10,7 @@ function Compare({ userInfo }) {
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
           return (
-            <DetailsCard key={detail.detailsid} education={detail.education} major={detail.major} city={detail.city} avatar={path_logo}/>
+            <DetailsCard key={detail.detailsid} detail={detail} avatar={path_logo}/>
           );
         })}
       </div>

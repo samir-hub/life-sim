@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const { Meta } = Card;
 
-function DetailsCard({ education, major, city, avatar }) {
+function DetailsCard({ detail, avatar }) {
   return (
     <StyledDiv>
       <Card className="card">
@@ -17,12 +17,12 @@ function DetailsCard({ education, major, city, avatar }) {
         <div className="dc-card-content">
           <div className="dc-card-text">
             <h1 className="dc-text" style={{ marginTop: "10px" }}>
-              {education}
+              {detail.education}
             </h1>
-            <h1 className="dc-text">{major}</h1>
-            <h1 className="dc-text">{city}</h1>
+            <h1 className="dc-text">{detail.major}</h1>
+            <h1 className="dc-text">{detail.city}</h1>
           </div>
-          <Button>Compare</Button>
+          <Button size="large">Compare</Button>
         </div>
       </Card>
     </StyledDiv>
