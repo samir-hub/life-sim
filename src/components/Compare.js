@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import DetailsCard from "./DetailsCard";
+import path_logo from "../assets/path_logo.svg";
 
 function Compare({ userInfo }) {
   console.log(userInfo);
@@ -9,7 +10,7 @@ function Compare({ userInfo }) {
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
           return (
-            <DetailsCard key={detail.detailsid} education={detail.education} />
+            <DetailsCard key={detail.detailsid} education={detail.education} major={detail.major} city={detail.city} avatar={path_logo}/>
           );
         })}
       </div>
