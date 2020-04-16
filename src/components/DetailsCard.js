@@ -1,32 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Avatar from "antd/es/avatar";
 import "antd/es/avatar/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
-import Modal from "antd/es/modal";
-import "antd/es/modal/style/css";
 import styled from "styled-components";
 
 const { Meta } = Card;
 
-function DetailsCard({ detail, avatar, itemsToCompare, setItemsToCompare }) {
-
-  const [isVisible, setIsVisible] = useState(false);
-
+function DetailsCard({ detail, avatar, itemsToCompare, setItemsToCompare, setIsVisible }) {
   const handleClick = (detail) => {
-    setItemsToCompare([...itemsToCompare, detail])
-  }
-
-  const handleOk = (e) => {
-    setIsVisible(false); 
-  }
-
-  const handleCancel = (e) => {
-    setIsVisible(false); 
-  }
-
+    setItemsToCompare([...itemsToCompare, detail]);
+    if(itemsToCompare.length === 1){
+      setIsVisible(true);
+    }
+  };
 
   //console.log(itemsToCompare)
 
@@ -42,19 +31,11 @@ function DetailsCard({ detail, avatar, itemsToCompare, setItemsToCompare }) {
             <h1 className="dc-text">{detail.major}</h1>
             <h1 className="dc-text">{detail.city}</h1>
           </div>
-          <Button onClick={() => handleClick(detail)} size="large">Select to Compare</Button>
+          <Button onClick={() => handleClick(detail)} size="large">
+            Select to Compare
+          </Button>
         </div>
       </Card>
-      <Modal
-          title="Basic Modal"
-          visible={isVisible}
-          onOk={handleOk}
-          onCancel={handleCancel}
-        >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-        </Modal>
     </StyledDiv>
   );
 }

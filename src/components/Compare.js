@@ -1,15 +1,38 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "antd/es/modal";
+import "antd/es/modal/style/css";
 import DetailsCard from "./DetailsCard";
 import path_logo from "../assets/path_logo.svg";
 
 function Compare({ userInfo }) {
   const [itemsToCompare, setItemsToCompare] = useState([]);
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleOk = (e) => {
+    setIsVisible(false);
+    setItemsToCompare([])
+  };
+
+  const handleCancel = (e) => {
+    setIsVisible(false);
+  };
+
   console.log(itemsToCompare);
 
   return (
     <StyledDiv>
+      <Modal
+        title="Basic Modal"
+        visible={isVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Modal>
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
           return (
@@ -19,6 +42,7 @@ function Compare({ userInfo }) {
               avatar={path_logo}
               itemsToCompare={itemsToCompare}
               setItemsToCompare={setItemsToCompare}
+              setIsVisible={setIsVisible}
             />
           );
         })}
