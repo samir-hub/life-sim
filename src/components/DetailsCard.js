@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "antd/es/card";
 import "antd/es/card/style/css";
 import Avatar from "antd/es/avatar";
@@ -11,12 +11,24 @@ import styled from "styled-components";
 
 const { Meta } = Card;
 
-function DetailsCard({ detail, avatar }) {
+function DetailsCard({ detail, avatar, itemsToCompare, setItemsToCompare }) {
+
+  const [isVisible, setIsVisible] = useState(false);
 
   const handleClick = (detail) => {
-    console.log(detail)
+    setItemsToCompare([...itemsToCompare, detail])
   }
 
+  const handleOk = (e) => {
+    setIsVisible(false); 
+  }
+
+  const handleCancel = (e) => {
+    setIsVisible(false); 
+  }
+
+
+  //console.log(itemsToCompare)
 
   return (
     <StyledDiv>
@@ -33,6 +45,16 @@ function DetailsCard({ detail, avatar }) {
           <Button onClick={() => handleClick(detail)} size="large">Select to Compare</Button>
         </div>
       </Card>
+      <Modal
+          title="Basic Modal"
+          visible={isVisible}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+          <p>Some contents...</p>
+        </Modal>
     </StyledDiv>
   );
 }

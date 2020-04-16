@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DetailsCard from "./DetailsCard";
 import path_logo from "../assets/path_logo.svg";
 
 function Compare({ userInfo }) {
-  console.log(userInfo);
+  const [itemsToCompare, setItemsToCompare] = useState([]);
+
+  console.log(itemsToCompare);
+
   return (
     <StyledDiv>
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
           return (
-            <DetailsCard key={detail.detailsid} detail={detail} avatar={path_logo}/>
+            <DetailsCard
+              key={detail.detailsid}
+              detail={detail}
+              avatar={path_logo}
+              itemsToCompare={itemsToCompare}
+              setItemsToCompare={setItemsToCompare}
+            />
           );
         })}
       </div>
