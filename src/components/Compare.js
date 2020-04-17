@@ -9,12 +9,19 @@ import path_logo from "../assets/path_logo.svg";
 
 function Compare({ userInfo }) {
   const [itemsToCompare, setItemsToCompare] = useState([]);
-
   const [isVisible, setIsVisible] = useState(false);
+  const [showBadge, setShowBadge] = useState({
+    cardId: null,
+    badgeNumber: null,
+  });
 
   const handleOk = (e) => {
     setIsVisible(false);
     setItemsToCompare([]);
+    setShowBadge({
+      cardId: null,
+      badgeNumber: null,
+    });
   };
 
   console.log(itemsToCompare);
@@ -42,6 +49,8 @@ function Compare({ userInfo }) {
               itemsToCompare={itemsToCompare}
               setItemsToCompare={setItemsToCompare}
               setIsVisible={setIsVisible}
+              showBadge={showBadge}
+              setShowBadge={setShowBadge}
             />
           );
         })}

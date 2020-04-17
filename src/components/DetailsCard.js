@@ -6,23 +6,37 @@ import "antd/es/avatar/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import styled from "styled-components";
+import one_badge from "../assets/one_badge.svg";
+import two_badge from "../assets/two_badge.svg";
+
 
 const { Meta } = Card;
 
-function DetailsCard({ detail, avatar, itemsToCompare, setItemsToCompare, setIsVisible }) {
+function DetailsCard({
+  detail,
+  avatar,
+  itemsToCompare,
+  setItemsToCompare,
+  setIsVisible,
+  showBadge, 
+  setShowBadge
+}) {
+
   const handleClick = (detail) => {
     setItemsToCompare([...itemsToCompare, detail]);
-    if(itemsToCompare.length === 1){
+    if (itemsToCompare.length === 1) {
       setIsVisible(true);
     }
   };
 
-  //console.log(itemsToCompare)
-
+  const activateBadge = (id) => {
+    setShowBadge({ cardId: id, badgeNumber: itemsToCompare.length + 1 });
+  };
+console.log(showBadge)
   return (
     <StyledDiv>
-      <Card className="card">
-        <Meta avatar={<Avatar src={avatar} />} />
+      <Card onClick={() => activateBadge(detail.detailsid)} className="card">
+        <Meta avatar={<Avatar src={showBadge.badgeNumber === 1 && showBadge.cardId === detail.detailsid ? one_badge : (showBadge.badgeNumber === 2 && showBadge.cardId === detail.detailsid) ? two_badge : avatar} />} />
         <div className="dc-card-content">
           <div className="dc-card-text">
             <h1 className="dc-text" style={{ marginTop: "10px" }}>
