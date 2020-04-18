@@ -7,12 +7,12 @@ import React from "react";
 // import "antd/es/button/style/css";
 import styled from "styled-components";
 import { HorizontalBar } from "react-chartjs-2";
-// import one_badge from "../assets/one_badge.svg";
-// import two_badge from "../assets/two_badge.svg";
+import one_badge from "../assets/one_badge.svg";
+import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
   const data = {
-    labels: ["Africa", "Asia"],
+    labels: ["1", "2"],
     datasets: [
       {
         label: "Population (millions)",
@@ -20,7 +20,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
           "#3e95cd",
           "#8e5ea2",
         ],
-        data: [2478, 5267],
+        data: [2478, 3267],
       },
     ],
   };
@@ -30,6 +30,13 @@ function ModalComparison({ firstChoice, secondChoice }) {
     title: {
       display: true,
     },
+    scales: {
+        xAxes: [{
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+    }
   };
 
   console.log(firstChoice);
