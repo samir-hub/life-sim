@@ -18,7 +18,10 @@ function ModalComparison({ firstChoice, secondChoice }) {
         label: "Income",
         backgroundColor: "#a88add",
         stack: "1",
-        data: [(firstChoice && firstChoice.avgmajor/12*.85), (secondChoice && secondChoice.avgmajor/12*.85)],
+        data: [
+          firstChoice && Math.floor((firstChoice.avgmajor / 12) * 0.85),
+          Math.floor(secondChoice && (secondChoice.avgmajor / 12) * 0.85),
+        ],
       },
     ],
   };
@@ -48,37 +51,77 @@ function ModalComparison({ firstChoice, secondChoice }) {
         label: "Housing",
         backgroundColor: "#a88add",
         stack: "1",
-        data: [1000, 1500],
+        data: [
+          firstChoice && firstChoice.rent + firstChoice.utilities,
+          secondChoice && secondChoice.rent + secondChoice.utilities,
+        ],
       },
       {
         label: "Food",
         backgroundColor: "#0cc2aa",
         stack: "1",
-        data: [200, 250],
+        data: [
+          firstChoice && firstChoice.groceries + firstChoice.restaurant,
+          secondChoice && secondChoice.groceries + secondChoice.restaurant,
+        ],
       },
       {
         label: "Medical",
         backgroundColor: "#0cc2aa",
         stack: "1",
-        data: [100, 120],
+        data: [
+          firstChoice && firstChoice.premiums + firstChoice.medExpenses,
+          secondChoice && secondChoice.premiums + secondChoice.medExpenses,
+        ],
       },
       {
         label: "Transport",
         backgroundColor: "#0cc2aa",
         stack: "1",
-        data: [150, 160],
+        data: [
+          firstChoice &&
+            firstChoice.carPayment +
+              firstChoice.insurance +
+              firstChoice.gas +
+              firstChoice.carMaintenance,
+          secondChoice &&
+            secondChoice.carPayment +
+              secondChoice.insurance +
+              secondChoice.gas +
+              secondChoice.carMaintenance,
+        ],
       },
       {
         label: "Necessities",
         backgroundColor: "#0cc2aa",
         stack: "1",
-        data: [200, 200],
+        data: [
+          firstChoice &&
+            firstChoice.studentLoans +
+              firstChoice.internet +
+              firstChoice.cell +
+              firstChoice.tv,
+          secondChoice &&
+            secondChoice.studentLoans +
+              secondChoice.internet +
+              secondChoice.cell +
+              secondChoice.tv,
+        ],
       },
       {
         label: "Personal",
         backgroundColor: "#0cc2aa",
         stack: "1",
-        data: [100, 120],
+        data: [
+          firstChoice &&
+            firstChoice.clothing +
+              firstChoice.entertainment +
+              firstChoice.pOther,
+          secondChoice &&
+            secondChoice.clothing +
+              secondChoice.entertainment +
+              secondChoice.pOther,
+        ],
       },
     ],
   };
@@ -149,7 +192,12 @@ function ModalComparison({ firstChoice, secondChoice }) {
       </div>
       <div className="mc-div">
         <h1 className="mc-title">Monthly Disposable Income</h1>
-        <HorizontalBar height={150} width={500} data={disData} options={disOptions} />
+        <HorizontalBar
+          height={150}
+          width={500}
+          data={disData}
+          options={disOptions}
+        />
       </div>
     </StyledDiv>
   );
