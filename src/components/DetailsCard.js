@@ -9,7 +9,6 @@ import styled from "styled-components";
 import one_badge from "../assets/one_badge.svg";
 import two_badge from "../assets/two_badge.svg";
 
-
 const { Meta } = Card;
 
 function DetailsCard({
@@ -18,25 +17,59 @@ function DetailsCard({
   itemsToCompare,
   setItemsToCompare,
   setIsVisible,
-  showBadge, 
-  setShowBadge
+  showBadge,
+  setShowBadge,
 }) {
-
   const handleClick = (detail) => {
     setItemsToCompare([...itemsToCompare, detail]);
     if (itemsToCompare.length === 1) {
-      setIsVisible(true);
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 500);
     }
   };
 
   const activateBadge = (id) => {
-    setShowBadge({ cardId: id, badgeNumber: itemsToCompare.length + 1 });
+    if (itemsToCompare.length === 0) {
+      setShowBadge({
+        firstCardId: itemsToCompare.length === 0 ? id : null,
+        firstClick: itemsToCompare.length === 0 ? true : false,
+      });
+    } else {
+      setShowBadge({
+        ...showBadge, 
+        secondCardId: itemsToCompare.length === 1 ? id : null,
+        secondClick: itemsToCompare.length === 1 ? true : false,
+      });
+    }
+    setItemsToCompare([...itemsToCompare, detail]);
+    if (itemsToCompare.length === 1) {
+      setTimeout(() => {
+        setIsVisible(true);
+      }, 500);
+      
+    }
   };
-console.log(showBadge)
+  console.log(showBadge);
+  console.log(itemsToCompare.length);
   return (
     <StyledDiv>
       <Card onClick={() => activateBadge(detail.detailsid)} className="card">
-        <Meta avatar={<Avatar src={showBadge.badgeNumber === 1 && showBadge.cardId === detail.detailsid ? one_badge : (showBadge.badgeNumber === 2 && showBadge.cardId === detail.detailsid) ? two_badge : avatar} />} />
+        <Meta
+          avatar={
+            <Avatar
+              src={
+                showBadge.firstClick &&
+                showBadge.firstCardId === detail.detailsid
+                  ? one_badge
+                  : showBadge.secondClick &&
+                    showBadge.secondCardId === detail.detailsid
+                  ? two_badge
+                  : avatar
+              }
+            />
+          }
+        />
         <div className="dc-card-content">
           <div className="dc-card-text">
             <h1 className="dc-text" style={{ marginTop: "10px" }}>

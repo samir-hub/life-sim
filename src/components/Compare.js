@@ -11,16 +11,20 @@ function Compare({ userInfo }) {
   const [itemsToCompare, setItemsToCompare] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [showBadge, setShowBadge] = useState({
-    cardId: null,
-    badgeNumber: null,
+    firstCardId: null,
+    secondCardId: null,
+    firstClick: false,
+    secondClick: false,
   });
 
   const handleOk = (e) => {
     setIsVisible(false);
     setItemsToCompare([]);
     setShowBadge({
-      cardId: null,
-      badgeNumber: null,
+      firstCardId: null,
+      secondCardId: null,
+      firstClick: false,
+      secondClick: false,
     });
   };
 
