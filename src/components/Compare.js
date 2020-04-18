@@ -38,7 +38,10 @@ function Compare({ userInfo }) {
         visible={isVisible}
         onOk={handleOk}
       >
-        <ModalComparison/>
+        <ModalComparison
+          firstChoice={itemsToCompare[0]}
+          secondChoice={itemsToCompare[1]}
+        />
       </Modal>
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
