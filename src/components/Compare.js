@@ -28,15 +28,12 @@ function Compare({ userInfo }) {
     });
   };
 
-  console.log(itemsToCompare);
-
   return (
     <StyledDiv>
       <Modal
         closable={false}
         footer={<Button onClick={handleOk}>Okay</Button>}
         maskClosable={false}
-        title="Comparison"
         visible={isVisible}
         onOk={handleOk}
       >

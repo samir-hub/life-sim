@@ -25,7 +25,7 @@ function DetailsCard({
     if (itemsToCompare.length === 1) {
       setTimeout(() => {
         setIsVisible(true);
-      }, 500);
+      }, 300);
     }
   };
 
@@ -46,18 +46,18 @@ function DetailsCard({
     if (itemsToCompare.length === 1) {
       setTimeout(() => {
         setIsVisible(true);
-      }, 500);
+      }, 300);
       
     }
   };
-  console.log(showBadge);
-  console.log(itemsToCompare.length);
+
   return (
     <StyledDiv>
       <Card onClick={() => activateBadge(detail.detailsid)} className="card">
         <Meta
           avatar={
             <Avatar
+            style={{ borderRadius: '5px' }}
               src={
                 showBadge.firstClick &&
                 showBadge.firstCardId === detail.detailsid
