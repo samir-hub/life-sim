@@ -15,42 +15,141 @@ function ModalComparison({ firstChoice, secondChoice }) {
     labels: ["1", "2"],
     datasets: [
       {
-        label: "Population (millions)",
-        backgroundColor: [
-          "#3e95cd",
-          "#8e5ea2",
-        ],
-        data: [2478, 3267],
+        label: "Income",
+        backgroundColor: "#a88add",
+        stack: "1",
+        data: [2500, 3000],
       },
     ],
   };
 
   const options = {
-    legend: { display: false },
-    title: {
-      display: true,
+    legend: {
+      display: false,
     },
     scales: {
-        xAxes: [{
-            ticks: {
-                beginAtZero: true
-            }
-        }]
-    }
+      xAxes: [
+        {
+          stacked: true,
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+        },
+      ],
+    },
+  };
+
+  const expensesData = {
+    labels: ["1", "2"],
+    datasets: [
+      {
+        label: "Housing",
+        backgroundColor: "#a88add",
+        stack: "1",
+        data: [1000, 1500],
+      },
+      {
+        label: "Food",
+        backgroundColor: "#0cc2aa",
+        stack: "1",
+        data: [200, 250],
+      },
+      {
+        label: "Medical",
+        backgroundColor: "#0cc2aa",
+        stack: "1",
+        data: [100, 120],
+      },
+      {
+        label: "Transport",
+        backgroundColor: "#0cc2aa",
+        stack: "1",
+        data: [150, 160],
+      },
+      {
+        label: "Necessities",
+        backgroundColor: "#0cc2aa",
+        stack: "1",
+        data: [200, 200],
+      },
+      {
+        label: "Personal",
+        backgroundColor: "#0cc2aa",
+        stack: "1",
+        data: [100, 120],
+      },
+    ],
+  };
+
+  const expensesOptions = {
+    legend: {
+      display: false,
+    },
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+        },
+      ],
+    },
+  };
+
+  const disData = {
+    labels: ["1", "2"],
+    datasets: [
+      {
+        label: "Disposable Income",
+        backgroundColor: "#a88add",
+        stack: "1",
+        data: [250, -300],
+      },
+    ],
+  };
+
+  const disOptions = {
+    legend: {
+      display: false,
+    },
+    scales: {
+      xAxes: [
+        {
+          stacked: true,
+        },
+      ],
+      yAxes: [
+        {
+          stacked: true,
+        },
+      ],
+    },
   };
 
   console.log(firstChoice);
   return (
     <StyledDiv>
-      <div className="mc-income">
-        <h1>Income</h1>
-        <HorizontalBar height={110} width={500} data={data} options={options} />
+      <div className="mc-div">
+        <h1 className="mc-title">Income</h1>
+        <HorizontalBar height={150} width={500} data={data} options={options} />
       </div>
-      <div className="mc-expenses">
-        <h1>Expenses</h1>
+      <div className="mc-div">
+        <h1 className="mc-title">Expenses</h1>
+        <HorizontalBar
+          height={150}
+          width={500}
+          data={expensesData}
+          options={expensesOptions}
+        />
       </div>
-      <div className="mc-disposable-income">
-        <h1>Disposable Income</h1>
+      <div className="mc-div">
+        <h1 className="mc-title">Disposable Income</h1>
+        <HorizontalBar height={150} width={500} data={disData} options={disOptions} />
       </div>
     </StyledDiv>
   );
@@ -62,4 +161,12 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .mc-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .mc-title {
+      margin: 0;
+    }
+  }
 `;
