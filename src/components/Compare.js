@@ -5,6 +5,7 @@ import "antd/es/modal/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
 import DetailsCard from "./DetailsCard";
+import ModalComparison from "./ModalComparison";
 import path_logo from "../assets/path_logo.svg";
 
 function Compare({ userInfo }) {
@@ -37,8 +38,7 @@ function Compare({ userInfo }) {
         visible={isVisible}
         onOk={handleOk}
       >
-        <h1>{itemsToCompare[0] && itemsToCompare[0].education}</h1>
-        <h1>{itemsToCompare[1] && itemsToCompare[1].education}</h1>
+        <ModalComparison/>
       </Modal>
       <div className="compare-cards-wrapper">
         {userInfo.details.map((detail) => {
