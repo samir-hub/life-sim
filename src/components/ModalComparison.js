@@ -18,7 +18,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
         label: "Income",
         backgroundColor: "#a88add",
         stack: "1",
-        data: [2500, 3000],
+        data: [(firstChoice && firstChoice.avgmajor/12*.85), (secondChoice && secondChoice.avgmajor/12*.85)],
       },
     ],
   };
@@ -135,11 +135,11 @@ function ModalComparison({ firstChoice, secondChoice }) {
   return (
     <StyledDiv>
       <div className="mc-div">
-        <h1 className="mc-title">Income</h1>
+        <h1 className="mc-title">Net Monthly Income</h1>
         <HorizontalBar height={150} width={500} data={data} options={options} />
       </div>
       <div className="mc-div">
-        <h1 className="mc-title">Expenses</h1>
+        <h1 className="mc-title">Monthly Expenses</h1>
         <HorizontalBar
           height={150}
           width={500}
@@ -148,7 +148,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
         />
       </div>
       <div className="mc-div">
-        <h1 className="mc-title">Disposable Income</h1>
+        <h1 className="mc-title">Monthly Disposable Income</h1>
         <HorizontalBar height={150} width={500} data={disData} options={disOptions} />
       </div>
     </StyledDiv>
