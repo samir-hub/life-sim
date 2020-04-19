@@ -7,8 +7,8 @@ import React from "react";
 // import "antd/es/button/style/css";
 import styled from "styled-components";
 import { HorizontalBar } from "react-chartjs-2";
-import one_badge from "../assets/one_badge.svg";
-import two_badge from "../assets/two_badge.svg";
+// import one_badge from "../assets/one_badge.svg";
+// import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
   const firstDI =
@@ -98,7 +98,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
     datasets: [
       {
         label: "Housing",
-        backgroundColor: "#a88add",
+        backgroundColor: "#F38704",
         stack: "1",
         data: [
           firstChoice && Math.round(firstChoice.rent + firstChoice.utilities),
@@ -108,7 +108,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
       },
       {
         label: "Food",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#F35B59",
         stack: "1",
         data: [
           firstChoice &&
@@ -119,7 +119,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
       },
       {
         label: "Medical",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#C95086",
         stack: "1",
         data: [
           firstChoice &&
@@ -130,7 +130,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
       },
       {
         label: "Transport",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#865794",
         stack: "1",
         data: [
           firstChoice &&
@@ -151,7 +151,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
       },
       {
         label: "Necessities",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#475580",
         stack: "1",
         data: [
           firstChoice &&
@@ -172,7 +172,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
       },
       {
         label: "Personal",
-        backgroundColor: "#0cc2aa",
+        backgroundColor: "#2F4858",
         stack: "1",
         data: [
           firstChoice &&
@@ -222,7 +222,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
     datasets: [
       {
         label: "Disposable Income",
-        backgroundColor: "#a88add",
+        backgroundColor: "#F35B59",
         stack: "1",
         data: [Math.floor(firstDI), Math.floor(secondDI)],
       },
