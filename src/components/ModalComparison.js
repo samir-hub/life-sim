@@ -7,8 +7,8 @@ import React from "react";
 // import "antd/es/button/style/css";
 import styled from "styled-components";
 import { HorizontalBar } from "react-chartjs-2";
-// import one_badge from "../assets/one_badge.svg";
-// import two_badge from "../assets/two_badge.svg";
+import one_badge from "../assets/one_badge.svg";
+import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
   const firstDI =
@@ -54,7 +54,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
         secondChoice.pOther);
 
   const data = {
-    labels: ["1", "2"],
+    labels: ["", ""],
     datasets: [
       {
         label: "Income",
@@ -254,18 +254,20 @@ function ModalComparison({ firstChoice, secondChoice }) {
     hover: { mode: null },
   };
 
-  console.log(firstChoice);
   return (
     <StyledDiv>
-      <div className="mc-div">
-        <h1 className="mc-title">Net Monthly Income</h1>
-        <HorizontalBar height={170} width={500} data={data} options={options} />
+      <div className="expenses-card-div">
+        <div className="expenses-card-inner">
+          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
+          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+        </div>
+        <HorizontalBar height={170} width={400} data={data} options={options} />
       </div>
       <div className="mc-div">
         <h1 className="mc-title">Monthly Expenses</h1>
         <HorizontalBar
           height={170}
-          width={500}
+          width={400}
           data={expensesData}
           options={expensesOptions}
         />
@@ -274,7 +276,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
         <h1 className="mc-title">Monthly Disposable Income</h1>
         <HorizontalBar
           height={170}
-          width={500}
+          width={400}
           data={disData}
           options={disOptions}
         />
@@ -289,12 +291,34 @@ const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  .expenses-card-div {
+    width: 400px;
+    display: flex;
+    justify-content: flex-start;
+    .expenses-card-inner {
+      display: flex;
+      .mc-graph-badge {
+        height: 40px; 
+      }
+    }
+  }
   .mc-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     .mc-title {
       margin: 0;
+    }
+    .mc-graph-wrapper {
+      width: 100%;
+      display: block;
+      .mc-graph-badges {
+        display: flex;
+        flex-direction: column;
+        .mc-graph-badge {
+          width: 20px;
+        }
+      }
     }
   }
 `;
