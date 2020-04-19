@@ -94,7 +94,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
   };
 
   const expensesData = {
-    labels: ["1", "2"],
+    labels: ["", ""],
     datasets: [
       {
         label: "Housing",
@@ -218,11 +218,11 @@ function ModalComparison({ firstChoice, secondChoice }) {
   };
 
   const disData = {
-    labels: ["1", "2"],
+    labels: ["", ""],
     datasets: [
       {
         label: "Disposable Income",
-        backgroundColor: "#F35B59",
+        backgroundColor: "#865794",
         stack: "1",
         data: [Math.floor(firstDI), Math.floor(secondDI)],
       },
@@ -256,6 +256,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
 
   return (
     <StyledDiv>
+      <h1 className="mc-title">Monthly Net Income</h1>
       <div className="expenses-card-div">
         <div className="expenses-card-inner">
           <img className="mc-graph-badge" src={one_badge} alt="one badge" />
@@ -263,8 +264,12 @@ function ModalComparison({ firstChoice, secondChoice }) {
         </div>
         <HorizontalBar height={170} width={400} data={data} options={options} />
       </div>
-      <div className="mc-div">
-        <h1 className="mc-title">Monthly Expenses</h1>
+      <h1 className="mc-title">Monthly Expenses</h1>
+      <div className="expenses-card-div">
+        <div className="expenses-card-inner">
+          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
+          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+        </div>
         <HorizontalBar
           height={170}
           width={400}
@@ -272,8 +277,12 @@ function ModalComparison({ firstChoice, secondChoice }) {
           options={expensesOptions}
         />
       </div>
-      <div className="mc-div">
-        <h1 className="mc-title">Monthly Disposable Income</h1>
+      <h1 className="mc-title">Monthly Disposable Income</h1>
+      <div className="expenses-card-div">
+        <div className="expenses-card-inner">
+          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
+          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+        </div>
         <HorizontalBar
           height={170}
           width={400}
@@ -297,8 +306,12 @@ const StyledDiv = styled.div`
     justify-content: flex-start;
     .expenses-card-inner {
       display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 20px;
       .mc-graph-badge {
-        height: 40px; 
+        height: 40px;
+        margin: 12px 0;
       }
     }
   }
