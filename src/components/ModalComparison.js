@@ -304,6 +304,7 @@ const StyledDiv = styled.div`
     width: 400px;
     display: flex;
     justify-content: flex-start;
+    margin-right: 40px; 
     .expenses-card-inner {
       display: flex;
       flex-direction: column;
