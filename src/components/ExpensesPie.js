@@ -68,7 +68,17 @@ const ExpensesPie = ({
         usePointStyle: true,
         fontSize: 15
       }
+    },
+    tooltips: {
+      mode: 'label',
+    callbacks: {
+        label: function(tooltipItem, data) { 
+            var item = tooltipItem.index;                 
+            return  data.labels[item] +': $'+(data.datasets[0].data[item]).toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '';
+        }
     }
+    },
   };
 
   const mobileOptions = {

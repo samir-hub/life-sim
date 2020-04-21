@@ -46,6 +46,20 @@ const ExpensesBar = ({ category, labels, colors }) => {
       ]
     },
     tooltips: {
+      callbacks: {
+        label: function(tooltipItem, data) {
+            var label = data.datasets[tooltipItem.datasetIndex].label || '';
+
+            if (label) {
+                label += ': ';
+            }
+            label += '$'
+            label += (Math.round(tooltipItem.xLabel * 100) / 100)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            return label;
+        }
+    },
       yAlign: "above",
       titleFontSize: 0,
       titleSpacing: 0,

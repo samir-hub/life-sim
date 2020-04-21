@@ -85,6 +85,20 @@ function ModalComparison({ firstChoice, secondChoice }) {
       ],
     },
     tooltips: {
+      callbacks: {
+        label: function (tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+          if (label) {
+            label += ": ";
+          }
+          label += "$";
+          label += (Math.round(tooltipItem.xLabel * 100) / 100)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          return label;
+        },
+      },
       yAlign: "above",
       titleFontSize: 0,
       titleSpacing: 0,
@@ -209,6 +223,20 @@ function ModalComparison({ firstChoice, secondChoice }) {
       ],
     },
     tooltips: {
+      callbacks: {
+        label: function (tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+          if (label) {
+            label += ": ";
+          }
+          label += "$";
+          label += (Math.round(tooltipItem.xLabel * 100) / 100)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          return label;
+        },
+      },
       xAlign: "right",
       titleFontSize: 0,
       titleSpacing: 0,
@@ -246,6 +274,20 @@ function ModalComparison({ firstChoice, secondChoice }) {
       ],
     },
     tooltips: {
+      callbacks: {
+        label: function (tooltipItem, data) {
+          var label = data.datasets[tooltipItem.datasetIndex].label || "";
+
+          if (label) {
+            label += ": ";
+          }
+          label += "$";
+          label += (Math.round(tooltipItem.xLabel * 100) / 100)
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+          return label;
+        },
+      },
       yAlign: "right",
       titleFontSize: 0,
       titleSpacing: 0,
@@ -304,7 +346,7 @@ const StyledDiv = styled.div`
     width: 400px;
     display: flex;
     justify-content: flex-start;
-    margin-right: 40px; 
+    margin-right: 40px;
     .expenses-card-inner {
       display: flex;
       flex-direction: column;
