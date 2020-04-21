@@ -37,7 +37,7 @@ function DetailsCard({
       });
     } else {
       setShowBadge({
-        ...showBadge, 
+        ...showBadge,
         secondCardId: itemsToCompare.length === 1 ? id : null,
         secondClick: itemsToCompare.length === 1 ? true : false,
       });
@@ -47,7 +47,6 @@ function DetailsCard({
       setTimeout(() => {
         setIsVisible(true);
       }, 300);
-      
     }
   };
 
@@ -57,7 +56,7 @@ function DetailsCard({
         <Meta
           avatar={
             <Avatar
-            style={{ borderRadius: '5px' }}
+              style={{ borderRadius: "5px" }}
               src={
                 showBadge.firstClick &&
                 showBadge.firstCardId === detail.detailsid
@@ -91,6 +90,9 @@ export default DetailsCard;
 
 const StyledDiv = styled.div`
   width: 40%;
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+  }
   .card {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -98,11 +100,23 @@ const StyledDiv = styled.div`
     .dc-card-content {
       display: flex;
       align-items: center;
+      @media only screen and (max-width: 600px) {
+        flex-direction: column;
+        align-content: center;
+      }
       .dc-card-text {
         width: 80%;
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+          text-align: center; 
+        }
         .dc-text {
           text-align: left;
           width: 80%;
+          @media only screen and (max-width: 600px) {
+            width: 100%;
+            text-align: center; 
+          }
         }
       }
     }

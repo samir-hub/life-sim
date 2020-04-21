@@ -10,7 +10,7 @@ const ExpensesPie = ({
   medical,
   transportation,
   necessities,
-  personal
+  personal,
 }) => {
   const data = {
     datasets: [
@@ -23,11 +23,11 @@ const ExpensesPie = ({
             transportation.carPayment +
             transportation.gas +
             transportation.insurance,
-            necessities.cell +
+          necessities.cell +
             necessities.internet +
             necessities.studentLoans +
             necessities.tv,
-          personal.clothing + personal.entertainment + personal.other
+          personal.clothing + personal.entertainment + personal.other,
         ],
         backgroundColor: [
           "#F38704",
@@ -35,7 +35,7 @@ const ExpensesPie = ({
           "#C95086",
           "#865794",
           "#475580",
-          "#2F4858"
+          "#2F4858",
         ],
         hoverBackgroundColor: [
           "#FF9411",
@@ -43,9 +43,9 @@ const ExpensesPie = ({
           "#D65D93",
           "#9364A1",
           "#54628D",
-          "#3C5565"
-        ]
-      }
+          "#3C5565",
+        ],
+      },
     ],
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
@@ -55,8 +55,8 @@ const ExpensesPie = ({
       "Medical",
       "Transport",
       "Other Necessities",
-      "Personal Expenses"
-    ]
+      "Personal Expenses",
+    ],
   };
   const options = {
     cutoutPercentage: 50,
@@ -66,18 +66,24 @@ const ExpensesPie = ({
       labels: {
         fontColor: "#333",
         usePointStyle: true,
-        fontSize: 15
-      }
+        fontSize: 15,
+      },
     },
     tooltips: {
-      mode: 'label',
-    callbacks: {
-        label: function(tooltipItem, data) { 
-            var item = tooltipItem.index;                 
-            return  data.labels[item] +': $'+(data.datasets[0].data[item]).toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ",") + '';
-        }
-    }
+      mode: "label",
+      callbacks: {
+        label: function (tooltipItem, data) {
+          var item = tooltipItem.index;
+          return (
+            data.labels[item] +
+            ": $" +
+            data.datasets[0].data[item]
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+            ""
+          );
+        },
+      },
     },
   };
 
@@ -90,9 +96,25 @@ const ExpensesPie = ({
       labels: {
         fontColor: "#333",
         usePointStyle: true,
-        fontSize: 15
-      }
-    }
+        fontSize: 15,
+      },
+    },
+    tooltips: {
+      mode: "label",
+      callbacks: {
+        label: function (tooltipItem, data) {
+          var item = tooltipItem.index;
+          return (
+            data.labels[item] +
+            ": $" +
+            data.datasets[0].data[item]
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
+            ""
+          );
+        },
+      },
+    },
   };
 
   return (

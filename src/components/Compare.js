@@ -71,5 +71,8 @@ const StyledDiv = styled.div`
     width: 100%;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    @media only screen and (max-width: 600px) {
+      flex-direction: column; 
+    }
   }
 `;
