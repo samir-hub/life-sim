@@ -20,6 +20,9 @@ function DetailsCard({
   showBadge,
   setShowBadge,
 }) {
+
+  let screen = window.screen.width;
+
   const handleClick = (detail) => {
     setItemsToCompare([...itemsToCompare, detail]);
     if (itemsToCompare.length === 1) {
@@ -77,7 +80,7 @@ function DetailsCard({
             <h1 className="dc-text">{detail.major}</h1>
             <h1 className="dc-text">{detail.city}</h1>
           </div>
-          <Button onClick={() => handleClick(detail)} size="large">
+          <Button onClick={() => handleClick(detail)} size = {screen < 600 ? "small" : "large"} type = {screen < 600 ? "primary" : "default"}>
             Select to Compare
           </Button>
         </div>
@@ -100,22 +103,13 @@ const StyledDiv = styled.div`
     .dc-card-content {
       display: flex;
       align-items: center;
-      @media only screen and (max-width: 600px) {
-        flex-direction: column;
-        align-content: center;
-      }
       .dc-card-text {
         width: 80%;
-        @media only screen and (max-width: 600px) {
-          width: 100%;
-          text-align: center; 
-        }
         .dc-text {
           text-align: left;
           width: 80%;
           @media only screen and (max-width: 600px) {
-            width: 100%;
-            text-align: center; 
+            font-size: 15px;
           }
         }
       }
