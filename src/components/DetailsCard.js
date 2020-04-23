@@ -118,5 +118,8 @@ const StyledDiv = styled.div`
   }
   .card:hover {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.22);
+    @media only screen and (max-width: 600px) {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
+          }
   }
 `;

@@ -284,7 +284,7 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-      <Content style={{ margin: "0 5px", minWidth: "300px" }}>
+      <Content style={{ margin: "0 5px" }}>
         {active === "1" ? (
           <PostGraduation setActive={setActive} />
         ) : active === "2" ? (
