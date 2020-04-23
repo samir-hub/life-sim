@@ -11,7 +11,6 @@ import one_badge from "../assets/one_badge.svg";
 import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
-
   let screen = window.screen.width;
 
   const firstDI =
@@ -307,7 +306,12 @@ function ModalComparison({ firstChoice, secondChoice }) {
           <img className="mc-graph-badge" src={one_badge} alt="one badge" />
           <img className="mc-graph-badge" src={two_badge} alt="two badge" />
         </div>
-        <HorizontalBar height={170} width={screen > 600 ? 400 : 200} data={data} options={options} />
+        <HorizontalBar
+          height={170}
+          width={400}
+          data={data}
+          options={options}
+        />
       </div>
       <h1 className="mc-title">Monthly Expenses</h1>
       <div className="expenses-card-div">
@@ -350,6 +354,9 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: flex-start;
     margin-right: 40px;
+    @media only screen and (max-width: 600px) {
+      width: 300px;
+    }
     .expenses-card-inner {
       display: flex;
       flex-direction: column;
