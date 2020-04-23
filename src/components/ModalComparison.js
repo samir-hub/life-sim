@@ -11,7 +11,6 @@ import one_badge from "../assets/one_badge.svg";
 import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
-  let screen = window.screen.width;
 
   const firstDI =
     firstChoice &&
