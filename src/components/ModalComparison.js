@@ -372,9 +372,6 @@ const StyledDiv = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    .mc-title {
-      margin: 0;
-    }
     .mc-graph-wrapper {
       width: 100%;
       display: block;
@@ -387,4 +384,11 @@ const StyledDiv = styled.div`
       }
     }
   }
+  .mc-title {
+      margin: 0;
+      text-align: center; 
+      @media only screen and (max-width: 600px) {
+            font-size: 20px;
+          }
+    }
 `;

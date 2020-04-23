@@ -32,6 +32,7 @@ function Compare({ userInfo }) {
   return (
     <StyledDiv>
       <Modal
+      style={{ top: 10 }}
         closable={false}
         footer={<Button type="primary" size="large" onClick={handleOk}>Okay</Button>}
         maskClosable={false}
