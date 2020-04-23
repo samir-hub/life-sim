@@ -32,6 +32,7 @@ const { Content, Sider } = Layout;
 
 function Dashboard() {
   const [active, setActive] = useState("1");
+  const [isCollapsed, setIsCollapsed] = useState(true);
 
   const state = useSelector((state) => {
     return {
@@ -51,6 +52,12 @@ function Dashboard() {
     dispatch(fetchEntry());
   }, [dispatch, state.isPosting, state.isEditing]);
 
+  const handleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  console.log(isCollapsed);
+
   return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
@@ -69,7 +76,12 @@ function Dashboard() {
           text={dashMobile}
         />
       )}
-      <Sider breakpoint="lg" collapsedWidth="0" theme="light">
+      <Sider
+        onCollapse={handleCollapse}
+        breakpoint="lg"
+        collapsedWidth="0"
+        theme="light"
+      >
         {state.isFetching ? (
           <Empty
             style={{
@@ -284,21 +296,21 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-      <Content style={{ margin: "0 5px" }}>
-        {active === "1" ? (
-          <PostGraduation setActive={setActive} />
-        ) : active === "2" ? (
-          <Income />
-        ) : active === "3" ? (
-          <Expenses />
-        ) : active === "4" ? (
-          <Summary setActive={setActive} />
-        ) : active === "5" ? (
-          <Compare userInfo={state.userInfo} setActive={setActive} />
-        ) : (
-          <h1>not</h1>
-        )}
-      </Content>
+        <Content style={{ margin: "0 5px", filter: isCollapsed && screen < 600 ? "blur(30px)" : "none", transition: "width 3s" }}>
+          {active === "1" ? (
+            <PostGraduation setActive={setActive} />
+          ) : active === "2" ? (
+            <Income />
+          ) : active === "3" ? (
+            <Expenses />
+          ) : active === "4" ? (
+            <Summary setActive={setActive} />
+          ) : active === "5" ? (
+            <Compare userInfo={state.userInfo} setActive={setActive} />
+          ) : (
+            <h1>not</h1>
+          )}
+        </Content>
     </Layout>
   );
 }
