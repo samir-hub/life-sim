@@ -56,8 +56,6 @@ function Dashboard() {
     setIsCollapsed(!isCollapsed);
   };
 
-  console.log(isCollapsed);
-
   return (
     <Layout
       style={{ backgroundColor: "white", marginTop: "2px" }}
@@ -77,6 +75,7 @@ function Dashboard() {
         />
       )}
       <Sider
+        style={{ transition: "width 3s" }}
         onCollapse={handleCollapse}
         breakpoint="lg"
         collapsedWidth="0"
@@ -296,7 +295,7 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-        <Content style={{ margin: "0 5px", filter: isCollapsed && screen < 600 ? "blur(30px)" : "none", transition: "width 3s" }}>
+        <Content style={{ margin: "0 5px", filter: isCollapsed && screen < 600 ? "blur(30px)" : "none"}}>
           {active === "1" ? (
             <PostGraduation setActive={setActive} />
           ) : active === "2" ? (
