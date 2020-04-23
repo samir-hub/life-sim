@@ -80,8 +80,8 @@ function Compare({ userInfo, setActive }) {
       {screen >= 600 ? (
         <div className="summary-content">
           <div className="summary-left-content">
-            <h1 className="summary-text">Explore More Options And Compare</h1>
-            <Button>Explore</Button>
+            <h1 className="summary-text">Explore More Options To Compare</h1>
+            <Button type={"primary"} className="summary-button" size={'large'}>Explore</Button>
           </div>
           <div className="summary-image-wrapper">
             <img
@@ -165,6 +165,11 @@ const StyledDiv = styled.div`
       text-align: left;
       font-size: 2rem;
       margin-bottom: 40px; 
+      color: #F38704; 
+    }
+    .summary-button {
+      width: 50%; 
+      margin: 0 auto; 
     }
     }
   
