@@ -105,7 +105,7 @@ function Register(props) {
           >
             {getFieldDecorator("primaryemail", {
               rules: [
-                { required: true, type: "email", message: "Not a valid E-mail" }
+                { required: true, type: "email", message: "Not a valid e-mail" }
               ]
             })(
               <Input

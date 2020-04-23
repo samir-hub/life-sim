@@ -93,7 +93,7 @@ function Login(props) {
           <Form.Item>
             {getFieldDecorator("username", {
               rules: [
-                { required: true, message: "Please input your username!" },
+                { required: true, message: "Please input your username" },
               ],
             })(
               <Input
@@ -107,7 +107,7 @@ function Login(props) {
           <Form.Item>
             {getFieldDecorator("password", {
               rules: [
-                { required: true, message: "Please input your Password!" },
+                { required: true, message: "Please input your password" },
               ],
             })(
               <Input

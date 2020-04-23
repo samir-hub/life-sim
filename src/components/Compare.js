@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Modal from "antd/es/modal";
 import "antd/es/modal/style/css";
@@ -33,11 +33,7 @@ function Compare({ userInfo, setActive }) {
   };
 
   const handleClick = (item) => {
-    if (item === "4") {
-      history.push("/entryform");
-    } else {
-      setActive(`${item}`);
-    }
+    history.push("/entryform");
   };
 
   const screen = window.screen.width;
@@ -81,7 +77,7 @@ function Compare({ userInfo, setActive }) {
         <div className="summary-content">
           <div className="summary-left-content">
             <h1 className="summary-text">Explore More Options To Compare</h1>
-            <Button type={"primary"} className="summary-button" size={'large'}>Explore</Button>
+            <Button onClick={() => handleClick("2")} type={"primary"} className="summary-button" size={'large'}>Explore</Button>
           </div>
           <div className="summary-image-wrapper">
             <img
