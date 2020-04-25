@@ -73,24 +73,27 @@ function Compare({ userInfo, setActive }) {
           );
         })}
       </div>
-        <div className="summary-content">
-          <div className="summary-left-content">
-            <h1 className="summary-text">Explore More Options To Compare</h1>
-            <Button onClick={() => handleClick("2")} type={"primary"} className="summary-button" size={'large'}>Explore</Button>
-          </div>
-          <div className="summary-image-wrapper">
-            <img
-              className="summary-image"
-              alt="girl and rocket"
-              src={girl_looking}
-            />
-          </div>
+      <div className="summary-content">
+        <div className="summary-left-content">
+          <h1 className="summary-text">Explore More Options To Compare</h1>
+          <Button
+            onClick={() => handleClick("2")}
+            type={"primary"}
+            className="summary-button"
+            size={"large"}
+          >
+            Explore
+          </Button>
         </div>
-        <DemoModal
-        loStoName={"CompareDemo"}
-        title={"Compare"}
-        text={compare}
-      />
+        <div className="summary-image-wrapper">
+          <img
+            className="summary-image"
+            alt="girl and rocket"
+            src={girl_looking}
+          />
+        </div>
+      </div>
+      <DemoModal loStoName={"CompareDemo"} title={"Compare"} text={compare} />
     </StyledDiv>
   );
 }
@@ -123,29 +126,29 @@ const StyledDiv = styled.div`
     justify-content: space-around;
     align-items: center;
     @media only screen and (max-width: 600px) {
-      margin-bottom: 10px; 
-}
+      margin-bottom: 10px;
+    }
     .summary-left-content {
-      display: flex; 
+      display: flex;
       flex-direction: column;
       justify-items: space-around;
       .summary-text {
-      width: 100%;
-      text-align: left;
-      font-size: 2rem;
-      margin-bottom: 40px; 
-      color: #F38704; 
-      @media only screen and (max-width: 600px) {
-        font-size: 1.2rem;
-        margin-bottom: 20px; 
+        width: 100%;
+        text-align: left;
+        font-size: 2rem;
+        margin-bottom: 40px;
+        color: #f38704;
+        @media only screen and (max-width: 600px) {
+          font-size: 1.2rem;
+          margin-bottom: 20px;
+        }
+      }
+      .summary-button {
+        width: 50%;
+        margin: 0 auto;
       }
     }
-    .summary-button {
-      width: 50%; 
-      margin: 0 auto; 
-    }
-    }
-  
+
     .summary-span {
       color: #1890ff;
       cursor: pointer;
