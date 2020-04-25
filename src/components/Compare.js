@@ -9,6 +9,8 @@ import DetailsCard from "./DetailsCard";
 import ModalComparison from "./ModalComparison";
 import path_logo from "../assets/path_logo.svg";
 import girl_looking from "../assets/girl_looking.png";
+import DemoModal from "./DemoModal";
+import { compare } from "../data/demos";
 
 function Compare({ userInfo, setActive }) {
   const [itemsToCompare, setItemsToCompare] = useState([]);
@@ -84,6 +86,11 @@ function Compare({ userInfo, setActive }) {
             />
           </div>
         </div>
+        <DemoModal
+        loStoName={"CompareDemo"}
+        title={"Compare"}
+        text={compare}
+      />
     </StyledDiv>
   );
 }

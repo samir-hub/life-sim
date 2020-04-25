@@ -11,6 +11,8 @@ import "antd/es/button/style/css";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import girl_rocket from "../assets/girl_rocket.png";
+import DemoModal from "./DemoModal";
+import { summary } from "../data/demos";
 
 function Summary({ setActive }) {
   const history = useHistory();
@@ -295,7 +297,8 @@ function Summary({ setActive }) {
       {screen >= 600 ? (
         <div className="summary-content">
           <h1 className="summary-text">
-            Are the numbers what you expected? You can choose a different path by editing your{" "}
+            Are the numbers what you expected? You can choose a different path
+            by editing your{" "}
             <span
               className="summary-span"
               onClick={() => {
@@ -357,6 +360,11 @@ function Summary({ setActive }) {
           </Button>
         </div>
       )}
+      <DemoModal
+        loStoName={"SummaryDemo"}
+        title={"Summary"}
+        text={summary}
+      />
     </StyledDiv>
   );
 }
