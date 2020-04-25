@@ -11,7 +11,6 @@ import one_badge from "../assets/one_badge.svg";
 import two_badge from "../assets/two_badge.svg";
 
 function ModalComparison({ firstChoice, secondChoice }) {
-
   const firstDI =
     firstChoice &&
     Math.floor((firstChoice.avgmajor / 12) * 0.85) -
@@ -238,7 +237,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
           return label;
         },
       },
-      xAlign: "right",
+      yAlign: "right",
       titleFontSize: 0,
       titleSpacing: 0,
       titleMarginBottom: 0,
@@ -302,24 +301,35 @@ function ModalComparison({ firstChoice, secondChoice }) {
       <h1 className="mc-title">Monthly Net Income</h1>
       <div className="expenses-card-div">
         <div className="expenses-card-inner">
-          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
-          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+          <img
+            className="mc-graph-badge mc-graph-badge1"
+            src={one_badge}
+            alt="one badge"
+          />
+          <img
+            className="mc-graph-badge mc-graph-badge2"
+            src={two_badge}
+            alt="two badge"
+          />
         </div>
-        <HorizontalBar
-          height={170}
-          width={400}
-          data={data}
-          options={options}
-        />
+        <HorizontalBar height={260} width={400} data={data} options={options} />
       </div>
       <h1 className="mc-title">Monthly Expenses</h1>
       <div className="expenses-card-div">
         <div className="expenses-card-inner">
-          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
-          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+          <img
+            className="mc-graph-badge mc-graph-badge1"
+            src={one_badge}
+            alt="one badge"
+          />
+          <img
+            className="mc-graph-badge mc-graph-badge2"
+            src={two_badge}
+            alt="two badge"
+          />
         </div>
         <HorizontalBar
-          height={170}
+          height={260}
           width={400}
           data={expensesData}
           options={expensesOptions}
@@ -328,11 +338,19 @@ function ModalComparison({ firstChoice, secondChoice }) {
       <h1 className="mc-title">Monthly Disposable Income</h1>
       <div className="expenses-card-div">
         <div className="expenses-card-inner">
-          <img className="mc-graph-badge" src={one_badge} alt="one badge" />
-          <img className="mc-graph-badge" src={two_badge} alt="two badge" />
+          <img
+            className="mc-graph-badge mc-graph-badge1"
+            src={one_badge}
+            alt="one badge"
+          />
+          <img
+            className="mc-graph-badge mc-graph-badge2"
+            src={two_badge}
+            alt="two badge"
+          />
         </div>
         <HorizontalBar
-          height={170}
+          height={260}
           width={400}
           data={disData}
           options={disOptions}
@@ -362,23 +380,39 @@ const StyledDiv = styled.div`
       justify-content: center;
       margin-bottom: 20px;
       @media only screen and (max-width: 600px) {
-      
-    }
+        justify-content: center;
+        margin-bottom: 0px;
+      }
       .mc-graph-badge {
-        height: 40px;
-        margin: 12px 0;
+        height: 50px;
+        margin: 30px 0;
         @media only screen and (max-width: 600px) {
-          height: 30px; 
-          margin: 8px 0;
+          height: 40px;
+          margin: 0;
+        }
+      }
+      .mc-graph-badge1 {
+        @media only screen and (max-width: 600px) {
+          height: 40px;
+          margin: 0;
+          margin-bottom: 20px;
+        }
+      }
+      .mc-graph-badge2 {
+        @media only screen and (max-width: 600px) {
+          height: 40px;
+          margin: 0;
+          margin-top: 15px;
+          margin-bottom: 20px;
+        }
       }
     }
   }
-  }
   .mc-title {
-      margin: 0;
-      text-align: center; 
-      @media only screen and (max-width: 600px) {
-            font-size: 20px;
-          }
+    margin: 0;
+    text-align: center;
+    @media only screen and (max-width: 600px) {
+      font-size: 20px;
     }
+  }
 `;

@@ -80,8 +80,7 @@ function Dashboard() {
         breakpoint="lg"
         collapsedWidth="0"
         theme="light"
-        collapsible
-        collapsed={!isCollapsed}
+        collapsed={screen < 600 ? !isCollapsed : false}
       >
         {state.isFetching ? (
           <Empty

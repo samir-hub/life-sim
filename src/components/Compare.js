@@ -36,8 +36,6 @@ function Compare({ userInfo, setActive }) {
     history.push("/entryform");
   };
 
-  const screen = window.screen.width;
-
   return (
     <StyledDiv>
       <Modal
@@ -73,7 +71,6 @@ function Compare({ userInfo, setActive }) {
           );
         })}
       </div>
-      {screen >= 600 ? (
         <div className="summary-content">
           <div className="summary-left-content">
             <h1 className="summary-text">Explore More Options To Compare</h1>
@@ -87,40 +84,6 @@ function Compare({ userInfo, setActive }) {
             />
           </div>
         </div>
-      ) : (
-        <div className="summary-content-mobile">
-          <h1 className="summary-text">
-            Are the numbers what you expected? Go back, try a different path,
-            and see how it will affect the result!
-          </h1>
-          <Button
-            size={"large"}
-            ghost={true}
-            style={{ marginBottom: "10px", width: "80%" }}
-            type="primary"
-            onClick={() => handleClick("2")}
-          >
-            Edit Income
-          </Button>
-          <Button
-            size={"large"}
-            ghost={true}
-            style={{ marginBottom: "10px", width: "80%" }}
-            type="primary"
-            onClick={() => handleClick("3")}
-          >
-            Edit Expenses
-          </Button>
-          <Button
-            size={"large"}
-            style={{ width: "80%" }}
-            type="primary"
-            onClick={() => handleClick("4")}
-          >
-            Enter New Data
-          </Button>
-        </div>
-      )}
     </StyledDiv>
   );
 }
@@ -152,6 +115,9 @@ const StyledDiv = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 10px; 
+}
     .summary-left-content {
       display: flex; 
       flex-direction: column;
@@ -162,6 +128,10 @@ const StyledDiv = styled.div`
       font-size: 2rem;
       margin-bottom: 40px; 
       color: #F38704; 
+      @media only screen and (max-width: 600px) {
+        font-size: 1.2rem;
+        margin-bottom: 20px; 
+      }
     }
     .summary-button {
       width: 50%; 
