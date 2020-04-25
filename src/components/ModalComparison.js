@@ -361,27 +361,18 @@ const StyledDiv = styled.div`
       flex-direction: column;
       justify-content: center;
       margin-bottom: 20px;
+      @media only screen and (max-width: 600px) {
+      
+    }
       .mc-graph-badge {
         height: 40px;
         margin: 12px 0;
+        @media only screen and (max-width: 600px) {
+          height: 30px; 
+          margin: 8px 0;
       }
     }
   }
-  .mc-div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    .mc-graph-wrapper {
-      width: 100%;
-      display: block;
-      .mc-graph-badges {
-        display: flex;
-        flex-direction: column;
-        .mc-graph-badge {
-          width: 20px;
-        }
-      }
-    }
   }
   .mc-title {
       margin: 0;
