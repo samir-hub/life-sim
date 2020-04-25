@@ -80,6 +80,8 @@ function Dashboard() {
         breakpoint="lg"
         collapsedWidth="0"
         theme="light"
+        collapsible
+        collapsed={!isCollapsed}
       >
         {state.isFetching ? (
           <Empty
@@ -226,7 +228,8 @@ function Dashboard() {
           selectedKeys={[active]}
         >
           <Menu.Item
-            onClick={() => setActive("1")}
+            onClick={() => {setActive("1");
+          setIsCollapsed(!isCollapsed)}}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -240,7 +243,8 @@ function Dashboard() {
             <span>Home</span>
           </Menu.Item>
           <Menu.Item
-            onClick={() => setActive("2")}
+             onClick={() => {setActive("2");
+             setIsCollapsed(!isCollapsed)}}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -254,7 +258,8 @@ function Dashboard() {
             <span>Income</span>
           </Menu.Item>
           <Menu.Item
-            onClick={() => setActive("3")}
+             onClick={() => {setActive("3");
+             setIsCollapsed(!isCollapsed)}}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -267,7 +272,8 @@ function Dashboard() {
             <span>Expenses</span>
           </Menu.Item>
           <Menu.Item
-            onClick={() => setActive("4")}
+             onClick={() => {setActive("4");
+             setIsCollapsed(!isCollapsed)}}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -280,7 +286,8 @@ function Dashboard() {
             <span>Summary</span>
           </Menu.Item>
           <Menu.Item
-            onClick={() => setActive("5")}
+             onClick={() => {setActive("5");
+             setIsCollapsed(!isCollapsed)}}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -295,7 +302,7 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-        <Content style={{ margin: "0 5px", filter: isCollapsed && screen < 600 ? "blur(30px)" : "none"}}>
+        <Content style={{ margin: "0 5px", opacity: isCollapsed && screen < 600 ? "0" : "1"}}>
           {active === "1" ? (
             <PostGraduation setActive={setActive} />
           ) : active === "2" ? (
