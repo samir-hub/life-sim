@@ -1,25 +1,20 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 /*
-  Checks whether the app was launched from a browser (web or mobile)...
-  using the URL or if it was launched from user's homescreen (standalone)
+  Checks whether the user is looking at the demo or not
 */
-function useStandalone() {
-  const [isStandalone, setIsStandalone] = useState(false);
+function useIsDemo() {
+  const [isDemo, setIsDemo] = useState(false);
   useEffect(() => {
-    if (
-      window.matchMedia('(display-mode: standalone)').matches ||
-      window.navigator.standalone ||
-      document.referrer.includes('android-app://')
-    ) {
-      setIsStandalone(true);
+    if (window.localStorage.getItem("username") === "demo") {
+      setIsDemo(true);
     }
   }, []);
-  return isStandalone;
+  return isDemo;
 }
-export default useStandalone;
+export default useIsDemo;
 /*
   Usage
-  `const isStandalone = useStandalone()`
-  returns `true` if launched from user's homescreen
-  returns `false` if launched from a browser
+  `const isDemo = useIsDemo()`
+  returns `true` if demo account is being used
+  returns `false` if any other account is being used
 */
