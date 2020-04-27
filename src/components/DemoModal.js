@@ -4,11 +4,12 @@ import "antd/es/modal/style/css";
 import Icon from "antd/es/icon";
 import "antd/es/icon/style/css";
 import { Link } from "react-router-dom";
+import useIsDemo from "../hooks/useIsDemo"; 
 
 function DemoModal({ loStoName, title, text }) {
   const showModal = localStorage.getItem(`${loStoName}`) === null;
   const [isVisible, setIsVisible] = useState(showModal);
-  const isDemo = window.localStorage.getItem("username") === "demo";
+  const isDemo = useIsDemo(); 
   const screen = window.screen.width;
 
   return isDemo ? (
