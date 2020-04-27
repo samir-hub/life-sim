@@ -18,12 +18,13 @@ import newCities from "../data/newCities";
 import majors from "../data/majors";
 import DemoModal from "./DemoModal";
 import { getStarted } from "../data/demos";
+import useIsDemo from "../hooks/useIsDemo"; 
 
 const { Option } = Select;
 
 function EntryForm() {
   const id = localStorage.getItem("userid");
-
+  const isDemo = useIsDemo();
   const history = useHistory();
 
   const [userEntry, setUserEntry] = useState({
@@ -228,16 +229,16 @@ function EntryForm() {
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              <Option key={1} value={"No College"}>
+              <Option disabled={isDemo ? true : false} key={1} value={"No College"}>
                 No College
               </Option>
-              <Option key={2} value={"Associate's Degree"}>
+              <Option disabled={isDemo ? true : false} key={2} value={"Associate's Degree"}>
                 Associate's Degree
               </Option>
-              <Option key={3} value={"Bachelor's Degree"}>
+              <Option disabled={isDemo ? true : false} key={3} value={"Bachelor's Degree"}>
                 Bachelor's Degree
               </Option>
-              <Option key={4} value={"Advanced Degree"}>
+              <Option disabled={isDemo ? true : false} key={4} value={"Advanced Degree"}>
                 Advanced Degree
               </Option>
             </Select>
@@ -248,7 +249,7 @@ function EntryForm() {
           <div className="entryform-select-div">
             <Select
               disabled={
-                userEntry.education === "Advanced Degree" ? false : true
+                userEntry.education === "Advanced Degree" ? false : isDemo ? false : true
               }
               className="entryform-select"
               showSearch
@@ -262,13 +263,13 @@ function EntryForm() {
                   .indexOf(input.toLowerCase()) >= 0
               }
             >
-              <Option key={1} value={"Law School"}>
+              <Option disabled={isDemo ? true : false} key={1} value={"Law School"}>
                 Law School
               </Option>
-              <Option key={2} value={"Business School"}>
+              <Option disabled={isDemo ? true : false} key={2} value={"Business School"}>
                 Business School
               </Option>
-              <Option key={3} value={"Medical School"}>
+              <Option disabled={isDemo ? true : false} key={3} value={"Medical School"}>
                 Medical School
               </Option>
             </Select>
@@ -317,7 +318,7 @@ function EntryForm() {
                         major.id === "36" ||
                         major.id === "41")
                         ? true
-                        : false
+                        : isDemo ? true : false
                     }
                     key={major.id}
                     value={major.major}
@@ -348,7 +349,7 @@ function EntryForm() {
             >
               {newCities.map((city) => {
                 return (
-                  <Option key={city.id} value={city.city}>
+                  <Option disabled={isDemo ? true : false} key={city.id} value={city.city}>
                     {city.city}
                   </Option>
                 );
@@ -360,15 +361,13 @@ function EntryForm() {
           </div>
 
           <Button
-            //onClick={}
             type="primary"
             shape="round"
-            //icon="logout"
             size={"default"}
             style={{}}
             htmlType="submit"
           >
-            Submit
+            {isDemo ? 'Dashboard' : 'Submit'}
           </Button>
         </form>
       </Card>
