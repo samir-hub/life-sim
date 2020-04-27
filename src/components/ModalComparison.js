@@ -249,7 +249,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
     labels: ["", ""],
     datasets: [
       {
-        label: "Disposable Income",
+        label: "Discretionary Income",
         backgroundColor: "#865794",
         stack: "1",
         data: [Math.floor(firstDI), Math.floor(secondDI)],
@@ -335,7 +335,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
           options={expensesOptions}
         />
       </div>
-      <h1 className="mc-title">Monthly Disposable Income</h1>
+      <h1 className="mc-title">Monthly Discretionary Income</h1>
       <div className="expenses-card-div">
         <div className="expenses-card-inner">
           <img
