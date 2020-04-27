@@ -150,8 +150,13 @@ function EntryForm() {
 
   const handlePostEntry = (e) => {
     e.preventDefault();
-    dispatch(postFormattedEntry(id, userEntry));
-    history.push("/dashboard");
+    if(isDemo){
+      history.push('/dashboard')
+    } else {
+      dispatch(postFormattedEntry(id, userEntry));
+      history.push("/dashboard");
+    }
+    
   };
 
   const collegeText = (
@@ -367,7 +372,7 @@ function EntryForm() {
             style={{}}
             htmlType="submit"
           >
-            {isDemo ? 'Dashboard' : 'Submit'}
+            {isDemo ? 'Go To Dashboard' : 'Submit'}
           </Button>
         </form>
       </Card>
