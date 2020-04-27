@@ -163,7 +163,7 @@ function Summary({ setActive }) {
 
   const content = (
     <div className="content">
-      <h3 className="content-h3">Available Money After All Expenses:</h3>
+      <h3 className="content-h3">Monthly Income After Expenses:</h3>
       {disposableIncome >= 0 ? (
         <div className="content-disposable-div">
           <h1 className="content-disposable-h1">
@@ -360,11 +360,7 @@ function Summary({ setActive }) {
           </Button>
         </div>
       )}
-      <DemoModal
-        loStoName={"SummaryDemo"}
-        title={"Summary"}
-        text={summary}
-      />
+      <DemoModal loStoName={"SummaryDemo"} title={"Summary"} text={summary} />
     </StyledDiv>
   );
 }
