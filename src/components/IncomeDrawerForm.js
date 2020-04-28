@@ -14,10 +14,11 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 //import { formatDrawerValues } from "../utils/formatDrawerValues";
 import { putDetails } from "../actions";
+import useIsDemo from "../hooks/useIsDemo"; 
 
 function IncomeDrawerForm(props) {
   const [disabledInput, setDisabledInput] = useState(true);
-
+  const isDemo = useIsDemo();
   const state = useSelector(state => {
     return {
       formattedEntryData: state.formattedEntryData,
