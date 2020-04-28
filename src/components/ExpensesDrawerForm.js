@@ -14,14 +14,15 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 //import { formatDrawerValues } from "../utils/formatDrawerValues";
 import { putDetails } from "../actions";
+import useIsDemo from "../hooks/useIsDemo";
 
 function ExpensesDrawerForm(props) {
   const [disabledInput, setDisabledInput] = useState(true);
-
-  const state = useSelector(state => {
+  const isDemo = useIsDemo();
+  const state = useSelector((state) => {
     return {
       userInfo: state.userInfo,
-      isFetching: state.isFetching
+      isFetching: state.isFetching,
     };
   });
 
@@ -106,19 +107,19 @@ function ExpensesDrawerForm(props) {
       state.userInfo.details[state.userInfo.details.length - 1] &&
       Math.floor(
         state.userInfo.details[state.userInfo.details.length - 1].pOther
-      )
+      ),
   };
 
   let screen = window.screen.width;
 
-  const handleEdit = e => {
+  const handleEdit = (e) => {
     e.preventDefault();
     setDisabledInput(!disabledInput);
   };
 
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     props.onClose();
     setDisabledInput(!disabledInput);
@@ -142,8 +143,8 @@ function ExpensesDrawerForm(props) {
 
   const validateMessages = {
     types: {
-      number: "Not a valid number!"
-    }
+      number: "Not a valid number!",
+    },
   };
 
   return (
@@ -490,6 +491,7 @@ function ExpensesDrawerForm(props) {
           <div className="form-item-each">
             <Form.Item>
               <Button
+                disabled={isDemo}
                 type="secondary"
                 onClick={handleEdit}
                 className="login-form-button"
@@ -497,6 +499,7 @@ function ExpensesDrawerForm(props) {
                 Edit
               </Button>
               <Button
+                disabled={isDemo}
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"

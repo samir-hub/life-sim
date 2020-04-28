@@ -14,16 +14,16 @@ import Card from "antd/es/card";
 import "antd/es/card/style/css";
 //import { formatDrawerValues } from "../utils/formatDrawerValues";
 import { putDetails } from "../actions";
-import useIsDemo from "../hooks/useIsDemo"; 
+import useIsDemo from "../hooks/useIsDemo";
 
 function IncomeDrawerForm(props) {
   const [disabledInput, setDisabledInput] = useState(true);
   const isDemo = useIsDemo();
-  const state = useSelector(state => {
+  const state = useSelector((state) => {
     return {
       formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
-      isFetching: state.isFetching
+      isFetching: state.isFetching,
     };
   });
 
@@ -32,19 +32,19 @@ function IncomeDrawerForm(props) {
       state.userInfo.details[state.userInfo.details.length - 1] &&
       Math.floor(
         state.userInfo.details[state.userInfo.details.length - 1].avgmajor
-      )
+      ),
   };
 
   let screen = window.screen.width;
 
-  const handleEdit = e => {
+  const handleEdit = (e) => {
     e.preventDefault();
     setDisabledInput(!disabledInput);
   };
 
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     props.onClose();
     setDisabledInput(!disabledInput);
@@ -68,8 +68,8 @@ function IncomeDrawerForm(props) {
 
   const validateMessages = {
     types: {
-      number: "Not a valid number!"
-    }
+      number: "Not a valid number!",
+    },
   };
 
   return (
@@ -112,6 +112,7 @@ function IncomeDrawerForm(props) {
           <div className="form-item-each">
             <Form.Item>
               <Button
+                disabled={isDemo}
                 type="secondary"
                 onClick={handleEdit}
                 className="login-form-button"
@@ -119,6 +120,7 @@ function IncomeDrawerForm(props) {
                 Edit
               </Button>
               <Button
+                disabled={isDemo}
                 type="primary"
                 htmlType="submit"
                 className="login-form-button"
