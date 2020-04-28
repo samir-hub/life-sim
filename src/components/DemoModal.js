@@ -46,12 +46,10 @@ function DemoModal({ loStoName, title, text }) {
             <span> .</span>
           </React.Fragment>
         )}
-        {title === "Dashboard" && (
+        {title === "Get Started" && (
           <strong>
             {" "}
-            The numbers may not be accurate in the demo. For accurate data,
-            enter new information in the{" "}
-            <Link to="/entryform">Get Started</Link> page or{" "}
+            Adding data is disabled in the demo. To enter your own information,{" "}
             <Link to="/register"> create an account</Link>.
           </strong>
         )}

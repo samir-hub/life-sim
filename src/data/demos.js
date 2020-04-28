@@ -5,9 +5,9 @@ export const dashDesktop = `This is the user's Dashboard. The default informatio
 
 export const dashMobile = `This is the user's Dashboard. The user can open the drawer panel, view the user's information and explore the projected Income and Expenses data by tapping on the bars icon`;
 
-export const income = `This is the Income page. The user can view their projected biweekly pay stub and edit the projected yearly gross income by clicking on the Expand button.`;
+export const income = `This is the Income page. The user can view their projected biweekly pay stub and edit the projected yearly gross income by clicking on the Expand button. Editing is not available in the demo.`;
 
-export const expensesDemo = `This is the Expenses page. The pie chart displays the user's projected expenses by category. Furthermore, the bar charts show a breakdown of each category. The expenses can be edited by clicking on the Expand button.`;
+export const expensesDemo = `This is the Expenses page. The pie chart displays the user's projected expenses by category. Furthermore, the bar charts show a breakdown of each category. The expenses can be edited by clicking on the Expand button. Editing is not available in the demo.`;
 
 export const getStarted = `This is the Get Started page. The user can enter their information and then proceed to the Dashboard to explore their projected financial profile.`;
 
