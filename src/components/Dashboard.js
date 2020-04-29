@@ -301,7 +301,7 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-        <Content style={{ margin: "0 5px", opacity: isCollapsed && screen < 600 ? "0" : "1"}}>
+        <Content style={{ margin: "0 5px", minWidth: "350px" }}>
           {active === "1" ? (
             <PostGraduation setActive={setActive} />
           ) : active === "2" ? (
