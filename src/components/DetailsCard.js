@@ -80,8 +80,8 @@ function DetailsCard({
             <h1 className="dc-text">{detail.major}</h1>
             <h1 className="dc-text">{detail.city}</h1>
           </div>
-          <Button onClick={() => handleClick(detail)} size = {screen < 600 ? "small" : "large"} type = {screen < 600 ? "primary" : "default"}>
-            Select to Compare
+          <Button onClick={() => handleClick(detail)} size = {"large"} type = {screen < 600 ? "primary" : "default"}>
+            {screen > 600 ? 'Select to Compare' : 'Compare'}
           </Button>
         </div>
       </Card>
