@@ -227,8 +227,10 @@ function Dashboard() {
           selectedKeys={[active]}
         >
           <Menu.Item
-            onClick={() => {setActive("1");
-          setIsCollapsed(!isCollapsed)}}
+            onClick={() => {
+              setActive("1");
+              setIsCollapsed(!isCollapsed);
+            }}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -242,8 +244,10 @@ function Dashboard() {
             <span>Home</span>
           </Menu.Item>
           <Menu.Item
-             onClick={() => {setActive("2");
-             setIsCollapsed(!isCollapsed)}}
+            onClick={() => {
+              setActive("2");
+              setIsCollapsed(!isCollapsed);
+            }}
             className="dashboard-menu-items"
             style={{
               display: "flex",
@@ -257,8 +261,10 @@ function Dashboard() {
             <span>Income</span>
           </Menu.Item>
           <Menu.Item
-             onClick={() => {setActive("3");
-             setIsCollapsed(!isCollapsed)}}
+            onClick={() => {
+              setActive("3");
+              setIsCollapsed(!isCollapsed);
+            }}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -271,8 +277,10 @@ function Dashboard() {
             <span>Expenses</span>
           </Menu.Item>
           <Menu.Item
-             onClick={() => {setActive("4");
-             setIsCollapsed(!isCollapsed)}}
+            onClick={() => {
+              setActive("4");
+              setIsCollapsed(!isCollapsed);
+            }}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -285,8 +293,10 @@ function Dashboard() {
             <span>Summary</span>
           </Menu.Item>
           <Menu.Item
-             onClick={() => {setActive("5");
-             setIsCollapsed(!isCollapsed)}}
+            onClick={() => {
+              setActive("5");
+              setIsCollapsed(!isCollapsed);
+            }}
             style={{
               display: "flex",
               justifyContent: "flex-start",
@@ -301,21 +311,21 @@ function Dashboard() {
         </Menu>
       </Sider>
 
-        <Content style={{ margin: "0 5px", minWidth: "350px" }}>
-          {active === "1" ? (
-            <PostGraduation setActive={setActive} />
-          ) : active === "2" ? (
-            <Income />
-          ) : active === "3" ? (
-            <Expenses />
-          ) : active === "4" ? (
-            <Summary setActive={setActive} />
-          ) : active === "5" ? (
-            <Compare userInfo={state.userInfo} setActive={setActive} />
-          ) : (
-            <h1>not</h1>
-          )}
-        </Content>
+      <Content style={{ margin: "0 5px", minWidth: "350px" }}>
+        {active === "1" ? (
+          <PostGraduation setActive={setActive} />
+        ) : active === "2" ? (
+          <Income />
+        ) : active === "3" ? (
+          <Expenses />
+        ) : active === "4" ? (
+          <Summary setActive={setActive} />
+        ) : active === "5" ? (
+          <Compare userInfo={state.userInfo} setActive={setActive} />
+        ) : (
+          <h1>not</h1>
+        )}
+      </Content>
     </Layout>
   );
 }
