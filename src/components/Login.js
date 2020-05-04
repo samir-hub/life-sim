@@ -16,10 +16,13 @@ import "antd/es/card/style/css";
 import message from "antd/es/message";
 import "antd/es/message/style/css";
 import DemoButton from "./DemoButton";
+import useRemoveToken from "../hooks/useRemoveToken";
 
 function Login(props) {
   const history = useHistory();
   const [isLoading, setIsLoading] = useState(false);
+  const date = Date.now();
+  useRemoveToken(date);
 
   const error = () => {
     message.error(`Invalid username or password. Please try again.`, 6);

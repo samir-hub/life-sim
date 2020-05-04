@@ -28,7 +28,7 @@ function EntryForm() {
   const isDemo = useIsDemo();
   const history = useHistory();
   const date = Date.now(); 
-  useRemoveToken(date)
+  useRemoveToken(date);
 
   const [userEntry, setUserEntry] = useState({
     education: "",

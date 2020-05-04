@@ -6,13 +6,16 @@ import guy_crossing_arms from "../assets/guy_crossing_arms.png";
 import WrappedLogin from "./Login";
 import styled from "styled-components";
 import AppleModal from "./mobile/AppleModal";
+import useRemoveToken from "../hooks/useRemoveToken";
 
 function Home() {
   const history = useHistory();
+  const date = Date.now();
+  useRemoveToken(date);
   const handleClick = () => {
     history.push("/login");
   };
- 
+
   return (
     <HomeWrapper>
       <AppleModal />
@@ -62,7 +65,7 @@ const HomeWrapper = styled.div`
     }
   }
   .image-wrapper {
-    min-width: ${height*0.9}px;
+    min-width: ${height * 0.9}px;
     .home-image {
       height: 90vh;
       @media only screen and (max-width: 600px) {
@@ -71,8 +74,8 @@ const HomeWrapper = styled.div`
       }
     }
     @media only screen and (max-width: 600px) {
-      min-width: ${height*0.45}px;
-      }
+      min-width: ${height * 0.45}px;
+    }
   }
 
   .home-mobile {

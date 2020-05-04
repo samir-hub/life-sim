@@ -6,14 +6,14 @@ import { useHistory } from "react-router-dom";
 function useRemoveToken(date) {
     const history = useHistory();
   useEffect(() => {
-    if (JSON.parse(window.localStorage.getItem("lastLogin")) + 3600000 < date) {
+    if (JSON.parse(window.localStorage.getItem("lastLogin")) + 30000 < date) {
       window.localStorage.removeItem("token");
       window.localStorage.removeItem("lastLogin");
       window.localStorage.removeItem("userid");
       window.localStorage.removeItem("username");
       history.push('/');
     }
-  }, [date, history]);
+  }, []);
 }
 export default useRemoveToken;
 /*

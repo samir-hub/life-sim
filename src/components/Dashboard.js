@@ -27,12 +27,15 @@ import Compare from "./Compare";
 import DemoModal from "./DemoModal";
 import { dashDesktop } from "../data/demos";
 import { dashMobile } from "../data/demos";
+import useRemoveToken from '../hooks/useRemoveToken';
 
 const { Content, Sider } = Layout;
 
 function Dashboard() {
   const [active, setActive] = useState("1");
   const [isCollapsed, setIsCollapsed] = useState(true);
+  const date = Date.now();
+  useRemoveToken(date);
 
   const state = useSelector((state) => {
     return {
