@@ -21,7 +21,6 @@ function IncomeDrawerForm(props) {
   const isDemo = useIsDemo();
   const state = useSelector((state) => {
     return {
-      formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
     };

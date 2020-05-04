@@ -36,7 +36,6 @@ function Dashboard() {
 
   const state = useSelector((state) => {
     return {
-      formattedEntryData: state.formattedEntryData,
       userInfo: state.userInfo,
       isFetching: state.isFetching,
       isPosting: state.isPosting,
