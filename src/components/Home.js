@@ -8,13 +8,6 @@ import styled from "styled-components";
 import AppleModal from "./mobile/AppleModal";
 
 function Home() {
-  // const [loggedIn, setLoggedIn] = useState();
-
-  // let token = localStorage.getItem("token");
-
-  // useEffect(() => {
-  //   setLoggedIn(token);
-  // }, [token]);
   const history = useHistory();
   const handleClick = () => {
     history.push("/login");
@@ -34,7 +27,7 @@ function Home() {
         ></img>
       </div>
       <div className="home-mobile">
-        <h2>Plan out your future using MyPath. Let's get started!</h2>
+        <h2>Plan your future using MyPath. Let's get started!</h2>
         <Button
           onClick={handleClick}
           type="primary"

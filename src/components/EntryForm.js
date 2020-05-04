@@ -19,6 +19,7 @@ import majors from "../data/majors";
 import DemoModal from "./DemoModal";
 import { getStarted } from "../data/demos";
 import useIsDemo from "../hooks/useIsDemo"; 
+import useRemoveToken from '../hooks/useRemoveToken'; 
 
 const { Option } = Select;
 
@@ -26,6 +27,8 @@ function EntryForm() {
   const id = localStorage.getItem("userid");
   const isDemo = useIsDemo();
   const history = useHistory();
+  const date = Date.now(); 
+  useRemoveToken(date)
 
   const [userEntry, setUserEntry] = useState({
     education: "",
@@ -190,6 +193,8 @@ function EntryForm() {
       in densely populated areas.
     </span>
   );
+
+    console.log(date)
 
   return (
     <ComponentWrapper>

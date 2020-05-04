@@ -48,6 +48,7 @@ function Login(props) {
             setIsLoading(false);
             localStorage.setItem("token", res.data.access_token);
             localStorage.setItem("username", values.username);
+            localStorage.setItem("lastLogin", Date.now());
           })
           .then(() => {
             axiosWithAuth()
