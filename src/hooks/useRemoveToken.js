@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 /*
-  Checks whether the user is looking at the demo or not
+  Checks whether the user's last login was more than three hours ago. If it was, then it will log them out. 
 */
 function useRemoveToken(date) {
     const history = useHistory();
   useEffect(() => {
-    if (JSON.parse(window.localStorage.getItem("lastLogin")) + 30000 < date) {
+    if (JSON.parse(window.localStorage.getItem("lastLogin")) + 3600000 < date) {
       window.localStorage.removeItem("token");
       window.localStorage.removeItem("lastLogin");
       window.localStorage.removeItem("userid");
@@ -18,7 +18,6 @@ function useRemoveToken(date) {
 export default useRemoveToken;
 /*
   Usage
-  `const isDemo = useIsDemo()`
-  returns `true` if demo account is being used
-  returns `false` if any other account is being used
+  const date = Date.now();
+  useRemoveToken(date);
 */
