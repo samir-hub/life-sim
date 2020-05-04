@@ -13,6 +13,7 @@ function useRemoveToken(date) {
       window.localStorage.removeItem("username");
       history.push('/');
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 }
 export default useRemoveToken;
