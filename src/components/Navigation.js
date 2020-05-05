@@ -27,6 +27,7 @@ const Navigation = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userid");
     localStorage.removeItem("username");
+    localStorage.removeItem("lastLogin");
     history.push("/");
   };
 
