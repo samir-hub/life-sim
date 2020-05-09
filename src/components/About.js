@@ -4,6 +4,8 @@ import about_cover from "../assets/about_cover.png";
 import AboutCard from "./AboutCard";
 import Layout from "antd/es/layout";
 import "antd/es/layout/style/css";
+import Icon from "antd/es/icon";
+import "antd/es/icon/style/css";
 
 const { Footer } = Layout;
 
@@ -119,7 +121,9 @@ function About() {
         </p>
         <AboutCard />
       </div>
-      <Footer />
+      <Footer>
+        <div className="sm-icons"><Icon className="icon twitter" type="twitter"/><Icon className="icon linkedin" type="linkedin"/><Icon className="icon github" type="github"/></div>
+      </Footer>
     </AboutWrapper>
   );
 }
