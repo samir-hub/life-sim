@@ -123,13 +123,16 @@ function About() {
       </div>
       <Footer>
         <div className="sm-icons">
-          <a href="https://twitter.com/SamirLilienfeld">
+          <a href="https://twitter.com/SamirLilienfeld" target="_blank"
+            rel="noopener noreferrer">
             <Icon className="icon twitter" type="twitter" />
           </a>
-          <a href="https://www.linkedin.com/in/samir-hub">
+          <a href="https://www.linkedin.com/in/samir-hub" target="_blank"
+            rel="noopener noreferrer">
             <Icon className="icon twitter" type="linkedin" />
           </a>
-          <a href="https://github.com/samir-hub">
+          <a href="https://github.com/samir-hub" target="_blank"
+            rel="noopener noreferrer">
             <Icon className="icon twitter" type="github" />
           </a>
         </div>
