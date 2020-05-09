@@ -122,7 +122,17 @@ function About() {
         <AboutCard />
       </div>
       <Footer>
-        <div className="sm-icons"><Icon className="icon twitter" type="twitter"/><Icon className="icon linkedin" type="linkedin"/><Icon className="icon github" type="github"/></div>
+        <div className="sm-icons">
+          <a href="https://twitter.com/SamirLilienfeld">
+            <Icon className="icon twitter" type="twitter" />
+          </a>
+          <a href="https://www.linkedin.com/in/samir-hub">
+            <Icon className="icon twitter" type="linkedin" />
+          </a>
+          <a href="https://github.com/samir-hub">
+            <Icon className="icon twitter" type="github" />
+          </a>
+        </div>
       </Footer>
     </AboutWrapper>
   );
@@ -176,6 +186,12 @@ const AboutWrapper = styled.div`
       @media only screen and (max-width: 600px) {
         width: 90%;
       }
+    }
+  }
+  .sm-icons {
+    .icon {
+      font-size: 40px;
+      padding: 10px;
     }
   }
 `;
