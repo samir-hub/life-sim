@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import about_cover from "../assets/about_cover.png";
 import AboutCard from "./AboutCard";
+import Layout from "antd/es/layout";
+import "antd/es/layout/style/css";
+
+const { Footer } = Layout;
 
 function About() {
-
-  const screen = window.screen.width; 
+  const screen = window.screen.width;
 
   return (
     <AboutWrapper>
@@ -18,9 +21,18 @@ function About() {
           high school students and young adults plan for the future. Money
           management is a complicated issue and you should consult a
           professional before making any decisions, but MyPath is a useful
-          guide.{screen < 600 && <><br></br><br></br></>} We make it easy. You will be asked to answer a few questions
-          and MyPath will create your financial profile. Your profile will let
-          you view and edit your expected income and expenses. {screen < 600 && <br></br>}<br></br>
+          guide.
+          {screen < 600 && (
+            <>
+              <br></br>
+              <br></br>
+            </>
+          )}{" "}
+          We make it easy. You will be asked to answer a few questions and
+          MyPath will create your financial profile. Your profile will let you
+          view and edit your expected income and expenses.{" "}
+          {screen < 600 && <br></br>}
+          <br></br>
           To calculate your financial profile data, we take information from
           reliable resources like the U.S. Bureau of Labor Statistics and
           perform some statistical analysis. While these numbers are just
@@ -53,7 +65,8 @@ function About() {
           >
             IRS
           </a>
-          . {screen < 600 && <br></br>}<br></br>
+          . {screen < 600 && <br></br>}
+          <br></br>
           <span className="about-span-second">The expenses data</span> comes
           from{" "}
           <a
@@ -95,7 +108,8 @@ function About() {
           >
             smartasset.com
           </a>
-          . {screen < 600 && <br></br>}<br></br>
+          . {screen < 600 && <br></br>}
+          <br></br>
           <span className="about-span-second">Samir Lilienfeld</span> is the
           creator of MyPath. He is a Full Stack Web Developer who specializes in
           crafting responsive UI, building single page applications, developing
@@ -105,6 +119,7 @@ function About() {
         </p>
         <AboutCard />
       </div>
+      <Footer />
     </AboutWrapper>
   );
 }
