@@ -123,27 +123,92 @@ function About() {
       </div>
       <Footer className="footer">
         <div className="sm-icons">
-          <a href="https://twitter.com/SamirLilienfeld" target="_blank"
-            rel="noopener noreferrer">
-            <Icon style={{color: '#00acee'}} className="icon twitter" type="twitter" />
+          <a
+            href="https://github.com/samir-hub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              style={{ color: "#211F1F" }}
+              className="icon github"
+              type="github"
+            />
           </a>
-          <a href="https://www.linkedin.com/in/samir-hub" target="_blank"
-            rel="noopener noreferrer">
-            <Icon style={{color: '#0e76a8'}} className="icon linkedin" type="linkedin" />
+          <a
+            href="https://www.linkedin.com/in/samir-hub"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              style={{ color: "#0e76a8" }}
+              className="icon linkedin"
+              type="linkedin"
+            />
           </a>
-          <a href="https://github.com/samir-hub" target="_blank"
-            rel="noopener noreferrer">
-            <Icon style={{color: '#211F1F'}} className="icon github" type="github" />
+          <a
+            href="https://twitter.com/SamirLilienfeld"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon
+              style={{ color: "#00acee" }}
+              className="icon twitter"
+              type="twitter"
+            />
           </a>
         </div>
         <div>
-          <h5>Illustrations from <a href="https://iconscout.com/illustration-pack/startup-56" target="_blank"
-            rel="noopener noreferrer">iconscout</a>. Icons from <a href="https://iconscout.com/contributors/jemismali/icons" target="_blank"
-            rel="noopener noreferrer">Jemis Mali</a>, <a href="https://iconscout.com/contributors/plastic-donut/icons" target="_blank"
-            rel="noopener noreferrer">Plastic Donut</a>, <a href="https://iconscout.com/contributors/baitisstudio/icons" target="_blank"
-            rel="noopener noreferrer">Baiti Studio</a>, <a href="https://iconscout.com/contributors/pocike/icons" target="_blank"
-            rel="noopener noreferrer">Alpár - Etele Méder</a>, and <a href="https://iconscout.com/contributors/devendra-karkar/icons" target="_blank"
-            rel="noopener noreferrer">Devendra Karkar</a>.</h5>
+          <h5>
+            Illustrations from{" "}
+            <a
+              href="https://iconscout.com/illustration-pack/startup-56"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              iconscout
+            </a>
+            . Icons from{" "}
+            <a
+              href="https://iconscout.com/contributors/jemismali/icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Jemis Mali
+            </a>
+            ,{" "}
+            <a
+              href="https://iconscout.com/contributors/plastic-donut/icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Plastic Donut
+            </a>
+            ,{" "}
+            <a
+              href="https://iconscout.com/contributors/baitisstudio/icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Baiti Studio
+            </a>
+            ,{" "}
+            <a
+              href="https://iconscout.com/contributors/pocike/icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Alpár - Etele Méder
+            </a>
+            , and{" "}
+            <a
+              href="https://iconscout.com/contributors/devendra-karkar/icons"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Devendra Karkar
+            </a>
+            .
+          </h5>
           <h4>MyPath Created by Samir Lilienfeld</h4>
         </div>
       </Footer>
@@ -201,16 +266,24 @@ const AboutWrapper = styled.div`
       }
     }
   }
+  .footer {
+    @media only screen and (max-width: 600px) {
+        padding: 20px; 
+      }
+  }
   .sm-icons {
-    width: 50%; 
-    margin: 0 auto; 
-    display: flex; 
-    justify-content: space-around; 
-    padding: 0 0 30px 0; 
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 0 30px 0;
+    @media only screen and (max-width: 600px) {
+        width: 90%;
+        justify-content: space-between;
+      }
     .icon {
       font-size: 60px;
       padding: 10px;
-      
     }
   }
 `;
