@@ -121,7 +121,7 @@ function About() {
         </p>
         <AboutCard />
       </div>
-      <Footer>
+      <Footer className="footer">
         <div className="sm-icons">
           <a href="https://twitter.com/SamirLilienfeld" target="_blank"
             rel="noopener noreferrer">
@@ -202,9 +202,15 @@ const AboutWrapper = styled.div`
     }
   }
   .sm-icons {
+    width: 50%; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-around; 
+    padding: 0 0 30px 0; 
     .icon {
-      font-size: 40px;
+      font-size: 60px;
       padding: 10px;
+      
     }
   }
 `;
