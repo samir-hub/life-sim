@@ -125,16 +125,20 @@ function About() {
         <div className="sm-icons">
           <a href="https://twitter.com/SamirLilienfeld" target="_blank"
             rel="noopener noreferrer">
-            <Icon className="icon twitter" type="twitter" />
+            <Icon style={{color: '#00acee'}} className="icon twitter" type="twitter" />
           </a>
           <a href="https://www.linkedin.com/in/samir-hub" target="_blank"
             rel="noopener noreferrer">
-            <Icon className="icon twitter" type="linkedin" />
+            <Icon style={{color: '#0e76a8'}} className="icon linkedin" type="linkedin" />
           </a>
           <a href="https://github.com/samir-hub" target="_blank"
             rel="noopener noreferrer">
-            <Icon className="icon twitter" type="github" />
+            <Icon style={{color: '#211F1F'}} className="icon github" type="github" />
           </a>
+        </div>
+        <div>
+          <h4>MyPath Created by Samir Lilienfeld</h4>
+          
         </div>
       </Footer>
     </AboutWrapper>
