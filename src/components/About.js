@@ -137,8 +137,14 @@ function About() {
           </a>
         </div>
         <div>
+          <h5>Illustrations from <a href="https://iconscout.com/illustration-pack/startup-56" target="_blank"
+            rel="noopener noreferrer">iconscout</a>. Icons from <a href="https://iconscout.com/contributors/jemismali/icons" target="_blank"
+            rel="noopener noreferrer">Jemis Mali</a>, <a href="https://iconscout.com/contributors/plastic-donut/icons" target="_blank"
+            rel="noopener noreferrer">Plastic Donut</a>, <a href="https://iconscout.com/contributors/baitisstudio/icons" target="_blank"
+            rel="noopener noreferrer">Baiti Studio</a>, <a href="https://iconscout.com/contributors/pocike/icons" target="_blank"
+            rel="noopener noreferrer">Alpár - Etele Méder</a>, and <a href="https://iconscout.com/contributors/devendra-karkar/icons" target="_blank"
+            rel="noopener noreferrer">Devendra Karkar</a>.</h5>
           <h4>MyPath Created by Samir Lilienfeld</h4>
-          
         </div>
       </Footer>
     </AboutWrapper>
