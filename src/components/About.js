@@ -209,7 +209,7 @@ function About() {
             </a>
             .
           </h5>
-          <h4>MyPath Created by Samir Lilienfeld</h4>
+          <h4>Created by Samir Lilienfeld</h4>
         </div>
       </Footer>
     </AboutWrapper>
