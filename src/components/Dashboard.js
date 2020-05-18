@@ -25,10 +25,10 @@ import Expenses from "./Expenses";
 import Summary from "./Summary";
 import Compare from "./Compare";
 import DemoModal from "./DemoModal";
-import NoDataModal from './NoDataModal'
+import NoDataModal from "./NoDataModal";
 import { dashDesktop } from "../data/demos";
 import { dashMobile } from "../data/demos";
-import useRemoveToken from '../hooks/useRemoveToken';
+import useRemoveToken from "../hooks/useRemoveToken";
 
 const { Content, Sider } = Layout;
 
@@ -64,6 +64,9 @@ function Dashboard() {
       style={{ backgroundColor: "white", marginTop: "2px" }}
       className="dashboard"
     >
+      {state.userInfo &&
+        state.userInfo.details &&
+        !state.userInfo.details.length && <NoDataModal />}
       {screen > 600 ? (
         <DemoModal
           loStoName={"DashDemo"}

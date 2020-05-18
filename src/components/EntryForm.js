@@ -194,8 +194,6 @@ function EntryForm() {
     </span>
   );
 
-    console.log(date)
-
   return (
     <ComponentWrapper>
       <DemoModal

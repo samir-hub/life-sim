@@ -1,12 +1,17 @@
 import React from "react";
 import Modal from "antd/es/modal";
 import "antd/es/modal/style/css";
+import Button from "antd/es/button";
+import "antd/es/button/style/css";
 
 import { useHistory } from "react-router-dom";
 
 function NoDataModal() {
+  const history = useHistory();
 
-    const history = useHistory();
+  const handleOk = () => {
+    history.push("/entryform");
+  };
 
   return (
     <Modal
@@ -19,19 +24,24 @@ function NoDataModal() {
 
         borderRadius: "5px",
       }}
-      title="Oops"
+      title="Oops!"
       visible={true}
       closable={false}
       maskClosable={false}
-      onOk={() => history.push('/entryform')}
+      footer={[
+        <Button key="submit" type="primary" onClick={handleOk}>
+          Go Back
+        </Button>,
+      ]}
     >
       <p
         style={{
           margin: "0",
+          fontSize: "20px",
         }}
       >
-        Hello
-       
+        Your Dashboard will be unavailable until you enter some data. Click
+        below to go back and enter your information.
       </p>
     </Modal>
   );
