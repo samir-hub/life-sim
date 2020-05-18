@@ -1,20 +1,26 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 /*
-  Checks whether the user is looking at the demo or not
+  Checks whether the user has entered data
 */
 function useEnteredData() {
-  const [isDemo, setIsDemo] = useState(false);
+  const state = useSelector((state) => {
+    return {
+      userInfo: state.userInfo
+    };
+  });
+  const [enteredData, setEnteredData] = useState(false);
   useEffect(() => {
-    if (window.localStorage.getItem("username") === "demo") {
-      setIsDemo(true);
+    if (state.userInfo.details.length > 0) {
+      setEnteredData(true);
     }
   }, []);
-  return isDemo;
+  return enteredData;
 }
 export default useEnteredData;
 /*
   Usage
-  `const isDemo = useIsDemo()`
-  returns `true` if demo account is being used
-  returns `false` if any other account is being used
+  `const enteredData = useEnteredData()`
+  returns `true` if user has entered data
+  returns `false` if user has not entered data
 */
