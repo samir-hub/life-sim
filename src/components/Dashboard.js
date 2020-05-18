@@ -25,6 +25,7 @@ import Expenses from "./Expenses";
 import Summary from "./Summary";
 import Compare from "./Compare";
 import DemoModal from "./DemoModal";
+import NoDataModal from './NoDataModal'
 import { dashDesktop } from "../data/demos";
 import { dashMobile } from "../data/demos";
 import useRemoveToken from '../hooks/useRemoveToken';
