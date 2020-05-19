@@ -3,6 +3,7 @@ import Modal from "antd/es/modal";
 import "antd/es/modal/style/css";
 import Button from "antd/es/button";
 import "antd/es/button/style/css";
+import styled from "styled-components";
 
 import { useHistory } from "react-router-dom";
 
@@ -15,6 +16,7 @@ function NoDataModal() {
 
   return (
     <Modal
+      className="modal"
       centered
       style={{
         background: "white",
@@ -34,17 +36,22 @@ function NoDataModal() {
         </Button>,
       ]}
     >
-      <p
-        style={{
-          margin: "0",
-          fontSize: "20px",
-        }}
-      >
-        Your Dashboard will be unavailable until you enter some data. Click
-        below to go back and enter your information.
-      </p>
+      <StyledDiv>
+        <p className="modal-text">
+          Your Dashboard will be unavailable until you enter some data. Click
+          below to go back and enter your information.
+        </p>
+      </StyledDiv>
     </Modal>
   );
 }
 
 export default NoDataModal;
+
+const StyledDiv = styled.div`
+  margin: 0;
+  font-size: 20px;
+  @media only screen and (max-width: 600px) {
+      font-size: 15px; 
+    }
+`;
