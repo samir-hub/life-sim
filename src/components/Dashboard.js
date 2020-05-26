@@ -358,4 +358,10 @@ const StyledDiv = styled.div`
   }
 `;
 
-const StyledCard = styled.div``;
+const StyledCard = styled.div`
+  .ant-card {
+    .ant-card-body {
+      padding: 10px 24px;
+    }
+  }
+`;
