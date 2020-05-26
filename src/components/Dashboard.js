@@ -98,132 +98,138 @@ function Dashboard() {
             }}
           />
         ) : (
-          <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
-            {state.userInfo && state.userInfo.details && (
-              <StyledDiv key={1}>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    paddingBottom: "20px",
-                  }}
-                >
-                  <div className="icon-wrapper">
-                    <img
-                      style={{ height: "30px", marginRight: "10px" }}
-                      alt="user outline"
-                      src={user}
-                    />
-                  </div>
-                  <p
-                    className="dashboard-username"
-                    style={{ margin: "0px", fontSize: "25px" }}
+          <StyledCard>
+            <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
+              {state.userInfo && state.userInfo.details && (
+                <StyledDiv key={1}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      paddingBottom: "20px",
+                    }}
                   >
-                    {state.userInfo.username}
-                  </p>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  <div className="icon-wrapper">
-                    <img
-                      style={{ height: "30px", marginRight: "10px" }}
-                      alt="graduation cap"
-                      src={grad_cap}
-                    />
+                    <div className="icon-wrapper">
+                      <img
+                        style={{ height: "30px", marginRight: "10px" }}
+                        alt="user outline"
+                        src={user}
+                      />
+                    </div>
+                    <p
+                      className="dashboard-username"
+                      style={{ margin: "0px", fontSize: "25px" }}
+                    >
+                      {state.userInfo.username}
+                    </p>
                   </div>
-                  <h1 style={{ margin: "0px", width: "100%" }}>
-                    {state.userInfo.details[
-                      state.userInfo.details.length - 1
-                    ] &&
-                      state.userInfo.details[state.userInfo.details.length - 1]
-                        .education}
-                  </h1>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  <div className="icon-wrapper">
-                    <img
-                      style={{ height: "30px", marginRight: "10px" }}
-                      alt="book"
-                      src={book}
-                    />
-                  </div>
-                  <h1 style={{ margin: "0px", width: "100%" }}>
-                    {state.userInfo.details[
-                      state.userInfo.details.length - 1
-                    ] &&
-                      (state.userInfo.details[state.userInfo.details.length - 1]
-                        .major === ""
-                        ? "H.S. Diploma"
-                        : state.userInfo.details[
-                            state.userInfo.details.length - 1
-                          ].major)}
-                  </h1>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  <div className="icon-wrapper">
-                    <img
-                      style={{ height: "30px", marginRight: "10px" }}
-                      alt="taxes"
-                      src={tax}
-                    />
-                  </div>
-                  <h1 style={{ margin: "0px", width: "100%" }}>
-                    {state.userInfo.details[
-                      state.userInfo.details.length - 1
-                    ] &&
-                      state.userInfo.details[state.userInfo.details.length - 1]
-                        .colindex}
-                  </h1>
-                  <Tooltip
-                    title={
-                      "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
-                    }
-                    placement="top"
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      paddingBottom: "10px",
+                    }}
                   >
-                    <Icon type="question-circle" />
-                  </Tooltip>
-                </div>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <div className="icon-wrapper">
-                    <img
-                      style={{ height: "30px", marginRight: "10px" }}
-                      alt="city"
-                      src={city}
-                    />
+                    <div className="icon-wrapper">
+                      <img
+                        style={{ height: "30px", marginRight: "10px" }}
+                        alt="graduation cap"
+                        src={grad_cap}
+                      />
+                    </div>
+                    <h1 style={{ margin: "0px", width: "100%" }}>
+                      {state.userInfo.details[
+                        state.userInfo.details.length - 1
+                      ] &&
+                        state.userInfo.details[
+                          state.userInfo.details.length - 1
+                        ].education}
+                    </h1>
                   </div>
-                  <h1 style={{ margin: "0px", width: "100%" }}>
-                    {state.userInfo.details[
-                      state.userInfo.details.length - 1
-                    ] &&
-                      state.userInfo.details[state.userInfo.details.length - 1]
-                        .city}
-                  </h1>
-                </div>
-              </StyledDiv>
-            )}
-          </Card>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      paddingBottom: "10px",
+                    }}
+                  >
+                    <div className="icon-wrapper">
+                      <img
+                        style={{ height: "30px", marginRight: "10px" }}
+                        alt="book"
+                        src={book}
+                      />
+                    </div>
+                    <h1 style={{ margin: "0px", width: "100%" }}>
+                      {state.userInfo.details[
+                        state.userInfo.details.length - 1
+                      ] &&
+                        (state.userInfo.details[
+                          state.userInfo.details.length - 1
+                        ].major === ""
+                          ? "H.S. Diploma"
+                          : state.userInfo.details[
+                              state.userInfo.details.length - 1
+                            ].major)}
+                    </h1>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      paddingBottom: "10px",
+                    }}
+                  >
+                    <div className="icon-wrapper">
+                      <img
+                        style={{ height: "30px", marginRight: "10px" }}
+                        alt="taxes"
+                        src={tax}
+                      />
+                    </div>
+                    <h1 style={{ margin: "0px", width: "100%" }}>
+                      {state.userInfo.details[
+                        state.userInfo.details.length - 1
+                      ] &&
+                        state.userInfo.details[
+                          state.userInfo.details.length - 1
+                        ].colindex}
+                    </h1>
+                    <Tooltip
+                      title={
+                        "This is the cost of living index. It is a measure of overall affordability. More expensive cities have higher values. The highest possible value is 100."
+                      }
+                      placement="top"
+                    >
+                      <Icon type="question-circle" />
+                    </Tooltip>
+                  </div>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div className="icon-wrapper">
+                      <img
+                        style={{ height: "30px", marginRight: "10px" }}
+                        alt="city"
+                        src={city}
+                      />
+                    </div>
+                    <h1 style={{ margin: "0px", width: "100%" }}>
+                      {state.userInfo.details[
+                        state.userInfo.details.length - 1
+                      ] &&
+                        state.userInfo.details[
+                          state.userInfo.details.length - 1
+                        ].city}
+                    </h1>
+                  </div>
+                </StyledDiv>
+              )}
+            </Card>
+          </StyledCard>
         )}
         <Menu
           style={{ height: "49vh" }}
@@ -351,3 +357,5 @@ const StyledDiv = styled.div`
     margin-right: 10px;
   }
 `;
+
+const StyledCard = styled.div``;
