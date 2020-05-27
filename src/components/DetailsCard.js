@@ -25,11 +25,6 @@ function DetailsCard({
 
   const handleClick = (detail) => {
     setItemsToCompare([...itemsToCompare, detail]);
-    if (itemsToCompare.length === 1) {
-      setTimeout(() => {
-        setIsVisible(true);
-      }, 300);
-    }
   };
 
   const activateBadge = (id) => {
