@@ -1,10 +1,4 @@
 import React from "react";
-// import Card from "antd/es/card";
-// import "antd/es/card/style/css";
-// import Avatar from "antd/es/avatar";
-// import "antd/es/avatar/style/css";
-// import Button from "antd/es/button";
-// import "antd/es/button/style/css";
 import styled from "styled-components";
 import { HorizontalBar } from "react-chartjs-2";
 import one_badge from "../assets/one_badge.svg";
