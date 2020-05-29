@@ -44,27 +44,6 @@ function DetailsCard({
     }
   };
 
-  const activateBadge = (id) => {
-    // if (itemsToCompare.length === 0) {
-    //   setShowBadge({
-    //     firstCardId: itemsToCompare.length === 0 ? id : null,
-    //     firstClick: itemsToCompare.length === 0 ? true : false,
-    //   });
-    // } else {
-    //   setShowBadge({
-    //     ...showBadge,
-    //     secondCardId: itemsToCompare.length === 1 ? id : null,
-    //     secondClick: itemsToCompare.length === 1 ? true : false,
-    //   });
-    // }
-    // setItemsToCompare([...itemsToCompare, detail]);
-    // if (itemsToCompare.length === 1) {
-    //   setTimeout(() => {
-    //     setIsVisible(true);
-    //   }, 300);
-    // }
-  };
-
   if (itemsToCompare.length === 2) {
     if (itemsToCompare[0].detailsid === itemsToCompare[1].detailsid) {
       setIsVisible(false);
