@@ -25,22 +25,19 @@ function DetailsCard({
 
   const handleClick = (detail) => {
     setItemsToCompare([...itemsToCompare, detail]);
-  };
-
-  const activateBadge = (id) => {
     if (itemsToCompare.length === 0) {
       setShowBadge({
-        firstCardId: itemsToCompare.length === 0 ? id : null,
+        firstCardId: itemsToCompare.length === 0 ? detail.detailsid : null,
         firstClick: itemsToCompare.length === 0 ? true : false,
       });
     } else {
       setShowBadge({
         ...showBadge,
-        secondCardId: itemsToCompare.length === 1 ? id : null,
+        secondCardId: itemsToCompare.length === 1 ? detail.detailsid : null,
         secondClick: itemsToCompare.length === 1 ? true : false,
       });
     }
-    setItemsToCompare([...itemsToCompare, detail]);
+
     if (itemsToCompare.length === 1) {
       setTimeout(() => {
         setIsVisible(true);
@@ -48,9 +45,30 @@ function DetailsCard({
     }
   };
 
+  const activateBadge = (id) => {
+    // if (itemsToCompare.length === 0) {
+    //   setShowBadge({
+    //     firstCardId: itemsToCompare.length === 0 ? id : null,
+    //     firstClick: itemsToCompare.length === 0 ? true : false,
+    //   });
+    // } else {
+    //   setShowBadge({
+    //     ...showBadge,
+    //     secondCardId: itemsToCompare.length === 1 ? id : null,
+    //     secondClick: itemsToCompare.length === 1 ? true : false,
+    //   });
+    // }
+    // setItemsToCompare([...itemsToCompare, detail]);
+    // if (itemsToCompare.length === 1) {
+    //   setTimeout(() => {
+    //     setIsVisible(true);
+    //   }, 300);
+    // }
+  };
+
   return (
     <StyledDiv>
-      <Card onClick={() => activateBadge(detail.detailsid)} className="card">
+      <Card  className="card">
         <Meta
           avatar={
             <Avatar
