@@ -20,7 +20,6 @@ function DetailsCard({
   showBadge,
   setShowBadge,
 }) {
-
   let screen = window.screen.width;
 
   const handleClick = (detail) => {
@@ -66,9 +65,22 @@ function DetailsCard({
     // }
   };
 
+  if (itemsToCompare.length === 2) {
+    if (itemsToCompare[0].detailsid === itemsToCompare[1].detailsid) {
+      setIsVisible(false);
+      setItemsToCompare([]);
+      setShowBadge({
+        firstCardId: null,
+        secondCardId: null,
+        firstClick: false,
+        secondClick: false,
+      });
+    }
+  }
+
   return (
     <StyledDiv>
-      <Card  className="card">
+      <Card className="card">
         <Meta
           avatar={
             <Avatar
@@ -93,8 +105,12 @@ function DetailsCard({
             <h1 className="dc-text">{detail.major}</h1>
             <h1 className="dc-text">{detail.city}</h1>
           </div>
-          <Button onClick={() => handleClick(detail)} size = {"large"} type = {screen < 600 ? "primary" : "default"}>
-            {screen > 600 ? 'Select to Compare' : 'Compare'}
+          <Button
+            onClick={() => handleClick(detail)}
+            size={"large"}
+            type={screen < 600 ? "primary" : "default"}
+          >
+            {screen > 600 ? "Select to Compare" : "Compare"}
           </Button>
         </div>
       </Card>
@@ -113,7 +129,7 @@ const StyledDiv = styled.div`
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     margin: 20px 0;
-    cursor: pointer; 
+    cursor: pointer;
     .dc-card-content {
       display: flex;
       align-items: center;
@@ -132,7 +148,7 @@ const StyledDiv = styled.div`
   .card:hover {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.22);
     @media only screen and (max-width: 600px) {
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); 
-          }
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    }
   }
 `;
