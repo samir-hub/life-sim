@@ -290,7 +290,7 @@ function ModalComparison({ firstChoice, secondChoice }) {
     hover: { mode: null },
   };
 
-  return (
+  return firstChoice && secondChoice ? (
     <StyledDiv>
       <h1 className="mc-title">Monthly Net Income</h1>
       <div className="expenses-card-div">
@@ -351,6 +351,11 @@ function ModalComparison({ firstChoice, secondChoice }) {
         />
       </div>
     </StyledDiv>
+  ) : (
+    <>
+      <h1>Oops!</h1>
+      <h3>Select two different items to compare.</h3>
+    </>
   );
 }
 
