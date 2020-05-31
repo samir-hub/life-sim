@@ -87,6 +87,12 @@ const ExpensesPie = ({
     },
   };
 
+  const reducer = (acc, current) => {
+    return acc + current;
+  }
+
+  const expensesTotal = Object.values(housing).reduce(reducer) + Object.values(food).reduce(reducer) + Object.values(medical).reduce(reducer)+ Object.values(transportation).reduce(reducer) + Object.values(necessities).reduce(reducer) + Object.values(personal).reduce(reducer)
+
   const mobileOptions = {
     responsive: false,
     cutoutPercentage: 50,
@@ -117,12 +123,16 @@ const ExpensesPie = ({
     },
   };
 
+  console.log(expensesTotal)
+
   return (
     <WrapperDiv>
       <div className="desktop">
         <Pie height={450} width={450} data={data} options={options} />
         <div className="pie-total">
-          <h1>$2,000</h1>
+  <h1 className="pie-total-number">${expensesTotal.toFixed(0)
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</h1>
         </div>
         
       </div>
@@ -139,13 +149,19 @@ const WrapperDiv = styled.div`
   .desktop {
     position: relative; 
     .pie-total {
-      width: 100px; 
+      width: 200px; 
       height: 100px; 
       position: absolute;
-      top: 50%;
+      top: 48%;
       margin-top: -50px; 
       left: 50%;
-      margin-left: -50px; 
+      margin-left: -100px; 
+      .pie-total-number {
+        color: #c35355;
+        font-size: 40px; 
+        margin: 0; 
+        height: 100px; 
+      }
     }
     @media only screen and (max-width: 600px) {
       display: none;
