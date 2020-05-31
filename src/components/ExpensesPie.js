@@ -121,6 +121,10 @@ const ExpensesPie = ({
     <WrapperDiv>
       <div className="desktop">
         <Pie height={450} width={450} data={data} options={options} />
+        <div className="pie-total">
+          <h2>$2,000</h2>
+        </div>
+        
       </div>
       <div className="mobile">
         <Pie height={300} width={300} data={data} options={mobileOptions} />
@@ -133,6 +137,15 @@ export default ExpensesPie;
 
 const WrapperDiv = styled.div`
   .desktop {
+    position: relative; 
+    .pie-total {
+      width: 100px; 
+      height: 100px; 
+      position: absolute;
+      /* top: 55%; */
+      left: 50%;
+      margin-left: -50px; 
+    }
     @media only screen and (max-width: 600px) {
       display: none;
     }
