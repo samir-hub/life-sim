@@ -122,7 +122,7 @@ const ExpensesPie = ({
       <div className="desktop">
         <Pie height={450} width={450} data={data} options={options} />
         <div className="pie-total">
-          <h2>$2,000</h2>
+          <h1>$2,000</h1>
         </div>
         
       </div>
@@ -142,7 +142,8 @@ const WrapperDiv = styled.div`
       width: 100px; 
       height: 100px; 
       position: absolute;
-      /* top: 55%; */
+      top: 50%;
+      margin-top: -50px; 
       left: 50%;
       margin-left: -50px; 
     }
