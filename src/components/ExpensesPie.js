@@ -88,17 +88,17 @@ const ExpensesPie = ({
     },
   };
 
-  const reducer = (acc, current) => {
-    return acc + current;
-  };
+  // const reducer = (acc, current) => {
+  //   return acc + current;
+  // };
 
-  const expensesTotal =
-    Object.values(housing).reduce(reducer) +
-    Object.values(food).reduce(reducer) +
-    Object.values(medical).reduce(reducer) +
-    Object.values(transportation).reduce(reducer) +
-    Object.values(necessities).reduce(reducer) +
-    Object.values(personal).reduce(reducer);
+  // const expensesTotal =
+  //   Object.values(housing).reduce(reducer) +
+  //   Object.values(food).reduce(reducer) +
+  //   Object.values(medical).reduce(reducer) +
+  //   Object.values(transportation).reduce(reducer) +
+  //   Object.values(necessities).reduce(reducer) +
+  //   Object.values(personal).reduce(reducer);
 
   const mobileOptions = {
     responsive: false,
@@ -130,13 +130,11 @@ const ExpensesPie = ({
     },
   };
 
-  console.log(expensesTotal);
-
   return (
     <WrapperDiv>
       <div className="desktop">
         <Pie height={450} width={450} data={data} options={options} />
-        <div className="pie-total">
+        {/* <div className="pie-total">
           <h1 className="pie-total-number">
             $
             {expensesTotal
@@ -144,7 +142,7 @@ const ExpensesPie = ({
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
-        </div>
+        </div> */}
       </div>
       <div className="mobile">
         <Pie height={300} width={300} data={data} options={mobileOptions} />
