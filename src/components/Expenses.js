@@ -401,11 +401,13 @@ const ExpensesDiv = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around; 
     @media only screen and (max-width: 600px) {
       padding: 15px 0;
     }
   }
   .expenses-card {
+    margin-bottom: 10px; 
     .expenses-card-div {
       width: 600px;
       display: flex;
@@ -422,5 +424,7 @@ const ExpensesDiv = styled.div`
   .expenses-pie-table {
     display: flex; 
     flex-direction: column; 
+    align-items: center; 
+    justify-items: space-around;
   }
 `;
