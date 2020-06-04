@@ -6,7 +6,12 @@ import "antd/es/table/style/css";
 import styled from "styled-components";
 
 
-function ExpensesTable() {
+function ExpensesTable({housing,
+    food,
+    medical,
+    transportation,
+    necessities,
+    personal,}) {
 
 
 //   const columns = [
@@ -161,7 +166,7 @@ function ExpensesTable() {
 //   ];
 
   return (
-    <h1>Hello</h1>
+  <h1>{housing.rent}</h1>
   );
 }
 

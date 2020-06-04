@@ -20,7 +20,7 @@ import payment from "../assets/payment.svg";
 import ExpensesDrawer from "./ExpensesDrawer";
 import ExpensesBar from "./ExpensesBar";
 import DemoModal from "./DemoModal";
-import ExpensesTable from "./ExpensesTable"; 
+import ExpensesTable from "./ExpensesTable";
 import { expensesDemo } from "../data/demos";
 
 const { Paragraph } = Typography;
@@ -235,6 +235,7 @@ function Expenses() {
         <Content>{content}</Content>
       </PageHeader>
       <ExpensesDiv>
+        <div className="expenses-pie-table">
         <ExpensesPie
           housing={expenses.housing}
           food={expenses.food}
@@ -243,6 +244,15 @@ function Expenses() {
           necessities={expenses.necessities}
           personal={expenses.personal}
         />
+        <ExpensesTable
+          housing={expenses.housing}
+          food={expenses.food}
+          medical={expenses.medical}
+          transportation={expenses.transportation}
+          necessities={expenses.necessities}
+          personal={expenses.personal}
+        />
+        </div>
         <Card className="expenses-card">
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -407,5 +417,10 @@ const ExpensesDiv = styled.div`
     .expenses-icon {
       height: 40px;
     }
+  }
+
+  .expenses-pie-table {
+    display: flex; 
+    flex-direction: column; 
   }
 `;
