@@ -20,6 +20,7 @@ import payment from "../assets/payment.svg";
 import ExpensesDrawer from "./ExpensesDrawer";
 import ExpensesBar from "./ExpensesBar";
 import DemoModal from "./DemoModal";
+import ExpensesTable from "./ExpensesTable"; 
 import { expensesDemo } from "../data/demos";
 
 const { Paragraph } = Typography;
