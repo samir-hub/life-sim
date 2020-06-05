@@ -44,7 +44,7 @@ function Income() {
             Math.floor(
               state.userInfo.details[state.userInfo.details.length - 1].avgmajor
             )
-              .toFixed(2)
+              .toFixed(0)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
           )}
@@ -254,7 +254,7 @@ function Income() {
                   state.userInfo.details[state.userInfo.details.length - 1]
                     .avgmajor / 12
                 )
-                  .toFixed(2)
+                  .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
@@ -275,7 +275,7 @@ function Income() {
                     12) *
                     0.85
                 )
-                  .toFixed(2)
+                  .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}

@@ -169,7 +169,7 @@ function Summary({ setActive }) {
           <h1 className="content-disposable-h1">
             $
             {disposableIncome
-              .toFixed(2)
+              .toFixed(0)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
@@ -179,7 +179,7 @@ function Summary({ setActive }) {
           <h1 className="content-disposable-h1" style={{}}>
             $
             {disposableIncome
-              .toFixed(2)
+              .toFixed(0)
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
@@ -212,7 +212,7 @@ function Summary({ setActive }) {
                     12) *
                     0.85
                 )
-                  .toFixed(2)
+                  .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h2>
@@ -257,7 +257,7 @@ function Summary({ setActive }) {
                 expenses.personal.entertainment +
                 expenses.personal.other
               )
-                .toFixed(2)
+                .toFixed(0)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h2>

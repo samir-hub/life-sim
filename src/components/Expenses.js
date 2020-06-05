@@ -145,9 +145,8 @@ function Expenses() {
         }}
       >
         A chart is worth a thousand words! The pie chart below shows your
-        estimated expenses broken down by category. The bar charts further break
-        down each category. You can hover or tap on each slice/section to see
-        the numbers for all charts.
+        estimated expenses broken down by category. The table shows the total monthly expense per category. The bar charts further break
+        down each category.
       </Paragraph>
     </div>
   );
@@ -194,7 +193,7 @@ function Expenses() {
                     12) *
                     0.85
                 )
-                  .toFixed(2)
+                  .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
@@ -224,7 +223,7 @@ function Expenses() {
                 expenses.personal.entertainment +
                 expenses.personal.other
               )
-                .toFixed(2)
+                .toFixed(0)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
