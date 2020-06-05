@@ -20,6 +20,7 @@ import payment from "../assets/payment.svg";
 import ExpensesDrawer from "./ExpensesDrawer";
 import ExpensesBar from "./ExpensesBar";
 import DemoModal from "./DemoModal";
+import ExpensesTable from "./ExpensesTable";
 import { expensesDemo } from "../data/demos";
 
 const { Paragraph } = Typography;
@@ -144,9 +145,8 @@ function Expenses() {
         }}
       >
         A chart is worth a thousand words! The pie chart below shows your
-        estimated expenses broken down by category. The bar charts further break
-        down each category. You can hover or tap on each slice/section to see
-        the numbers for all charts.
+        estimated expenses broken down by category. The table shows the total monthly expense per category. The bar charts further break
+        down each category.
       </Paragraph>
     </div>
   );
@@ -193,7 +193,7 @@ function Expenses() {
                     12) *
                     0.85
                 )
-                  .toFixed(2)
+                  .toFixed(0)
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               )}
@@ -223,7 +223,7 @@ function Expenses() {
                 expenses.personal.entertainment +
                 expenses.personal.other
               )
-                .toFixed(2)
+                .toFixed(0)
                 .toString()
                 .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             </h3>
@@ -234,6 +234,7 @@ function Expenses() {
         <Content>{content}</Content>
       </PageHeader>
       <ExpensesDiv>
+        <div className="expenses-pie-table">
         <ExpensesPie
           housing={expenses.housing}
           food={expenses.food}
@@ -242,6 +243,15 @@ function Expenses() {
           necessities={expenses.necessities}
           personal={expenses.personal}
         />
+        <ExpensesTable
+          housing={expenses.housing}
+          food={expenses.food}
+          medical={expenses.medical}
+          transportation={expenses.transportation}
+          necessities={expenses.necessities}
+          personal={expenses.personal}
+        />
+        </div>
         <Card className="expenses-card">
           <div className="expenses-card-div">
             <div className="expenses-card-inner">
@@ -390,11 +400,13 @@ const ExpensesDiv = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-around; 
     @media only screen and (max-width: 600px) {
       padding: 15px 0;
     }
   }
   .expenses-card {
+    margin-bottom: 10px; 
     .expenses-card-div {
       width: 600px;
       display: flex;
@@ -406,5 +418,12 @@ const ExpensesDiv = styled.div`
     .expenses-icon {
       height: 40px;
     }
+  }
+
+  .expenses-pie-table {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-items: space-around;
   }
 `;

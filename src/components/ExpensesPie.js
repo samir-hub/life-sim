@@ -61,6 +61,7 @@ const ExpensesPie = ({
   const options = {
     cutoutPercentage: 50,
     legend: {
+      onClick: (e) => e.stopPropagation(),
       display: true,
       position: "bottom",
       labels: {
@@ -70,41 +71,28 @@ const ExpensesPie = ({
       },
     },
     tooltips: {
-      mode: "label",
-      callbacks: {
-        label: function (tooltipItem, data) {
-          var item = tooltipItem.index;
-          return (
-            data.labels[item] +
-            ": $" +
-            data.datasets[0].data[item]
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-            ""
-          );
-        },
-      },
-      yAlign: "below"
+      enabled: false
     },
   };
 
-  // const reducer = (acc, current) => {
-  //   return acc + current;
-  // };
+  const reducer = (acc, current) => {
+    return acc + current;
+  };
 
-  // const expensesTotal =
-  //   Object.values(housing).reduce(reducer) +
-  //   Object.values(food).reduce(reducer) +
-  //   Object.values(medical).reduce(reducer) +
-  //   Object.values(transportation).reduce(reducer) +
-  //   Object.values(necessities).reduce(reducer) +
-  //   Object.values(personal).reduce(reducer);
+  const expensesTotal =
+    Object.values(housing).reduce(reducer) +
+    Object.values(food).reduce(reducer) +
+    Object.values(medical).reduce(reducer) +
+    Object.values(transportation).reduce(reducer) +
+    Object.values(necessities).reduce(reducer) +
+    Object.values(personal).reduce(reducer);
 
   const mobileOptions = {
     responsive: false,
     cutoutPercentage: 50,
     legend: {
-      display: false,
+      onClick: (e) => e.stopPropagation(),
+      display: true,
       position: "bottom",
       labels: {
         fontColor: "#333",
@@ -113,20 +101,7 @@ const ExpensesPie = ({
       },
     },
     tooltips: {
-      mode: "label",
-      callbacks: {
-        label: function (tooltipItem, data) {
-          var item = tooltipItem.index;
-          return (
-            data.labels[item] +
-            ": $" +
-            data.datasets[0].data[item]
-              .toString()
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ",") +
-            ""
-          );
-        },
-      },
+      enabled: false
     },
   };
 
@@ -134,7 +109,7 @@ const ExpensesPie = ({
     <WrapperDiv>
       <div className="desktop">
         <Pie height={450} width={450} data={data} options={options} />
-        {/* <div className="pie-total">
+        <div className="pie-total">
           <h1 className="pie-total-number">
             $
             {expensesTotal
@@ -142,10 +117,19 @@ const ExpensesPie = ({
               .toString()
               .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </h1>
-        </div> */}
+        </div>
       </div>
       <div className="mobile">
         <Pie height={300} width={300} data={data} options={mobileOptions} />
+        <div className="pie-total-mobile">
+          <h1 className="pie-total-number-mobile">
+            $
+            {expensesTotal
+              .toFixed(0)
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </h1>
+        </div>
       </div>
     </WrapperDiv>
   );
@@ -157,13 +141,13 @@ const WrapperDiv = styled.div`
   .desktop {
     position: relative;
     .pie-total {
-      width: 200px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       position: absolute;
-      top: 43%;
-      margin-top: -50px;
+      top: 50%;
+      margin-top: -60px;
       left: 50%;
-      margin-left: -100px;
+      margin-left: -60px;
       .pie-total-number {
         color: #c35355;
         font-size: 40px;
@@ -177,6 +161,22 @@ const WrapperDiv = styled.div`
   }
   .mobile {
     display: none;
+    position: relative;
+    .pie-total-mobile {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: 36%;
+      margin-top: -25px;
+      left: 50%;
+      margin-left: -50px;
+      .pie-total-number-mobile {
+        color: #c35355;
+        font-size: 30px;
+        margin: 0;
+        height: 80px;
+      }
+    }
     @media only screen and (max-width: 600px) {
       display: block;
     }
