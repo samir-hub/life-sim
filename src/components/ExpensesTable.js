@@ -16,11 +16,13 @@ function ExpensesTable({
       title: "Category",
       dataIndex: "category",
       key: "category",
+      align: "center"
     },
     {
       title: "Monthly Expense ($)",
       dataIndex: "monthly",
       key: "monthly",
+      align: "center"
     },
   ];
 
