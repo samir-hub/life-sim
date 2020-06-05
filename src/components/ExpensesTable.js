@@ -102,6 +102,9 @@ export default ExpensesTable;
 const WrapperDiv = styled.div`
     margin: 10px 0; 
     .table {
-        width: 100%; 
+        width: 400px; 
+        @media only screen and (max-width: 600px) {
+          width: 300px; 
+    }
     }
 `;

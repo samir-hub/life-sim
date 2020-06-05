@@ -164,7 +164,7 @@ const WrapperDiv = styled.div`
       width: 100px;
       height: 100px;
       position: absolute;
-      top: 40%;
+      top: 36%;
       margin-top: -25px;
       left: 50%;
       margin-left: -50px;
