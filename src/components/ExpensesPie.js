@@ -61,6 +61,7 @@ const ExpensesPie = ({
   const options = {
     cutoutPercentage: 50,
     legend: {
+      onClick: (e) => e.stopPropagation(),
       display: true,
       position: "bottom",
       labels: {
@@ -90,6 +91,7 @@ const ExpensesPie = ({
     responsive: false,
     cutoutPercentage: 50,
     legend: {
+      onClick: (e) => e.stopPropagation(),
       display: true,
       position: "bottom",
       labels: {
