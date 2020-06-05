@@ -90,7 +90,7 @@ const ExpensesPie = ({
     responsive: false,
     cutoutPercentage: 50,
     legend: {
-      display: false,
+      display: true,
       position: "bottom",
       labels: {
         fontColor: "#333",
@@ -164,8 +164,8 @@ const WrapperDiv = styled.div`
       width: 100px;
       height: 100px;
       position: absolute;
-      top: 50%;
-      margin-top: -30px;
+      top: 40%;
+      margin-top: -25px;
       left: 50%;
       margin-left: -50px;
       .pie-total-number-mobile {
