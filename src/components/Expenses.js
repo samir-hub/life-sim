@@ -144,7 +144,7 @@ function Expenses() {
           fontSize: "15px",
         }}
       >
-        A chart is worth a thousand words! The pie chart below shows your
+        The pie chart below shows your
         estimated expenses broken down by category. The table shows the total monthly expense per category. The bar charts further break
         down each category.
       </Paragraph>
