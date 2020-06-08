@@ -54,8 +54,8 @@ const ExpensesPie = ({
       "Food",
       "Medical",
       "Transport",
-      "Other Necessities",
-      "Personal Expenses",
+      "Necessities",
+      "Personal",
     ],
   };
   const options = {
