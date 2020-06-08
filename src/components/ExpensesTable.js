@@ -53,7 +53,7 @@ function ExpensesTable({
     },
     {
       key: "4",
-      category: "Transportation",
+      category: "Transport",
       monthly: (
         transportation.gas +
         transportation.carMaintenance +
