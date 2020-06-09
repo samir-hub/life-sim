@@ -168,7 +168,7 @@ const WrapperDiv = styled.div`
       position: absolute;
       top: 47%;
       margin-top: -50px;
-      left: 50%;
+      left: 48%;
       margin-left: -50px;
       .pie-total-number-mobile {
         color: #c35355;
