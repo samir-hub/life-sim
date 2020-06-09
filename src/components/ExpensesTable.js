@@ -16,6 +16,7 @@ function ExpensesTable({
       title: "",
       dataIndex: "color",
       key: "color",
+      width: '10px',
       align: "right",
       render: (text, record, index) =>
   {    switch (index) {
