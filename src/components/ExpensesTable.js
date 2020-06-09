@@ -13,16 +13,33 @@ function ExpensesTable({
 }) {
   const columns = [
     {
+      title: "",
+      dataIndex: "color",
+      key: "color",
+      align: "center",
+      render: (text, record, index) =>
+        index === 0 ? (
+          <div
+            style={{ backgroundColor: "#F38704", borderRadius: "50%", width: '20px', height: '20px' }}
+          ></div>
+        ) : (
+          <span>
+            <a style={{ marginRight: 16 }}>shit</a>
+            <a className="ant-dropdown-link">fuck</a>
+          </span>
+        ),
+    },
+    {
       title: "Category",
       dataIndex: "category",
       key: "category",
-      align: "center"
+      align: "center",
     },
     {
       title: "Monthly Expense ($)",
       dataIndex: "monthly",
       key: "monthly",
-      align: "center"
+      align: "center",
     },
   ];
 
@@ -102,11 +119,11 @@ function ExpensesTable({
 export default ExpensesTable;
 
 const WrapperDiv = styled.div`
-    margin: 10px 0; 
-    .table {
-        width: 400px; 
-        @media only screen and (max-width: 600px) {
-          width: 300px; 
+  margin: 10px 0;
+  .table {
+    width: 400px;
+    @media only screen and (max-width: 600px) {
+      width: 300px;
     }
-    }
+  }
 `;
