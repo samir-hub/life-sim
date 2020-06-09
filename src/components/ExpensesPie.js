@@ -120,7 +120,7 @@ const ExpensesPie = ({
         </div>
       </div>
       <div className="mobile">
-        <Pie height={300} width={300} data={data} options={mobileOptions} />
+        <Pie height={350} width={350} data={data} options={mobileOptions} />
         <div className="pie-total-mobile">
           <h1 className="pie-total-number-mobile">
             $
@@ -166,15 +166,14 @@ const WrapperDiv = styled.div`
       width: 100px;
       height: 100px;
       position: absolute;
-      top: 36%;
-      margin-top: -25px;
+      top: 47%;
+      margin-top: -50px;
       left: 50%;
       margin-left: -50px;
       .pie-total-number-mobile {
         color: #c35355;
-        font-size: 25px;
+        font-size: 33px;
         margin: 0;
-        height: 80px;
       }
     }
     @media only screen and (max-width: 600px) {
