@@ -16,18 +16,37 @@ function ExpensesTable({
       title: "",
       dataIndex: "color",
       key: "color",
-      align: "center",
+      align: "right",
       render: (text, record, index) =>
-        index === 0 ? (
-          <div
-            style={{ backgroundColor: "#F38704", borderRadius: "50%", width: '20px', height: '20px' }}
-          ></div>
-        ) : (
-          <span>
-            <a style={{ marginRight: 16 }}>shit</a>
-            <a className="ant-dropdown-link">fuck</a>
-          </span>
-        ),
+  {    switch (index) {
+        case 0:
+          return <div
+          style={{ backgroundColor: "#F38704", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        case 1:
+          return <div
+          style={{ backgroundColor: "#F35B59", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        case 2:
+          return <div
+          style={{ backgroundColor: "#C95086", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        case 3:
+          return <div
+          style={{ backgroundColor: "#865794", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        case 4:
+          return <div
+          style={{ backgroundColor: "#475580", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        case 5:
+          return <div
+          style={{ backgroundColor: "#2F4858", borderRadius: "50%", width: '18px', height: '18px' }}
+        ></div>
+        default:
+          console.log(`Oops`);
+      }}
+ 
     },
     {
       title: "Category",
