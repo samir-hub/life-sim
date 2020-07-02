@@ -607,5 +607,11 @@ const WrapperDiv = styled.div`
         }
       }
     }
+    .ant-form-item-children {
+      margin-left: 5px; 
+      @media only screen and (max-width: 600px) {
+        margin-left: 0;
+        }
+    }
   }
 `;
