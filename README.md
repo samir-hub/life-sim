@@ -44,4 +44,4 @@ Fork and clone the repository, run `yarn` and then `yarn start` to get started.
 
 ## Documentation
 
-See [Backend Documentation](https://github.com/Lambda-School-Labs/ema-therapy-be) for details on the backend of our project.
+See [Backend Documentation](https://github.com/samir-hub/life-sim-backend) for details on the back-end of this project.
