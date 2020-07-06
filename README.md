@@ -1,4 +1,4 @@
-# MyPath 
+# MyPath 🏁
 
 You can find the deployed project at [getmypathapp.com](https://www.getmypathapp.com/).
 
