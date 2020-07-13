@@ -30,7 +30,7 @@ function Home() {
         ></img>
       </div>
       <div className="home-mobile">
-        <h2>Plan your future using MyPath. Let's get started!</h2>
+        <h2>Plan your future with MyPath!</h2>
         <Button
           onClick={handleClick}
           type="primary"
@@ -56,6 +56,7 @@ const HomeWrapper = styled.div`
   align-items: center;
   @media only screen and (max-width: 600px) {
     flex-direction: column;
+    justify-content: space-evenly; 
     padding: 10px;
     height: 80vh;
   }
