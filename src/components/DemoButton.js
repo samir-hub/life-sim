@@ -18,6 +18,7 @@ function DemoButton() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    localStorage.setItem("currentDetailId", 74);
     setIsLoading(true);
     const clientID = process.env.REACT_APP_CLIENT_ID;
     const clientSecret = process.env.REACT_APP_CLIENT_SECRET;

@@ -21,16 +21,16 @@ function IncomeDrawerForm(props) {
   const isDemo = useIsDemo();
   const state = useSelector((state) => {
     return {
-      userInfo: state.userInfo,
+      currentDetails: state.currentDetails,
       isFetching: state.isFetching,
     };
   });
 
   const income = {
     avgmajor:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor
+        state.currentDetails.avgmajor
       ),
   };
 
@@ -48,8 +48,8 @@ function IncomeDrawerForm(props) {
     props.onClose();
     setDisabledInput(!disabledInput);
     let detailsId =
-      state.userInfo.details[state.userInfo.details.length - 1] &&
-      state.userInfo.details[state.userInfo.details.length - 1].detailsid;
+      state.currentDetails &&
+      state.currentDetails.detailsid;
     props.form.validateFields((err, values) => {
       for (let item in values) {
         if (

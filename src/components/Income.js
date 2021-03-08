@@ -21,8 +21,8 @@ const { Paragraph } = Typography;
 function Income() {
   const state = useSelector(state => {
     return {
-      userInfo: state.userInfo,
-      isFetching: state.isFetching
+      currentDetails: state.currentDetails,
+      isFetchingById: state.isFetchingById
     };
   });
 
@@ -37,12 +37,12 @@ function Income() {
         Your estimated yearly income is{" "}
         <span className="income-yearly">
           {" $"}
-          {state.isFetching ? (
+          {state.isFetchingById ? (
             <p>fetching</p>
           ) : (
-            state.userInfo.details[state.userInfo.details.length - 1] &&
+            state.currentDetails &&
             Math.floor(
-              state.userInfo.details[state.userInfo.details.length - 1].avgmajor
+              state.currentDetails.avgmajor
             )
               .toFixed(0)
               .toString()
@@ -109,12 +109,12 @@ function Income() {
       key: "1",
       earnings: "Regular",
       rate: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        state.currentDetails.avgmajor /
         1920
       ).toFixed(2),
       hours: 80,
       total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
+        state.currentDetails.avgmajor / 24
       )
         .toFixed(2)
         .toString()
@@ -124,7 +124,7 @@ function Income() {
       key: "2",
       earnings: "PTO",
       rate: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        state.currentDetails.avgmajor /
         1920
       ).toFixed(2),
       hours: 0,
@@ -134,7 +134,7 @@ function Income() {
       key: "3",
       earnings: "Overtime",
       rate: (
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           1920) *
         1.5
       ).toFixed(2),
@@ -147,7 +147,7 @@ function Income() {
       rate: "Gross Pay",
       hours: "",
       total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor / 24
+        state.currentDetails.avgmajor / 24
       )
         .toFixed(2)
         .toString()
@@ -184,7 +184,7 @@ function Income() {
       statutory: "Federal Income Tax",
       hours: "",
       total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
         0.1
       ).toFixed(2)
@@ -194,7 +194,7 @@ function Income() {
       statutory: "Social Security Tax",
       hours: "",
       total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
         0.062
       ).toFixed(2)
@@ -204,7 +204,7 @@ function Income() {
       statutory: "Medicare Tax",
       hours: "",
       total: -(
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
         0.009
       ).toFixed(2)
@@ -214,15 +214,15 @@ function Income() {
       statutory: "Net Pay",
       hours: "",
       total: (
-        state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        state.currentDetails.avgmajor /
           24 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
           0.1 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
           0.062 -
-        (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+        (state.currentDetails.avgmajor /
           24) *
           0.009
       )
@@ -246,13 +246,12 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Gross Monthly Income: $`}
-              {state.isFetching ? (
+              {state.isFetchingById ? (
                 <p>fetching</p>
               ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
+                state.currentDetails &&
                 Math.floor(
-                  state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor / 12
+                  state.currentDetails.avgmajor / 12
                 )
                   .toFixed(0)
                   .toString()
@@ -265,13 +264,12 @@ function Income() {
               style={{ margin: "0px", width: "100%" }}
             >
               {` Est. Net Monthly Income: $`}
-              {state.isFetching ? (
+              {state.isFetchingById ? (
                 <p>fetching</p>
               ) : (
-                state.userInfo.details[state.userInfo.details.length - 1] &&
+                state.currentDetails &&
                 Math.floor(
-                  (state.userInfo.details[state.userInfo.details.length - 1]
-                    .avgmajor /
+                  (state.currentDetails.avgmajor /
                     12) *
                     0.85
                 )

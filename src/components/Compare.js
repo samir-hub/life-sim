@@ -38,6 +38,7 @@ function Compare({ userInfo, setActive }) {
     history.push("/entryform");
   };
 
+  console.log(userInfo)
   return (
     <StyledDiv>
       <Modal

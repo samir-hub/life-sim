@@ -18,8 +18,7 @@ function Summary({ setActive }) {
   const history = useHistory();
   const state = useSelector((state) => {
     return {
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
+      currentDetails: state.currentDetails,
     };
   });
 
@@ -36,110 +35,110 @@ function Summary({ setActive }) {
   const expenses = {
     housing: {
       rent:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].rent
+          state.currentDetails.rent
         ),
       utilities:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].utilities
+          state.currentDetails.utilities
         ),
     },
     food: {
       groceries:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].groceries
+          state.currentDetails.groceries
         ),
       restaurant:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].restaurant
+          state.currentDetails.restaurant
         ),
     },
     medical: {
       premiums:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].premiums
+          state.currentDetails.premiums
         ),
       medExpenses:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].medExpenses
+          state.currentDetails.medExpenses
         ),
     },
     transportation: {
       carPayment:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].carPayment
+          state.currentDetails.carPayment
         ),
       insurance:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].insurance
+          state.currentDetails.insurance
         ),
       gas:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].gas
+          state.currentDetails.gas
         ),
       carMaintenance:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1]
+          state.currentDetails
             .carMaintenance
         ),
     },
     necessities: {
       studentLoans:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].studentLoans
+          state.currentDetails.studentLoans
         ),
       cell:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].cell
+          state.currentDetails.cell
         ),
       internet:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].internet
+          state.currentDetails.internet
         ),
 
       tv:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].tv
+          state.currentDetails.tv
         ),
     },
     personal: {
       entertainment:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1]
+          state.currentDetails
             .entertainment
         ),
       clothing:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].clothing
+          state.currentDetails.clothing
         ),
       other:
-        state.userInfo.details[state.userInfo.details.length - 1] &&
+        state.currentDetails &&
         Math.floor(
-          state.userInfo.details[state.userInfo.details.length - 1].pOther
+          state.currentDetails.pOther
         ),
     },
   };
 
   const disposableIncome =
-    state.userInfo.details[state.userInfo.details.length - 1] &&
+    state.currentDetails &&
     Math.floor(
-      (state.userInfo.details[state.userInfo.details.length - 1].avgmajor /
+      (state.currentDetails.avgmajor /
         12) *
         0.85
     ) -
@@ -205,9 +204,9 @@ function Summary({ setActive }) {
             <h2 style={{ color: "white", margin: 0 }}>Income</h2>
             <h2 style={{ color: "white", margin: 0 }}>
               $
-              {state.userInfo.details[state.userInfo.details.length - 1] &&
+              {state.currentDetails &&
                 Math.floor(
-                  (state.userInfo.details[state.userInfo.details.length - 1]
+                  (state.currentDetails
                     .avgmajor /
                     12) *
                     0.85

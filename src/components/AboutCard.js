@@ -39,7 +39,7 @@ function AboutCard() {
     >
       <Meta
         title="Samir Lilienfeld"
-        description="Samir Lilienfeld is the creator of MyPath. He specializes in React and building RESTful APIs."
+        description="Samir Lilienfeld is the creator of MyPath. He specializes in React and building RESTful APIs. Currently, he is a Web Developer II at Chapman Cubine Allen + Hussey."
       />
     </Card>
   );

@@ -18,6 +18,7 @@ import tax from "../assets/tax.svg";
 import city from "../assets/city.svg";
 import user from "../assets/user.svg";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchEntryById } from "../actions";
 import { fetchEntry } from "../actions";
 import PostGraduation from "./PostGraduation";
 import Income from "./Income";
@@ -35,25 +36,30 @@ const { Content, Sider } = Layout;
 function Dashboard() {
   const [active, setActive] = useState("1");
   const [isCollapsed, setIsCollapsed] = useState(true);
+  // const [data, setData] = useState()
   const date = Date.now();
   useRemoveToken(date);
 
   const state = useSelector((state) => {
     return {
+      currentDetails: state.currentDetails,
       userInfo: state.userInfo,
-      isFetching: state.isFetching,
+      isFetchingById: state.isFetchingById,
       isPosting: state.isPosting,
       isEditing: state.isEditing,
     };
   });
+
+  let currentDetailId = localStorage.getItem('currentDetailId');
 
   let screen = window.screen.width;
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(fetchEntryById(currentDetailId));
     dispatch(fetchEntry());
-  }, [dispatch, state.isPosting, state.isEditing]);
+  }, [dispatch, state.isPosting, state.isEditing, currentDetailId]);
 
   const handleCollapse = () => {
     setIsCollapsed(!isCollapsed);
@@ -88,7 +94,7 @@ function Dashboard() {
         theme="light"
         collapsed={screen < 600 ? !isCollapsed : false}
       >
-        {state.isFetching ? (
+        {state.isFetchingById ? (
           <Empty
             style={{
               minHeight: "315px",
@@ -100,7 +106,7 @@ function Dashboard() {
         ) : (
           <StyledCard>
             <Card hoverable={true} style={{ width: 200, cursor: "auto" }}>
-              {state.userInfo && state.userInfo.details && (
+              {state.currentDetails && (
                 <StyledDiv key={1}>
                   <div
                     style={{
@@ -120,7 +126,7 @@ function Dashboard() {
                       className="dashboard-username"
                       style={{ margin: "0px", fontSize: "25px" }}
                     >
-                      {state.userInfo.username}
+                      {state.currentDetails.user.username}
                     </p>
                   </div>
                   <div
@@ -138,12 +144,8 @@ function Dashboard() {
                       />
                     </div>
                     <h1 style={{ margin: "0px", width: "100%" }}>
-                      {state.userInfo.details[
-                        state.userInfo.details.length - 1
-                      ] &&
-                        state.userInfo.details[
-                          state.userInfo.details.length - 1
-                        ].education}
+                      {state.currentDetails &&
+                        state.currentDetails.education}
                     </h1>
                   </div>
                   <div
@@ -161,16 +163,10 @@ function Dashboard() {
                       />
                     </div>
                     <h1 style={{ margin: "0px", width: "100%" }}>
-                      {state.userInfo.details[
-                        state.userInfo.details.length - 1
-                      ] &&
-                        (state.userInfo.details[
-                          state.userInfo.details.length - 1
-                        ].major === ""
+                      {state.currentDetails &&
+                        (state.currentDetails.major === ""
                           ? "H.S. Diploma"
-                          : state.userInfo.details[
-                              state.userInfo.details.length - 1
-                            ].major)}
+                          : state.currentDetails.major)}
                     </h1>
                   </div>
                   <div
@@ -188,12 +184,8 @@ function Dashboard() {
                       />
                     </div>
                     <h1 style={{ margin: "0px", width: "100%" }}>
-                      {state.userInfo.details[
-                        state.userInfo.details.length - 1
-                      ] &&
-                        state.userInfo.details[
-                          state.userInfo.details.length - 1
-                        ].colindex}
+                      {state.currentDetails &&
+                        state.currentDetails.colindex}
                     </h1>
                     <Tooltip
                       title={
@@ -218,12 +210,8 @@ function Dashboard() {
                       />
                     </div>
                     <h1 style={{ margin: "0px", width: "100%" }}>
-                      {state.userInfo.details[
-                        state.userInfo.details.length - 1
-                      ] &&
-                        state.userInfo.details[
-                          state.userInfo.details.length - 1
-                        ].city}
+                      {state.currentDetails &&
+                        state.currentDetails.city}
                     </h1>
                   </div>
                 </StyledDiv>

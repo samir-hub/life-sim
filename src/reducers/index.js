@@ -1,12 +1,23 @@
-import { FETCH_ENTRY_START, FETCH_ENTRY, POST_ENTRY_START, FORMATTED_POST_ENTRY, PUT_ENTRY, PUT_ENTRY_START } from "../actions";
+import {
+  FETCH_ENTRY_START,
+  FETCH_ENTRY,
+  FETCH_ENTRY_BY_ID,
+  FETCH_ENTRY_BY_ID_START,
+  POST_ENTRY_START,
+  FORMATTED_POST_ENTRY,
+  PUT_ENTRY,
+  PUT_ENTRY_START,
+} from "../actions";
 
 const initialState = {
-  formattedEntryData : [{}],
+  formattedEntryData: [{}],
   userInfo: [{}],
+  currentDetails: {},
   isFetching: true,
-  isPosting: false, 
+  isPosting: false,
+  isFetchingById: true,
   isEditing: false,
-  error: null
+  error: null,
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,34 +25,45 @@ const reducer = (state = initialState, action) => {
     case FETCH_ENTRY_START:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
     case FETCH_ENTRY:
       return {
         ...state,
         userInfo: action.payload,
-        isFetching: false
+        isFetching: false,
       };
-      case POST_ENTRY_START:
+    case FETCH_ENTRY_BY_ID_START:
       return {
         ...state,
-        isPosting: true
+        isFetchingById: true,
       };
-      case FORMATTED_POST_ENTRY:
+    case FETCH_ENTRY_BY_ID:
+      return {
+        ...state,
+        currentDetails: action.payload,
+        isFetchingById: false,
+      };
+    case POST_ENTRY_START:
+      return {
+        ...state,
+        isPosting: true,
+      };
+    case FORMATTED_POST_ENTRY:
       return {
         ...state,
         formattedEntryData: action.payload,
-        isPosting: false
+        isPosting: false,
       };
-      case PUT_ENTRY_START:
+    case PUT_ENTRY_START:
       return {
         ...state,
-        isEditing: true
+        isEditing: true,
       };
-      case PUT_ENTRY:
+    case PUT_ENTRY:
       return {
         ...state,
-        isEditing: false
+        isEditing: false,
       };
     default:
       return state;

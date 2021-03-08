@@ -21,92 +21,91 @@ function ExpensesDrawerForm(props) {
   const isDemo = useIsDemo();
   const state = useSelector((state) => {
     return {
-      userInfo: state.userInfo,
-      isFetching: state.isFetching,
+      currentDetails: state.currentDetails,
     };
   });
 
   const expenses = {
     rent:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].rent
+        state.currentDetails.rent
       ),
     utilities:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].utilities
+        state.currentDetails.utilities
       ),
     groceries:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].groceries
+        state.currentDetails.groceries
       ),
     restaurant:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].restaurant
+        state.currentDetails.restaurant
       ),
     premiums:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].premiums
+        state.currentDetails.premiums
       ),
     medExpenses:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].medExpenses
+        state.currentDetails.medExpenses
       ),
     carPayment:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].carPayment
+        state.currentDetails.carPayment
       ),
     insurance:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].insurance
+        state.currentDetails.insurance
       ),
     gas:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
-      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].gas),
+      state.currentDetails &&
+      Math.floor(state.currentDetails.gas),
     carMaintenance:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].carMaintenance
+        state.currentDetails.carMaintenance
       ),
     internet:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].internet
+        state.currentDetails.internet
       ),
     cell:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].cell
+        state.currentDetails.cell
       ),
     tv:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
-      Math.floor(state.userInfo.details[state.userInfo.details.length - 1].tv),
+      state.currentDetails &&
+      Math.floor(state.currentDetails.tv),
     studentLoans:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].studentLoans
+        state.currentDetails.studentLoans
       ),
     clothing:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].clothing
+        state.currentDetails.clothing
       ),
     entertainment:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].entertainment
+        state.currentDetails.entertainment
       ),
     pOther:
-      state.userInfo.details[state.userInfo.details.length - 1] &&
+      state.currentDetails &&
       Math.floor(
-        state.userInfo.details[state.userInfo.details.length - 1].pOther
+        state.currentDetails.pOther
       ),
   };
 
@@ -124,8 +123,8 @@ function ExpensesDrawerForm(props) {
     props.onClose();
     setDisabledInput(!disabledInput);
     let detailsId =
-      state.userInfo.details[state.userInfo.details.length - 1] &&
-      state.userInfo.details[state.userInfo.details.length - 1].detailsid;
+      state.currentDetails &&
+      state.currentDetails.detailsid;
     props.form.validateFields((err, values) => {
       for (let item in values) {
         if (
